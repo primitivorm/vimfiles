@@ -47,7 +47,8 @@ C:\cygwin\home\Proman02\bin
 * TMPDIR=%USERPROFILE%\Local Settings\Temp
 * VIM_INTELLISENSE=C:\Program Files\Vim\Intellisense
 
-5.  Cambiar las siguientes rutas en caso de ser necesarios en el archivo de configuracion de _vimrc
+Cambiar las siguientes rutas en caso de ser necesarios en el archivo de configuracion de _vimrc
+---------------
 * let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
 * let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
 * let g:easytags_file = '"C:\cygwin\home\Proman02\tags"'
