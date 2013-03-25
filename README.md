@@ -5,11 +5,11 @@ Prerequisitos
 Opcionalmente:
 ---------------
 1.  Instalar Ruby desde http://rubyinstaller.org/downloads/
-1.1.  Instalar devkit como indica https://github.com/oneclick/rubyinstaller/wiki/Development-Kit
-2.  Instalar Perl desde http://www.perl.org/get.html
-3.  Instalar Python desde http://www.python.org/getit/
-4.  Instalar CTAGS http://ctags.sourceforge.net/
-4.1. Remplazar el archivo ctags.exe en C:\cygwin\bin (respaldar previamente el anterior)
+2.  Instalar devkit como indica https://github.com/oneclick/rubyinstaller/wiki/Development-Kit
+3.  Instalar Perl desde http://www.perl.org/get.html
+4.  Instalar Python desde http://www.python.org/getit/
+5.  Instalar CTAGS http://ctags.sourceforge.net/
+6.  Remplazar el archivo ctags.exe en C:\cygwin\bin (respaldar previamente el anterior)
 
 
 Instalacion
@@ -48,10 +48,10 @@ C:\cygwin\home\Proman02\bin
 * VIM_INTELLISENSE=C:\Program Files\Vim\Intellisense
 
 5.  Cambiar las siguientes rutas en caso de ser necesarios en el archivo de configuracion de _vimrc
-let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
-let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
-let g:easytags_file = '"C:\cygwin\home\Proman02\tags"'
-let g:tagbar_ctags_bin='"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'
+* let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
+* let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
+* let g:easytags_file = '"C:\cygwin\home\Proman02\tags"'
+* let g:tagbar_ctags_bin='"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'
 
 
 Plugins Instalados
