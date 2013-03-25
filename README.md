@@ -3,12 +3,13 @@ Prerequisitos
 1.  Instalar cygwin de http://www.cygwin.com/
 
 Opcionalmente:
-2.  Instalar Ruby desde http://rubyinstaller.org/downloads/
-2.1.  Instalar devkit como indica https://github.com/oneclick/rubyinstaller/wiki/Development-Kit
-3.  Instalar Perl desde http://www.perl.org/get.html
-4.  Instalar Python desde http://www.python.org/getit/
-5.  Instalar CTAGS http://ctags.sourceforge.net/
-5.1. Remplazar el archivo ctags.exe en C:\cygwin\bin (respaldar previamente el anterior)
+---------------
+1.  Instalar Ruby desde http://rubyinstaller.org/downloads/
+1.1.  Instalar devkit como indica https://github.com/oneclick/rubyinstaller/wiki/Development-Kit
+2.  Instalar Perl desde http://www.perl.org/get.html
+3.  Instalar Python desde http://www.python.org/getit/
+4.  Instalar CTAGS http://ctags.sourceforge.net/
+4.1. Remplazar el archivo ctags.exe en C:\cygwin\bin (respaldar previamente el anterior)
 
 
 Instalacion
