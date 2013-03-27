@@ -867,6 +867,30 @@ git submodule add git://github.com/tpope/vim-fugitive.git bundle/vim-fugitive
 git commit -m 'Added vim-fugitive'
 git push
 -----------------------------------------------
+
+-----------------------------------------------
+Vim key notation
+-----------------------------------------------
+<BS>           Backspace
+<Tab>          Tab
+<CR>           Enter
+<Enter>        Enter
+<Return>       Enter
+<Esc>          Escape
+<Space>        Space
+<Up>           Up arrow
+<Down>         Down arrow
+<Left>         Left arrow
+<Right>        Right arrow
+<F1> - <F12>   Function keys 1 to 12
+#1, #2..#9,#0  Function keys F1 to F9, F10
+<Insert>       Insert
+<Del>          Delete
+<Home>         Home
+<End>          End
+<PageUp>       page-up
+<PageDown>     page-down
+-----------------------------------------------
 "proman
 -----------------------------------------------
 :scriptnames -> to get a list of sourced scripts in order in which they were first sourced in your Vim instance
