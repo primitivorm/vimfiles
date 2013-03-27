@@ -891,6 +891,16 @@ Vim key notation
 <PageUp>       page-up
 <PageDown>     page-down
 -----------------------------------------------
+
+-----------------------------------------------
+git command
+-----------------------------------------------
+git add .
+git commit -m "messahe here"
+git push 
+-----------------------------------------------
+
+-----------------------------------------------
 "proman
 -----------------------------------------------
 :scriptnames -> to get a list of sourced scripts in order in which they were first sourced in your Vim instance
