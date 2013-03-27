@@ -16,7 +16,7 @@ Instalacion
 ===============
 1.  Descargar los archivos contenidos en este repositorio
 
-$git clone git clone https://github.com/primitivorm/vimfiles-proman.git
+$git clone git clone https://github.com/primitivorm/vimfiles.git
 
 2.  Mover el contenido del vimfiles-proman en $HOME/vimfiles/
 3.  Mover el archivo _vimrc en $VIM
