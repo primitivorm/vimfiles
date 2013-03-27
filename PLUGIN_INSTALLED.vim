@@ -138,6 +138,7 @@ vimshell        https://github.com/Shougo/vimshell
 +vim-stylus         https://github.com/wavded/vim-stylus
 *Rainbow-Parenthesis.git     http://www.vim.org/scripts/script.php?script_id=1230      https://github.com/vim-scripts/Rainbow-Parenthesis.git
 vim-msbuild      https://github.com/heaths/vim-msbuild
+sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
 -------------------------------------------------------------
 
 Notas: 

@@ -233,3 +233,15 @@ nmap <silent>scp       <Plug>SQLU_CreateProcedure<CR>
 "tagbar
 nmap <silent><leader>T :TagbarToggle<CR>
 "noremap <silent> <Leader>y :TagbarToggle       " Display panel with y (or ,y)
+
+"Command-t
+nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+
+"buffer-explorer
+" Opens BE.
+<Leader>be
+" Opens horizontally window BE.
+<Leader>bs
+" Opens vertically window BE.
+<Leader>bv

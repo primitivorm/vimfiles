@@ -896,9 +896,9 @@ Vim key notation
 git command
 -----------------------------------------------
 git add .
-git commit -m "messahe here"
+git add . -A    -> remove file
+git commit -m "message here"
 git push 
------------------------------------------------
 
 -----------------------------------------------
 "proman

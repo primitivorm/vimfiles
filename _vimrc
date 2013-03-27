@@ -13,8 +13,8 @@ set digraph
 call pathogen#infect()
 call pathogen#helptags()
 
- set nocompatible               " be iMproved
- filetype off                   " required!
+set nocompatible               " be iMproved
+filetype off                   " required!
 
 
 "------------------------------------------------------
@@ -57,8 +57,8 @@ set nobackup
 set nowritebackup
 set noswapfile	
 "guarda el archivo en cuanto se deja el buffer
-set autowrite
-set autoread
+" set autowrite
+" set autoread
 " use utf8 encoding for vim files and for default file encoding
 set fenc=utf-8
 set encoding=utf-8
