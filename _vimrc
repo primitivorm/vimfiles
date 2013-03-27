@@ -1,9 +1,12 @@
-set nocompatible
+"archivos de configuracion auxiliares para windows
 source $HOME/vimfiles/vimrc_example.vim
 source $HOME/vimfiles/mswin.vim
-behave mswin
+source $HOME/vimfiles/keymap.vim
+" Key mappings, functions, autocommands
 
-"------------------------------------------------------
+
+set digraph
+
 "pathogen plugin:
 "https://github.com/tpope/vim-pathogen
 "------------------------------------------------------
@@ -47,7 +50,7 @@ call pathogen#helptags()
 syntax on
 
 "habilita funcionalidades a vim, para algunos plugins esta opción es requerida
-set nocompatible
+" set nocompatible
 set nocp
 "evita crear archivos de respaldo
 set nobackup	
@@ -85,9 +88,6 @@ filetype plugin indent on
 
 "habilita soporte para plugins
 filetype plugin on
-
-"define tipo de encoding para archivo de texto plano
-set encoding=utf-8
 
 "muestra numeros de linea del archivo
 set nu
@@ -141,15 +141,6 @@ autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 "---------------------------------------------------------
-"
-
-"Asigna tecla <F4> para habilitar/deshabilitar remarcado de busqueda
-""noremap <F4> :set hlsearch! hlsearch?<CR>
-"noremap <F2> :set hlsearch! hlsearch?<CR>
-""Mapea la tecla <*> al doble click para remarcado
-"map <2-LeftMouse> *
-""Mapea la tecla <*> al doble click para remarcado en modo insert
-"imap <2-LeftMouse> <c-o>*
 
 " Indentation style color guides
 hi IndentGuidesOdd ctermbg=black
@@ -157,7 +148,6 @@ hi IndentGuidesEven ctermbg=darkgrey
 
 "remarcado de lineas speciales
 highlight SpecialKey guifg=#c0c0c0 ctermfg=192
-nmap <leader>l :set list!<CR>
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 set listchars=tab:\|-,trail:-,eol:¬
@@ -208,7 +198,7 @@ let g:indentLine_char = '|'
 "NERDTree plugin
 "https://github.com/scrooloose/nerdtree"
 "------------------------------------------------------
-
+let g:NERDTreeChDirMode=0
 "abre el plugin NERDTree al iniciar Vim
 autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -232,15 +222,6 @@ let g:nerdtree_tabs_open_on_console_startup=0
 set autochdir
 "I make sure the working directory is set correctly.
 let g:NERDTreeChDirMode=0
-"I hit <leader>n to open NERDTree.
-"nnoremap <leader>n :NERDTree .<CR>
-
-"mapea las teclas Ctrl+n para abrir NERDTree
-map <C-n> :NERDTreeToggle<CR>
-nnoremap <leader>n :NERDTreeToggle<CR>
-"nmap <silent><Leader>nt :NERDTreeMirrorToggle<CR>
-"let g:NERDTreeChDirMode = 1
-"let g:NERDTreeWinPos = "right"
 "------------------------------------------------------
 "------------------------------------------------------
 " NERDcommenter 
@@ -288,9 +269,6 @@ let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window_bottom = 0
 
-nmap <leader>b :CtrlPBuffer<CR>
-nmap <leader>m :CtrlPMRUFiles<CR>
-
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\.git$\|\.hg$\|\.svn$',
       \ 'file': '\.exe$\|\.so$\|\.dll$',
@@ -298,7 +276,6 @@ let g:ctrlp_custom_ignore = {
       \ }
 "let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
-
 "---------------------------------------------------------
 "
 "--------------------------------------------------------
@@ -306,12 +283,6 @@ let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 " http://www.vim.org/scripts/script.php?script_id=2975        
 " https://github.com/tpope/vim-fugitive
 "--------------------------------------------------------
-nmap <silent> <leader>gs :Gstatus<CR>
-nmap <silent> <leader>gd :Gdiff<CR>
-nmap <silent> <leader>gc :Gcommit<CR>
-nmap <silent> <leader>gb :Gblame<CR>
-nmap <silent> <leader>gl :Glog<CR>
-nmap <silent> <leader>gp :Git push<CR>
 "--------------------------------------------------------
 "
 "--------------------------------------------------------
@@ -333,7 +304,16 @@ let g:syntastic_enable_balloons = 1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=0
 let g:syntastic_enable_signs=1
-"let g:syntastic_error_symbol=''
+let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'active_filetypes': ['ruby', 'php'],
+                               \ 'passive_filetypes': ['puppet'] }
+"--------------------------------------------------------
+"default signs
+" syntastic_error_symbol - For syntax errors, defaults to '>>'
+" syntastic_style_error_symbol - For style errors, defaults to 'S>'
+" syntastic_warning_symbol - For syntax warnings, defaults to '>>'
+" syntastic_style_warning_symbol - For style warnings, defaults to 'S>'
+"et g:syntastic_error_symbol=''
 "let g:syntastic_warning_symbol=''
 "--------------------------------------------------------
 "
@@ -341,15 +321,6 @@ let g:syntastic_enable_signs=1
 " tabular
 " https://github.com/godlygeek/tabular
 "--------------------------------------------------------
-if exists(":Tabularize")
-  vmap <Leader>t= :Tabularize /=<CR>
-  vmap <Leader>t3 :Tabularize /#<CR>
-  vmap <Leader>t' :Tabularize /'<CR>
-  vmap <Leader>t'' :Tabularize /"<CR>
-  vmap <Leader>t0 :Tabularize /)/r1c1l0<CR>
-  vmap <Leader>t== :Tabularize /=/r1c1l0<CR>
-  vmap <Leader>t: :Tabularize /:\zs<CR>
-endif
 "--------------------------------------------------------
 "
 "---------------------------------------------------------
@@ -367,12 +338,6 @@ let g:ctags_statusline=1
 let generate_tags=1
 " Displays taglist results in a vertical window:
 let Tlist_Use_Horiz_Window=0
-" Shorter commands to toggle Taglist display
-nnoremap TT :TlistToggle<CR>
-map <C-F4> :TlistToggle<CR>
-"Search and destroy using tags
-"map <C-F12> :!C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <C-F12> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 ":!which ctags -> tofindctalocation
 " Various Taglist diplay config:
 let Tlist_Use_Right_Window = 1
@@ -412,13 +377,9 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 "
 "---------------------------------------------------------
 "sql formatter
-"
+"http://www.vim.org/scripts/script.php?script_id=492
+"https://github.com/vim-scripts/SQLUtilities
 "---------------------------------------------------------
-vmap <silent>sf        <Plug>SQLU_Formatter<CR>
-nmap <silent>scl       <Plug>SQLU_CreateColumnList<CR>
-nmap <silent>scd       <Plug>SQLU_GetColumnDef<CR>
-nmap <silent>scdt      <Plug>SQLU_GetColumnDataType<CR>
-nmap <silent>scp       <Plug>SQLU_CreateProcedure<CR>
 "---------------------------------------------------------
 "
 "---------------------------------------------------------
@@ -428,18 +389,11 @@ nmap <silent>scp       <Plug>SQLU_CreateProcedure<CR>
 "---------------------------------------------------------
 let g:tagbar_ctags_bin='"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'  " Proper Ctags locations
 let g:tagbar_width=26                          " Default is 40, seems too wide
-
-"if g:OS#mac
-""how to install ctag mac https://weblion.psu.edu/trac/weblion/wiki/MacVim
-  "let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-"endif
 let g:tagbar_width = 30
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 let g:tagbar_expand = 0
-nmap <silent><leader>T :TagbarToggle<CR>
-"noremap <silent> <Leader>y :TagbarToggle       " Display panel with y (or ,y)
 "---------------------------------------------------------
 "
 "---------------------------------------------------------
@@ -469,7 +423,6 @@ endif
 let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense\\"
 "---------------------------------------------------------
 let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m' 
-
 
 "---------------------------------------------------------
 "Showmarks
