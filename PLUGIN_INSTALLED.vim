@@ -11,6 +11,8 @@ Name            Url                                                             
 +project.vim     http://www.vim.org/scripts/script.php?script_id=69
 nerdcommenter   https://github.com/scrooloose/nerdcommenter
 +xptemplate      http://www.vim.org/scripts/script.php?script_id=2611        https://github.com/drmingdrmer/xptemplate
++templetefile       http://www.vim.org/scripts/script.php?script_id=198
++mu-template     http://www.vim.org/scripts/script.php?script_id=222
 vtreeexplorer   http://www.vim.org/scripts/script.php?script_id=184
 +visual_studio   http://www.vim.org/scripts/script.php?script_id=864         http://www.plan10.com/vim/visual-studio/doc/1.2/
 bufexplorer     http://www.vim.org/scripts/script.php?script_id=42
@@ -19,9 +21,9 @@ lookupfile      http://www.vim.org/scripts/script.php?script_id=1581
 MRU             http://www.vim.org/scripts/script.php?script_id=521
 tagbar          http://www.vim.org/scripts/script.php?script_id=3465        https://github.com/majutsushi/tagbar
 CCTree          http://www.vim.org/scripts/script.php?script_id=2368
-indexer         http://www.vim.org/scripts/script.php?script_id=3221
-DfrankUtil      http://www.vim.org/scripts/script.php?script_id=3884
-vimprj          http://www.vim.org/scripts/script.php?script_id=3872
++indexer         http://www.vim.org/scripts/script.php?script_id=3221       https://github.com/shemerey/vim-indexer
++DfrankUtil      http://www.vim.org/scripts/script.php?script_id=3884       https://github.com/vim-scripts/DfrankUtil
++vimprj          http://www.vim.org/scripts/script.php?script_id=3872
 exUtility       http://www.vim.org/scripts/script.php?script_id=1729
 AutoComplPop    http://www.vim.org/scripts/script.php?script_id=1879        https://github.com/esukram/autocomplpop.vim  https://github.com/vim-scripts/AutoComplPop
 +CRefVim         http://www.vim.org/scripts/script.php?script_id=614
@@ -90,11 +92,12 @@ vim.preview     http://www.vim.org/scripts/script.php?script_id=3344
 *vim.sinatra    https://github.com/hallison/vim-ruby-sinatra                
 *sinatra        https://github.com/sinatra/sinatra/                         http://www.sinatrarb.com/
 vim-ruby        https://github.com/vim-ruby/vim-ruby
++vim-ruby-debugger      https://github.com/astashov/vim-ruby-debugger
 *vim-rvm        https://github.com/tpope/vim-rvm
-vim-textobj-rubyblock   http://www.vim.org/scripts/script.php?script_id=2100        http://www.vim.org/scripts/script.php?script_id=3382        http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/         http://amaras-tech.co.uk/article/84         https://github.com/kana/vim-textobj-user
+vim-textobj-user   http://www.vim.org/scripts/script.php?script_id=2100        http://www.vim.org/scripts/script.php?script_id=3382        http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/         http://amaras-tech.co.uk/article/84         https://github.com/kana/vim-textobj-user
 vim-vroom       https://github.com/skalnik/vim-vroom
-zen-coding      http://www.vim.org/scripts/script.php?script_id=2981        http://mattn.github.com/zencoding-vim/          http://mattn.github.com/zencoding-vim/      http://code.google.com/p/zen-coding/
-ZoomWin         http://www.vim.org/scripts/script.php?script_id=508         https://github.com/vim-scripts/ZoomWin          http://www.drchip.org/astronaut/vim/index.html#ZOOMWIN 
++zen-coding      http://www.vim.org/scripts/script.php?script_id=2981        http://mattn.github.com/zencoding-vim/          http://mattn.github.com/zencoding-vim/      http://code.google.com/p/zen-coding/
++ZoomWin         http://www.vim.org/scripts/script.php?script_id=508         https://github.com/vim-scripts/ZoomWin          http://www.drchip.org/astronaut/vim/index.html#ZOOMWIN 
 +csapprox        https://github.com/godlygeek/csapprox
 **delimitMate.vim https://github.com/vim-scripts/delimitMate.vim
 vim-git         https://github.com/tpope/vim-git
@@ -117,7 +120,7 @@ vimshell        https://github.com/Shougo/vimshell
 +javascript-libraries-syntax         https://github.com/othree/javascript-libraries-syntax.vim
 +piv             https://github.com/spf13/PIV
 +pyflakes        https://github.com/kevinw/pyflakes-vim
-+quickfixsigns_vim      http://www.vim.org/scripts/script.php?script_id=2584        https://github.com/tomtom/quickfixsigns_vim
+*quickfixsigns_vim      http://www.vim.org/scripts/script.php?script_id=2584        https://github.com/tomtom/quickfixsigns_vim
 +vim-addon-mw-utils     https://github.com/MarcWeber/vim-addon-mw-utils
 +vimpdb         https://github.com/gotcha/vimpdb
 +vim-perl       https://github.com/vim-perl/vim-perl
@@ -139,6 +142,30 @@ vimshell        https://github.com/Shougo/vimshell
 *Rainbow-Parenthesis.git     http://www.vim.org/scripts/script.php?script_id=1230      https://github.com/vim-scripts/Rainbow-Parenthesis.git
 vim-msbuild      https://github.com/heaths/vim-msbuild
 sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
+*peg-multimarkdown-latex-support        https://github.com/fletcher/peg-multimarkdown-latex-support
++vim-indent-guides   https://github.com/nathanaelkane/vim-indent-guides
++colorv.vim      http://www.vim.org/scripts/script.php?script_id=3597   https://github.com/Rykka/colorv.vim
++sideways        http://www.vim.org/scripts/script.php?script_id=4171   https://github.com/AndrewRadev/sideways.vim
+*ag         https://github.com/rking/ag.vim
+*keepcase.vim    www.vim.org/scripts/script.php?script_id=6             https://github.com/vim-scripts/keepcase.vim
++scratch.vim     http://www.vim.org/scripts/script.php?script_id=664    https://github.com/vim-scripts/scratch.vim
++switch.vim      https://github.com/AndrewRadev/switch.vim 
++vim-json        https://github.com/leshill/vim-json
++indenthtml      https://github.com/vim-scripts/indenthtml.vim
++tomdoc          https://github.com/mutewinter/tomdoc.vim               http://tomdoc.org/
++vim-tomdoc      https://github.com/jc00ke/vim-tomdoc
++cocoa           http://www.vim.org/scripts/script.php?script_id=2674   https://github.com/msanders/cocoa.vim
++taskpaper       https://github.com/mutewinter/taskpaper.vim
++vim-css3-syntax     https://github.com/mutewinter/vim-css3-syntax
+*exVim           http://www.vim.org/scripts/script.php?script_id=2627   https://github.com/jwu/exvim/
++vim-lua-ftplugin    https://github.com/xolox/vim-lua-ftplugin
++vim-lua-inspect     https://github.com/xolox/vim-lua-inspect
++lusty-jugger        http://www.vim.org/scripts/script.php?script_id=2050
++FSwitch        http://www.vim.org/scripts/script.php?script_id=2590
++ProtoDef       http://www.vim.org/scripts/script.php?script_id=2624
+*tSkeleton      http://www.vim.org/scripts/script.php?script_id=1160
+*VimDebug        https://github.com/kablamo/VimDebug
++***badwolf        https://github.com/sjl/badwolf
 -------------------------------------------------------------
 
 Notas: 

@@ -13,7 +13,15 @@ inoremap <D-S-Enter> <C-o>O
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
 map <Up> gk
-
+" Remap j and k to act as expected when used on long, wrapped, lines
+nnoremap j gj
+nnoremap k gk
+" Easy window navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+nnoremap <leader>w <C-w>v<C-w>l
 
 " buffer next/previous
 nnoremap <silent> <leader>< :bp<CR>
@@ -238,10 +246,127 @@ nmap <silent><leader>T :TagbarToggle<CR>
 nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
-"buffer-explorer
-" Opens BE.
-<Leader>be
-" Opens horizontally window BE.
-<Leader>bs
-" Opens vertically window BE.
-<Leader>bv
+"Show ident lines
+" map <F2> <leader>ig
+
+"sidewise
+nnoremap <c-h> :SidewaysLeft<cr>
+nnoremap <c-l> :SidewaysRight<cr>
+
+" This command will execute the file, for example, if this is an
+" HTML file, it will run:
+"     start c:\absolute\filename.html
+" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart  <C-R><C-R>"<CR><CR>:let @"=old_reg<CR> 
+command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
+
+" Toggle the quickfix window {{{
+" From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
+nnoremap <C-q> :call <SID>QuickfixToggle()<cr>
+
+let g:quickfix_is_open = 0
+
+function! s:QuickfixToggle()
+    if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+        execute g:quickfix_return_to_window . "wincmd w"
+    else
+        let g:quickfix_return_to_window = winnr()
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
+" }}}
+
+" Toggle the foldcolumn {{{
+nnoremap <leader>f :call FoldColumnToggle()<cr>
+
+let g:last_fold_column_width = 4 " Pick a sane default for the foldcolumn
+
+function! FoldColumnToggle()
+    if &foldcolumn
+        let g:last_fold_column_width = &foldcolumn
+        setlocal foldcolumn=0
+    else
+        let &l:foldcolumn = g:last_fold_column_width
+    endif
+endfunction
+" }}}
+
+" Use Q for formatting the current paragraph (or visual selection)
+vnoremap Q gq
+nnoremap Q gqap
+
+" Shortcut to make
+nnoremap mk :make<CR>
+
+" Quick yanking to the end of the line
+nnoremap Y y$
+
+" Yank/paste to the OS clipboard with ,y and ,p
+nnoremap <leader>y "+y
+nnoremap <leader>Y "+yy
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+
+" YankRing stuff
+let g:yankring_history_dir = $HOME.'/vimfiles/tmp'
+nnoremap <leader>r :YRShow<CR>
+
+" Edit the vimrc file
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Edit the vimrc file
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Clears the search register
+nnoremap <silent> <leader>/ :nohlsearch<CR>
+
+" Pull word under cursor into LHS of a substitute (for quick search and
+" replace)
+nnoremap <leader>z :%s#\<<C-r>=expand("<cword>")<CR>\>#
+
+" Keep search matches in the middle of the window and pulse the line when moving
+" to them.
+nnoremap n n:call PulseCursorLine()<cr>
+nnoremap N N:call PulseCursorLine()<cr>
+
+" Quickly get out of insert mode without your fingers having to leave the
+" home row (either use 'jj' or 'jk')
+inoremap jj <Esc>
+
+" Quick alignment of text
+nnoremap <leader>al :left<CR>
+nnoremap <leader>ar :right<CR>
+nnoremap <leader>ac :center<CR>
+
+" Sudo to write
+cnoremap w!! w !sudo tee % >/dev/null
+
+" Jump to matching pairs easily, with Tab
+nnoremap <Tab> %
+vnoremap <Tab> %
+
+" Folding
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Strip all trailing whitespace from a file, using ,w
+nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+
+" Ack for the word under cursor
+"nnoremap <leader>a :Ack<Space>
+nnoremap <leader>a :Ack<Space><c-r><c-W>
+
+" Creating folds for tags in HTML
+"nnoremap <leader>ft Vatzf
+
+" Reselect text that was just pasted with ,v
+nnoremap <leader>v V`]
+
+" Gundo.vim
+nnoremap <F5> :GundoToggle<CR>
+" }}}
+

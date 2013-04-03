@@ -24,21 +24,25 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 vnoremap <BS> d
 
 " CTRL-X and SHIFT-Del are Cut
-vnoremap <C-X> "+x
-vnoremap <S-Del> "+x
-map <C-X> "+x
+vnoremap <S-C-X> "+x
+snoremap <S-C-X> "+x
+map <S-C-X> "+x
 map <S-Del> "+x
-cmap <C-X> "+x
-cmap <S-Del> "+x
+cmap <S-C-X> "+x
 " CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C> "+y
-vnoremap <C-Insert> "+y
-
+vnoremap <S-C-C> "+y
+snoremap <S-C-C> "+y
+map <S-C-C> "+y
+map <S-Insert> "+y
+cmap <S-C-C> "+y
 " CTRL-V and SHIFT-Insert are Paste
-map <C-V>		"+gP
+vnoremap <S-C-V>		"+gP
+vnoremap <S-Insert> "+gP
+snoremap <S-C-V>		"+gP
+map <S-C-V>		"+gP
 map <S-Insert>		"+gP
 
-cmap <C-V>		<C-R>+
+cmap <S-C-V>		<C-R>+
 cmap <S-Insert>		<C-R>+
 
 " Pasting blockwise and linewise selections is not possible in Insert and
@@ -46,11 +50,11 @@ cmap <S-Insert>		<C-R>+
 " were characterwise instead.
 " Uses the paste.vim autoload script.
 
-exe 'inoremap <script> <C-V>' paste#paste_cmd['i']
-exe 'vnoremap <script> <C-V>' paste#paste_cmd['v']
+exe 'inoremap <script> <S-C-V>' paste#paste_cmd['i']
+exe 'vnoremap <script> <S-C-V>' paste#paste_cmd['v']
 
-imap <S-Insert>		<C-V>
-vmap <S-Insert>		<C-V>
+imap <S-Insert>     <S-C-V>
+vmap <S-Insert>     <S-C-V>
 
 " Use CTRL-Q to do what CTRL-V used to do
 noremap <C-Q>		<C-V>
@@ -95,11 +99,16 @@ inoremap <C-Tab> <C-O><C-W>w
 cnoremap <C-Tab> <C-C><C-W>w
 onoremap <C-Tab> <C-C><C-W>w
 
-" CTRL-F4 is Close window
-noremap <C-F4> <C-W>c
-inoremap <C-F4> <C-O><C-W>c
-cnoremap <C-F4> <C-C><C-W>c
-onoremap <C-F4> <C-C><C-W>c
+" ALT-F4 is Close window
+noremap <A-F4> <C-W>c
+inoremap <A-F4> <C-O><C-W>c
+cnoremap <A-F4> <C-C><C-W>c
+onoremap <A-F4> <C-C><C-W>c
+
+
+"MINUS to MAYUS
+noremap <S-C-U> g~
+inoremap <S-C-U> g~
 
 " restore 'cpoptions'
 set cpo&

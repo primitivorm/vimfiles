@@ -4,7 +4,6 @@ source $HOME/vimfiles/mswin.vim
 source $HOME/vimfiles/keymap.vim
 " Key mappings, functions, autocommands
 
-
 set digraph
 
 "pathogen plugin:
@@ -45,9 +44,17 @@ filetype off                   " required!
 
  "filetype plugin indent on     " required!
 "------------------------------------------------------
+" Highlighting {{{
+if &t_Co > 2 || has("gui_running")
+   syntax on " switch syntax highlighting on, when the terminal has colors
+endif
+" }}}
 
-"habilita esquema de colores para algunos lenguaje de programación
-syntax on
+"Increasing or decreasing numbers add the alpha option.
+"http://vim.wikia.com/wiki/VimTip30
+set nrformats+=alpha
+set fileformats="unix,dos,mac"
+set formatoptions+=1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 
 "habilita funcionalidades a vim, para algunos plugins esta opción es requerida
 " set nocompatible
@@ -56,9 +63,26 @@ set nocp
 set nobackup	
 set nowritebackup
 set noswapfile	
+set directory=~/vimfiles/tmp,~/tmp,/tmp
+" store swap files in one of these directories
+" (in case swapfile is ever turned on)
+set viminfo='20,\"80 " read/write a .viminfo file, don't store more
+" than 80 lines of registers
+set wildmenu " make tab completion for files/buffers act like bash
+set wildmode=list:full " show a list when pressing tab and complete
+" first full match
+set visualbell " don't beep
+set noerrorbells " don't beep
+set showcmd " show (partial) command in the last line of the screen
+" this also shows visual selection info
+set nomodeline " disable mode lines (security measure)
+"set ttyfast " always use a fast terminal
+set cursorline " underline the current line, for quick orientation
+" }}}
+
 "guarda el archivo en cuanto se deja el buffer
-" set autowrite
-" set autoread
+set autowrite
+set autoread
 " use utf8 encoding for vim files and for default file encoding
 set fenc=utf-8
 set encoding=utf-8
@@ -67,20 +91,26 @@ set fileencoding=utf-8
 "establece el esquema de colores
 if has('gui_running')
     set background=light
+    hi CursorLine guibg=#e6e6fa
+    hi CursorColumn guibg=#e6e6fa
 else
     set background=dark
+    hi CursorLine guibg=Gray40 guifg=#ffffff
+    hi CursorColumn guibg=Gray40 guifg=#ffffff
 endif
 syntax enable
 "set background=dark
 "colorscheme solarized
 "let g:solarized_termcolors=256
-colorscheme Monokai-Refined
-"colorscheme proman
+"colorscheme Monokai
+" colorscheme proman
+colorscheme badwolf
 "colorscheme mustang
 "colorscheme wombat
 "colorscheme github
 "colorscheme smyck
 "colorscheme railscasts
+"colorscheme bandit     "like visual studio
 "colorscheme default
 
 "habilita plugin para sangrado de lineas
@@ -93,6 +123,9 @@ filetype plugin on
 set nu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
 set wrap!
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=100
 
 "habilita sangrado inteligente
 set smartindent
@@ -103,19 +136,81 @@ set ai
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set scrolloff=3
+set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
+set scrolloff=4     " keep 4 lines off the edges of the screen when scrolling
+set virtualedit=all             " allow the cursor to go in to "invalid" places
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set autoindent " always set autoindenting on
+set copyindent " copy the previous indentation on autoindenting
 "Use Mark plugin to highlight selected word
 set hlsearch
 "Caso insesitivo para busquedas es decir no distingue mayusculas y minusculas
 set ignorecase
+"case-sensitive if search contains an uppercase character
+set smartcase
+"jumps to search word as you type (annoying but excellent)
+set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
+set incsearch   " show search matches as you type
+set gdefault                    " search/replace "globally" (on a line) by default
+set showmatch
 
 "estable el modo de pliegue (folding)
 set foldmethod=indent "fold based on indent
 set foldnestmax=10	"deepest fold is 10 levels
-set nofoldenable	"dont fold by default
+"set nofoldenable	"dont fold by default
 set foldlevel=1	"this is just what i Use
 " Folding : http://vim.wikia.com/wiki/Syntax-based_folding, see comment by Ostrygen 
 " au FileType cs set omnifunc=syntaxcomplete#Complete
+
+" Folding rules {{{
+set foldenable " enable folding
+set foldcolumn=2 " add a fold column
+set foldmethod=marker " detect triple-{ style fold markers
+set foldlevelstart=99 " start out with everything folded
+set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+" which commands trigger auto-unfold
+function! MyFoldText()
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+" expand tabs into spaces
+    let onetab = strpart(' ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - 4
+    return line . ' ¿' . repeat(" ",fillcharcount) . foldedlinecount . ' '
+endfunction
+set foldtext=MyFoldText()
+" }}}
+
+" Editor layout {{{
+set termencoding=utf-8
+set encoding=utf-8
+set lazyredraw " don't update the display while executing macros
+set laststatus=2 " tell VIM to always put a status line in, even
+" if there is only one window
+set cmdheight=2 " use a status bar that is 2 rows high
+" }}}
+
+" Vim behaviour {{{
+set hidden " hide buffers instead of closing them this
+" means that the current buffer can be put
+" to background without being written; and
+" that marks and undo history are preserved
+set switchbuf=useopen " reveal already opened files from the
+" quickfix window instead of opening new
+" buffers
+set history=1000 " remember more commands and search history
+set undolevels=1000 " use many muchos levels of undo
+if v:version >= 730
+    set undofile " keep a persistent backup file
+    set undodir=~/vimfiles/tmp,~/tmp,/tmp
+endif
+
 au FileType cs set foldmethod=marker
 au FileType cs set foldmarker={,}
 au FileType cs set foldtext=substitute(getline(v:foldstart),'{.*','{...}',)
@@ -130,18 +225,6 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 au FileType c set omnifunc=ccomplete#Complete
 au FileType java set omnifunc=javacomplete#Complete
 
-"---------------------------------------------------------
-"javascript-libraries-syntax.vim
-"https://github.com/othree/javascript-libraries-syntax.vim
-"---------------------------------------------------------
-let g:used_javascript_libs = 'underscore,backbone'
-autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
-autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
-"---------------------------------------------------------
-
 " Indentation style color guides
 hi IndentGuidesOdd ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
@@ -151,6 +234,8 @@ highlight SpecialKey guifg=#c0c0c0 ctermfg=192
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 set listchars=tab:\|-,trail:-,eol:¬
+set mouse=a " enable using the mouse if terminal emulator
+
 highlight NonText guifg=#4a4a59
 if has('gui_running')
     "establecer fuente y tamaño
@@ -165,14 +250,6 @@ if has('gui_running')
     "set guifont=Ubuntu_Mono_for_powerline:h14:cDEFAULT
     set guifont=Ubuntu_Mono_for_powerline:h10:cANSI
     set cursorline cursorcolumn
-    "establece fondo a linea actual y columna actual
-    if colors_name == 'proman'
-        hi CursorLine guibg=#e6e6fa
-        hi CursorColumn guibg=#e6e6fa
-    else
-        hi CursorLine guibg=Gray40 guifg=#ffffff
-        hi CursorColumn guibg=Gray40 guifg=#ffffff
-    endif
 endif
 
 " indentline
@@ -180,8 +257,8 @@ let g:indentLine_char = '|'
 
 "------------------------------------------------------
 "c compiler
-"au FileType C set makeprg=gcc\ %
-"au FileType Cpp set makeprg=g++\ %
+" au FileType C set makeprg=gcc\ %
+" au FileType Cpp set makeprg=g++\ %
 
 "------------------------------------------------------
 "snipMate plugin
@@ -269,6 +346,7 @@ let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window_bottom = 0
 
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\.git$\|\.hg$\|\.svn$',
       \ 'file': '\.exe$\|\.so$\|\.dll$',
@@ -345,7 +423,6 @@ let Tlist_Compact_Format = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_File_Fold_Auto_Close = 1
-"let Tlist_Ctags_Cmd = '"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'
 let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
 "---------------------------------------------------------
 "
@@ -353,10 +430,9 @@ let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
 "easytags
 "https://github.com/xolox/vim-easytags
 "---------------------------------------------------------
-"let g:easytags_cmd = '"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'
 let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
-"let g:easytags_file = '"C:\cygwin\home\Proman02\vimfiles\ctags58\tags\tags"'
-let g:easytags_file = '"C:\cygwin\home\Proman02\tags"'
+" let g:easytags_file = '"C:\cygwin\home\Proman02\tags"'
+let g:easytags_file = $HOME . '/tags'
 "" search first in current directory then file directory for tag file
 set tags=tags,./tags
 let g:easytags_dynamic_files=1
@@ -380,14 +456,14 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 "http://www.vim.org/scripts/script.php?script_id=492
 "https://github.com/vim-scripts/SQLUtilities
 "---------------------------------------------------------
-"---------------------------------------------------------
 "
 "---------------------------------------------------------
 "tagbar
 " http://www.vim.org/scripts/script.php?script_id=3465
 " https://github.com/majutsushi/tagbar
 "---------------------------------------------------------
-let g:tagbar_ctags_bin='"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'  " Proper Ctags locations
+" let g:tagbar_ctags_bin='"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'  " Proper Ctags locations
+let g:tagbar_ctags_bin= $HOME .'/vimfiles/ctags58/ctags.exe'  " Proper Ctags locations
 let g:tagbar_width=26                          " Default is 40, seems too wide
 let g:tagbar_width = 30
 let g:tagbar_autoclose = 1
@@ -432,3 +508,65 @@ let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
 let g:showmarks_enable=0
 "---------------------------------------------------------
 
+"---------------------------------------------------------
+"vim-indent-guides
+"https://github.com/nathanaelkane/vim-indent-guides
+"---------------------------------------------------------
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+"---------------------------------------------------------
+"
+"---------------------------------------------------------
+"vim-session
+"https://github.com/xolox/vim-session
+"---------------------------------------------------------
+let g:session_command_aliases = 1
+"---------------------------------------------------------
+"
+"---------------------------------------------------------
+"javascript-libraries-syntax.vim
+"https://github.com/othree/javascript-libraries-syntax.vim
+"---------------------------------------------------------
+let g:used_javascript_libs = 'underscore,backbone'
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
+autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
+"---------------------------------------------------------
+
+"---------------------------------------------------------
+"zencoding
+"https://github.com/mattn/zencoding-vim
+"http://mattn.github.com/zencoding-vim/
+"http://coding.smashingmagazine.com/2009/11/21/zen-coding-a-new-way-to-write-html-code/
+"---------------------------------------------------------
+let g:user_zen_mode='n'    "only enable normal mode functions.
+let g:user_zen_mode='inv'  "enable all functions, which is equal t
+let g:user_zen_mode='a'    "enable all function in all mode.
+let g:user_zen_expandabbr_key = '<c-e>' 
+let g:use_zen_complete_tag = 1
+"---------------------------------------------------------
+
+"---------------------------------------------------------
+"badwolf
+"https://github.com/sjl/badwolf
+"---------------------------------------------------------
+" Make the gutters darker than the background.
+let g:badwolf_darkgutter = 1
+" Make the tab line darker than the background.
+let g:badwolf_tabline = 0
+
+" Make the tab line the same color as the background.
+let g:badwolf_tabline = 1
+
+" Make the tab line lighter than the background.
+let g:badwolf_tabline = 2
+
+" Make the tab line much lighter than the background.
+let g:badwolf_tabline = 3
+" Turn off HTML link underlining
+let g:badwolf_html_link_underline = 0
+" Turn on CSS properties highlighting
+let g:badwolf_css_props_highlight = 1
+"---------------------------------------------------------

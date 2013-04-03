@@ -1,3 +1,5 @@
+http://eclim.org/index.html
+
 -----------------------------------------------
 VIM - CARTA DE REFERENCIA RÁPIDA
 -----------------------------------------------
@@ -37,6 +39,8 @@ s   cambiar un caracter e insertar
 ~   invertir mayúscula/minúscula y avanzar el cursor
 g~m invertir mayús/minús del movimiento m
 gum gUm minúscula, mayúscula texto movimiento m
+guu     : lowercase line
+gUU     : uppercase line
 <m >m   desplazar izq., der. texto del movimiento m
 n<< n>> desplazar n líneas a la izquierda, derecha
 
@@ -72,11 +76,75 @@ Copiado
 "x  usar registro x para la siguiente acción
 :reg↵   mostrar contenido de todos los registros
 :reg x↵ mostrar contenido de los registros x
+"1p      : paste from register 1
 ym  copiar texto del movimiento m
 yy or Y copiar línea actual al registro
 p P pegar registro antes, despues del cursor
 ]p [p   como p, P pero ajustando la sangría
 gp gP   igual, pero cursor queda luego de texto nuevo
+"ayy@a   : execute the Vim command in the current line
+yy@"     : same
+
+-----------------------------------------------
+# yank 5 lines into "a" then add a further 5
+-----------------------------------------------
+"a5yy
+10j
+"A5yy
+[I : show lines matching word under cursor <cword>
+-----------------------------------------------
+
+-----------------------------------------------
+Substitution
+-----------------------------------------------
+:%s/fred/joe/igc           : general substitute command
+:%s/\r//g                  : delete DOS Carriage Returns (^M)
+:'a,'bg/fred/s/dick/joe/gc : VERY USEFUL
+:s/\(.*\):\(.*\)/\2 : \1/  : reverse fields separated by :
+# non-greedy matching \{-}
+:%s/^.\{-}pdf/new.pdf/     : to first pdf)
+:s/fred/<c-r>a/g           : substitute "fred" with contents of register "a"
+:%s/^\(.*\)\n\1/\1$/       : delete duplicate lines
+:help /\{-}
+# multiple commands
+:%s/\f\+\.gif\>/\r&\r/g | v/\.gif$/d | %s/gif/jpg/
+:%s/suck\|buck/loopy/gc       : ORing
+:s/__date__/\=strftime("%c")/ : insert datestring
+-----------------------------------------------
+
+-----------------------------------------------
+Global command
+-----------------------------------------------
+:g/one\|two/     : list lines containing "one" or "two"
+:g/^\s*$/d       : delete all blank lines
+:g/green/d       : delete all lines containing "green"
+:v/green/d       : delete all lines not containing "green"
+:g/one/,/two/d   : not line based
+:v/./.,/./-1join : compress empty lines
+-----------------------------------------------
+
+-----------------------------------------------
+Paste register *
+-----------------------------------------------
+:redir @* : redirect commands to paste
+:redir END
+"*yy      : yank to paste
+"*p       : insert paste buffer
+-----------------------------------------------
+
+-----------------------------------------------
+Formatting text
+-----------------------------------------------
+gq<CR>
+gqap (a is motion p paragraph (visual mode))
+-----------------------------------------------
+Operate command over multiple files
+-----------------------------------------------
+:argdo %s/foo/bar/
+:bufdo %s/foo/bar/
+:windo %s/foo/bar/
+:tabdo %s/foo/bar/
+-----------------------------------------------
 
 -----------------------------------------------
 Inserción avanzada
@@ -165,7 +233,21 @@ Caracteres especiales en patrones de busqueda
 \( \)   agrupa patrones en un átomo
 \& \n   todo el patrón encontrado, grupo no ()
 \u \l   próximo caracter a mayúscula, minúscula
-
+/^fred.*joe.*bill  : line beginning with fred, followed by joe then bill
+/^[A-J]            : line beginning A-J
+/^[A-J][a-z]\+\s   : line beginning A-J then one or more lowercase characters then space or tab
+/fred\_.\{-}joe    : fred then anything then joe (over multiple lines)
+/fred\_s\{-}joe    : fred then any whitespace (including newlines) then joe
+/fred\|joe         : fred OR joe
+/fred\+/ : matches fred/freddy but not free
+/codes\(\n\|\s\)*where : normal regexp
+/\vcodes(\n|\s)*where  : very magic
+/<!--\_p\{-}-->    : search for multiple line comments
+/fred\_s*joe/i     : any whitespace including newline
+/bugs\_.*bunny : bugs followed by bunny anywhere in file
+:h \_              : help
+"To substitute any word (say FILE) by actual filename you can use 
+:%s/FILE/\=expand("%:t")
 -----------------------------------------------
 Desplazamientos en comandos de búsqueda
 -----------------------------------------------
@@ -286,7 +368,22 @@ gf  abrir archivo con nombre debajo del cursor
 :mkview [f] guardar config. de vista [en archivo f]
 :loadview [f]   cargar config. de vista [de archivo f]
 ^@ ^K ^_  \  Fn ^Fn teclas no mapeadas
-
+g8      : display hex value of utf-8 character under cursor
+ggg?G   : rot13 whole file
+xp      : swap next two characters around
+CTRL-A,CTRL-X : increment, decrement next number on same line as the cursor
+CTRL-R=5*5    : insert 25 into text
+=             : (re)indent the text on the current line or on the area selected (SUPER)
+=%            : (re)indent the current braces { ... }
+G=gg          : auto (re)indent entire document
+CTRL-R CTRL-W   : pull word under the cursor into a command line or search
+CTRL-R CTRL-A   : pull whole word including punctuation
+CTRL-R -        : pull small register
+CTRL-R [0-9a-z] : pull named registers
+CTRL-R %        : pull file name (also #)
+<c-r>           :Retrieving last command line command for copy & pasting into text
+<c-r>/          :Retrieving last Search Command for copy & pasting into text
+<C-X><C-F>      :insert name of a file in current directory
 -----------------------------------------------
 VimDiff
 -----------------------------------------------
@@ -350,6 +447,14 @@ Switches to the alternative set of delimiters.
 [count]<leader>cb |NERDComAlignedComment|
 [count]<leader>cu |NERDComUncommentLine|
 Uncomments the selected line(s). 
+
+-----------------------------------------------
+"buffer-explorer
+-----------------------------------------------
+<Leader>be -> Opens BE.
+<Leader>bs -> Opens horizontally window BE.
+<Leader>bv -> Opens vertically window BE.
+-----------------------------------------------
 
 -----------------------------------------------
 dbext
@@ -722,6 +827,7 @@ Once CtrlP is open:
     Press <c-f> and <c-b> to cycle between modes.
     Press <c-d> to switch to filename only search instead of full path.
     Press <c-r> to switch to regexp mode.
+    Press <c-r>= to do calculation
     Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
     Use <c-y> to create a new file and its parent directories.
     Use <c-z> to mark/unmark multiple files and <c-o> to open them.
@@ -890,6 +996,8 @@ Vim key notation
 <End>          End
 <PageUp>       page-up
 <PageDown>     page-down
+<Bar>          | pipe
+<Leader>       normally \  change with :let mapleader = ","
 -----------------------------------------------
 
 -----------------------------------------------
@@ -899,6 +1007,75 @@ git add .
 git add . -A    -> remove file
 git commit -m "message here"
 git push 
+-----------------------------------------------
+
+-----------------------------------------------
+sideways
+http://www.vim.org/scripts/script.php?script_id=4171    
+https://github.com/AndrewRadev/sideways.vim
+-----------------------------------------------
+<c-h>   move parameters to Left
+<c-l>   move parameters to Right
+-----------------------------------------------
+
+-----------------------------------------------
+ColorV is a color view/pick/edit/design/scheme tool in vim.
+https://github.com/Rykka/colorv.vim
+-----------------------------------------------
+View colors
+    :ColorV (<leader>cv): show ColorV window
+    :ColorVView (<leader>cw): show ColorV window with color text under cursor.
+    :ColorVPreview (<leader>cpp): Preview colors in current buffer
+Edit colors
+    :ColorVEdit (<leader>ce): Edit color text under cursor
+    :ColorVEditAll (<leader>cE): Edit color text under cursor and change all in current buffer.
+    :ColorVInsert (<leader>cii): Insert color with ColorV window.
+Design Colors
+    :ColorVName (<leader>cn): show color name list window.
+    :ColorVList Hue (<leader>cgh) generate Hue list with color text under cursor.
+    :ColorVTurn2 {hex1} {hex2} (<leader>cgg) generate Hue list from hex1 to hex2.
+    :ColorVPicker (<leader>cd): show a GUI color picker.
+Design Schemes
+    :ColorVScheme (<leader>css) Fetch scheme from Kuler or ColourLover
+    :ColorVSchemeFav (<leader>csf) Show Faved schemes
+    :ColorVSchemeNew (<leader>csn) Create a new scheme
+And More
+    You can even use it under 8/256 color terminal.
+Get latest and Post issues at https://github.com/Rykka/colorv.vim
+-----------------------------------------------
+
+-----------------------------------------------
+vim-tomdoc
+https://github.com/jc00ke/vim-tomdoc
+-----------------------------------------------
+TomDocMethod() — mapped to normal tdm
+TomDocClass() — mapped to normal tdc
+TomDocModule() — mapped to normal tdmo
+TomDocConstant() — mapped to normal tdco
+TomDocAttrReader() — mapped to normal tdar
+TomDocAttrWriter() — mapped to normal tdaw
+TomDocAttrAccessor() — mapped to normal tdaa
+-----------------------------------------------
+
+-----------------------------------------------
+taskpaper
+https://github.com/mutewinter/taskpaper.vim
+-----------------------------------------------
+\td     Mark task as done
+\tx     Mark task as cancelled
+\tc     Show all tasks with context under cursor
+\tp     Fold all projects
+\ta     Show all projects and tasks
+-----------------------------------------------
+
+-----------------------------------------------
+FSwitch 
+http://www.vim.org/scripts/script.php?script_id=2590
+-----------------------------------------------
+  - switch the file and keep it in the current window with :FSHere
+  - switch the file and put it in the window to the left with :FSLeft
+  - switch the file, split the window to the left and put it there with :FSSwitchLeft 
+-----------------------------------------------
 
 -----------------------------------------------
 "proman
@@ -922,3 +1099,124 @@ vim --version | grep +signs     -> ver si vim soporta python
 verbose autocmd CursorMoved     -> ver las funciones definidas por un script
 perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack desde cmd windows
 :make /t:rebuild    -> to build *.proj
+<leader>l   -> show hidden characters
+<leader>ig  -> show indent guides
+:Ex     : file explorer note capital Ex
+\be     : show buffer explorer (requires plugin)
+:ls     : list of buffers(eg following)
+:cd ..  : move to parent directory
+<C-g> ó g ->To simply display how many lines are in the current buffer
+:ball       -> open all buffers
+:echo &compatible -> view set nocompatible value
+-----------------------------------------------
+Markers and moving about
+-----------------------------------------------
+'.       : jump to last modification line (SUPER)
+`.       : jump to exact spot in last modification line
+<C-O>    : retrace your movements in file (backward)
+<C-I>    : retrace your movements in file (forward)
+:ju(mps) : list of your movements {{help|jump-motions}}
+:history : list of all your commands
+
+-----------------------------------------------
+Get output from shell commands
+-----------------------------------------------
+:r!ls                 : reads in output of ls (use dir on Windows)
+:r !grep "^ebay" file.txt  : read output of grep
+:20,25 !rot13        : rot13 lines 20 to 25
+:r!date              : insert date (use  date /T on Windows)
+:.!sh                : execute contents of current line in buffer and capture the output
+
+-----------------------------------------------
+Sorting with external sort
+-----------------------------------------------
+:%!sort -u           : contents of the current file is sorted and only unique lines are kept
+:'v,'w!sort          : sort from line marked v thru lines marked w
+:g/^$/;,/^$/-1!sort  : sort each block (note the crucial ;)
+
+!1} sort             : sorts paragraph; this is issued from normal mode!)
+
+-----------------------------------------------
+ Entering !! in normal mode is translated to  :.!
+-----------------------------------------------
+ Appending a command sends the current line to the command replacing it with command's result
+!!date              : Replace current line with date
+!!which command     : Replace current line with the absolute path to command
+!!tr -d AEIO        : translate current line deleting As, Es, Is, and Os from the current line
+
+-----------------------------------------------
+ You can also use ! on a visual selection. Select an area with one of the visualmode
+-----------------------------------------------
+ commands, and then type !command to pipe the whole selection through command.
+This is equivalent to :'<,'>!command.
+For example, after selecting multiple lines with visualmode:
+!sort              : sort selected lines
+!grep word         : keep only lines containing 'word' in the selected range.
+
+
+-----------------------------------------------
+multiple files
+-----------------------------------------------
+:wn           : write file and move to next (SUPER)
+:bd           : remove file from buffer list (SUPER)
+:sav php.html : Save current file as php.html and "move" to php.html
+:sp fred.txt  : open fred.txt into a split
+:e!           : return to unmodified file
+:w /some/path/%:r   : save file in another directory, but with the same name
+:e #          : edit alternative file
+:args         : display argument list
+:n            : next file in argument list
+:prev         : previous file in argument list
+:rew          : rewind to first file in argument list
+:ls           : display buffer list
+:bn           : next buffer
+:bp           : previous buffer
+:brew         : rewind to first buffer in buffer list
+:tabe         : open new tab page (Ctrl-PgUp, Ctrl-PgDown for next/previous tab)
+:tabm n       : move tab to position n (0=leftmost position)
+
+-----------------------------------------------
+Recording
+-----------------------------------------------
+qa            : record keystrokes to register a
+your commands
+q             : quit recording
+@a            : execute commands again
+@@            : repeat
+# editing a register/recording
+"ap
+<you can now see register contents, edit as required>
+"add
+@a
+:%normal @a #execute the macro recorded in register a on all lines of the current file.
+#or, with a visually selected set of lines:
+:normal @a
+
+-----------------------------------------------
+Command line tricks
+-----------------------------------------------
+gvim -h
+ls | gvim -   : edit a PIPE!
+# vg.ksh (shell script)
+# vi all files in directory containing keyword $1 and jump to $1
+gvim.exe -c "/$1" $(grep -isl "$1" *) &
+-----------------------------------------------
+
+-----------------------------------------------
+Help for help
+-----------------------------------------------
+:h visual<C-D><Tab> : obtain list of all visual help topics
+                    : Then use tab to step through them
+:h ctrl<C-D> : list help of all control keys
+:h :r        : help for :ex command
+:h CTRL-R    : normal mode
+:h \r        : what's \r in a regexp
+:h i_CTRL-R  : help for say <C-R> in insert mode
+:h c_CTRL-R  : help for say <C-R> in command mode
+:h v_CTRL-V  : visual mode
+:h 'ai       : help on setting option 'autoindent'
+
+-Zen-coding
+<c-e>    ->expand zencoding
+http://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
+http://code.google.com/p/zen-coding/wiki/ZenHTMLElementsEn
