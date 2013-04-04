@@ -107,6 +107,7 @@ vim-colors-solarized    https://github.com/altercation/vim-colors-solarized
 tagbar          https://github.com/majutsushi/tagbar.git
 ultisnips       https://github.com/SirVer/ultisnips                         https://launchpad.net/ultisnips
 python-mode     http://www.vim.org/scripts/script.php?script_id=3770        https://github.com/klen/python-modem
++python-syntax.vim   https://github.com/me-vlad/python-syntax.vim
 +dbext           http://www.vim.org/scripts/script.php?script_id=356         https://github.com/vim-scripts/dbext.vim
 *DrawIt         http://www.vim.org/scripts/script.php?script_id=40          https://github.com/vim-scripts/DrawIt
 *draw           https://github.com/vim-scripts/draw.vim/tree/master/plugin
@@ -163,9 +164,12 @@ sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
 +lusty-jugger        http://www.vim.org/scripts/script.php?script_id=2050
 +FSwitch        http://www.vim.org/scripts/script.php?script_id=2590
 +ProtoDef       http://www.vim.org/scripts/script.php?script_id=2624
++skeletons.vim  https://github.com/tobyS/skeletons.vim
++vim-skeleton   https://github.com/kana/vim-skeleton
 *tSkeleton      http://www.vim.org/scripts/script.php?script_id=1160
 *VimDebug        https://github.com/kablamo/VimDebug
 +***badwolf        https://github.com/sjl/badwolf
++pytest         https://github.com/alfredodeza/pytest.vim
 -------------------------------------------------------------
 
 Notas: 

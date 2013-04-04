@@ -1076,6 +1076,18 @@ http://www.vim.org/scripts/script.php?script_id=2590
   - switch the file and put it in the window to the left with :FSLeft
   - switch the file, split the window to the left and put it there with :FSSwitchLeft 
 -----------------------------------------------
+-----------------------------------------------
+pytest
+-----------------------------------------------
+Pytest
+All arguments are able to be tab-completed.
+Python Objects
+For running tests the plugin provides 4 arguments with an optional one. These arguments are:
+class
+method
+function
+file
+-----------------------------------------------
 
 -----------------------------------------------
 "proman

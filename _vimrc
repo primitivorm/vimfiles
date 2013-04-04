@@ -75,7 +75,8 @@ set visualbell " don't beep
 set noerrorbells " don't beep
 set showcmd " show (partial) command in the last line of the screen
 " this also shows visual selection info
-set nomodeline " disable mode lines (security measure)
+" set nomodeline " disable mode lines (security measure)
+set modeline " disable mode lines (security measure)
 "set ttyfast " always use a fast terminal
 set cursorline " underline the current line, for quick orientation
 " }}}
@@ -111,6 +112,7 @@ colorscheme badwolf
 "colorscheme smyck
 "colorscheme railscasts
 "colorscheme bandit     "like visual studio
+"colorscheme blackboard     "like visual studio
 "colorscheme default
 
 "habilita plugin para sangrado de lineas
@@ -431,8 +433,8 @@ let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
 "https://github.com/xolox/vim-easytags
 "---------------------------------------------------------
 let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
-" let g:easytags_file = '"C:\cygwin\home\Proman02\tags"'
-let g:easytags_file = $HOME . '/tags'
+let g:easytags_file = '"C:\cygwin\home\Proman02\tags"'
+" let g:easytags_file = $HOME . '/tags'
 "" search first in current directory then file directory for tag file
 set tags=tags,./tags
 let g:easytags_dynamic_files=1
@@ -462,8 +464,8 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 " http://www.vim.org/scripts/script.php?script_id=3465
 " https://github.com/majutsushi/tagbar
 "---------------------------------------------------------
-" let g:tagbar_ctags_bin='"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'  " Proper Ctags locations
-let g:tagbar_ctags_bin= $HOME .'/vimfiles/ctags58/ctags.exe'  " Proper Ctags locations
+let g:tagbar_ctags_bin='"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'  " Proper Ctags locations
+" let g:tagbar_ctags_bin= $HOME .'/vimfiles/ctags58/ctags.exe'  " Proper Ctags locations
 let g:tagbar_width=26                          " Default is 40, seems too wide
 let g:tagbar_width = 30
 let g:tagbar_autoclose = 1
@@ -569,4 +571,10 @@ let g:badwolf_tabline = 3
 let g:badwolf_html_link_underline = 0
 " Turn on CSS properties highlighting
 let g:badwolf_css_props_highlight = 1
+"---------------------------------------------------------
+"
+"---------------------------------------------------------
+"https://github.com/tobyS/skeletons.vim
+"---------------------------------------------------------
+let g:skeletons_dir=$HOME . '/vimfiles/bundle/skeletons.vim/skeletons/'
 "---------------------------------------------------------
