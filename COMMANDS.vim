@@ -1090,18 +1090,29 @@ file
 -----------------------------------------------
 
 -----------------------------------------------
+easymotion
+-----------------------------------------------
+let g:EasyMotion_leader_key = '<Leader>' -> 
+-----------------------------------------------
+<Leader><Leader>w , <Leader><Leader>e -> open easymotion 
+<Leader><Leader>t   -> find next coincidence
+<Leader><Leader>gE  -> on all document
+<Leader><Leader>k   -> by row
+-----------------------------------------------
+
+-----------------------------------------------
 "proman
 -----------------------------------------------
 :scriptnames -> to get a list of sourced scripts in order in which they were first sourced in your Vim instance
 za  -> toggle a line of code
 zM -> toggle all lines 
 zR -> untoggle all lines
+<leader>s -> StripTrailingWhitespaces
 :verbose setlocal foldmethod? -> view foldmethod used
 :1,10SQLUFormatter -> formatea codigo T-SQL 1,10 son las lineas de inicio y fin del formateo
 :echo has('perl') -> devuelve true si soporta perl
 ctags -R -> genera las Etiquetas ctags -> execute under command linea
 :TlistToggle -> Open tag list
-\w -> load easy motion
 :help help-writing -> help to write helps
 TT | <F4>      -> open taglist
 vim --version | grep +python    -> ver si vim soporta python
@@ -1120,6 +1131,7 @@ perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack de
 <C-g> ó g ->To simply display how many lines are in the current buffer
 :ball       -> open all buffers
 :echo &compatible -> view set nocompatible value
+
 -----------------------------------------------
 Markers and moving about
 -----------------------------------------------

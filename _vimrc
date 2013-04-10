@@ -3,7 +3,6 @@ source $HOME/vimfiles/vimrc_example.vim
 source $HOME/vimfiles/mswin.vim
 source $HOME/vimfiles/keymap.vim
 " Key mappings, functions, autocommands
-
 set digraph
 
 "pathogen plugin:
@@ -11,42 +10,54 @@ set digraph
 "------------------------------------------------------
 call pathogen#infect()
 call pathogen#helptags()
-
-set nocompatible               " be iMproved
-filetype off                   " required!
-
+"set nocompatible               " be iMproved
 
 "------------------------------------------------------
  "vundle 
  "https://github.com/gmarik/vundle
 "------------------------------------------------------
-" "
- "set rtp+=~/.vim/bundle/vundle/
- "call vundle#rc()
+set nocompatible " be iMproved
+"filetype off " required!
 
+set rtp+=~/vimfiles/bundle/vundle/
+"let g:bundle_dir=$HOME.'/vimfiles/bundle/vundle/'
+" let g:bundle_dir='/cygdrive/c/Users/Proman02/vimfiles/bundle/'
+call vundle#rc()
  "" let Vundle manage Vundle
  "" required! 
- "Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 
- "" My Bundles here:
- ""
- "" original repos on github
- "Bundle 'tpope/vim-fugitive'
- "Bundle 'Lokaltog/vim-easymotion'
- "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
- "Bundle 'tpope/vim-rails.git'
- "" vim-scripts repos
- "Bundle 'L9'
- "Bundle 'FuzzyFinder'
- "" non github repos
- "Bundle 'git://git.wincent.com/command-t.git'
- "" ...
+" My Bundles here:
+ "
+ " original repos on github
+ Bundle 'tpope/vim-fugitive'
+ Bundle 'Lokaltog/vim-easymotion'
+ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+ Bundle 'tpope/vim-rails.git'
+ " vim-scripts repos
+ Bundle 'L9'
+ Bundle 'FuzzyFinder'
+ " non github repos
+ Bundle 'git://git.wincent.com/command-t.git'
+ " ...
 
- "filetype plugin indent on     " required!
-"------------------------------------------------------
+ filetype plugin indent on     " required!
+ "
+ " Brief help
+ " :BundleList          - list configured bundles
+ " :BundleInstall(!)    - install(update) bundles
+ " :BundleSearch(!) foo - search(or refresh cache first) for foo
+ " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ "
+ " see :h vundle for more details or wiki for FAQ
+ " NOTE: comments after Bundle command are not allowed..
+ 
+"------------------------------------------------------     
+
 " Highlighting {{{
-if &t_Co > 2 || has("gui_running")
-   syntax on " switch syntax highlighting on, when the terminal has colors
+if &t_Co > 2 || has('gui_running')
+   " switch syntax highlighting on, when the terminal has colors
+   syntax on
 endif
 " }}}
 
@@ -57,7 +68,7 @@ set fileformats="unix,dos,mac"
 set formatoptions+=1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 
 "habilita funcionalidades a vim, para algunos plugins esta opción es requerida
-" set nocompatible
+set nocompatible
 set nocp
 "evita crear archivos de respaldo
 set nobackup	
@@ -103,9 +114,10 @@ syntax enable
 "set background=dark
 "colorscheme solarized
 "let g:solarized_termcolors=256
-"colorscheme Monokai
+" colorscheme Monokai
 " colorscheme proman
-colorscheme badwolf
+colorscheme eclipse
+" colorscheme badwolf
 "colorscheme mustang
 "colorscheme wombat
 "colorscheme github
@@ -125,7 +137,8 @@ filetype plugin on
 set nu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
 set wrap!
-set textwidth=79
+"set textwidth=79
+set textwidth=85
 set formatoptions=qrn1
 set colorcolumn=100
 
@@ -224,7 +237,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-au FileType c set omnifunc=ccomplete#Complete
+au FileType c,cpp,h set omnifunc=ccomplete#Complete
 au FileType java set omnifunc=javacomplete#Complete
 
 " Indentation style color guides
@@ -234,7 +247,7 @@ hi IndentGuidesEven ctermbg=darkgrey
 "remarcado de lineas speciales
 highlight SpecialKey guifg=#c0c0c0 ctermfg=192
 "muestra los caracteres ocultos y los remplaza por los establecidos
-set list
+" set list
 set listchars=tab:\|-,trail:-,eol:¬
 set mouse=a " enable using the mouse if terminal emulator
 
@@ -332,7 +345,7 @@ hi MBENormal guifg=#808080 guibg=fg
 "easymotion
 "https://github.com/Lokaltog/vim-easymotion
 "---------------------------------------------------------
-let g:EasyMotion_leader_key = '<Leader>e'
+let g:EasyMotion_leader_key = '<Leader>'
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade Comment
 "---------------------------------------------------------
@@ -433,7 +446,7 @@ let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
 "https://github.com/xolox/vim-easytags
 "---------------------------------------------------------
 let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
-let g:easytags_file = '"C:\cygwin\home\Proman02\tags"'
+let g:easytags_file = '"C:\Users\Proman02\vimfiles\tags"'
 " let g:easytags_file = $HOME . '/tags'
 "" search first in current directory then file directory for tag file
 set tags=tags,./tags
@@ -464,7 +477,7 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 " http://www.vim.org/scripts/script.php?script_id=3465
 " https://github.com/majutsushi/tagbar
 "---------------------------------------------------------
-let g:tagbar_ctags_bin='"C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe"'  " Proper Ctags locations
+let g:tagbar_ctags_bin='"C:\Users\Proman02\vimfiles\ctags58\ctags.exe"'  " Proper Ctags locations
 " let g:tagbar_ctags_bin= $HOME .'/vimfiles/ctags58/ctags.exe'  " Proper Ctags locations
 let g:tagbar_width=26                          " Default is 40, seems too wide
 let g:tagbar_width = 30
@@ -498,7 +511,8 @@ endif
 "https://github.com/tomtom/checksyntax_vim.git
 "---------------------------------------------------------
 "let $VIM_INTELLISENSE="$HOME\\vimfiles\\bundle\\Intellisense\\"
-let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense\\"
+" let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense\\"
+let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
 "---------------------------------------------------------
 let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m' 
 
@@ -558,13 +572,10 @@ let g:use_zen_complete_tag = 1
 let g:badwolf_darkgutter = 1
 " Make the tab line darker than the background.
 let g:badwolf_tabline = 0
-
 " Make the tab line the same color as the background.
 let g:badwolf_tabline = 1
-
 " Make the tab line lighter than the background.
 let g:badwolf_tabline = 2
-
 " Make the tab line much lighter than the background.
 let g:badwolf_tabline = 3
 " Turn off HTML link underlining

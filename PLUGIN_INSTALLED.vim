@@ -170,6 +170,9 @@ sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
 *VimDebug        https://github.com/kablamo/VimDebug
 +***badwolf        https://github.com/sjl/badwolf
 +pytest         https://github.com/alfredodeza/pytest.vim
++StripWhiteSpaces   http://www.vim.org/scripts/script.php?script_id=4016          https://github.com/gagoar/StripWhiteSpaces
++DeleteTrailingWhitespace   http://www.vim.org/scripts/script.php?script_id=3967
+*Omnisharp       https://github.com/nosami/Omnisharp
 -------------------------------------------------------------
 
 Notas: 

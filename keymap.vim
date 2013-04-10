@@ -51,7 +51,20 @@ nnoremap <D-S-Right>  <C-w>>
 " Easy close windows with Q
 nnoremap <silent> Q <C-w>c
 
-nnoremap <leader>w :StripTrailingWhitespaces<CR>
+" taken from: http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim/1618401#1618401
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+" auto-strip trailing white space for ruby files
+"autocmd BufWritePre *.rb :call <SID>StripTrailingWhitespaces()
+
+" command to strip white space from any file
+nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
+
 " reindent complete file without losing position
 nnoremap <leader>f mqHmwgg=G`wzt`q
 
@@ -246,8 +259,9 @@ nmap <silent><leader>T :TagbarToggle<CR>
 nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
+"vim-indent-guides
 "Show ident lines
-" map <F2> <leader>ig
+"map <F2> <leader>ig
 
 "sidewise
 nnoremap <c-h> :SidewaysLeft<cr>
@@ -352,9 +366,6 @@ vnoremap <Tab> %
 " Folding
 nnoremap <Space> za
 vnoremap <Space> za
-
-" Strip all trailing whitespace from a file, using ,w
-nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 
 " Ack for the word under cursor
 "nnoremap <leader>a :Ack<Space>
