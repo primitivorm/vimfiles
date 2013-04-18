@@ -17,7 +17,7 @@ endif
 let g:colors_name = "proman"
 set t_Co=256
 
-hi Comment              guifg=#696969 ctermfg=105 gui=italic,bold cterm=italic,bold
+hi Comment              guifg=#696969 ctermfg=105 gui=italic cterm=italic
 
 hi Constant             guifg=#008080 ctermfg=30
     hi String           guifg=#C71585 ctermfg=161

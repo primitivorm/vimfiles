@@ -4,11 +4,8 @@
 let mapleader=","
 
 "Go to last edit location with ,.
-"nnoremap ,. '.
+nnoremap ,. '.
 
-" CMD-Enter to enter new line, doesn't work in terminal
-inoremap <D-Enter> <C-o>o
-inoremap <D-S-Enter> <C-o>O
 
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
@@ -27,12 +24,6 @@ nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <silent> <leader>< :bp<CR>
 nnoremap <silent> <leader>> :bn<CR>
 
-" ctrl-opt- left/right for tab movement
-nnoremap <silent> <D-A-Left> :tabp<cr>
-inoremap <silent> <D-A-Left> <esc>:tabp<cr>
-nnoremap <silent> <D-A-Right> :tabn<cr>
-inoremap <silent> <D-A-Right> <esc>:tabn<cr>
-
 " Create window splits easier. The default
 " way is Ctrl-w,v and Ctrl-w,s. I remap
 " this to vv and ss
@@ -41,12 +32,6 @@ nnoremap <silent> ss <C-w>s
 
 " Adjust viewports to the same size
 nnoremap <Leader>= <C-w>=
-
-" Resize windows with arrow keys
-nnoremap <D-S-Up> <C-w>+
-nnoremap <D-S-Down> <C-w>-
-nnoremap <D-S-Left> <C-w><
-nnoremap <D-S-Right>  <C-w>>
 
 " Easy close windows with Q
 nnoremap <silent> Q <C-w>c
@@ -79,27 +64,22 @@ nnoremap <silent> // :nohlsearch<CR>
 " Type ,hl to toggle highlighting on/off, and show current value.
 noremap ,hl :set hlsearch! hlsearch?<CR>
 
-" Apple-* Highlight all occurrences of current word (like '*' but without moving)
-" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
-nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-
 " cd to the directory containing the file in the buffer
 map <silent> <leader>cd :lcd %:h<CR>
 
 " Create the directory containing the file in the buffer
 map <silent> <leader>md :!mkdir -p %:p:h<CR>
-
 " Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-nmap <C-k> [e
-nmap <C-j> ]e
+" nmap <C-Up> [e
+" nmap <C-Down> ]e
+" nmap <C-k> [e
+" nmap <C-j> ]e
 
 " Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-vmap <C-k> [egv
-vmap <C-j> ]egv
+" vmap <C-Up> [egv
+" vmap <C-Down> ]egv
+" vmap <C-k> [egv
+" vmap <C-j> ]egv
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
@@ -115,21 +95,59 @@ nnoremap <Leader>gu :Git pull<CR>
 
 " Ack
 if has("gui_macvim") && has("gui_running")
-  " Command-Shift-F on OSX
-  map <D-F> :Ack<space>
+    " Command-Shift-F on OSX
+    map <D-F> :Ack<space>
+    " CMD-Enter to enter new line, doesn't work in terminal
+    inoremap <D-Enter> <C-o>o
+    inoremap <D-S-Enter> <C-o>O
+
+    " ctrl-opt- left/right for tab movement
+    nnoremap <silent> <D-A-Left> :tabp<cr>
+    inoremap <silent> <D-A-Left> <esc>:tabp<cr>
+    nnoremap <silent> <D-A-Right> :tabn<cr>
+    inoremap <silent> <D-A-Right> <esc>:tabn<cr>
+
+    " Resize windows with arrow keys
+    nnoremap <D-S-Down> <C-w>-
+    nnoremap <D-S-Left> <C-w><
+    nnoremap <D-S-Up> <C-w>+
+    nnoremap <D-S-Right>  <C-w>>
+
+    " Apple-* Highlight all occurrences of current word (like '*' but without moving)
+    " http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
+    nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
 else
-  " Define <C-F> to a dummy value to see if it would set <C-f> as well.
-  map <C-F> :dummy
+    " Define <C-F> to a dummy value to see if it would set <C-f> as well.
+    map <C-F> :dummy
 
-  if maparg("<C-f>") == ":dummy"
-    " <leader>f on systems where <C-f> == <C-F>
-    map <leader-f> :Ack<space>
-  else
-    " <C-F> if we can still map <C-f> to <S-Down>
-    map <C-F> :Ack<space>
-  endif
+    if maparg("<C-f>") == ":dummy"
+        " <leader>f on systems where <C-f> == <C-F>
+        map <leader-f> :Ack<space>
+    else
+        " <C-F> if we can still map <C-f> to <S-Down>
+        map <C-F> :Ack<space>
+    endif
 
-  map <C-f> <S-Down>
+    map <C-f> <S-Down>
+    " CMD-Enter to enter new line, doesn't work in terminal
+    inoremap <C-Enter> <C-o>o
+    inoremap <C-S-Enter> <C-o>O
+
+    " ctrl-opt- left/right for tab movement
+    nnoremap <silent> <C-A-Left> :tabp<cr>
+    inoremap <silent> <C-A-Left> <esc>:tabp<cr>
+    nnoremap <silent> <C-A-Right> :tabn<cr>
+    inoremap <silent> <C-A-Right> <esc>:tabn<cr>
+
+    " Resize windows with arrow keys
+    nnoremap <C-S-Up> <C-w>+
+    nnoremap <C-S-Down> <C-w>-
+    nnoremap <C-S-Left> <C-w><
+    nnoremap <C-S-Right>  <C-w>>
+
+    nnoremap <C-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+
 endif
 
 " Zoom Window to Full Size
@@ -240,6 +258,11 @@ nmap <silent> <leader>gp :Git push<CR>
 " Shorter commands to toggle Taglist display
 nnoremap TT :TlistToggle<CR>
 map <C-F4> :TlistToggle<CR>
+nnoremap ,T :Tlist<CR>
+nnoremap ,U :TlistUpdate<CR>
+nnoremap ,s :TlistSessionSave tlist<CR>
+nnoremap ,l :TlistSessionLoad tlist<CR>
+
 "Search and destroy using tags
 "map <C-F12> :!C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-F12> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
@@ -377,7 +400,13 @@ nnoremap <leader>a :Ack<Space><c-r><c-W>
 " Reselect text that was just pasted with ,v
 nnoremap <leader>v V`]
 
-" Gundo.vim
-nnoremap <F5> :GundoToggle<CR>
-" }}}
+"http://vim.usrsb.in/117060445
+"can resize your windows using Alt plus an arrow key.
+nnoremap <A-Right> :vertical res +1<cr>
+nnoremap <A-Up> :res +1<cr>
+nnoremap <A-Down> :res -1<cr>
+nnoremap <A-Left> :vertical res -1<cr>
 
+"--------------------------------------------
+" autocmd FileType csproj nnoremap <F5> :make /t:rebuild<CR>
+nnoremap <F5> :make /t:rebuild<CR>

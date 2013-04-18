@@ -1,8 +1,8 @@
+"https://github.com/tpope/tpope/blob/master/.vimrc
 "archivos de configuracion auxiliares para windows
-source $HOME/vimfiles/vimrc_example.vim
 source $HOME/vimfiles/mswin.vim
-source $HOME/vimfiles/keymap.vim
 " Key mappings, functions, autocommands
+source $HOME/vimfiles/keymap.vim
 set digraph
 
 "pathogen plugin:
@@ -10,7 +10,6 @@ set digraph
 "------------------------------------------------------
 call pathogen#infect()
 call pathogen#helptags()
-"set nocompatible               " be iMproved
 
 "------------------------------------------------------
  "vundle 
@@ -30,17 +29,39 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
  "
  " original repos on github
- Bundle 'tpope/vim-fugitive'
- Bundle 'Lokaltog/vim-easymotion'
- Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
- Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-rails.git'
+Bundle 'mattn/gist-vim'
+Bundle 'othree/html5.vim'
+Bundle 'mattsacks/vim-complete'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle "Lokaltog/vim-powerline"
+Bundle "SirVer/ultisnips"
+Bundle "tobyS/skeletons.vim"
+Bundle 'tobyS/pdv'
+
  " vim-scripts repos
- Bundle 'L9'
- Bundle 'FuzzyFinder'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'AutoComplPop'
+Bundle 'CSApprox'
+Bundle 'dbext.vim'
+Bundle 'genutils'
+Bundle 'IComplete'
+ 
  " non github repos
  Bundle 'git://git.wincent.com/command-t.git'
  " ...
 
+"couse problems
+"Bundle 'tomtom/quickfixsigns_vim'
+"Bundle 'jeetsukumaran/vim-buffergator'
+"Bundle 'VB.NET-Syntax'
+
+"------------------------------------------------
  filetype plugin indent on     " required!
  "
  " Brief help
@@ -67,8 +88,6 @@ set nrformats+=alpha
 set fileformats="unix,dos,mac"
 set formatoptions+=1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 
-"habilita funcionalidades a vim, para algunos plugins esta opción es requerida
-set nocompatible
 set nocp
 "evita crear archivos de respaldo
 set nobackup	
@@ -114,8 +133,8 @@ syntax enable
 "set background=dark
 "colorscheme solarized
 "let g:solarized_termcolors=256
-" colorscheme Monokai
-" colorscheme proman
+"colorscheme proman
+"colorscheme Monokai
 colorscheme eclipse
 " colorscheme badwolf
 "colorscheme mustang
@@ -159,16 +178,15 @@ set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
 "Use Mark plugin to highlight selected word
 set hlsearch
+"jumps to search word as you type (annoying but excellent)
+set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
+set incsearch   " show search matches as you type
 "Caso insesitivo para busquedas es decir no distingue mayusculas y minusculas
 set ignorecase
 "case-sensitive if search contains an uppercase character
 set smartcase
-"jumps to search word as you type (annoying but excellent)
-set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
-set incsearch   " show search matches as you type
 set gdefault                    " search/replace "globally" (on a line) by default
 set showmatch
-
 "estable el modo de pliegue (folding)
 set foldmethod=indent "fold based on indent
 set foldnestmax=10	"deepest fold is 10 levels
@@ -239,10 +257,11 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 au FileType c,cpp,h set omnifunc=ccomplete#Complete
 au FileType java set omnifunc=javacomplete#Complete
+"For the most accurate but slowest result, set the syntax synchronization method to fromstart
+autocmd BufEnter * :syntax sync fromstart
 
-" Indentation style color guides
-hi IndentGuidesOdd ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
+"vbnet highlighting
+autocmd BufNewFile,BufRead *.vb set ft=vbnet
 
 "remarcado de lineas speciales
 highlight SpecialKey guifg=#c0c0c0 ctermfg=192
@@ -263,12 +282,17 @@ if has('gui_running')
     "set guifont=DejaVu_Sans_Mono:h10:cDEFAULT
     "set guifont=Monaco:h9:cDEFAULT
     "set guifont=Ubuntu_Mono_for_powerline:h14:cDEFAULT
-    set guifont=Ubuntu_Mono_for_powerline:h10:cANSI
+    set guifont=Ubuntu_Mono_for_powerline:h11:cANSI
     set cursorline cursorcolumn
 endif
 
 " indentline
 let g:indentLine_char = '|'
+
+"habilita corrector ortografico
+"set spell spelllang=es_mx
+set spelllang=es_mx,en "Carga el diccionario en o los lenguajes que necesitemos
+"set spell "Activa el corrector ortográfico en tiempo real :set nospell desactiva 
 
 "------------------------------------------------------
 "c compiler
@@ -290,7 +314,6 @@ let g:indentLine_char = '|'
 "NERDTree plugin
 "https://github.com/scrooloose/nerdtree"
 "------------------------------------------------------
-let g:NERDTreeChDirMode=0
 "abre el plugin NERDTree al iniciar Vim
 autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -303,17 +326,22 @@ let g:NERDTreeChristmasTree = 1
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMouseMode=2
-let g:NERDTreeIgnore=[
-      \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-      \ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
-
+                                   '
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
 
 "the working directory is always the one where the active buffer is located.
 set autochdir
 "I make sure the working directory is set correctly.
-let g:NERDTreeChDirMode=0
+let g:NERDTreeChDirMode=2
+"ignore some file types
+let g:NERDTreeIgnore=[
+      \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+      \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', 
+      \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
+      \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$', 
+      \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
+      \'tags', 'bin', 'obj','\.suo$','\.vspscc$']
 "------------------------------------------------------
 "------------------------------------------------------
 " NERDcommenter 
@@ -345,7 +373,7 @@ hi MBENormal guifg=#808080 guibg=fg
 "easymotion
 "https://github.com/Lokaltog/vim-easymotion
 "---------------------------------------------------------
-let g:EasyMotion_leader_key = '<Leader>'
+let g:EasyMotion_leader_key = '<Leader>e'
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade Comment
 "---------------------------------------------------------
@@ -510,8 +538,6 @@ endif
 "http://insenvim.sourceforge.net/
 "https://github.com/tomtom/checksyntax_vim.git
 "---------------------------------------------------------
-"let $VIM_INTELLISENSE="$HOME\\vimfiles\\bundle\\Intellisense\\"
-" let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense\\"
 let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
 "---------------------------------------------------------
 let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m' 
@@ -528,8 +554,17 @@ let g:showmarks_enable=0
 "vim-indent-guides
 "https://github.com/nathanaelkane/vim-indent-guides
 "---------------------------------------------------------
-let g:indent_guides_start_level=2
+let g:indent_guides_start_level=1
 let g:indent_guides_guide_size=1
+"let g:indent_guides_start_level=2
+"
+"setting custom indent colors
+" let g:indent_guides_auto_colors = 0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" Indentation style color guides
+hi IndentGuidesOdd ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 "---------------------------------------------------------
 "
 "---------------------------------------------------------
@@ -588,4 +623,13 @@ let g:badwolf_css_props_highlight = 1
 "https://github.com/tobyS/skeletons.vim
 "---------------------------------------------------------
 let g:skeletons_dir=$HOME . '/vimfiles/bundle/skeletons.vim/skeletons/'
+au BufNewFile * silent! 0r  ~/vimfiles/bundle/skeleton.vim/skeletons/skeleton.%:e
 "---------------------------------------------------------
+"pdv
+"https://github.com/tobyS/pdv
+"---------------------------------------------------------
+"---------------------------------------------------------
+let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
+" nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
+"---------------------------------------------------------
+

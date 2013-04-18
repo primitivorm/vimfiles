@@ -1,0 +1,2 @@
+install soporte wcf en iis 7.5
+c:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\ServiceModelReg.exe -i

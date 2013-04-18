@@ -1,100 +1,100 @@
-  let g:bundle_dir = len(a:000) > 0 ? expand(a:1, 1) : expand('$HOME/.vim/bundle', 1),V
-https://github.com/vim-scripts/taglist.vim.git,v
- Bundle 'taglist.vim',V
-proman,v
-/vim-scripts/taglist.vim.git,v
-" ,v
-" colorscheme proman,V
-.vim.git,v
- Bundle 'taglist.vim.git',V
-tpope/vim-rails.git,v
- Bundle 'tpope/vim-rails.git',V
-vim-scripts/taglist.vim,v
-private const String SCREEN_CODE = "COT-EMI-VWSF";        private int USUARIO_SISTEMAS = 235;        private BitacoraEvento _bitacoraEvento; ,V
-//Regresar el error al cliente no controlado                               rc.Error.Codigo = 1099;                rc.Error.Descripcion = ExceptionManager.GetErrorMessage(_conexion, SCREEN_CODE, rc.Error.Codigo);                //Graba error en bitacora                _bitacoraEvento = new BitacoraEvento(_conexion);                _bitacoraEvento.Descripcion = SCREEN_CODE + ": " + ex.Message ;                _bitacoraEvento.UsuarioId = USUARIO_SISTEMAS;                _bitacoraEvento.Terminal = "127.0.0.1";                _bitacoraEvento.InsertarError(); ,v
-DatosDerivacionHDI,v
-SolicitudDerivacionHDI,v
-datos,v
-wsConsultasAba,v
--------------------------------------,v
- for fetch-pack: Resource temporarily unavailable,v
-/cygdrive/c/,v
-ca-certificates,v
-https://github.com/Lokaltog/vim-easymotion.git,v
-git clone --recursive 'https://github.com/Lokaltog/vim-easymotion.git' 'C:/Users/Proman02/vimfiles/bundle/vim-easymotion',v
-len(a:000) > 0 ? expand(a:1, 1) : expand(',v
-$HOME.'/vimfiles/bundle/vundle/',v
-nodosfilewarning,v
-/cygdrive/c/Users/Proman02/.vim/bundle/,v
-let g:bundle_dir=$HOME.'/vimfiles/bundle/vundle/',V
-/,v
- ,v
-" My Bundles here: " " original repos on github Bundle 'tpope/vim-fugitive' Bundle 'Lokaltog/vim-easymotion' Bundle 'rstacruz/sparkup', {'rtp': 'vim/'} Bundle 'tpope/vim-rails.git' " vim-scripts repos Bundle 'L9' Bundle 'FuzzyFinder' " non github repos Bundle 'git://git.wincent.com/command-t.git' " ... filetype plugin indent on     " required! " " Brief help " :BundleList          - list configured bundles " :BundleInstall(!)    - install(update) bundles " :BundleSearch(!) foo - search(or refresh cache first) for foo " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles " " see :h vundle for more details or wiki for FAQ " NOTE: comments after Bundle command are not allowed..,V
-"" My Bundles here: "" "" original repos on github "Bundle 'tpope/vim-fugitive'Bundle 'Lokaltog/vim-easymotion' "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'} "Bundle 'tpope/vim-rails.git' "" vim-scripts repos"Bundle 'L9' "Bundle 'FuzzyFinder' "" non github repos "Bundle 'git://git.wincent.com/command-t.git' "" ...                                                       ,v
-http://github.com/gmarik/vundle/blob/master/README.md,v
-/vimfiles/bundle/vundle/,v
-"------------------------------------------------------ "vundle  "https://github.com/gmarik/vundle"------------------------------------------------------set nocompatible " be iMprovedfiletype off " required!set rtp+=~/vimfiles/bundle/vundle/call vundle#rc() "" let Vundle manage Vundle "" required! Bundle 'gmarik/vundle' "" My Bundles here: "" "" original repos on github "Bundle 'tpope/vim-fugitive'Bundle 'Lokaltog/vim-easymotion' "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'} "Bundle 'tpope/vim-rails.git' "" vim-scripts repos"Bundle 'L9' "Bundle 'FuzzyFinder' "" non github repos "Bundle 'git://git.wincent.com/command-t.git' "" ..."------------------------------------------------------     ,v
- let g:bundle_dir =,v
-filetype plugin indent on     " required!,v
-set nocompatibleset filetype off   ,v
-set nocompatible,V
-set nocompatible " be iMprovedfiletype off " required!,V
-set nocompatible,v
-https://github.com/gagoar/StripWhiteSpaces,v
-http://cygwin.com/cygwin-ug-net/using.html#using-pathnames,v
-clipbrd: You need a newer version of genutils.vim plugin,v
-C:\inetpub\wwwroot\Framework35\MMC.AutoMarsh.Impresion,v
-"filetype off                   " required!,v
-",v
-"pathogen plugin:"https://github.com/tpope/vim-pathogen"------------------------------------------------------call pathogen#infect()call pathogen#helptags()set nocompatible               " be iMproved" filetype off                   " required!              ,v
-"------------------------------------------------------ "vundle  "https://github.com/gmarik/vundle"------------------------------------------------------set rtp+=~/vimfiles/bundle/vundle/call vundle#rc()set nocompatible "" let Vundle manage Vundle "" required! Bundle 'gmarik/vundle' "" My Bundles here: "" "" original repos on github "Bundle 'tpope/vim-fugitive'Bundle 'Lokaltog/vim-easymotion' "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'} "Bundle 'tpope/vim-rails.git' "" vim-scripts repos"Bundle 'L9' "Bundle 'FuzzyFinder' "" non github repos "Bundle 'git://git.wincent.com/command-t.git' "" ...filetype plugin indent on     " required!"------------------------------------------------------     ,v
- ",v
-cygwin warning: MS-DOS style path detected,v
-cygwin warning:  MS-DOS style path detected,v
-cygwin warning:  MS-DOS style path detected:,v
-Omnisharp,v
-http://www.vim.org/scripts/script.php?script_id=4016,v
-DeleteTrailingWhitespace,v
-http://www.vim.org/scripts/script.php?script_id=3967,v
-HOME,v
-https://github.com/nosami/Omnisharp,v
-wget,tar,qawk,bzip2,subversion,vim,v
-s,v
-s,V
-bundle/vundle/,v
-P ~/.vim/bundle,V
-C:\strawberry\perl\bin\,v
-Bundle ,v
-ndle ,v
- "Bu,v
- " ",v
 ,V
-.,v
-" ",V
-El No. de Contrato será solicitado como obligatorio, la validación que se aplicará es que solo deberá existir una póliza vigente por contrato.,v
-5605	Controles VW Bank  ,v
-svn checkout http://apt-cyg.googlecode.com/svn/trunk/,v
-http://apt-cyg.googlecode.com/svn/trunk/apt-cyg,v
-<leader>ee -> load easy motion<leader>w -> load easy motion,V
-C:\cygwin,v
-https://github.com/gagoar/StripWhiteSpaces.git,v
-StripWhiteSpaces,v
-, <Leader><Leader>gE,v
-by default: ,v
------------------------------------------------,V
-<Leader><Leader>w,v
-e,v
-<Leader>,v
-<Leader><Leader>,v
-by default,v
-<Leader><Leader>t, <Leader><Leader>gE,v
-let g:EasyMotion_leader_key = '<Leader>',v
-1:_vimrc,v
-" Strip all trailing whitespace from a file, using ,w"nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>" taken from: http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim/1618401#1618401fun! <SID>StripTrailingWhitespaces()    let l = line(".")    let c = col(".")    %s/\s\+$//e    call cursor(l, c)endfunnnoremap <leader>w :StripTrailingWhitespaces<CR>,v
-3:COMMANDS.vim,v
-" taken from: http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim/1618401#1618401fun! <SID>StripTrailingWhitespaces()    let l = line(".")    let c = col(".")    %s/\s\+$//e    call cursor(l, c)endfun" auto-strip trailing white space for ruby files"autocmd BufWritePre *.rb :call <SID>StripTrailingWhitespaces()" command to strip white space from any filennoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>,V
-" taken from: http://stackoverflow.com/questions/356126/how-can-you-automatically-remove-trailing-whitespace-in-vim/1618401#1618401fun! <SID>StripTrailingWhitespaces()    let l = line(".")    let c = col(".")    %s/\s\+$//e    call cursor(l, c)endfun,V
-" Strip all trailing whitespace from a file, using ,w"nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>,V
-<leader>w -> load easy motion,V
-C:\Program Files (x86)\Microsoft Visual Studio 10.0\Web\Snippets\HTML\1033\ASP.NET,v
-MMC.AutoMarsh.Presentation,v
+" Gundo.vim"nnoremap <F5> :GundoToggle<CR>" }}},V
+set makeprg,v
+" autocmd FileType csproj ,v
+" autocmd FileType csproj nnoremap <F5> :make /t:rebuild<CR>,V
+"autocmd FileType csproj map <C-F5> :make /t:rebuild<cr>,V
+-,v
+C,v
+map,v
+nnoremap,v
+ ,v
+csproj ,v
+FileType ,v
+autocmd ,v
+autocmd FileType csproj map <C-F5> :make /t:rebuild<cr>,V
+",v
+C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Core\MMC.AutoMarsh.Core.Entities\bin\Debug,v
+%,v
+c,v
+a,v
+v,v
+j,v
+!,v
+map <F5> :make /,v
+i,V
+autocmd FileType java map <F5> :! javac %<cr>,v
+"--------------------------------------------,V
+"mac" nnoremap <leader><Right> :vertical res +5<cr>" nnoremap <leader><Left> :vertical res -5<cr>" nnoremap <leader><Up> :res +5<cr>" nnoremap <leader><Down> :res -5<cr>,V
+Harlem Shake ,v
+item.Field<string>("Materno"),,v
+item.Field<string>("TelefonoCasa"),,v
+olonia,v
+            _colonia = colonia;,V
+6:Poliza.cs,v
+3:Persona.cs,v
+Agente.,v
+Telefono,v
+_telefonoCasa,v
+telefonoCasa,v
+TelefonoCasa,v
+Telefono de casa,v
+        /// <summary>        /// Telefono de casa        /// </summary>        [DataMember]        public string TelefonoCasa        {            get { return _telefonoCasa; }            set { _telefonoCasa = value; }        },V
+telefonoCelular,v
+            _telefonoCelular = telefonoCelular;,V
+                       string telefonoCelular, ,V
+_telefonoCelular,v
+        private string _telefonoCelular = string.Empty;,V
+Email,v
+                    Console.WriteLine("Telefono: " + poliza.Asegurado.TelefonoCasa + "\n");,V
+Direccion.CP,v
+CP,v
+                    Console.WriteLine("CP: " + poliza.Asegurado.Direccion.CP + "\n");,V
+Estado,v
+                    Console.WriteLine("Estado: " + poliza.Asegurado.Direccion.Estado.Nombre + "\n");,V
+Delegacion,v
+Poblacion,v
+                    Console.WriteLine("Poblacion: " + poliza.Asegurado.Direccion.Delegacion + "\n");,V
+Colonia,v
+                    Console.WriteLine("Colonia: " + poliza.Asegurado.Direccion.Colonia + "\n");,V
+alle,v
+                    Console.WriteLine("Calle: " + poliza.Asegurado.Direccion.Calle + "\n");,V
+Nacionalidad,v
+                    Console.WriteLine("Nacionalidad: " + poliza.Asegurado.Nacionalidad + "\n");,V
+FechaNacimiento,v
+Fecha Nacimiento,v
+                    Console.WriteLine("Fecha Nacimiento: " + poliza.Asegurado.FechaNacimiento + "\n");,V
+Materno,v
+                   ,v
+Asegurado.Materno,v
+Console.WriteLine("Materno: " + poliza.Asegurado.Materno + "\n"),v
+Paterno,v
+                    Console.WriteLine("Paterno: " + poliza.Asegurado.Paterno + "\n");,V
+Nombre,v
+                    Console.WriteLine("Nombre: " + poliza.Asegurado.Nombre + "\n");,V
+RFC,v
+                    Console.WriteLine("RFC: " + poliza.Asegurado.RFC + "\n");,V
+gente.AgenteId,v
+Numero Agente:,v
+                    Console.WriteLine("Numero Agente: " + poliza.Agente.AgenteId + "\n");,V
+Cotizacion.CotizacionId,v
+Folio,v
+                    Console.WriteLine("Folio: " + poliza.Cotizacion.CotizacionId + "\n");,V
+                    Console.WriteLine("Folio: " + poliza.Folio + "\n");,V
+Console.WriteLine("Inciso: " + poliza.Num_Inciso.ToString() + "\n");,v
+ El formateador inició una excepción al intentar deserializar el mensaje: Error al intentar deserializar el parámetro http://tempuri.org/:DerivarHDIResult. El mensaje de InnerException era 'Error al deserializar el objeto del tipo System.String. Se esperaba el elemento final 'DerivarHDIResult' del espacio de nombres 'http://tempuri.org/'. Se encontró elemento 'Error' del espacio de nombres 'http://schemas.datacontract.org/2004/07/MMC.AutoMarsh.Derivacion.Entities'. Línea 1, posición 590.'. Consulte InnerException para obtener más información.Server stack trace:   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeParameterPart(XmlDictionaryReader reader, PartInfo part, Boolean isRequest)   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, String action, MessageDescription messageDescription, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeBodyContents(Message message, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeReply(Message message, Object[] parameters)   en System.ServiceModel.Dispatcher.ProxyOperationRuntime.AfterReply(ProxyRpc&rpc)   en System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)Exception rethrown at [0]:   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.IWCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.WCFDerivacionClient.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Service References\WCFDerivacion\Reference.cs:línea 50   en MMC.AutoMarsh.Derivacion.Service.TestHDI.Program.Main(String[] args) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Program.cs:línea 24   ,v
+   en System.Data.DataRowExtensions.UnboxT`1.ValueField(Object value)   en System.Data.DataRowExtensions.Field[T](DataRow row, String columnName)   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.<Derivar>b__1(DataRow item) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 65   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.Derivar(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 102,V
+npp.6.1.3.Installer.exe,v
+La conversión especificada no es válida.,v
+No se puede convertir un objeto de tipo 'System.DateTime' al tipo 'System.String'.,v
+C-S-V,v
+c:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\,v
+Server stack trace:    en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeParameterPart(XmlDictionaryReader reader, PartInfo part, Boolean isRequest)   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, String action, MessageDescription messageDescription, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeBodyContents(Message message, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeReply(Message message, Object[] parameters)   en System.ServiceModel.Dispatcher.ProxyOperationRuntime.AfterReply(ProxyRpc& rpc)   en System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)Exception rethrown at [0]:    en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.IWCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.WCFDerivacionClient.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Service References\WCFDerivacion\Reference.cs:línea 50   en MMC.AutoMarsh.Derivacion.Service.TestHDI.Program.Main(String[] args) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Program.cs:línea 24,V
+= 0.0;,v
+El formateador inició una excepción al intentar deserializar el mensaje: Error al intentar deserializar el parámetro http://tempuri.org/:DerivarHDIResult. El mensaje de InnerException era 'Error al deserializar el objeto del tipo System.String. Se esperaba el elemento final 'DerivarHDIResult' del espacio de nombres 'http://tempuri.org/'. Se encontró elemento 'Error' del espacio de nombres 'http://schemas.datacontract.org/2004/07/MMC.AutoMarsh.Derivacion.Entities'. Línea 1, posición 590.'. Consulte InnerException para obtener más información.,v
+El formateador inició una excepción al intentar deserializar el mensaje: Error al intentar deserializar el parámetro http://tempuri.org/:DerivarHDIResult. El mensaje de InnerException era 'Error al deserializar el objeto del tipo System.String. Se esperaba el elemento final 'DerivarHDIResult' del espacio de nombres 'http://tempuri.org/'. Se encontró elemento 'Error' del espacio de nombres 'http://schemas.datacontract.org/2004/07/MMC.AutoMarsh.Derivacion.Entities'. Línea 1, posición 590.'. Consulte InnerException para obtener más información.Server stack trace:   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeParameterPart(XmlDictionaryReader reader, PartInfo part, Boolean isRequest)   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, String action, MessageDescription messageDescription, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeBodyContents(Message message, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeReply(Message message, Object[] parameters)   en System.ServiceModel.Dispatcher.ProxyOperationRuntime.AfterReply(ProxyRpc&rpc)   en System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)Exception rethrown at [0]:   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.IWCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.WCFDerivacionClient.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Service References\WCFDerivacion\Reference.cs:línea 50   en MMC.AutoMarsh.Derivacion.Service.TestHDI.Program.Main(String[] args) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Program.cs:línea 24,V
+   en System.Data.DataRowExtensions.UnboxT`1.ReferenceField(Object value)   en System.Data.DataRowExtensions.Field[T](DataRow row, String columnName)   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.<Derivar>b__1(DataRow item) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 61   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.Derivar(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 108   en MMC.AutoMarsh.Derivacion.Service.WCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\WCFDerivacion.svc.cs:línea 53,V
+en System.Data.DataRowExtensions.UnboxT`1.ReferenceField(Object value)   en System.Data.DataRowExtensions.Field[T](DataRow row, String columnName)   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.<Derivar>b__1(DataRow item) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 61   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.Derivar(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 108   en MMC.AutoMarsh.Derivacion.Service.WCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\WCFDerivacion.svc.cs:línea 53,V
+DatosDerivacionHDI,v
+CalleNumero,v
+item.Field<string>("Nacionalidad"), ,v

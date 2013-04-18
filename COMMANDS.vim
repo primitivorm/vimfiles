@@ -1,7 +1,44 @@
 http://eclim.org/index.html
-
 -----------------------------------------------
 VIM - CARTA DE REFERENCIA RÁPIDA
+-----------------------------------------------
+
+-----------------------------------------------
+"proman
+-----------------------------------------------
+<Leader><Leader>w -> clone window actual
+:scriptnames -> to get a list of sourced scripts in order in which they were first sourced in your Vim instance
+<F11>   :ZoomWin
+:Ex | <F4> | <leader>TT   : file explorer note capital Ex
+<C-F4> :TlistToggle       -> generate tags and open tag list
+za  -> toggle a line of code
+zM -> toggle all lines 
+zR -> untoggle all lines
+<leader>s -> StripTrailingWhitespaces (delete space at end line)
+:verbose setlocal foldmethod? -> view foldmethod used
+:1,10SQLUFormatter -> formatea codigo T-SQL 1,10 son las lineas de inicio y fin del formateo
+:echo has('perl') -> devuelve true si soporta perl
+ctags -R -> genera las Etiquetas ctags -> execute under command linea
+:help help-writing -> help to write helps
+vim --version | grep +python    -> ver si vim soporta python
+vim --version | grep +signs     -> ver si vim soporta signs
+:files      -> open files from powerline
+:buffers    -> open buffers from powerline
+verbose autocmd CursorMoved     -> ver las funciones definidas por un script
+perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack desde cmd windows
+:make /t:rebuild    -> to build *.proj
+<leader>l   -> show hidden characters
+<leader>ig  -> show indent guides
+\be     : show buffer explorer (requires plugin)
+:ls     : list of buffers(eg following)
+:cd ..  : move to parent directory
+<C-g> ó g ->To simply display how many lines are in the current buffer
+:ball       -> open all buffers
+:echo &compatible -> view set nocompatible value
+<c-s-up>    ->swap_up()<CR>
+<c-s-down>  ->swap_down()<CR>
+:BufOnly    ->close all buffer except actual
+:BundleInstall  ->update/install new plugins whit vundle
 -----------------------------------------------
 
 -----------------------------------------------
@@ -998,6 +1035,7 @@ Vim key notation
 <PageDown>     page-down
 <Bar>          | pipe
 <Leader>       normally \  change with :let mapleader = ","
+<D>            window key
 -----------------------------------------------
 
 -----------------------------------------------
@@ -1094,43 +1132,27 @@ easymotion
 -----------------------------------------------
 let g:EasyMotion_leader_key = '<Leader>' -> 
 -----------------------------------------------
-<Leader><Leader>w , <Leader><Leader>e -> open easymotion 
-<Leader><Leader>t   -> find next coincidence
-<Leader><Leader>gE  -> on all document
-<Leader><Leader>k   -> by row
+<Leader>ee -> open easymotion 
+<Leader>et   -> find next coincidence
+<Leader>egE  -> on all document
+<Leader>ek   -> by row
 -----------------------------------------------
 
 -----------------------------------------------
-"proman
+Combinaciones del Corrector Ortogrfico
 -----------------------------------------------
-:scriptnames -> to get a list of sourced scripts in order in which they were first sourced in your Vim instance
-za  -> toggle a line of code
-zM -> toggle all lines 
-zR -> untoggle all lines
-<leader>s -> StripTrailingWhitespaces
-:verbose setlocal foldmethod? -> view foldmethod used
-:1,10SQLUFormatter -> formatea codigo T-SQL 1,10 son las lineas de inicio y fin del formateo
-:echo has('perl') -> devuelve true si soporta perl
-ctags -R -> genera las Etiquetas ctags -> execute under command linea
-:TlistToggle -> Open tag list
-:help help-writing -> help to write helps
-TT | <F4>      -> open taglist
-vim --version | grep +python    -> ver si vim soporta python
-vim --version | grep +signs     -> ver si vim soporta python
-:files      -> open files from powerline
-:buffers    -> open buffers from powerline
-verbose autocmd CursorMoved     -> ver las funciones definidas por un script
-perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack desde cmd windows
-:make /t:rebuild    -> to build *.proj
-<leader>l   -> show hidden characters
-<leader>ig  -> show indent guides
-:Ex     : file explorer note capital Ex
-\be     : show buffer explorer (requires plugin)
-:ls     : list of buffers(eg following)
-:cd ..  : move to parent directory
-<C-g> ó g ->To simply display how many lines are in the current buffer
-:ball       -> open all buffers
-:echo &compatible -> view set nocompatible value
+Secuencia Descripcin
+]s Va a la siguiente palabra
+mal deletreada
+[s Va a la anterior palabra
+mal deletreada
+z= Presenta sugerencias
+para una ortografa
+correcta
+zg Aade una palabra
+como correctamente
+deletreada al diccionario
+-----------------------------------------------
 
 -----------------------------------------------
 Markers and moving about

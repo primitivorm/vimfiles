@@ -117,7 +117,7 @@ vim-shell       https://github.com/xolox/vim-shell
 vimshell        https://github.com/Shougo/vimshell
 +c-vim           https://github.com/vim-scripts/c.vim
 +L9              https://github.com/vim-scripts/L9
-+icomplete       https://github.com/vim-scripts/IComplete
++icomplete       https://github.com/vim-scripts/IComplete       
 +javascript-libraries-syntax         https://github.com/othree/javascript-libraries-syntax.vim
 +piv             https://github.com/spf13/PIV
 +pyflakes        https://github.com/kevinw/pyflakes-vim
@@ -166,13 +166,20 @@ sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
 +ProtoDef       http://www.vim.org/scripts/script.php?script_id=2624
 +skeletons.vim  https://github.com/tobyS/skeletons.vim
 +vim-skeleton   https://github.com/kana/vim-skeleton
-*tSkeleton      http://www.vim.org/scripts/script.php?script_id=1160
+*tSkeleton      http://www.vim.org/scripts/script.php?script_id=1160              https://github.com/tomtom/tskeleton_vim 
 *VimDebug        https://github.com/kablamo/VimDebug
 +***badwolf        https://github.com/sjl/badwolf
 +pytest         https://github.com/alfredodeza/pytest.vim
 +StripWhiteSpaces   http://www.vim.org/scripts/script.php?script_id=4016          https://github.com/gagoar/StripWhiteSpaces
 +DeleteTrailingWhitespace   http://www.vim.org/scripts/script.php?script_id=3967
 *Omnisharp       https://github.com/nosami/Omnisharp
++CSApprox        https://github.com/vim-scripts/CSApprox
++vim-complete    https://github.com/mattsacks/vim-complete
++ccimpl          http://vim.sourceforge.net/scripts/script.php?script_id=1146
++pdv            https://github.com/tobyS/pdv 
+*mduem       https://github.com/kana/mduem
+*templator   http://vim.sourceforge.net/scripts/script.php?script_id=4345   https://github.com/tomtom/templator_vim/ 
+***vbnet        https://github.com/vim-scripts/VB.NET-Syntax
 -------------------------------------------------------------
 
 Notas: 
