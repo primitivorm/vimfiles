@@ -29,29 +29,120 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
  "
  " original repos on github
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'drmingdrmer/xptemplate'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/gem-ctags'
 Bundle 'mattn/gist-vim'
 Bundle 'othree/html5.vim'
 Bundle 'mattsacks/vim-complete'
 Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle "Lokaltog/vim-powerline"
-Bundle "SirVer/ultisnips"
-Bundle "tobyS/skeletons.vim"
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'SirVer/ultisnips'
+Bundle 'tobyS/skeletons.vim'
+Bundle 'kana/vim-skeleton'
 Bundle 'tobyS/pdv'
-
- " vim-scripts repos
+Bundle 'majutsushi/tagbar'
+Bundle 'shemerey/vim-indexer'
+Bundle 'esukram/autocomplpop.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'ervandew/supertab'
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'mattn/webapi-vim'
+Bundle 'c9s/perlomni.vim'
+Bundle 'Townk/vim-autoclose'
+Bundle 'Shougo/neosnippet'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'mattn/lisper-vim.git'
+Bundle 'chrisbra/SaveSigns.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'valloric/MatchTagAlways'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'itspriddle/vim-jquery'
+Bundle 'mattn/zencoding-vim'
+Bundle 'godlygeek/csapprox'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'godlygeek/tabular'
+Bundle 'majutsushi/tagbar.git'
+Bundle 'SirVer/ultisnips'
+Bundle 'me-vlad/python-syntax.vim'
+Bundle 'vim-scripts/dbext.vim'
+Bundle 'vim-scripts/DrawIt'
+Bundle 'powerman/vim-plugin-viewdoc'
+Bundle 'xolox/vim-shell'
+Bundle 'Shougo/vimshell'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'spf13/PIV'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'gotcha/vimpdb'
+Bundle 'vim-perl/vim-perl'
+Bundle 'Shougo/vimproc'
+Bundle 'xolox/vim-session'
+Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'stephenmckinney/vim-solarized-powerline'
+Bundle 'Lokaltog/powerline-fonts.git'
+Bundle 'vim-scripts/QuickBuf'
+Bundle 'hynek/vim-python-pep8-indent'
+Bundle 'wavded/vim-stylus'
+Bundle 'heaths/vim-msbuild'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Rykka/colorv.vim'
+Bundle 'AndrewRadev/sideways.vim'
+Bundle 'AndrewRadev/switch.vim'
+Bundle 'leshill/vim-json'
+Bundle 'rking/ag.vim'
+Bundle 'mutewinter/tomdoc.vim'
+Bundle 'jc00ke/vim-tomdoc'
+Bundle 'mutewinter/taskpaper.vim'
+Bundle 'mutewinter/vim-css3-syntax'
+Bundle 'jwu/exvim'
+Bundle 'xolox/vim-lua-ftplugin'
+Bundle 'xolox/vim-lua-inspect'
+Bundle 'kablamo/VimDebug'
+Bundle 'sjl/badwolf'
+Bundle 'alfredodeza/pytest.vim'
+Bundle 'gagoar/StripWhiteSpaces'
+Bundle 'nosami/Omnisharp'
+Bundle 'mattsacks/vim-complete'
+" vim-scripts repos
+Bundle 'c.vim'
 Bundle 'L9'
+Bundle 'genutils'
+Bundle 'CSApprox'
 Bundle 'FuzzyFinder'
 Bundle 'AutoComplPop'
 Bundle 'CSApprox'
 Bundle 'dbext.vim'
 Bundle 'genutils'
 Bundle 'IComplete'
- 
+Bundle 'DfrankUtil'
+Bundle 'YankRing.vim'
+Bundle 'ShowMarks'
+Bundle 'ZoomWin'
+Bundle 'IndexedSearch'
+Bundle 'YankRing.vim'
+Bundle 'SearchComplete'
+Bundle 'AutoTag'
+Bundle 'Rainbow-Parenthesis'
+Bundle 'keepcase.vim'
+Bundle 'scratch.vim'
+Bundle 'indenthtml.vim'
  " non github repos
  Bundle 'git://git.wincent.com/command-t.git'
  " ...
@@ -215,7 +306,7 @@ function! MyFoldText()
 
     let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
     let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - 4
-    return line . ' ¿' . repeat(" ",fillcharcount) . foldedlinecount . ' '
+    return line . ' ï¿½' . repeat(" ",fillcharcount) . foldedlinecount . ' '
 endfunction
 set foldtext=MyFoldText()
 " }}}
@@ -267,12 +358,12 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 highlight SpecialKey guifg=#c0c0c0 ctermfg=192
 "muestra los caracteres ocultos y los remplaza por los establecidos
 " set list
-set listchars=tab:\|-,trail:-,eol:¬
+set listchars=tab:\|-,trail:-,eol:ï¿½
 set mouse=a " enable using the mouse if terminal emulator
 
 highlight NonText guifg=#4a4a59
 if has('gui_running')
-    "establecer fuente y tamaño
+    "establecer fuente y tamaï¿½o
     "set guifont=Ubuntu_Mono:h11:cDEFAULT
     "set guifont=Ubuntu_Mono:h11:cANSI
     "set guifont=Consolas:h12:cDEFAULT
@@ -292,7 +383,7 @@ let g:indentLine_char = '|'
 "habilita corrector ortografico
 "set spell spelllang=es_mx
 set spelllang=es_mx,en "Carga el diccionario en o los lenguajes que necesitemos
-"set spell "Activa el corrector ortográfico en tiempo real :set nospell desactiva 
+"set spell "Activa el corrector ortogrï¿½fico en tiempo real :set nospell desactiva 
 
 "------------------------------------------------------
 "c compiler
