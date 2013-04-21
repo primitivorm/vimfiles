@@ -414,3 +414,6 @@ function! Highlighting()
 endfunction
 nnoremap <silent> <expr> <CR> Highlighting()
 nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
+
+"insert automatically } and insert above {
+inoremap {<CR>  {<CR>}<Esc>O
