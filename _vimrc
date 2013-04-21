@@ -140,6 +140,9 @@ Bundle 'rorymckinley/vim-symbols-strings'
 Bundle 'kana/vim-textobj-user'
 Bundle 'skalnik/vim-vroom'
 Bundle 'Shougo/vimproc'
+Bundle 'goldfeld/vim-seek'
+Bundle 'Raimondi/delimitMate'
+
 " vim-scripts repos
 Bundle 'c.vim'
 Bundle 'L9'
