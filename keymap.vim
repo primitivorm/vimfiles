@@ -400,3 +400,17 @@ nnoremap <A-Left> :vertical res -1<cr>
 "--------------------------------------------
 " autocmd FileType csproj nnoremap <F5> :make /t:rebuild<CR>
 nnoremap <F5> :make /t:rebuild<CR>
+
+"highlight all words when press <CR>
+let g:highlighting = 0
+function! Highlighting()
+  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+    let g:highlighting = 0
+    return ":silent nohlsearch\<CR>"
+  endif
+  let @/ = '\<'.expand('<cword>').'\>'
+  let g:highlighting = 1
+  return ":silent set hlsearch\<CR>"
+endfunction
+nnoremap <silent> <expr> <CR> Highlighting()
+nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
