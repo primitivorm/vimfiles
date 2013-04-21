@@ -298,7 +298,7 @@ command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
 
 " Toggle the quickfix window {{{
 " From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
-nnoremap <C-q> :call <SID>QuickfixToggle()<cr>
+nnoremap <A-q> :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
 
