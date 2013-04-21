@@ -6,10 +6,9 @@ let mapleader=","
 "Go to last edit location with ,.
 nnoremap ,. '.
 
-
 " Map the arrow keys to be based on display lines, not physical lines
-map <Down> gj
-map <Up> gk
+"map <Down> gj
+"map <Up> gk
 " Remap j and k to act as expected when used on long, wrapped, lines
 nnoremap j gj
 nnoremap k gk
@@ -141,11 +140,10 @@ else
     inoremap <silent> <C-A-Right> <esc>:tabn<cr>
 
     " Resize windows with arrow keys
-    nnoremap <C-S-Up> <C-w>+
-    nnoremap <C-S-Down> <C-w>-
-    nnoremap <C-S-Left> <C-w><
-    nnoremap <C-S-Right>  <C-w>>
-
+    "nnoremap <C-S-Up> <C-w>+
+    "nnoremap <C-S-Down> <C-w>-
+    "nnoremap <C-S-Left> <C-w><
+    "nnoremap <C-S-Right>  <C-w>>
     nnoremap <C-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 endif
@@ -293,7 +291,7 @@ nnoremap <c-l> :SidewaysRight<cr>
 " This command will execute the file, for example, if this is an
 " HTML file, it will run:
 "     start c:\absolute\filename.html
-" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart  <C-R><C-R>"<CR><CR>:let @"=old_reg<CR> 
+" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart  <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
 command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
 
 " Toggle the quickfix window {{{
