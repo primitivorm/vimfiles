@@ -50,12 +50,12 @@ endfun
 nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 
 " reindent complete file without losing position
-nnoremap <leader>f mqHmwgg=G`wzt`q
+nnoremap <leader>if mqHmwgg=G`wzt`q
 
 " copy current filename into system clipboard - mnemonic: (c)urrent(f)ilename
 " this is helpful to paste someone the path you're looking at
-nnoremap <silent> ,cf :let @* = expand("%:~")<CR>
-nnoremap <silent> ,cn :let @* = expand("%:t")<CR>
+nnoremap <silent>,cf :let @* = expand("%:~")<CR>
+nnoremap <silent>,cn :let @* = expand("%:t")<CR>
 
 "Clear current search highlight by double tapping //
 nnoremap <silent> // :nohlsearch<CR>
@@ -64,10 +64,10 @@ nnoremap <silent> // :nohlsearch<CR>
 noremap ,hl :set hlsearch! hlsearch?<CR>
 
 " cd to the directory containing the file in the buffer
-map <silent> <leader>cd :lcd %:h<CR>
+map <silent><leader>cd :lcd %:h<CR>
 
 " Create the directory containing the file in the buffer
-map <silent> <leader>md :!mkdir -p %:p:h<CR>
+map <silent><leader>md :!mkdir -p %:p:h<CR>
 " Bubble single lines
 " nmap <C-Up> [e
 " nmap <C-Down> ]e
@@ -83,14 +83,6 @@ map <silent> <leader>md :!mkdir -p %:p:h<CR>
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
-
-" Fugitive
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gw :Gwrite<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gp :Git push<CR>
- " Mnemonic, gu = Git Update
-nnoremap <Leader>gu :Git pull<CR>
 
 " Ack
 if has("gui_macvim") && has("gui_running")
@@ -296,7 +288,7 @@ command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
 
 " Toggle the quickfix window {{{
 " From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
-nnoremap <A-q> :call <SID>QuickfixToggle()<cr>
+nnoremap <leader>qf :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
 
@@ -314,7 +306,7 @@ endfunction
 " }}}
 
 " Toggle the foldcolumn {{{
-nnoremap <leader>f :call FoldColumnToggle()<cr>
+nnoremap <leader>fc :call FoldColumnToggle()<cr>
 
 let g:last_fold_column_width = 4 " Pick a sane default for the foldcolumn
 
