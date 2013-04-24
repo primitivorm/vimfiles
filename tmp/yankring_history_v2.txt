@@ -1,100 +1,100 @@
+{System.IO.DirectoryNotFoundException: No se puede encontrar una parte de la ruta de acceso 'C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\mmc.automarsh.derivacion.service\4ae4b7bc\1d750579\assembly\dl3\db475444\9f72e76c_6240ce01\PrivateKeys\pub_key_hdi.pke'.   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)   en System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)   en System.IO.StreamReader..ctor(String path, Encoding encoding)   en System.IO.File.ReadAllText(String path, Encoding encoding)   en MMC.AutoMarsh.Derivacion.Business.DerivacionBase.ValidarToken(String token, Aseguradoras aseguradora) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionBase.cs:línea 136   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 59}No se puede encontrar una parte de la ruta de acceso 'c:\windows\system32\inetsrv\PrivateKeys\pub_key_hdi.pke'.file:\C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\bin   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 201   en MMC.AutoMarsh.Derivacion.Service.WCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\WCFDerivacion.svc.cs:línea 56C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\binC:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\bin\PrivateKeys\pub_key_hdi.pke   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 201   en MMC.AutoMarsh.Derivacion.Service.WCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\WCFDerivacion.svc.cs:línea 56,v
+WSHDIDerivacion|Pruebas#01,v
+Ph/FcOXYQJMQ0JjG1fQnJuFdFSn5jMvoxSWDRJZffvr9fGAy33Kv0VeXMNNS6tuIkk8IytpkWMfp75WscZab22KO6J4UFDkPgY2NRy1JDdoGmPo4v9LG4Q/H/x73dqE/Trq1cpCeGGGUNvYkAHgklvZxhAaGpOIt0qosW1CfQhU=tluSy74ikTS19WfUf+Sv8Bh4CGpX4LrImxc1dQNNe039i63qjcJOzEW+pXqigIy6uqqbZXI72KII3fYQsoJZ/W80dd+Z3PwpYIoDLq0Ef/bwP6QDrMaPQh+32/m9GdxmmuZvgL6CeOmd/Kc1eGdPmPdbr0m8928swVh5CGG2yk4=,v
+gVSPiHotaFEs7NLEml6Hq3lXuN64F/Tlf2o7OTiJoaJzgq4xo6Nkxorvi7qG83Co2tF1F+xndXwpnAzUObx0xdHEESw4r63B9dUlWRCisXMDpIEkSe5PnAYh9pTPv5LlWZDxAz6TWY9KiM1iDVJJm4dEsak+a4GqwUMCKo8eRD4=RQokePz36B6TFSUD/Pn/NSasymkiG1iL9mLlP29CmQhFDF6ijfkmDA0hr7IvVuKtB59l3lAGLm0u/sf++56aLMq2W/2ISwTMAxvH1FnvV6PliWj7rHezozoytyVx2Oi3w2obKEYhQJAm6ip6gOtfl1KWTK3GBDGlw+m8g/EG+ng=,v
+d3ZQyVkBJTyOqVF4ITMbiQRRpnZyNEbRjd5ttqqScScpUzqJWHbL+/F7vvr/s67bhsVwJQx3puZH4Bvp4u8QviOGmpRNqNTHdnHEWs3fx7fXS7Ez2/aQdUTAdcvnFYl7drNDMjl4GZlP75q5atEnbe2gYk6/HYakLlsmd2vS23k=NKwpFUlywDyvDEhJRfAOCTp/mKpY1V/JT89pjlUYKUX8Ad0apgjR6WaINOpWaFrfT6ngwFDn2R6T4IzYcBkvoOm4qK5OZE1p4rY1eM6ny42LHWZKa+ePWSWdn2eyI/e2856b8NpwevwExu++ICd+JBUQdIiomVfOXT6Ni7/SOKc=,v
+XLt9HhC9oq3TswRjzN3XzI4LENEszscpDP3WttV7QO5+T+ylymZ9zsQsyXoYHdS36NfghUvfI5MISgUmsKbdmFXixbK5m3HEmYWBHOKRd86eZVbbZNdhIw7hIONhRFUIvvGXfm0dULQsTorjuQitAyLIX6iezbvWhnJ9akq1qTw=PEVxIW1eCgYeiSWUarcWVWMLRG1x/gqNFVlvB2S720YD5ZUn0ZyW+PpWgFmHJDPwnUF9V47dBgBQpgeqyASHH5g+AHuCN5yho/HMneFF85lJLvxhJUWxceXzWuO9/i70hd5ffsGl1ataDCHRyUx25xAcQbKl1ueu2LFSxS/n/bY=,v
+WSHDIDerivacionPruebas#01,v
+priv_key_hdi.kez,v
+C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\bin\PrivateKeys\pub_key_hdi.pke,v
+'.,v
+No se pudo encontrar el archivo ',v
+   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 201   en MMC.AutoMarsh.Derivacion.Service.WCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\WCFDerivacion.svc.cs:línea 56,V
+No se pudo encontrar el archivo 'C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\bin\PrivateKeys\pub_key_hdi.pke'.,v
+C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\bin,v
+\,v
+Bundle 'tomtom/quickfixsigns_vim',V
+using System.Web.Hosting;,v
+No se puede encontrar una parte de la ruta de acceso 'c:\windows\system32\inetsrv\PrivateKeys\pub_key_hdi.pke'.,v
+c:\windows\system32\inetsrv,v
+{System.IO.DirectoryNotFoundException: No se puede encontrar una parte de la ruta de acceso 'C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\mmc.automarsh.derivacion.service\4ae4b7bc\1d750579\assembly\dl3\db475444\9f72e76c_6240ce01\PrivateKeys\pub_key_hdi.pke'.   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)   en System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)   en System.IO.StreamReader..ctor(String path, Encoding encoding)   en System.IO.File.ReadAllText(String path, Encoding encoding)   en MMC.AutoMarsh.Derivacion.Business.DerivacionBase.ValidarToken(String token, Aseguradoras aseguradora) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionBase.cs:línea 136   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 59},V
+System.Reflection.Assembly.GetEntryAssembly().Location,v
+file:\C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\bin\PrivateKeys\pub_key_hdi.pke,v
+PrivateKeys,v
+file:\C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\bin,v
+EsValido,v
+240819,v
+XmlDocument.LoadXm,v
+https://github.com/tomtom/checksyntax_vim.git,v
+tomtom/checksyntax_vim,v
+https://github.com/tomtom/tlib_vim.git,v
+Bundle 'tomtom/tlib_vim',V
+-----------------------------------------------,V
+tomtom/vimtlib,v
+AutoMarsh.Derivacion,v
+AutoMarsh.Core ,v
+let g:NERDTreeBookmarksFile = expand($HOME . '/vimfiles/_NERDTreeBookmarks'),v
+_NERDTreeBookmarks,v
 ,V
-" Gundo.vim"nnoremap <F5> :GundoToggle<CR>" }}},V
-set makeprg,v
-" autocmd FileType csproj ,v
-" autocmd FileType csproj nnoremap <F5> :make /t:rebuild<CR>,V
-"autocmd FileType csproj map <C-F5> :make /t:rebuild<cr>,V
--,v
-C,v
-map,v
-nnoremap,v
- ,v
-csproj ,v
-FileType ,v
-autocmd ,v
-autocmd FileType csproj map <C-F5> :make /t:rebuild<cr>,V
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderContenido" runat="server">,v
+https://github.com/jeetsukumaran/vim-buffergator,v
+<Leader>b Invokes ":BuffergatorOpen": open the buffer catalog, or go                    to it if it is already open.<Leader>B Invokes ":BuffergatorClose": close the buffer catalog.<Leader>t Invokes ":BuffergatorTabsOpen": open the tab page catalog,                    or go to it if it is already open.<Leader>T Invokes ":BuffergatorTabsClose": close the tab page                    catalog.,V
+C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion,v
+Bundle 'majutsushi/tagbar.git',V
+                                   ',V
+nnoremap <Leader>gc :Gcommit<CR>,V
 ",v
-C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Core\MMC.AutoMarsh.Core.Entities\bin\Debug,v
-%,v
-c,v
-a,v
-v,v
-j,v
-!,v
-map <F5> :make /,v
-i,V
-autocmd FileType java map <F5> :! javac %<cr>,v
-"--------------------------------------------,V
-"mac" nnoremap <leader><Right> :vertical res +5<cr>" nnoremap <leader><Left> :vertical res -5<cr>" nnoremap <leader><Up> :res +5<cr>" nnoremap <leader><Down> :res -5<cr>,V
-Harlem Shake ,v
-item.Field<string>("Materno"),,v
-item.Field<string>("TelefonoCasa"),,v
-olonia,v
-            _colonia = colonia;,V
-6:Poliza.cs,v
-3:Persona.cs,v
-Agente.,v
-Telefono,v
-_telefonoCasa,v
-telefonoCasa,v
-TelefonoCasa,v
-Telefono de casa,v
-        /// <summary>        /// Telefono de casa        /// </summary>        [DataMember]        public string TelefonoCasa        {            get { return _telefonoCasa; }            set { _telefonoCasa = value; }        },V
-telefonoCelular,v
-            _telefonoCelular = telefonoCelular;,V
-                       string telefonoCelular, ,V
-_telefonoCelular,v
-        private string _telefonoCelular = string.Empty;,V
-Email,v
-                    Console.WriteLine("Telefono: " + poliza.Asegurado.TelefonoCasa + "\n");,V
-Direccion.CP,v
-CP,v
-                    Console.WriteLine("CP: " + poliza.Asegurado.Direccion.CP + "\n");,V
-Estado,v
-                    Console.WriteLine("Estado: " + poliza.Asegurado.Direccion.Estado.Nombre + "\n");,V
-Delegacion,v
-Poblacion,v
-                    Console.WriteLine("Poblacion: " + poliza.Asegurado.Direccion.Delegacion + "\n");,V
-Colonia,v
-                    Console.WriteLine("Colonia: " + poliza.Asegurado.Direccion.Colonia + "\n");,V
-alle,v
-                    Console.WriteLine("Calle: " + poliza.Asegurado.Direccion.Calle + "\n");,V
-Nacionalidad,v
-                    Console.WriteLine("Nacionalidad: " + poliza.Asegurado.Nacionalidad + "\n");,V
-FechaNacimiento,v
-Fecha Nacimiento,v
-                    Console.WriteLine("Fecha Nacimiento: " + poliza.Asegurado.FechaNacimiento + "\n");,V
-Materno,v
-                   ,v
-Asegurado.Materno,v
-Console.WriteLine("Materno: " + poliza.Asegurado.Materno + "\n"),v
-Paterno,v
-                    Console.WriteLine("Paterno: " + poliza.Asegurado.Paterno + "\n");,V
-Nombre,v
-                    Console.WriteLine("Nombre: " + poliza.Asegurado.Nombre + "\n");,V
-RFC,v
-                    Console.WriteLine("RFC: " + poliza.Asegurado.RFC + "\n");,V
-gente.AgenteId,v
-Numero Agente:,v
-                    Console.WriteLine("Numero Agente: " + poliza.Agente.AgenteId + "\n");,V
-Cotizacion.CotizacionId,v
-Folio,v
-                    Console.WriteLine("Folio: " + poliza.Cotizacion.CotizacionId + "\n");,V
-                    Console.WriteLine("Folio: " + poliza.Folio + "\n");,V
-Console.WriteLine("Inciso: " + poliza.Num_Inciso.ToString() + "\n");,v
- El formateador inició una excepción al intentar deserializar el mensaje: Error al intentar deserializar el parámetro http://tempuri.org/:DerivarHDIResult. El mensaje de InnerException era 'Error al deserializar el objeto del tipo System.String. Se esperaba el elemento final 'DerivarHDIResult' del espacio de nombres 'http://tempuri.org/'. Se encontró elemento 'Error' del espacio de nombres 'http://schemas.datacontract.org/2004/07/MMC.AutoMarsh.Derivacion.Entities'. Línea 1, posición 590.'. Consulte InnerException para obtener más información.Server stack trace:   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeParameterPart(XmlDictionaryReader reader, PartInfo part, Boolean isRequest)   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, String action, MessageDescription messageDescription, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeBodyContents(Message message, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeReply(Message message, Object[] parameters)   en System.ServiceModel.Dispatcher.ProxyOperationRuntime.AfterReply(ProxyRpc&rpc)   en System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)Exception rethrown at [0]:   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.IWCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.WCFDerivacionClient.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Service References\WCFDerivacion\Reference.cs:línea 50   en MMC.AutoMarsh.Derivacion.Service.TestHDI.Program.Main(String[] args) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Program.cs:línea 24   ,v
-   en System.Data.DataRowExtensions.UnboxT`1.ValueField(Object value)   en System.Data.DataRowExtensions.Field[T](DataRow row, String columnName)   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.<Derivar>b__1(DataRow item) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 65   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.Derivar(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 102,V
-npp.6.1.3.Installer.exe,v
-La conversión especificada no es válida.,v
-No se puede convertir un objeto de tipo 'System.DateTime' al tipo 'System.String'.,v
-C-S-V,v
-c:\Windows\Microsoft.NET\Framework\v3.0\Windows Communication Foundation\,v
-Server stack trace:    en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeParameterPart(XmlDictionaryReader reader, PartInfo part, Boolean isRequest)   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, String action, MessageDescription messageDescription, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeBodyContents(Message message, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeReply(Message message, Object[] parameters)   en System.ServiceModel.Dispatcher.ProxyOperationRuntime.AfterReply(ProxyRpc& rpc)   en System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)Exception rethrown at [0]:    en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.IWCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.WCFDerivacionClient.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Service References\WCFDerivacion\Reference.cs:línea 50   en MMC.AutoMarsh.Derivacion.Service.TestHDI.Program.Main(String[] args) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Program.cs:línea 24,V
-= 0.0;,v
-El formateador inició una excepción al intentar deserializar el mensaje: Error al intentar deserializar el parámetro http://tempuri.org/:DerivarHDIResult. El mensaje de InnerException era 'Error al deserializar el objeto del tipo System.String. Se esperaba el elemento final 'DerivarHDIResult' del espacio de nombres 'http://tempuri.org/'. Se encontró elemento 'Error' del espacio de nombres 'http://schemas.datacontract.org/2004/07/MMC.AutoMarsh.Derivacion.Entities'. Línea 1, posición 590.'. Consulte InnerException para obtener más información.,v
-El formateador inició una excepción al intentar deserializar el mensaje: Error al intentar deserializar el parámetro http://tempuri.org/:DerivarHDIResult. El mensaje de InnerException era 'Error al deserializar el objeto del tipo System.String. Se esperaba el elemento final 'DerivarHDIResult' del espacio de nombres 'http://tempuri.org/'. Se encontró elemento 'Error' del espacio de nombres 'http://schemas.datacontract.org/2004/07/MMC.AutoMarsh.Derivacion.Entities'. Línea 1, posición 590.'. Consulte InnerException para obtener más información.Server stack trace:   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeParameterPart(XmlDictionaryReader reader, PartInfo part, Boolean isRequest)   en System.ServiceModel.Dispatcher.DataContractSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, String action, MessageDescription messageDescription, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeBodyContents(Message message, Object[] parameters, Boolean isRequest)   en System.ServiceModel.Dispatcher.OperationFormatter.DeserializeReply(Message message, Object[] parameters)   en System.ServiceModel.Dispatcher.ProxyOperationRuntime.AfterReply(ProxyRpc&rpc)   en System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)   en System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)   en System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)   en System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)Exception rethrown at [0]:   en System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)   en System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.IWCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud)   en MMC.AutoMarsh.Derivacion.Service.TestHDI.WCFDerivacion.WCFDerivacionClient.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Service References\WCFDerivacion\Reference.cs:línea 50   en MMC.AutoMarsh.Derivacion.Service.TestHDI.Program.Main(String[] args) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service.TestHDI\Program.cs:línea 24,V
-   en System.Data.DataRowExtensions.UnboxT`1.ReferenceField(Object value)   en System.Data.DataRowExtensions.Field[T](DataRow row, String columnName)   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.<Derivar>b__1(DataRow item) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 61   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.Derivar(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 108   en MMC.AutoMarsh.Derivacion.Service.WCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\WCFDerivacion.svc.cs:línea 53,V
-en System.Data.DataRowExtensions.UnboxT`1.ReferenceField(Object value)   en System.Data.DataRowExtensions.Field[T](DataRow row, String columnName)   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.<Derivar>b__1(DataRow item) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 61   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()   en MMC.AutoMarsh.Derivacion.Business.DerivacionHDI.Derivar(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Business\DerivacionHDI.cs:línea 108   en MMC.AutoMarsh.Derivacion.Service.WCFDerivacion.DerivarHDI(SolicitudDerivacionHDI solicitud) en C:\inetpub\wwwroot\AUTOMARSH_SitiosEsp\Framework35\MMC.AutoMarsh.Derivacion\MMC.AutoMarsh.Derivacion.Service\WCFDerivacion.svc.cs:línea 53,V
-DatosDerivacionHDI,v
-CalleNumero,v
-item.Field<string>("Nacionalidad"), ,v
+""I make sure the working directory is set correctly.nmap <leader>l :set list!<CR>,V
+xml_priv_key =,v
+let g:reload_on_write = 0,V
+https://github.com/xolox/vim-reload,v
+"---------------------------------------------------------,V
+let g:reload_on_write = 0,v
+bronson/vim-visual-star-search,v
+Bundle 'bronson/vim-visual-star-search',V
+xolox/vim-reload,v
+12429,v
+https://blu173.mail.live.com/default.aspx?id=64855&rru=inbox#n=6244216&rru=inbox&view=1,v
+1:_vimrc,v
+5:VIDBCD4.tmp,v
+ ,v
+ public bool ValidarToken(string token){            bool blReturn = false;            return blReturn;        },V
+https://github.com/code2k/dot_vim/blob/master/keymap.vim   ,v
+dsDatos,v
+3:_vimrc,v
+" map <C-F4> :TlistToggle<CR>,V
+1:keymap.vim,v
+WITH(NOLOCK),v
+indent_guides_guide_size,v
+   ,1
+tu de mamacita,v
+item.Field<int>("Inciso"),,v
+private string _conexion = string.Empty;,v
+private DataSet _dsDatos = null;,v
+_fechaError,v
+string,v
+FechaError,v
+        [DataMember]        public string FechaError {            get { return _fechaError; }            set { _fechaError = value; }        },V
+private_param;,v
+private_param,v
+ get; set; ,v
+_aseguradoraId,v
+_poliza,v
+         ; set; ,V
+            get { return _poliza; }            set { _poliza = value; },V
+ ; set; ,v
+get,v
+                    ,V
+                error            ,V
+fechaError,v
+fechaConfirmacion,v
+_,v
+_fechaDerivcacion,v
+aseguradoraId,v
+                aseguradoraId,                    fechaDerivcacion,                  fechaConfirmacion,                 fechaError,                        error            ,V
+_inciso ,v
+inciso,v
+poliza,v
+                poliza,                            inciso,                           aseguradoraId,                    fechaDerivcacion,                  fechaConfirmacion,                 fechaError,                        error            ,V
+,,v
+;,v

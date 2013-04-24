@@ -12,7 +12,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "------------------------------------------------------
- "vundle 
+ "vundle
  "https://github.com/gmarik/vundle
 "------------------------------------------------------
 set nocompatible " be iMproved
@@ -23,43 +23,168 @@ set rtp+=~/vimfiles/bundle/vundle/
 " let g:bundle_dir='/cygdrive/c/Users/Proman02/vimfiles/bundle/'
 call vundle#rc()
  "" let Vundle manage Vundle
- "" required! 
+ "" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
  "
  " original repos on github
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/gem-ctags'
 Bundle 'mattn/gist-vim'
 Bundle 'othree/html5.vim'
 Bundle 'mattsacks/vim-complete'
 Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle "Lokaltog/vim-powerline"
-Bundle "SirVer/ultisnips"
-Bundle "tobyS/skeletons.vim"
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'SirVer/ultisnips'
+Bundle 'tobyS/skeletons.vim'
+Bundle 'kana/vim-skeleton'
 Bundle 'tobyS/pdv'
+Bundle 'majutsushi/tagbar'
+Bundle 'shemerey/vim-indexer'
+Bundle 'sjl/gundo.vim'
+Bundle 'ervandew/supertab'
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'mattn/webapi-vim'
+Bundle 'c9s/perlomni.vim'
+Bundle 'Townk/vim-autoclose'
+Bundle 'tomtom/quickfixsigns_vim'
+Bundle 'tomtom/checksyntax_vim'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tomtom/vimtlib'
+Bundle 'tomtom/tlib_vim'
+Bundle 'mattn/lisper-vim.git'
+Bundle 'chrisbra/SaveSigns.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'valloric/MatchTagAlways'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'itspriddle/vim-jquery'
+Bundle 'mattn/zencoding-vim'
+Bundle 'godlygeek/csapprox'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'godlygeek/tabular'
+Bundle 'SirVer/ultisnips'
+Bundle 'me-vlad/python-syntax.vim'
+Bundle 'vim-scripts/dbext.vim'
+Bundle 'vim-scripts/DrawIt'
+Bundle 'powerman/vim-plugin-viewdoc'
+Bundle 'xolox/vim-shell'
+Bundle 'Shougo/vimshell'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'spf13/PIV'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'gotcha/vimpdb'
+Bundle 'vim-perl/vim-perl'
+Bundle 'Shougo/vimproc'
+Bundle 'xolox/vim-session'
+Bundle 'Lokaltog/vim-powerline.git'
+Bundle 'stephenmckinney/vim-solarized-powerline'
+Bundle 'Lokaltog/powerline-fonts.git'
+Bundle 'hynek/vim-python-pep8-indent'
+Bundle 'heaths/vim-msbuild'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Rykka/colorv.vim'
+Bundle 'AndrewRadev/sideways.vim'
+Bundle 'AndrewRadev/switch.vim'
+Bundle 'leshill/vim-json'
+Bundle 'mutewinter/tomdoc.vim'
+Bundle 'jc00ke/vim-tomdoc'
+Bundle 'mutewinter/taskpaper.vim'
+Bundle 'mutewinter/vim-css3-syntax'
+Bundle 'kablamo/VimDebug'
+Bundle 'alfredodeza/pytest.vim'
+Bundle 'gagoar/StripWhiteSpaces'
+Bundle 'nosami/Omnisharp'
+Bundle 'mattsacks/vim-complete'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'icsharpcode/NRefactory'
+Bundle 'benizi/perl-support.vim'
+Bundle 'kevinw/pyflakes-vim'
+Bundle 'klen/python-mode'
+Bundle 'honza/vim-snippets'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'greyblake/vim-preview'
+Bundle 'shemerey/vim-project'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'ghewgill/vim-scmdiff'
+Bundle 'garbas/vim-snipmate'
+Bundle 'mattsacks/vim-symbols'
+Bundle 'kana/vim-textobj-user'
+Bundle 'skalnik/vim-vroom'
+Bundle 'Shougo/vimproc'
+Bundle 'Raimondi/delimitMate'
+Bundle 'bronson/vim-visual-star-search'
+Bundle 'xolox/vim-reload'
 
- " vim-scripts repos
+" vim-scripts repos
+Bundle 'c.vim'
 Bundle 'L9'
+Bundle 'genutils'
+Bundle 'CSApprox'
 Bundle 'FuzzyFinder'
 Bundle 'AutoComplPop'
 Bundle 'CSApprox'
 Bundle 'dbext.vim'
 Bundle 'genutils'
 Bundle 'IComplete'
- 
+Bundle 'DfrankUtil'
+Bundle 'YankRing.vim'
+Bundle 'ZoomWin'
+Bundle 'IndexedSearch'
+Bundle 'YankRing.vim'
+Bundle 'SearchComplete'
+Bundle 'Rainbow-Parenthesis'
+Bundle 'scratch.vim'
+Bundle 'indenthtml.vim'
+Bundle 'taglist.vim'
+Bundle 'SQLUtilities'
+Bundle 'VimClojure'
+Bundle 'pydoc.vim'
+Bundle 'vcscommand.vim'
+Bundle 'visual_studio.vim'
+
  " non github repos
  Bundle 'git://git.wincent.com/command-t.git'
  " ...
-
 "couse problems
-"Bundle 'tomtom/quickfixsigns_vim'
-"Bundle 'jeetsukumaran/vim-buffergator'
-"Bundle 'VB.NET-Syntax'
+Bundle 'jeetsukumaran/vim-buffergator'
+" Bundle 'VB.NET-Syntax'
+" Bundle 'quickfixsigns'
+" Bundle 'vim-scripts/QuickBuf'
+" Bundle 'jwu/exvim'
+" Bundle 'wavded/vim-stylus'
+" Bundle 'rking/ag.vim'
+" Bundle 'sjl/badwolf'
+" Bundle 'tsaleh/vim-matchit'
+" Bundle 'motemen/git-vim'
+" Bundle 'rorymckinley/vim-symbols-strings'
+" Bundle 'ShowMarks'
+" Bundle 'AutoTag'
+Bundle 'keepcase.vim'
+" Bundle 'bash-support.vim'
+" Bundle 'drmingdrmer/xptemplate'
+" Bundle 'esukram/autocomplpop.vim'
+Bundle 'Shougo/neosnippet'
+Bundle 'goldfeld/vim-seek'
+" Bundle 'xolox/vim-lua-ftplugin'
+" Bundle 'xolox/vim-lua-inspect'
 
 "------------------------------------------------
  filetype plugin indent on     " required!
@@ -72,8 +197,8 @@ Bundle 'IComplete'
  "
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
- 
-"------------------------------------------------------     
+
+"------------------------------------------------------
 
 " Highlighting {{{
 if &t_Co > 2 || has('gui_running')
@@ -81,6 +206,11 @@ if &t_Co > 2 || has('gui_running')
    syntax on
 endif
 " }}}
+
+"set guioptions -=m  "remove menu bar
+"set guioptions -=r  "remove right-hand scroll bar
+set guioptions+=b  "add horizontal scroll
+set guioptions-=T  "remove toolbar
 
 "Increasing or decreasing numbers add the alpha option.
 "http://vim.wikia.com/wiki/VimTip30
@@ -90,9 +220,9 @@ set formatoptions+=1 " When wrapping paragraphs, don't end lines with 1-letter w
 
 set nocp
 "evita crear archivos de respaldo
-set nobackup	
+set nobackup
 set nowritebackup
-set noswapfile	
+set noswapfile
 set directory=~/vimfiles/tmp,~/tmp,/tmp
 " store swap files in one of these directories
 " (in case swapfile is ever turned on)
@@ -134,8 +264,8 @@ syntax enable
 "colorscheme solarized
 "let g:solarized_termcolors=256
 "colorscheme proman
-"colorscheme Monokai
-colorscheme eclipse
+colorscheme Monokai
+"colorscheme eclipse
 " colorscheme badwolf
 "colorscheme mustang
 "colorscheme wombat
@@ -192,7 +322,7 @@ set foldmethod=indent "fold based on indent
 set foldnestmax=10	"deepest fold is 10 levels
 "set nofoldenable	"dont fold by default
 set foldlevel=1	"this is just what i Use
-" Folding : http://vim.wikia.com/wiki/Syntax-based_folding, see comment by Ostrygen 
+" Folding : http://vim.wikia.com/wiki/Syntax-based_folding, see comment by Ostrygen
 " au FileType cs set omnifunc=syntaxcomplete#Complete
 
 " Folding rules {{{
@@ -292,7 +422,7 @@ let g:indentLine_char = '|'
 "habilita corrector ortografico
 "set spell spelllang=es_mx
 set spelllang=es_mx,en "Carga el diccionario en o los lenguajes que necesitemos
-"set spell "Activa el corrector ortográfico en tiempo real :set nospell desactiva 
+"set spell "Activa el corrector ortográfico en tiempo real :set nospell desactiva
 
 "------------------------------------------------------
 "c compiler
@@ -319,14 +449,14 @@ autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let g:NERDTreeBookmarksFile = expand($HOME.'_NERDTreeBookmarks')
+"let g:NERDTreeBookmarksFile = expand($HOME . '/vimfiles/_NERDTreeBookmarks')
+let g:NERDTreeBookmarksFile = $HOME . '/vimfiles/_NERDTreeBookmarks'
 let g:NERDTreeShowBookmarks = 1
-let g:NERDTreeWinSize = 45
+let g:NERDTreeWinSize = 35
 let g:NERDTreeChristmasTree = 1
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMouseMode=2
-                                   '
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
 
@@ -337,14 +467,14 @@ let g:NERDTreeChDirMode=2
 "ignore some file types
 let g:NERDTreeIgnore=[
       \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-      \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', 
+      \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$',
       \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
-      \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$', 
+      \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
       \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
       \'tags', 'bin', 'obj','\.suo$','\.vspscc$']
 "------------------------------------------------------
 "------------------------------------------------------
-" NERDcommenter 
+" NERDcommenter
 " https://github.com/scrooloose/nerdcommenter
 "------------------------------------------------------
 let NERDSpaceDelims=1
@@ -401,7 +531,7 @@ let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 "
 "--------------------------------------------------------
 " fugitive
-" http://www.vim.org/scripts/script.php?script_id=2975        
+" http://www.vim.org/scripts/script.php?script_id=2975
 " https://github.com/tpope/vim-fugitive
 "--------------------------------------------------------
 "--------------------------------------------------------
@@ -418,7 +548,7 @@ let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 "--------------------------------------------------------
 "
 "--------------------------------------------------------
-" syntastic 
+" syntastic
 " https://github.com/scrooloose/syntastic
 "--------------------------------------------------------
 let g:syntastic_enable_balloons = 1
@@ -517,8 +647,8 @@ let g:tagbar_expand = 0
 "
 "---------------------------------------------------------
 "powerline
-"https://github.com/Lokaltog/vim-powerline.git           
-"https://github.com/Lokaltog/powerline          
+"https://github.com/Lokaltog/vim-powerline.git
+"https://github.com/Lokaltog/powerline
 "https://powerline.readthedocs.org/en/latest/
 "---------------------------------------------------------
 "source ~/.vim/bundle/powerline/powerline/ext/vim/source_plugin.vim
@@ -540,7 +670,7 @@ endif
 "---------------------------------------------------------
 let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
 "---------------------------------------------------------
-let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m' 
+let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
 
 "---------------------------------------------------------
 "Showmarks
@@ -595,7 +725,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 let g:user_zen_mode='n'    "only enable normal mode functions.
 let g:user_zen_mode='inv'  "enable all functions, which is equal t
 let g:user_zen_mode='a'    "enable all function in all mode.
-let g:user_zen_expandabbr_key = '<c-e>' 
+let g:user_zen_expandabbr_key = '<c-e>'
 let g:use_zen_complete_tag = 1
 "---------------------------------------------------------
 
@@ -633,3 +763,9 @@ let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
 " nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 "---------------------------------------------------------
 
+"---------------------------------------------------------
+"vim-reload
+"https://github.com/xolox/vim-reload
+"---------------------------------------------------------
+let g:reload_on_write = 1
+"---------------------------------------------------------

@@ -69,18 +69,6 @@ map <silent> <leader>cd :lcd %:h<CR>
 
 " Create the directory containing the file in the buffer
 map <silent> <leader>md :!mkdir -p %:p:h<CR>
-" Bubble single lines
-" nmap <C-Up> [e
-" nmap <C-Down> ]e
-" nmap <C-k> [e
-" nmap <C-j> ]e
-
-" Bubble multiple lines
-" vmap <C-Up> [egv
-" vmap <C-Down> ]egv
-" vmap <C-k> [egv
-" vmap <C-j> ]egv
-
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
@@ -234,13 +222,13 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 "--------------------------------------------
 "proman
 "--------------------------------------------
-"nerdtree
 ""I make sure the working directory is set correctly.
 nmap <leader>l :set list!<CR>
+"nerdtree
 "I hit <leader>n to open NERDTree.
-"nnoremap <leader>n :NERDTree .<CR>
+nnoremap <leader>n :NERDTree .<CR>
 "mapea las teclas Ctrl+n para abrir NERDTree
-nnoremap <leader>n :NERDTreeToggle<CR>
+" nnoremap <leader>n :NERDTreeToggle<CR>
 "nmap <silent><Leader>nt :NERDTreeMirrorToggle<CR>
 
 "ctrl-p
@@ -257,7 +245,6 @@ nmap <silent> <leader>gp :Git push<CR>
 
 " Shorter commands to toggle Taglist display
 nnoremap TT :TlistToggle<CR>
-map <C-F4> :TlistToggle<CR>
 nnoremap ,T :Tlist<CR>
 nnoremap ,U :TlistUpdate<CR>
 nnoremap ,s :TlistSessionSave tlist<CR>
@@ -293,12 +280,12 @@ nnoremap <c-l> :SidewaysRight<cr>
 " This command will execute the file, for example, if this is an
 " HTML file, it will run:
 "     start c:\absolute\filename.html
-" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart  <C-R><C-R>"<CR><CR>:let @"=old_reg<CR> 
+" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart  <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
 command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
 
 " Toggle the quickfix window {{{
 " From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
-nnoremap <C-q> :call <SID>QuickfixToggle()<cr>
+nnoremap <leader>qf :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
 
@@ -410,3 +397,23 @@ nnoremap <A-Left> :vertical res -1<cr>
 "--------------------------------------------
 " autocmd FileType csproj nnoremap <F5> :make /t:rebuild<CR>
 nnoremap <F5> :make /t:rebuild<CR>
+
+"highlight all words when press <CR>
+let g:highlighting = 0
+function! Highlighting()
+  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+    let g:highlighting = 0
+    return ":silent nohlsearch\<CR>"
+  endif
+  let @/ = '\<'.expand('<cword>').'\>'
+  let g:highlighting = 1
+  return ":silent set hlsearch\<CR>"
+endfunction
+nnoremap <silent> <expr> <CR> Highlighting()
+nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
+
+"insert automatically } and insert above {
+inoremap {<CR> {<CR>}<Esc>O
+
+
+

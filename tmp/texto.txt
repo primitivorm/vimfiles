@@ -1,0 +1,2 @@
+http://www.codeproject.com/Articles/132809/Calling-WCF-Services-using-jQuery
+http://wcf.codeplex.com/wikipage?title=WCF%20jQuery

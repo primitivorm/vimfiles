@@ -12,7 +12,7 @@ VIM - CARTA DE REFERENCIA RÁPIDA
 :Ex | <F4> | <leader>TT   : file explorer note capital Ex
 <C-F4> :TlistToggle       -> generate tags and open tag list
 za  -> toggle a line of code
-zM -> toggle all lines 
+zM -> toggle all lines
 zR -> untoggle all lines
 <leader>s -> StripTrailingWhitespaces (delete space at end line)
 :verbose setlocal foldmethod? -> view foldmethod used
@@ -283,7 +283,7 @@ Caracteres especiales en patrones de busqueda
 /fred\_s*joe/i     : any whitespace including newline
 /bugs\_.*bunny : bugs followed by bunny anywhere in file
 :h \_              : help
-"To substitute any word (say FILE) by actual filename you can use 
+"To substitute any word (say FILE) by actual filename you can use
 :%s/FILE/\=expand("%:t")
 -----------------------------------------------
 Desplazamientos en comandos de búsqueda
@@ -432,7 +432,7 @@ Ctrl W + Ctrl W -> Switch to the other split window
 :diffupdate -- diff update
 :syntax off -- syntax off
 zo -- open folded text
-zc -- close folded text 
+zc -- close folded text
 
 -----------------------------------------------
 NERDTree
@@ -483,7 +483,7 @@ Switches to the alternative set of delimiters.
 [count]<leader>cl
 [count]<leader>cb |NERDComAlignedComment|
 [count]<leader>cu |NERDComUncommentLine|
-Uncomments the selected line(s). 
+Uncomments the selected line(s).
 
 -----------------------------------------------
 "buffer-explorer
@@ -514,12 +514,12 @@ dbext
                             This is useful in functions and mappings, see
                             |dbext-in-mappings|
     DBGetOption           - Retrieves current setting
-    DBCheckModeline       - Checks the file for a dbext modeline, and sets 
+    DBCheckModeline       - Checks the file for a dbext modeline, and sets
                             the connection information
     DBResultsOpen         - Re-opens the result window if it was closed
     DBResultsClose        - Closes the result window
     DBResultsToggleResize - Toggles the size of the result window
-    DBResultsRefresh      - Re-runs the statement currently displayed in the 
+    DBResultsRefresh      - Re-runs the statement currently displayed in the
                             result window
     DBCompleteTable       - Sets up table name completion for the buffer
     DBCompleteProcedure   - Sets up table name completion for the buffer
@@ -566,12 +566,12 @@ Describing objects
 \slv :DBListView Display listing of views
 \slc :DBListColumn Yank column list of the table under the cursor
 -----------------------------------------------
-    
+
 
 -----------------------------------------------
 --SQL Utilities
 -----------------------------------------------
-[range]SQLUFormatter ..list..    
+[range]SQLUFormatter ..list..
                      : Reformats the SQL statements over the specified
                        range.  Statement will lined up given the
                        existing indent of the first word.
@@ -601,7 +601,7 @@ SQLUCreateProcedure  : Creates a stored procedure to perform standard
                        is currently under.
 
 -----------------------------------------------
---surround 
+--surround
 -----------------------------------------------
 It's easiest to explain with examples. Press cs"' inside
 "Hello world!"
@@ -643,10 +643,10 @@ Finally, let's try out visual mode. Press a capital V (for linewise visual mode)
 -----------------------------------------------
 "taglist
 -----------------------------------------------
-:ta -> Navigate to function definition by specifying the function name 
+:ta -> Navigate to function definition by specifying the function name
 :ta /^get -> Navigating through a list of function names which has the similar names
-Ctrl + ] -> Navigating to the function definition from ‘function call’ 
-Ctrl + t -> Returning back again to function call from the definition 
+Ctrl + ] -> Navigating to the function definition from ‘function call’
+Ctrl + t -> Returning back again to function call from the definition
 :ts – shows the list.
 :tn – goes to the next tag in that list.
 :tp - goes to the previous tag in that list.
@@ -680,7 +680,7 @@ Command mode mapppings Mapping  Action
 
 --You have to build your database with at least the following options:
         --c++-kinds=+p  : Adds prototypes in the database for C/C++ files.
-        --fields=+iaS   : Adds inheritance (i), access (a) and function 
+        --fields=+iaS   : Adds inheritance (i), access (a) and function
                           signatures (S) information.
         --extra=+q      : Adds context to the tag name. Note: Without this
                           option, the script cannot get class members.
@@ -785,7 +785,7 @@ cw - Changes the word and stores the previous value in the yankring.
 -----------------------------------------------
 
 -----------------------------------------------
-FuzzyFinder 
+FuzzyFinder
 -----------------------------------------------
 |:FufBuffer|       - Buffer mode (|fuf-buffer-mode|)
 |:FufFile|         - File mode (|fuf-file-mode|)
@@ -821,17 +821,17 @@ http://www.vim.org/scripts/script.php?script_id=31
 :IHN cycles through matches
 <Leader>ih switches to file under cursor
 <Leader>is switches to the alternate file of file under cursor (e.g. on  <foo.h> switches to foo.cpp)
-<Leader>ihn cycles through matches 
+<Leader>ihn cycles through matches
 -----------------------------------------------
 
 -----------------------------------------------
-ShowMarks  (BREAK VIM) 
+ShowMarks  (BREAK VIM)
 http://www.vim.org/scripts/script.php?script_id=152
 -----------------------------------------------
    \mt : Toggles ShowMarks on and off.
    \mh : Hides an individual mark.
    \ma : Hides all marks in the current buffer.
-   \mm : Places the next available mark. 
+   \mm : Places the next available mark.
 -----------------------------------------------
 
 -----------------------------------------------
@@ -843,12 +843,12 @@ http://www.drchip.org/astronaut/vim/align.html#Examples
 \t,  : align on commas
 \t|  : align on vertical bars (|)
 \tsp : align on whitespace
-\tt  : align LaTeX tabular tables 
+\tt  : align LaTeX tabular tables
 -----------------------------------------------
 \acom : align comments
 \adec : align C declarations (one variable per line)
 \afnc : align ansi-style C function input arguments
-\Htd  : align html tables 
+\Htd  : align html tables
 -----------------------------------------------
 
 -----------------------------------------------
@@ -889,7 +889,7 @@ http://www.vim.org/scripts/script.php?script_id=614
   <Leader>cw:              prompt for word CRefVim should search for
                            Memory aid cw: (c)-reference (w)hat
   <Leader>cc:              jump to table of contents of the C-reference manual
-                           Memory aid cc: (c)-reference (c)ontents 
+                           Memory aid cc: (c)-reference (c)ontents
 -----------------------------------------------
 
 -----------------------------------------------
@@ -1044,12 +1044,12 @@ git command
 git add .
 git add . -A    -> remove file
 git commit -m "message here"
-git push 
+git push
 -----------------------------------------------
 
 -----------------------------------------------
 sideways
-http://www.vim.org/scripts/script.php?script_id=4171    
+http://www.vim.org/scripts/script.php?script_id=4171
 https://github.com/AndrewRadev/sideways.vim
 -----------------------------------------------
 <c-h>   move parameters to Left
@@ -1107,12 +1107,12 @@ https://github.com/mutewinter/taskpaper.vim
 -----------------------------------------------
 
 -----------------------------------------------
-FSwitch 
+FSwitch
 http://www.vim.org/scripts/script.php?script_id=2590
 -----------------------------------------------
   - switch the file and keep it in the current window with :FSHere
   - switch the file and put it in the window to the left with :FSLeft
-  - switch the file, split the window to the left and put it there with :FSSwitchLeft 
+  - switch the file, split the window to the left and put it there with :FSSwitchLeft
 -----------------------------------------------
 -----------------------------------------------
 pytest
@@ -1130,9 +1130,9 @@ file
 -----------------------------------------------
 easymotion
 -----------------------------------------------
-let g:EasyMotion_leader_key = '<Leader>' -> 
+let g:EasyMotion_leader_key = '<Leader>' ->
 -----------------------------------------------
-<Leader>ee -> open easymotion 
+<Leader>ee -> open easymotion
 <Leader>et   -> find next coincidence
 <Leader>egE  -> on all document
 <Leader>ek   -> by row
@@ -1266,3 +1266,17 @@ Help for help
 <c-e>    ->expand zencoding
 http://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
 http://code.google.com/p/zen-coding/wiki/ZenHTMLElementsEn
+-----------------------------------------------
+
+-----------------------------------------------
+Buffergator
+https://github.com/jeetsukumaran/vim-buffergator
+-----------------------------------------------
+<Leader>b Invokes ":BuffergatorOpen": open the buffer catalog, or go
+                    to it if it is already open.
+<Leader>B Invokes ":BuffergatorClose": close the buffer catalog.
+<Leader>t Invokes ":BuffergatorTabsOpen": open the tab page catalog,
+                    or go to it if it is already open.
+<Leader>T Invokes ":BuffergatorTabsClose": close the tab page
+                    catalog.
+-----------------------------------------------
