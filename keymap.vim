@@ -6,10 +6,9 @@ let mapleader=","
 "Go to last edit location with ,.
 nnoremap ,. '.
 
-
 " Map the arrow keys to be based on display lines, not physical lines
-map <Down> gj
-map <Up> gk
+"map <Down> gj
+"map <Up> gk
 " Remap j and k to act as expected when used on long, wrapped, lines
 nnoremap j gj
 nnoremap k gk
@@ -51,12 +50,12 @@ endfun
 nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 
 " reindent complete file without losing position
-nnoremap <leader>f mqHmwgg=G`wzt`q
+nnoremap <leader>if mqHmwgg=G`wzt`q
 
 " copy current filename into system clipboard - mnemonic: (c)urrent(f)ilename
 " this is helpful to paste someone the path you're looking at
-nnoremap <silent> ,cf :let @* = expand("%:~")<CR>
-nnoremap <silent> ,cn :let @* = expand("%:t")<CR>
+nnoremap <silent>,cf :let @* = expand("%:~")<CR>
+nnoremap <silent>,cn :let @* = expand("%:t")<CR>
 
 "Clear current search highlight by double tapping //
 nnoremap <silent> // :nohlsearch<CR>
@@ -65,75 +64,78 @@ nnoremap <silent> // :nohlsearch<CR>
 noremap ,hl :set hlsearch! hlsearch?<CR>
 
 " cd to the directory containing the file in the buffer
-map <silent> <leader>cd :lcd %:h<CR>
+map <silent><leader>cd :lcd %:h<CR>
 
 " Create the directory containing the file in the buffer
-map <silent> <leader>md :!mkdir -p %:p:h<CR>
+map <silent><leader>md :!mkdir -p %:p:h<CR>
+" Bubble single lines
+" nmap <C-Up> [e
+" nmap <C-Down> ]e
+" nmap <C-k> [e
+" nmap <C-j> ]e
+
+" Bubble multiple lines
+" vmap <C-Up> [egv
+" vmap <C-Down> ]egv
+" vmap <C-k> [egv
+" vmap <C-j> ]egv
+
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" Fugitive
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gw :Gwrite<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gp :Git push<CR>
- " Mnemonic, gu = Git Update
-nnoremap <Leader>gu :Git pull<CR>
-
 " Ack
 if has("gui_macvim") && has("gui_running")
-    " Command-Shift-F on OSX
+" Command-Shift-F on OSX
     map <D-F> :Ack<space>
-    " CMD-Enter to enter new line, doesn't work in terminal
+" CMD-Enter to enter new line, doesn't work in terminal
     inoremap <D-Enter> <C-o>o
     inoremap <D-S-Enter> <C-o>O
 
-    " ctrl-opt- left/right for tab movement
+" ctrl-opt- left/right for tab movement
     nnoremap <silent> <D-A-Left> :tabp<cr>
     inoremap <silent> <D-A-Left> <esc>:tabp<cr>
     nnoremap <silent> <D-A-Right> :tabn<cr>
     inoremap <silent> <D-A-Right> <esc>:tabn<cr>
 
-    " Resize windows with arrow keys
+" Resize windows with arrow keys
     nnoremap <D-S-Down> <C-w>-
     nnoremap <D-S-Left> <C-w><
     nnoremap <D-S-Up> <C-w>+
-    nnoremap <D-S-Right>  <C-w>>
+    nnoremap <D-S-Right> <C-w>>
 
-    " Apple-* Highlight all occurrences of current word (like '*' but without moving)
-    " http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
+" Apple-* Highlight all occurrences of current word (like '*' but without moving)
+" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
     nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 else
-    " Define <C-F> to a dummy value to see if it would set <C-f> as well.
+" Define <C-F> to a dummy value to see if it would set <C-f> as well.
     map <C-F> :dummy
 
     if maparg("<C-f>") == ":dummy"
-        " <leader>f on systems where <C-f> == <C-F>
+" <leader>f on systems where <C-f> == <C-F>
         map <leader-f> :Ack<space>
     else
-        " <C-F> if we can still map <C-f> to <S-Down>
+" <C-F> if we can still map <C-f> to <S-Down>
         map <C-F> :Ack<space>
     endif
 
     map <C-f> <S-Down>
-    " CMD-Enter to enter new line, doesn't work in terminal
+" CMD-Enter to enter new line, doesn't work in terminal
     inoremap <C-Enter> <C-o>o
     inoremap <C-S-Enter> <C-o>O
 
-    " ctrl-opt- left/right for tab movement
+" ctrl-opt- left/right for tab movement
     nnoremap <silent> <C-A-Left> :tabp<cr>
     inoremap <silent> <C-A-Left> <esc>:tabp<cr>
     nnoremap <silent> <C-A-Right> :tabn<cr>
     inoremap <silent> <C-A-Right> <esc>:tabn<cr>
 
-    " Resize windows with arrow keys
-    nnoremap <C-S-Up> <C-w>+
-    nnoremap <C-S-Down> <C-w>-
-    nnoremap <C-S-Left> <C-w><
-    nnoremap <C-S-Right>  <C-w>>
-
+" Resize windows with arrow keys
+"nnoremap <C-S-Up> <C-w>+
+"nnoremap <C-S-Down> <C-w>-
+"nnoremap <C-S-Left> <C-w><
+"nnoremap <C-S-Right> <C-w>>
     nnoremap <C-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 endif
@@ -222,13 +224,13 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 "--------------------------------------------
 "proman
 "--------------------------------------------
+"nerdtree
 ""I make sure the working directory is set correctly.
 nmap <leader>l :set list!<CR>
-"nerdtree
 "I hit <leader>n to open NERDTree.
-nnoremap <leader>n :NERDTree .<CR>
+"nnoremap <leader>n :NERDTree .<CR>
 "mapea las teclas Ctrl+n para abrir NERDTree
-" nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 "nmap <silent><Leader>nt :NERDTreeMirrorToggle<CR>
 
 "ctrl-p
@@ -245,6 +247,7 @@ nmap <silent> <leader>gp :Git push<CR>
 
 " Shorter commands to toggle Taglist display
 nnoremap TT :TlistToggle<CR>
+map <C-F4> :TlistToggle<CR>
 nnoremap ,T :Tlist<CR>
 nnoremap ,U :TlistUpdate<CR>
 nnoremap ,s :TlistSessionSave tlist<CR>
@@ -255,15 +258,15 @@ nnoremap ,l :TlistSessionLoad tlist<CR>
 map <C-F12> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "sql formatter
-vmap <silent>sf        <Plug>SQLU_Formatter<CR>
-nmap <silent>scl       <Plug>SQLU_CreateColumnList<CR>
-nmap <silent>scd       <Plug>SQLU_GetColumnDef<CR>
-nmap <silent>scdt      <Plug>SQLU_GetColumnDataType<CR>
-nmap <silent>scp       <Plug>SQLU_CreateProcedure<CR>
+vmap <silent>sf <Plug>SQLU_Formatter<CR>
+nmap <silent>scl <Plug>SQLU_CreateColumnList<CR>
+nmap <silent>scd <Plug>SQLU_GetColumnDef<CR>
+nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
+nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
 
 "tagbar
 nmap <silent><leader>T :TagbarToggle<CR>
-"noremap <silent> <Leader>y :TagbarToggle       " Display panel with y (or ,y)
+"noremap <silent> <Leader>y :TagbarToggle " Display panel with y (or ,y)
 
 "Command-t
 nnoremap <silent> <Leader>t :CommandT<CR>
@@ -279,8 +282,8 @@ nnoremap <c-l> :SidewaysRight<cr>
 
 " This command will execute the file, for example, if this is an
 " HTML file, it will run:
-"     start c:\absolute\filename.html
-" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart  <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
+" start c:\absolute\filename.html
+" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
 command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
 
 " Toggle the quickfix window {{{
@@ -303,7 +306,7 @@ endfunction
 " }}}
 
 " Toggle the foldcolumn {{{
-nnoremap <leader>f :call FoldColumnToggle()<cr>
+nnoremap <leader>fc :call FoldColumnToggle()<cr>
 
 let g:last_fold_column_width = 4 " Pick a sane default for the foldcolumn
 
@@ -414,6 +417,3 @@ nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
 
 "insert automatically } and insert above {
 inoremap {<CR> {<CR>}<Esc>O
-
-
-

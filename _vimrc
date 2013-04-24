@@ -12,7 +12,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "------------------------------------------------------
- "vundle
+"vundle
  "https://github.com/gmarik/vundle
 "------------------------------------------------------
 set nocompatible " be iMproved
@@ -22,13 +22,13 @@ set rtp+=~/vimfiles/bundle/vundle/
 "let g:bundle_dir=$HOME.'/vimfiles/bundle/vundle/'
 " let g:bundle_dir='/cygdrive/c/Users/Proman02/vimfiles/bundle/'
 call vundle#rc()
- "" let Vundle manage Vundle
- "" required!
+"" let Vundle manage Vundle
+"" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
  "
- " original repos on github
+" original repos on github
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
@@ -39,6 +39,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'drmingdrmer/xptemplate'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-endwise'
@@ -58,17 +59,15 @@ Bundle 'kana/vim-skeleton'
 Bundle 'tobyS/pdv'
 Bundle 'majutsushi/tagbar'
 Bundle 'shemerey/vim-indexer'
+Bundle 'esukram/autocomplpop.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'mattn/webapi-vim'
 Bundle 'c9s/perlomni.vim'
 Bundle 'Townk/vim-autoclose'
-Bundle 'tomtom/quickfixsigns_vim'
-Bundle 'tomtom/checksyntax_vim'
+Bundle 'Shougo/neosnippet'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'tomtom/vimtlib'
-Bundle 'tomtom/tlib_vim'
 Bundle 'mattn/lisper-vim.git'
 Bundle 'chrisbra/SaveSigns.vim'
 Bundle 'scrooloose/syntastic'
@@ -80,6 +79,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'godlygeek/csapprox'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'godlygeek/tabular'
+Bundle 'majutsushi/tagbar.git'
 Bundle 'SirVer/ultisnips'
 Bundle 'me-vlad/python-syntax.vim'
 Bundle 'vim-scripts/dbext.vim'
@@ -97,41 +97,51 @@ Bundle 'xolox/vim-session'
 Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'Lokaltog/powerline-fonts.git'
+Bundle 'vim-scripts/QuickBuf'
 Bundle 'hynek/vim-python-pep8-indent'
+Bundle 'wavded/vim-stylus'
 Bundle 'heaths/vim-msbuild'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Rykka/colorv.vim'
 Bundle 'AndrewRadev/sideways.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'leshill/vim-json'
+Bundle 'rking/ag.vim'
 Bundle 'mutewinter/tomdoc.vim'
 Bundle 'jc00ke/vim-tomdoc'
 Bundle 'mutewinter/taskpaper.vim'
 Bundle 'mutewinter/vim-css3-syntax'
+Bundle 'jwu/exvim'
+Bundle 'xolox/vim-lua-ftplugin'
+Bundle 'xolox/vim-lua-inspect'
 Bundle 'kablamo/VimDebug'
+Bundle 'sjl/badwolf'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'nosami/Omnisharp'
 Bundle 'mattsacks/vim-complete'
 Bundle 'fholgado/minibufexpl.vim'
+Bundle 'tsaleh/vim-matchit'
 Bundle 'icsharpcode/NRefactory'
 Bundle 'benizi/perl-support.vim'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'klen/python-mode'
 Bundle 'honza/vim-snippets'
+Bundle 'tomtom/tlib_vim'
 Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'motemen/git-vim'
 Bundle 'greyblake/vim-preview'
 Bundle 'shemerey/vim-project'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'ghewgill/vim-scmdiff'
 Bundle 'garbas/vim-snipmate'
 Bundle 'mattsacks/vim-symbols'
+Bundle 'rorymckinley/vim-symbols-strings'
 Bundle 'kana/vim-textobj-user'
 Bundle 'skalnik/vim-vroom'
 Bundle 'Shougo/vimproc'
+Bundle 'goldfeld/vim-seek'
 Bundle 'Raimondi/delimitMate'
-Bundle 'bronson/vim-visual-star-search'
-Bundle 'xolox/vim-reload'
 
 " vim-scripts repos
 Bundle 'c.vim'
@@ -146,71 +156,53 @@ Bundle 'genutils'
 Bundle 'IComplete'
 Bundle 'DfrankUtil'
 Bundle 'YankRing.vim'
+Bundle 'ShowMarks'
 Bundle 'ZoomWin'
 Bundle 'IndexedSearch'
 Bundle 'YankRing.vim'
 Bundle 'SearchComplete'
+Bundle 'AutoTag'
 Bundle 'Rainbow-Parenthesis'
+Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
 Bundle 'indenthtml.vim'
+Bundle 'bash-support.vim'
 Bundle 'taglist.vim'
 Bundle 'SQLUtilities'
 Bundle 'VimClojure'
 Bundle 'pydoc.vim'
+Bundle 'quickfixsigns'
 Bundle 'vcscommand.vim'
 Bundle 'visual_studio.vim'
-
- " non github repos
+" non github repos
  Bundle 'git://git.wincent.com/command-t.git'
  " ...
+
 "couse problems
-Bundle 'jeetsukumaran/vim-buffergator'
-" Bundle 'VB.NET-Syntax'
-" Bundle 'quickfixsigns'
-" Bundle 'vim-scripts/QuickBuf'
-" Bundle 'jwu/exvim'
-" Bundle 'wavded/vim-stylus'
-" Bundle 'rking/ag.vim'
-" Bundle 'sjl/badwolf'
-" Bundle 'tsaleh/vim-matchit'
-" Bundle 'motemen/git-vim'
-" Bundle 'rorymckinley/vim-symbols-strings'
-" Bundle 'ShowMarks'
-" Bundle 'AutoTag'
-Bundle 'keepcase.vim'
-" Bundle 'bash-support.vim'
-" Bundle 'drmingdrmer/xptemplate'
-" Bundle 'esukram/autocomplpop.vim'
-Bundle 'Shougo/neosnippet'
-Bundle 'goldfeld/vim-seek'
-" Bundle 'xolox/vim-lua-ftplugin'
-" Bundle 'xolox/vim-lua-inspect'
+"Bundle 'tomtom/quickfixsigns_vim'
+"Bundle 'jeetsukumaran/vim-buffergator'
+"Bundle 'VB.NET-Syntax'
 
 "------------------------------------------------
- filetype plugin indent on     " required!
- "
+ filetype plugin indent on " required!
+"
  " Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
- "
+" :BundleList - list configured bundles
+ " :BundleInstall(!) - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+ " :BundleClean(!) - confirm(or auto-approve) removal of unused bundles
+"
  " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
+" NOTE: comments after Bundle command are not allowed..
 
 "------------------------------------------------------
 
 " Highlighting {{{
 if &t_Co > 2 || has('gui_running')
    " switch syntax highlighting on, when the terminal has colors
-   syntax on
+syntax on
 endif
 " }}}
-
-"set guioptions -=m  "remove menu bar
-"set guioptions -=r  "remove right-hand scroll bar
-set guioptions+=b  "add horizontal scroll
-set guioptions-=T  "remove toolbar
 
 "Increasing or decreasing numbers add the alpha option.
 "http://vim.wikia.com/wiki/VimTip30
@@ -265,15 +257,15 @@ syntax enable
 "let g:solarized_termcolors=256
 "colorscheme proman
 colorscheme Monokai
-"colorscheme eclipse
+" colorscheme eclipse
 " colorscheme badwolf
 "colorscheme mustang
 "colorscheme wombat
 "colorscheme github
 "colorscheme smyck
 "colorscheme railscasts
-"colorscheme bandit     "like visual studio
-"colorscheme blackboard     "like visual studio
+"colorscheme bandit "like visual studio
+"colorscheme blackboard "like visual studio
 "colorscheme default
 
 "habilita plugin para sangrado de lineas
@@ -301,8 +293,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
-set scrolloff=4     " keep 4 lines off the edges of the screen when scrolling
-set virtualedit=all             " allow the cursor to go in to "invalid" places
+set scrolloff=4 " keep 4 lines off the edges of the screen when scrolling
+set virtualedit=all " allow the cursor to go in to "invalid" places
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
@@ -310,18 +302,18 @@ set copyindent " copy the previous indentation on autoindenting
 set hlsearch
 "jumps to search word as you type (annoying but excellent)
 set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
-set incsearch   " show search matches as you type
+set incsearch " show search matches as you type
 "Caso insesitivo para busquedas es decir no distingue mayusculas y minusculas
 set ignorecase
 "case-sensitive if search contains an uppercase character
 set smartcase
-set gdefault                    " search/replace "globally" (on a line) by default
+set gdefault " search/replace "globally" (on a line) by default
 set showmatch
 "estable el modo de pliegue (folding)
 set foldmethod=indent "fold based on indent
-set foldnestmax=10	"deepest fold is 10 levels
-"set nofoldenable	"dont fold by default
-set foldlevel=1	"this is just what i Use
+set foldnestmax=10 "deepest fold is 10 levels
+"set nofoldenable "dont fold by default
+set foldlevel=1 "this is just what i Use
 " Folding : http://vim.wikia.com/wiki/Syntax-based_folding, see comment by Ostrygen
 " au FileType cs set omnifunc=syntaxcomplete#Complete
 
@@ -333,11 +325,11 @@ set foldlevelstart=99 " start out with everything folded
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 " which commands trigger auto-unfold
 function! MyFoldText()
-    let line = getline(v:foldstart)
+let line = getline(v:foldstart)
 
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
+let nucolwidth = &fdc + &number * &numberwidth
+let windowwidth = winwidth(0) - nucolwidth - 3
+let foldedlinecount = v:foldend - v:foldstart
 
 " expand tabs into spaces
     let onetab = strpart(' ', 0, &tabstop)
@@ -345,7 +337,7 @@ function! MyFoldText()
 
     let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
     let fillcharcount = windowwidth - len(line) - len(foldedlinecount) - 4
-    return line . ' ¿' . repeat(" ",fillcharcount) . foldedlinecount . ' '
+    return line . ' ï¿½' . repeat(" ",fillcharcount) . foldedlinecount . ' '
 endfunction
 set foldtext=MyFoldText()
 " }}}
@@ -370,7 +362,7 @@ set switchbuf=useopen " reveal already opened files from the
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 if v:version >= 730
-    set undofile " keep a persistent backup file
+set undofile " keep a persistent backup file
     set undodir=~/vimfiles/tmp,~/tmp,/tmp
 endif
 
@@ -397,23 +389,23 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 highlight SpecialKey guifg=#c0c0c0 ctermfg=192
 "muestra los caracteres ocultos y los remplaza por los establecidos
 " set list
-set listchars=tab:\|-,trail:-,eol:¬
+set listchars=tab:\|-,trail:-,eol:ï¿½
 set mouse=a " enable using the mouse if terminal emulator
 
 highlight NonText guifg=#4a4a59
 if has('gui_running')
-    "establecer fuente y tamaño
+"establecer fuente y tamaï¿½o
     "set guifont=Ubuntu_Mono:h11:cDEFAULT
-    "set guifont=Ubuntu_Mono:h11:cANSI
+"set guifont=Ubuntu_Mono:h11:cANSI
     "set guifont=Consolas:h12:cDEFAULT
-    "set guifont=Sansation_Light:h11:cDEFAULT
+"set guifont=Sansation_Light:h11:cDEFAULT
     "set guifont=Sansation:h11:cDEFAULT
-    "set guifont=ProggyCleanTT:h13:cDEFAULT
+"set guifont=ProggyCleanTT:h13:cDEFAULT
     "set guifont=DejaVu_Sans_Mono:h10:cDEFAULT
-    "set guifont=Monaco:h9:cDEFAULT
+"set guifont=Monaco:h9:cDEFAULT
     "set guifont=Ubuntu_Mono_for_powerline:h14:cDEFAULT
-    set guifont=Ubuntu_Mono_for_powerline:h11:cANSI
-    set cursorline cursorcolumn
+set guifont=Ubuntu_Mono_for_powerline:h11:cANSI
+set cursorline cursorcolumn
 endif
 
 " indentline
@@ -422,7 +414,7 @@ let g:indentLine_char = '|'
 "habilita corrector ortografico
 "set spell spelllang=es_mx
 set spelllang=es_mx,en "Carga el diccionario en o los lenguajes que necesitemos
-"set spell "Activa el corrector ortográfico en tiempo real :set nospell desactiva
+"set spell "Activa el corrector ortogrï¿½fico en tiempo real :set nospell desactiva
 
 "------------------------------------------------------
 "c compiler
@@ -449,14 +441,14 @@ autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-"let g:NERDTreeBookmarksFile = expand($HOME . '/vimfiles/_NERDTreeBookmarks')
-let g:NERDTreeBookmarksFile = $HOME . '/vimfiles/_NERDTreeBookmarks'
+let g:NERDTreeBookmarksFile = expand($HOME.'_NERDTreeBookmarks')
 let g:NERDTreeShowBookmarks = 1
-let g:NERDTreeWinSize = 35
+let g:NERDTreeWinSize = 45
 let g:NERDTreeChristmasTree = 1
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMouseMode=2
+'
 let g:nerdtree_tabs_open_on_gui_startup=0
 let g:nerdtree_tabs_open_on_console_startup=0
 
@@ -525,8 +517,8 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\.exe$\|\.so$\|\.dll$',
       \ 'link': 'some_bad_symbolic_links',
       \ }
-"let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+"let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
+let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
 "---------------------------------------------------------
 "
 "--------------------------------------------------------
@@ -556,8 +548,8 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=0
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
-                               \ 'active_filetypes': ['ruby', 'php'],
-                               \ 'passive_filetypes': ['puppet'] }
+\ 'active_filetypes': ['ruby', 'php'],
+\ 'passive_filetypes': ['puppet'] }
 "--------------------------------------------------------
 "default signs
 " syntastic_error_symbol - For syntax errors, defaults to '>>'
@@ -635,9 +627,9 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 " http://www.vim.org/scripts/script.php?script_id=3465
 " https://github.com/majutsushi/tagbar
 "---------------------------------------------------------
-let g:tagbar_ctags_bin='"C:\Users\Proman02\vimfiles\ctags58\ctags.exe"'  " Proper Ctags locations
-" let g:tagbar_ctags_bin= $HOME .'/vimfiles/ctags58/ctags.exe'  " Proper Ctags locations
-let g:tagbar_width=26                          " Default is 40, seems too wide
+let g:tagbar_ctags_bin='"C:\Users\Proman02\vimfiles\ctags58\ctags.exe"' " Proper Ctags locations
+" let g:tagbar_ctags_bin= $HOME .'/vimfiles/ctags58/ctags.exe' " Proper Ctags locations
+let g:tagbar_width=26 " Default is 40, seems too wide
 let g:tagbar_width = 30
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
@@ -690,7 +682,7 @@ let g:indent_guides_guide_size=1
 "
 "setting custom indent colors
 " let g:indent_guides_auto_colors = 0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
 " autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 " Indentation style color guides
 hi IndentGuidesOdd ctermbg=black
@@ -722,9 +714,9 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 "http://mattn.github.com/zencoding-vim/
 "http://coding.smashingmagazine.com/2009/11/21/zen-coding-a-new-way-to-write-html-code/
 "---------------------------------------------------------
-let g:user_zen_mode='n'    "only enable normal mode functions.
-let g:user_zen_mode='inv'  "enable all functions, which is equal t
-let g:user_zen_mode='a'    "enable all function in all mode.
+let g:user_zen_mode='n' "only enable normal mode functions.
+let g:user_zen_mode='inv' "enable all functions, which is equal t
+let g:user_zen_mode='a' "enable all function in all mode.
 let g:user_zen_expandabbr_key = '<c-e>'
 let g:use_zen_complete_tag = 1
 "---------------------------------------------------------
@@ -753,7 +745,7 @@ let g:badwolf_css_props_highlight = 1
 "https://github.com/tobyS/skeletons.vim
 "---------------------------------------------------------
 let g:skeletons_dir=$HOME . '/vimfiles/bundle/skeletons.vim/skeletons/'
-au BufNewFile * silent! 0r  ~/vimfiles/bundle/skeleton.vim/skeletons/skeleton.%:e
+au BufNewFile * silent! 0r ~/vimfiles/bundle/skeleton.vim/skeletons/skeleton.%:e
 "---------------------------------------------------------
 "pdv
 "https://github.com/tobyS/pdv
@@ -761,11 +753,4 @@ au BufNewFile * silent! 0r  ~/vimfiles/bundle/skeleton.vim/skeletons/skeleton.%:
 "---------------------------------------------------------
 let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
 " nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
-"---------------------------------------------------------
-
-"---------------------------------------------------------
-"vim-reload
-"https://github.com/xolox/vim-reload
-"---------------------------------------------------------
-let g:reload_on_write = 1
 "---------------------------------------------------------
