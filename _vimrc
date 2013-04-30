@@ -1,6 +1,6 @@
 "https://github.com/tpope/tpope/blob/master/.vimrc
 "archivos de configuracion auxiliares para windows
-source $HOME/vimfiles/mswin.vim
+" source $HOME/vimfiles/mswin.vim
 " Key mappings, functions, autocommands
 source $HOME/vimfiles/keymap.vim
 set digraph
@@ -19,8 +19,6 @@ set nocompatible " be iMproved
 "filetype off " required!
 
 set rtp+=~/vimfiles/bundle/vundle/
-"let g:bundle_dir=$HOME.'/vimfiles/bundle/vundle/'
-" let g:bundle_dir='/cygdrive/c/Users/Proman02/vimfiles/bundle/'
 call vundle#rc()
 "" let Vundle manage Vundle
 "" required!
@@ -29,25 +27,25 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
  "
 " original repos on github
-Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'drmingdrmer/xptemplate'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/gem-ctags'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'drmingdrmer/xptemplate'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'mileszs/ack.vim'
 Bundle 'mattn/gist-vim'
 Bundle 'othree/html5.vim'
 Bundle 'mattsacks/vim-complete'
@@ -59,17 +57,18 @@ Bundle 'kana/vim-skeleton'
 Bundle 'tobyS/pdv'
 Bundle 'majutsushi/tagbar'
 Bundle 'shemerey/vim-indexer'
-Bundle 'esukram/autocomplpop.vim'
+" Bundle 'esukram/autocomplpop.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'mattn/webapi-vim'
 Bundle 'c9s/perlomni.vim'
 Bundle 'Townk/vim-autoclose'
+" Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
-Bundle 'tomtom/tcomment_vim'
+" Bundle 'tomtom/tcomment_vim'
 Bundle 'mattn/lisper-vim.git'
-Bundle 'chrisbra/SaveSigns.vim'
+" Bundle 'chrisbra/SaveSigns.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'valloric/MatchTagAlways'
 Bundle 'plasticboy/vim-markdown'
@@ -97,7 +96,6 @@ Bundle 'xolox/vim-session'
 Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'Lokaltog/powerline-fonts.git'
-Bundle 'vim-scripts/QuickBuf'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'wavded/vim-stylus'
 Bundle 'heaths/vim-msbuild'
@@ -109,17 +107,16 @@ Bundle 'leshill/vim-json'
 Bundle 'rking/ag.vim'
 Bundle 'mutewinter/tomdoc.vim'
 Bundle 'jc00ke/vim-tomdoc'
-Bundle 'mutewinter/taskpaper.vim'
+Bundle 'davidoc/taskpaper.vim'
 Bundle 'mutewinter/vim-css3-syntax'
 Bundle 'jwu/exvim'
-Bundle 'xolox/vim-lua-ftplugin'
-Bundle 'xolox/vim-lua-inspect'
+" Bundle 'xolox/vim-lua-ftplugin'
+" Bundle 'xolox/vim-lua-inspect'
 Bundle 'kablamo/VimDebug'
 Bundle 'sjl/badwolf'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'nosami/Omnisharp'
-Bundle 'mattsacks/vim-complete'
 Bundle 'fholgado/minibufexpl.vim'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'icsharpcode/NRefactory'
@@ -128,20 +125,25 @@ Bundle 'kevinw/pyflakes-vim'
 Bundle 'klen/python-mode'
 Bundle 'honza/vim-snippets'
 Bundle 'tomtom/tlib_vim'
-Bundle 'jeetsukumaran/vim-buffergator'
+" Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'motemen/git-vim'
 Bundle 'greyblake/vim-preview'
 Bundle 'shemerey/vim-project'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'ghewgill/vim-scmdiff'
 Bundle 'garbas/vim-snipmate'
-Bundle 'mattsacks/vim-symbols'
-Bundle 'rorymckinley/vim-symbols-strings'
+" Bundle 'mattsacks/vim-symbols'
+" Bundle 'rorymckinley/vim-symbols-strings'
 Bundle 'kana/vim-textobj-user'
 Bundle 'skalnik/vim-vroom'
 Bundle 'Shougo/vimproc'
 Bundle 'goldfeld/vim-seek'
 Bundle 'Raimondi/delimitMate'
+Bundle 'biruh/vim-aspnet'
+"Bundle 'bryanthankins/vim-aspnetide'
+" Bundle 'tek/vim-quickbuf'
+Bundle 'mklabs/vim-backbone'
+Bundle 'oranget/vim-csharp.git'
 
 " vim-scripts repos
 Bundle 'c.vim'
@@ -150,7 +152,6 @@ Bundle 'genutils'
 Bundle 'CSApprox'
 Bundle 'FuzzyFinder'
 Bundle 'AutoComplPop'
-Bundle 'CSApprox'
 Bundle 'dbext.vim'
 Bundle 'genutils'
 Bundle 'IComplete'
@@ -161,7 +162,9 @@ Bundle 'ZoomWin'
 Bundle 'IndexedSearch'
 Bundle 'YankRing.vim'
 Bundle 'SearchComplete'
-Bundle 'AutoTag'
+" Bundle 'QuickBuf'
+
+" Bundle 'AutoTag'
 Bundle 'Rainbow-Parenthesis'
 Bundle 'keepcase.vim'
 Bundle 'scratch.vim'
@@ -209,7 +212,6 @@ endif
 set nrformats+=alpha
 set fileformats="unix,dos,mac"
 set formatoptions+=1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
-
 set nocp
 "evita crear archivos de respaldo
 set nobackup
@@ -389,7 +391,8 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 highlight SpecialKey guifg=#c0c0c0 ctermfg=192
 "muestra los caracteres ocultos y los remplaza por los establecidos
 " set list
-set listchars=tab:\|-,trail:-,eol:�
+" set listchars=tab:\|-,trail:-,eol:�
+set listchars=tab:▸\-,trail:-,eol:¬
 set mouse=a " enable using the mouse if terminal emulator
 
 highlight NonText guifg=#4a4a59
@@ -404,17 +407,32 @@ if has('gui_running')
     "set guifont=DejaVu_Sans_Mono:h10:cDEFAULT
 "set guifont=Monaco:h9:cDEFAULT
     "set guifont=Ubuntu_Mono_for_powerline:h14:cDEFAULT
-set guifont=Ubuntu_Mono_for_powerline:h11:cANSI
+" set guifont=Ubuntu_Mono_for_powerline:h11:cANSI
+set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
 set cursorline cursorcolumn
 endif
+"set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+" set guioptions-=r  "remove right-hand scroll bar
+set guioptions+=b  "remove right-hand scroll bar
+
+let g:gui_fonts = ['Monospace 10', 'Lucida Console 10', 'Courier New 10']
+let g:gui_colors = ['ego', 'corporation', 'github', 'satori', 'sienna']
 
 " indentline
 let g:indentLine_char = '|'
-
+"customize tab color
+hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+hi TabLine ctermfg=Blue ctermbg=Yellow
+hi TabLineSel ctermfg=Red ctermbg=Yellow
+hi Title ctermfg=LightBlue ctermbg=Magenta
 "habilita corrector ortografico
 "set spell spelllang=es_mx
 set spelllang=es_mx,en "Carga el diccionario en o los lenguajes que necesitemos
 "set spell "Activa el corrector ortogr�fico en tiempo real :set nospell desactiva
+"will add dictionary scanning
+set complete+=k
+" set dictionary=/usr/share/dict/words
 
 "------------------------------------------------------
 "c compiler
@@ -441,9 +459,9 @@ autocmd vimenter * NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let g:NERDTreeBookmarksFile = expand($HOME.'_NERDTreeBookmarks')
+let g:NERDTreeBookmarksFile = expand($HOME.'/vimfiles/_NERDTreeBookmarks')
 let g:NERDTreeShowBookmarks = 1
-let g:NERDTreeWinSize = 45
+let g:NERDTreeWinSize = 25
 let g:NERDTreeChristmasTree = 1
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeQuitOnOpen = 1
@@ -505,6 +523,8 @@ hi link EasyMotionShade Comment
 "https://github.com/kien/ctrlp.vim
 "---------------------------------------------------------
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_cache_dir = $HOME.'/ctrlp_cache'
 let g:ctrlp_max_height = 15
 let g:ctrlp_clear_cache_on_exit = 1
@@ -589,6 +609,7 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
+let Tlist_Auto_Open = 1
 "---------------------------------------------------------
 "
 "---------------------------------------------------------
@@ -660,9 +681,9 @@ endif
 "http://insenvim.sourceforge.net/
 "https://github.com/tomtom/checksyntax_vim.git
 "---------------------------------------------------------
-let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
+" let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
 "---------------------------------------------------------
-let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
+" let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
 
 "---------------------------------------------------------
 "Showmarks
@@ -752,5 +773,46 @@ au BufNewFile * silent! 0r ~/vimfiles/bundle/skeleton.vim/skeletons/skeleton.%:e
 "---------------------------------------------------------
 "---------------------------------------------------------
 let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
-" nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
+nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 "---------------------------------------------------------
+"---------------------------------------------------------
+"---------------------------------------------------------
+"MatchTagAlways
+"https://github.com/Valloric/MatchTagAlways
+"---------------------------------------------------------
+"let g:mta_use_matchparen_group = 1
+"highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=lightgreen
+"---------------------------------------------------------
+"---------------------------------------------------------
+"Omnisharp
+"https://github.com/nosami/Omnisharp
+"---------------------------------------------------------
+"This is the default value, setting it isn't actually necessary
+let g:OmniSharp_host = "http://localhost:80"
+"Set the type lookup function to use the preview window instead of the status line
+let g:OmniSharp_typeLookupInPreview = 1
+"---------------------------------------------------------
+"---------------------------------------------------------
+"neocomplcache
+"https://github.com/Shougo/neocomplcache
+"---------------------------------------------------------
+" let g:neocomplcache_enable_at_startup = 1
+" " Use smartcase.
+" let g:neocomplcache_enable_smart_case = 1
+" " Use camel case completion.
+" let g:neocomplcache_enable_camel_case_completion = 1
+" " Use underscore completion.
+" let g:neocomplcache_enable_underbar_completion = 1
+" " Sets minimum char length of syntax keyword.
+" let g:neocomplcache_min_syntax_length = 0
+" " buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder
+" "let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" let g:neocomplcache_enable_auto_close_preview = 0
+" " Define keyword, for minor languages
+" if !exists('g:neocomplcache_keyword_patterns')
+  " let g:neocomplcache_keyword_patterns = {}
+" endif
+" let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+"---------------------------------------------------------
+
+

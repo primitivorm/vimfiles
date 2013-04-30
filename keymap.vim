@@ -5,7 +5,6 @@ let mapleader=","
 
 "Go to last edit location with ,.
 nnoremap ,. '.
-
 " Map the arrow keys to be based on display lines, not physical lines
 "map <Down> gj
 "map <Up> gk
@@ -68,18 +67,6 @@ map <silent><leader>cd :lcd %:h<CR>
 
 " Create the directory containing the file in the buffer
 map <silent><leader>md :!mkdir -p %:p:h<CR>
-" Bubble single lines
-" nmap <C-Up> [e
-" nmap <C-Down> ]e
-" nmap <C-k> [e
-" nmap <C-j> ]e
-
-" Bubble multiple lines
-" vmap <C-Up> [egv
-" vmap <C-Down> ]egv
-" vmap <C-k> [egv
-" vmap <C-j> ]egv
-
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
@@ -130,12 +117,6 @@ else
     inoremap <silent> <C-A-Left> <esc>:tabp<cr>
     nnoremap <silent> <C-A-Right> :tabn<cr>
     inoremap <silent> <C-A-Right> <esc>:tabn<cr>
-
-" Resize windows with arrow keys
-"nnoremap <C-S-Up> <C-w>+
-"nnoremap <C-S-Down> <C-w>-
-"nnoremap <C-S-Left> <C-w><
-"nnoremap <C-S-Right> <C-w>>
     nnoremap <C-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 endif
@@ -226,7 +207,7 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 "--------------------------------------------
 "nerdtree
 ""I make sure the working directory is set correctly.
-nmap <leader>l :set list!<CR>
+nmap <leader>lc :set list!<CR>
 "I hit <leader>n to open NERDTree.
 "nnoremap <leader>n :NERDTree .<CR>
 "mapea las teclas Ctrl+n para abrir NERDTree
@@ -271,11 +252,6 @@ nmap <silent><leader>T :TagbarToggle<CR>
 "Command-t
 nnoremap <silent> <Leader>t :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
-
-"vim-indent-guides
-"Show ident lines
-"map <F2> <leader>ig
-
 "sidewise
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
@@ -392,14 +368,10 @@ nnoremap <leader>v V`]
 
 "http://vim.usrsb.in/117060445
 "can resize your windows using Alt plus an arrow key.
-nnoremap <A-Right> :vertical res +1<cr>
-nnoremap <A-Up> :res +1<cr>
-nnoremap <A-Down> :res -1<cr>
-nnoremap <A-Left> :vertical res -1<cr>
-
-"--------------------------------------------
-" autocmd FileType csproj nnoremap <F5> :make /t:rebuild<CR>
-nnoremap <F5> :make /t:rebuild<CR>
+nnoremap <C-A-Right> :vertical res +1<cr>
+nnoremap <C-A-Up> :res +1<cr>
+nnoremap <C-A-Down> :res -1<cr>
+nnoremap <C-A-Left> :vertical res -1<cr>
 
 "highlight all words when press <CR>
 let g:highlighting = 0
@@ -417,3 +389,71 @@ nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
 
 "insert automatically } and insert above {
 inoremap {<CR> {<CR>}<Esc>O
+
+"vim-complete
+nnoremap <Leader>ke :call Complete('e')<CR>
+nnoremap <Leader>kb :call Complete('b')<CR>
+" for use with fuzzee (http://github.com/mattsacks/vim-fuzzee)
+nnoremap <Leader>kf :call Complete('F')<CR>
+nnoremap <Leader>kj :call Complete('F app/javascripts*')<CR>
+
+"buftabs
+ noremap <C-left> :bprev<CR>
+ noremap <C-right> :bnext<CR>
+
+"Omnisharp
+map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
+map <F12> :call OmniSharp#GotoDefinition()<cr>
+map gd :call OmniSharp#GotoDefinition()<cr>
+nmap fi :call OmniSharp#FindImplementations()<cr>
+nmap fu :call OmniSharp#FindUsages()<cr>
+" nmap <leader>tt :call OmniSharp#TypeLookup()<cr>
+nmap <leader>ot :call OmniSharp#TypeLookup()<cr>
+"I find contextual code actions so useful that I have it mapped to the spacebar
+nmap <space> :call OmniSharp#GetCodeActions()<cr>
+
+" rename with dialog
+nmap nm :call OmniSharp#Rename()<cr>
+nmap <F2> :call OmniSharp#Rename()<cr>
+" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
+command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+" Force OmniSharp to reload the solution. Useful when switching branches etc.
+nmap <leader>rl :call OmniSharp#ReloadSolution()<cr>
+
+" "neocomplcache
+
+" " SuperTab like snippets behavior.
+" "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" " Recommended key-mappings.
+" " <CR>: close popup and save indent.
+" inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+" inoremap <expr>.  neocomplcache#close_popup() . "."
+" inoremap <expr>(  neocomplcache#close_popup() . "("
+" inoremap <expr>)  neocomplcache#close_popup() . ")"
+" inoremap <expr><space>  neocomplcache#close_popup() . " "
+" inoremap <expr>;  neocomplcache#close_popup() . ";"
+" " <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" " <C-h>, <BS>: close popup and delete backword char.
+" inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-y>  neocomplcache#close_popup()
+" inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" inoremap <expr><ESC> pumvisible() ? neocomplcache#cancel_popup() : "\<esc>"
+" " AutoComplPop like behavior.
+" let g:neocomplcache_enable_auto_select = 1
+" " Shell like behavior(not recommended).
+" set completeopt+=longest
+" "let g:neocomplcache_disable_auto_complete = 1
+" "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<TAB>"
+" "inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+" " Enable heavy omni completion, which require computational power and may stall the vim.
+" if !exists('g:neocomplcache_omni_patterns')
+  " let g:neocomplcache_omni_patterns = {}
+" endif
+" let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+" let g:neocomplcache_omni_patterns.cs = '.*'
+" "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+" let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'

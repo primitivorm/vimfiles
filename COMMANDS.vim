@@ -2,14 +2,12 @@ http://eclim.org/index.html
 -----------------------------------------------
 VIM - CARTA DE REFERENCIA RÁPIDA
 -----------------------------------------------
-
------------------------------------------------
 "proman
 -----------------------------------------------
 <Leader><Leader>w -> clone window actual
 :scriptnames -> to get a list of sourced scripts in order in which they were first sourced in your Vim instance
 <F11>   :ZoomWin
-:Ex | <F4> | <leader>TT   : file explorer note capital Ex
+:Ex | TT   : file explorer note capital Ex
 <C-F4> :TlistToggle       -> generate tags and open tag list
 za  -> toggle a line of code
 zM -> toggle all lines
@@ -29,7 +27,7 @@ perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack de
 :make /t:rebuild    -> to build *.proj
 <leader>l   -> show hidden characters
 <leader>ig  -> show indent guides
-\be     : show buffer explorer (requires plugin)
+<leader>be     -> show buffer explorer (requires plugin)
 :ls     : list of buffers(eg following)
 :cd ..  : move to parent directory
 <C-g> ó g ->To simply display how many lines are in the current buffer
@@ -39,6 +37,12 @@ perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack de
 <c-s-down>  ->swap_down()<CR>
 :BufOnly    ->close all buffer except actual
 :BundleInstall  ->update/install new plugins whit vundle
+:g/^$/d     ->delete all whiteline
+:bufdo %s/pattern/replace/ge | update   ->replace on all buffers
+<c-e>   -> call sparkup plugin
+<Leader>nr  -> narrow code
+:Scratch    -> open a temporal file
+:Sscratch   -> To open the scratch buffer in a new split window
 -----------------------------------------------
 
 -----------------------------------------------
@@ -917,6 +921,16 @@ http://ctags.sourceforge.net/ctags.html#FILES
 -----------------------------------------------
 
 -----------------------------------------------
+git-fugitive
+-----------------------------------------------
+git 	fugitive 	action
+:Git add % 	:Gwrite 	Stage the current file to the index
+:Git checkout % 	:Gread 	Revert current file to last checked in version
+:Git rm % 	:Gremove 	Delete the current file and the corresponding Vim buffer
+:Git mv % 	:Gmove 	Rename the current file and the corresponding Vim buffer
+-----------------------------------------------
+
+-----------------------------------------------
 Gist
 -----------------------------------------------
 
@@ -1101,9 +1115,19 @@ https://github.com/mutewinter/taskpaper.vim
 -----------------------------------------------
 \td     Mark task as done
 \tx     Mark task as cancelled
-\tc     Show all tasks with context under cursor
+\tt     Mark task as today
+\tD     Archive @done items
+\tX     Show tasks marked as cancelled
+\tT     Show tasks marked as today
+\t/     Search for items including keyword
+\ts     Search for items including tag
 \tp     Fold all projects
-\ta     Show all projects and tasks
+\t.     Fold all notes
+\tP     Focus on the current project
+\tj     Go to next project
+\tk     Go to previous project
+\tg     Go to specified project
+\tm     Move task to specified project
 -----------------------------------------------
 
 -----------------------------------------------
@@ -1279,4 +1303,14 @@ https://github.com/jeetsukumaran/vim-buffergator
                     or go to it if it is already open.
 <Leader>T Invokes ":BuffergatorTabsClose": close the tab page
                     catalog.
+-----------------------------------------------
+-----------------------------------------------
+vim-complete
+https://github.com/mattsacks/vim-complete
+-----------------------------------------------
+<Leader>ke :call Complete('e')<CR>
+<Leader>kb :call Complete('b')<CR>
+ with fuzzee (http://github.com/mattsacks/vim-fuzzee)
+<Leader>kf :call Complete('F')<CR>
+<Leader>kj :call Complete('F app/javascripts*')<CR>
 -----------------------------------------------

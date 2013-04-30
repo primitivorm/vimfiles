@@ -9,28 +9,28 @@ let tlist_0_tag_count = 9
 let tlist_0_1_tag = "mapleader	C:/Users/Proman02/vimfiles/keymap.vim	/^let mapleader=\",\"$/;\"	v	line:4"
 let tlist_0_1_tag_name = "mapleader"
 let tlist_0_1_ttype_idx = 1
-let tlist_0_2_tag = "StripTrailingWhitespaces	C:/Users/Proman02/vimfiles/keymap.vim	/^fun! <SID>StripTrailingWhitespaces()$/;\"	f	line:40"
+let tlist_0_2_tag = "StripTrailingWhitespaces	C:/Users/Proman02/vimfiles/keymap.vim	/^fun! <SID>StripTrailingWhitespaces()$/;\"	f	line:39"
 let tlist_0_2_tag_name = "StripTrailingWhitespaces"
 let tlist_0_2_ttype_idx = 1
-let tlist_0_3_tag = "g:quickfix_is_open	C:/Users/Proman02/vimfiles/keymap.vim	/^let g:quickfix_is_open = 0$/;\"	v	line:303"
+let tlist_0_3_tag = "g:quickfix_is_open	C:/Users/Proman02/vimfiles/keymap.vim	/^let g:quickfix_is_open = 0$/;\"	v	line:275"
 let tlist_0_3_tag_name = "g:quickfix_is_open"
 let tlist_0_3_ttype_idx = 2
-let tlist_0_4_tag = "QuickfixToggle	C:/Users/Proman02/vimfiles/keymap.vim	/^function! s:QuickfixToggle()$/;\"	f	line:305"
+let tlist_0_4_tag = "QuickfixToggle	C:/Users/Proman02/vimfiles/keymap.vim	/^function! s:QuickfixToggle()$/;\"	f	line:277"
 let tlist_0_4_tag_name = "QuickfixToggle"
 let tlist_0_4_ttype_idx = 2
-let tlist_0_5_tag = "g:last_fold_column_width	C:/Users/Proman02/vimfiles/keymap.vim	/^let g:last_fold_column_width = 4 \" Pick a sane default for the foldcolumn$/;\"	v	line:321"
+let tlist_0_5_tag = "g:last_fold_column_width	C:/Users/Proman02/vimfiles/keymap.vim	/^let g:last_fold_column_width = 4 \" Pick a sane default for the foldcolumn$/;\"	v	line:293"
 let tlist_0_5_tag_name = "g:last_fold_column_width"
 let tlist_0_5_ttype_idx = 3
-let tlist_0_6_tag = "FoldColumnToggle	C:/Users/Proman02/vimfiles/keymap.vim	/^function! FoldColumnToggle()$/;\"	f	line:323"
+let tlist_0_6_tag = "FoldColumnToggle	C:/Users/Proman02/vimfiles/keymap.vim	/^function! FoldColumnToggle()$/;\"	f	line:295"
 let tlist_0_6_tag_name = "FoldColumnToggle"
 let tlist_0_6_ttype_idx = 3
-let tlist_0_7_tag = "g:yankring_history_dir	C:/Users/Proman02/vimfiles/keymap.vim	/^let g:yankring_history_dir = $HOME.'\\/vimfiles\\/tmp'$/;\"	v	line:350"
+let tlist_0_7_tag = "g:yankring_history_dir	C:/Users/Proman02/vimfiles/keymap.vim	/^let g:yankring_history_dir = $HOME.'\\/vimfiles\\/tmp'$/;\"	v	line:322"
 let tlist_0_7_tag_name = "g:yankring_history_dir"
 let tlist_0_7_ttype_idx = 4
-let tlist_0_8_tag = "g:highlighting	C:/Users/Proman02/vimfiles/keymap.vim	/^let g:highlighting = 0$/;\"	v	line:415"
+let tlist_0_8_tag = "g:highlighting	C:/Users/Proman02/vimfiles/keymap.vim	/^let g:highlighting = 0$/;\"	v	line:387"
 let tlist_0_8_tag_name = "g:highlighting"
 let tlist_0_8_ttype_idx = 5
-let tlist_0_9_tag = "Highlighting	C:/Users/Proman02/vimfiles/keymap.vim	/^function! Highlighting()$/;\"	f	line:416"
+let tlist_0_9_tag = "Highlighting	C:/Users/Proman02/vimfiles/keymap.vim	/^function! Highlighting()$/;\"	f	line:388"
 let tlist_0_9_tag_name = "Highlighting"
 let tlist_0_9_ttype_idx = 4
 let tlist_0_v = "    mapleader\n    g:quickfix_is_open\n    g:last_fold_column_width\n    g:yankring_history_dir\n    g:highlighting\n"
@@ -46,331 +46,345 @@ let tlist_0_f_1 = 2
 let tlist_0_f_2 = 4
 let tlist_0_f_3 = 6
 let tlist_0_f_4 = 9
-let tlist_1_filename = 'C:/Users/Proman02/vimfiles/_vimrc'
+let tlist_1_filename = 'C:/Users/Proman02/vimfiles/COMMANDS.vim'
 let tlist_1_sort_type = "order"
 let tlist_1_filetype = "vim"
-let tlist_1_tag_count = 79
-let tlist_1_1_tag = "MyFoldText	C:/Users/Proman02/vimfiles/_vimrc	/^function! MyFoldText()$/;\"	f	line:333"
-let tlist_1_1_tag_name = "MyFoldText"
+let tlist_1_tag_count = 1
+let tlist_1_1_tag = "g:dbext_default_profile_mySQLServer	C:/Users/Proman02/vimfiles/COMMANDS.vim	/^let g:dbext_default_profile_mySQLServer = 'type=SQLSRV:integratedlogin=1:dbname=myDB' in your .vimrc$/;\"	v	line:548"
+let tlist_1_1_tag_name = "g:dbext_default_profile_mySQLServer"
 let tlist_1_1_ttype_idx = 1
-let tlist_1_2_tag = "g:indentLine_char	C:/Users/Proman02/vimfiles/_vimrc	/^let g:indentLine_char = '|'$/;\"	v	line:418"
-let tlist_1_2_tag_name = "g:indentLine_char"
-let tlist_1_2_ttype_idx = 1
-let tlist_1_3_tag = "g:NERDTreeBookmarksFile	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeBookmarksFile = expand($HOME.'_NERDTreeBookmarks')$/;\"	v	line:450"
-let tlist_1_3_tag_name = "g:NERDTreeBookmarksFile"
-let tlist_1_3_ttype_idx = 2
-let tlist_1_4_tag = "g:NERDTreeShowBookmarks	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeShowBookmarks = 1$/;\"	v	line:451"
-let tlist_1_4_tag_name = "g:NERDTreeShowBookmarks"
-let tlist_1_4_ttype_idx = 3
-let tlist_1_5_tag = "g:NERDTreeWinSize	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeWinSize = 45$/;\"	v	line:452"
-let tlist_1_5_tag_name = "g:NERDTreeWinSize"
-let tlist_1_5_ttype_idx = 4
-let tlist_1_6_tag = "g:NERDTreeChristmasTree	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeChristmasTree = 1$/;\"	v	line:453"
-let tlist_1_6_tag_name = "g:NERDTreeChristmasTree"
-let tlist_1_6_ttype_idx = 5
-let tlist_1_7_tag = "g:NERDTreeCaseSensitiveSort	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeCaseSensitiveSort = 1$/;\"	v	line:454"
-let tlist_1_7_tag_name = "g:NERDTreeCaseSensitiveSort"
-let tlist_1_7_ttype_idx = 6
-let tlist_1_8_tag = "g:NERDTreeQuitOnOpen	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeQuitOnOpen = 1$/;\"	v	line:455"
-let tlist_1_8_tag_name = "g:NERDTreeQuitOnOpen"
-let tlist_1_8_ttype_idx = 7
-let tlist_1_9_tag = "g:NERDTreeMouseMode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeMouseMode=2$/;\"	v	line:456"
-let tlist_1_9_tag_name = "g:NERDTreeMouseMode"
-let tlist_1_9_ttype_idx = 8
-let tlist_1_10_tag = "g:nerdtree_tabs_open_on_gui_startup	C:/Users/Proman02/vimfiles/_vimrc	/^let g:nerdtree_tabs_open_on_gui_startup=0$/;\"	v	line:458"
-let tlist_1_10_tag_name = "g:nerdtree_tabs_open_on_gui_startup"
-let tlist_1_10_ttype_idx = 9
-let tlist_1_11_tag = "g:nerdtree_tabs_open_on_console_startup	C:/Users/Proman02/vimfiles/_vimrc	/^let g:nerdtree_tabs_open_on_console_startup=0$/;\"	v	line:459"
-let tlist_1_11_tag_name = "g:nerdtree_tabs_open_on_console_startup"
-let tlist_1_11_ttype_idx = 10
-let tlist_1_12_tag = "g:NERDTreeChDirMode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeChDirMode=2$/;\"	v	line:464"
-let tlist_1_12_tag_name = "g:NERDTreeChDirMode"
-let tlist_1_12_ttype_idx = 11
-let tlist_1_13_tag = "g:NERDTreeIgnore	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeIgnore=[$/;\"	v	line:466"
-let tlist_1_13_tag_name = "g:NERDTreeIgnore"
-let tlist_1_13_ttype_idx = 12
-let tlist_1_14_tag = "NERDSpaceDelims	C:/Users/Proman02/vimfiles/_vimrc	/^let NERDSpaceDelims=1$/;\"	v	line:478"
-let tlist_1_14_tag_name = "NERDSpaceDelims"
-let tlist_1_14_ttype_idx = 13
-let tlist_1_15_tag = "g:miniBufExplMapWindowNavVim	C:/Users/Proman02/vimfiles/_vimrc	/^let g:miniBufExplMapWindowNavVim = 1$/;\"	v	line:487"
-let tlist_1_15_tag_name = "g:miniBufExplMapWindowNavVim"
-let tlist_1_15_ttype_idx = 14
-let tlist_1_16_tag = "g:miniBufExplMapWindowNavArrows	C:/Users/Proman02/vimfiles/_vimrc	/^let g:miniBufExplMapWindowNavArrows = 1$/;\"	v	line:488"
-let tlist_1_16_tag_name = "g:miniBufExplMapWindowNavArrows"
-let tlist_1_16_ttype_idx = 15
-let tlist_1_17_tag = "g:miniBufExplMapCTabSwitchBufs	C:/Users/Proman02/vimfiles/_vimrc	/^let g:miniBufExplMapCTabSwitchBufs = 1$/;\"	v	line:489"
-let tlist_1_17_tag_name = "g:miniBufExplMapCTabSwitchBufs"
-let tlist_1_17_ttype_idx = 16
-let tlist_1_18_tag = "g:miniBufExplModSelTarget	C:/Users/Proman02/vimfiles/_vimrc	/^let g:miniBufExplModSelTarget = 1$/;\"	v	line:490"
-let tlist_1_18_tag_name = "g:miniBufExplModSelTarget"
-let tlist_1_18_ttype_idx = 17
-let tlist_1_19_tag = "g:EasyMotion_leader_key	C:/Users/Proman02/vimfiles/_vimrc	/^let g:EasyMotion_leader_key = '<Leader>e'$/;\"	v	line:504"
-let tlist_1_19_tag_name = "g:EasyMotion_leader_key"
-let tlist_1_19_ttype_idx = 18
-let tlist_1_20_tag = "g:ctrlp_map	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_map = '<c-p>'$/;\"	v	line:513"
-let tlist_1_20_tag_name = "g:ctrlp_map"
-let tlist_1_20_ttype_idx = 19
-let tlist_1_21_tag = "g:ctrlp_cache_dir	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_cache_dir = $HOME.'\\/ctrlp_cache'$/;\"	v	line:514"
-let tlist_1_21_tag_name = "g:ctrlp_cache_dir"
-let tlist_1_21_ttype_idx = 20
-let tlist_1_22_tag = "g:ctrlp_max_height	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_max_height = 15$/;\"	v	line:515"
-let tlist_1_22_tag_name = "g:ctrlp_max_height"
-let tlist_1_22_ttype_idx = 21
-let tlist_1_23_tag = "g:ctrlp_clear_cache_on_exit	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_clear_cache_on_exit = 1$/;\"	v	line:516"
-let tlist_1_23_tag_name = "g:ctrlp_clear_cache_on_exit"
-let tlist_1_23_ttype_idx = 22
-let tlist_1_24_tag = "g:ctrlp_follow_symlinks	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_follow_symlinks = 1$/;\"	v	line:517"
-let tlist_1_24_tag_name = "g:ctrlp_follow_symlinks"
-let tlist_1_24_ttype_idx = 23
-let tlist_1_25_tag = "g:ctrlp_match_window_bottom	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_match_window_bottom = 0$/;\"	v	line:518"
-let tlist_1_25_tag_name = "g:ctrlp_match_window_bottom"
-let tlist_1_25_ttype_idx = 24
-let tlist_1_26_tag = "g:ctrlp_custom_ignore	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_custom_ignore = {$/;\"	v	line:521"
-let tlist_1_26_tag_name = "g:ctrlp_custom_ignore"
-let tlist_1_26_ttype_idx = 25
-let tlist_1_27_tag = "g:ctrlp_user_command	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_user_command = 'dir %s \\/-n \\/b \\/s \\/a-d'  \" Windows$/;\"	v	line:527"
-let tlist_1_27_tag_name = "g:ctrlp_user_command"
-let tlist_1_27_ttype_idx = 26
-let tlist_1_28_tag = "g:syntastic_enable_balloons	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_enable_balloons = 1$/;\"	v	line:552"
-let tlist_1_28_tag_name = "g:syntastic_enable_balloons"
-let tlist_1_28_ttype_idx = 27
-let tlist_1_29_tag = "g:syntastic_auto_loc_list	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_auto_loc_list=2$/;\"	v	line:553"
-let tlist_1_29_tag_name = "g:syntastic_auto_loc_list"
-let tlist_1_29_ttype_idx = 28
-let tlist_1_30_tag = "g:syntastic_auto_jump	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_auto_jump=0$/;\"	v	line:554"
-let tlist_1_30_tag_name = "g:syntastic_auto_jump"
-let tlist_1_30_ttype_idx = 29
-let tlist_1_31_tag = "g:syntastic_enable_signs	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_enable_signs=1$/;\"	v	line:555"
-let tlist_1_31_tag_name = "g:syntastic_enable_signs"
-let tlist_1_31_ttype_idx = 30
-let tlist_1_32_tag = "g:syntastic_mode_map	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_mode_map = { 'mode': 'active',$/;\"	v	line:556"
-let tlist_1_32_tag_name = "g:syntastic_mode_map"
-let tlist_1_32_ttype_idx = 31
-let tlist_1_33_tag = "g:ctags_statusline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctags_statusline=1$/;\"	v	line:585"
-let tlist_1_33_tag_name = "g:ctags_statusline"
-let tlist_1_33_ttype_idx = 32
-let tlist_1_34_tag = "generate_tags	C:/Users/Proman02/vimfiles/_vimrc	/^let generate_tags=1$/;\"	v	line:587"
-let tlist_1_34_tag_name = "generate_tags"
-let tlist_1_34_ttype_idx = 33
-let tlist_1_35_tag = "Tlist_Use_Horiz_Window	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Use_Horiz_Window=0$/;\"	v	line:589"
-let tlist_1_35_tag_name = "Tlist_Use_Horiz_Window"
-let tlist_1_35_ttype_idx = 34
-let tlist_1_36_tag = "Tlist_Use_Right_Window	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Use_Right_Window = 1$/;\"	v	line:592"
-let tlist_1_36_tag_name = "Tlist_Use_Right_Window"
-let tlist_1_36_ttype_idx = 35
-let tlist_1_37_tag = "Tlist_Compact_Format	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Compact_Format = 1$/;\"	v	line:593"
-let tlist_1_37_tag_name = "Tlist_Compact_Format"
-let tlist_1_37_ttype_idx = 36
-let tlist_1_38_tag = "Tlist_Exit_OnlyWindow	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Exit_OnlyWindow = 1$/;\"	v	line:594"
-let tlist_1_38_tag_name = "Tlist_Exit_OnlyWindow"
-let tlist_1_38_ttype_idx = 37
-let tlist_1_39_tag = "Tlist_GainFocus_On_ToggleOpen	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_GainFocus_On_ToggleOpen = 1$/;\"	v	line:595"
-let tlist_1_39_tag_name = "Tlist_GainFocus_On_ToggleOpen"
-let tlist_1_39_ttype_idx = 38
-let tlist_1_40_tag = "Tlist_File_Fold_Auto_Close	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_File_Fold_Auto_Close = 1$/;\"	v	line:596"
-let tlist_1_40_tag_name = "Tlist_File_Fold_Auto_Close"
-let tlist_1_40_ttype_idx = 39
-let tlist_1_41_tag = "Tlist_Ctags_Cmd	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Ctags_Cmd = '\"C:\\\\cygwin\\\\bin\\\\ctags.exe\"'$/;\"	v	line:597"
-let tlist_1_41_tag_name = "Tlist_Ctags_Cmd"
-let tlist_1_41_ttype_idx = 40
-let tlist_1_42_tag = "g:easytags_cmd	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_cmd = '\"C:\\\\cygwin\\\\bin\\\\ctags.exe\"'$/;\"	v	line:604"
-let tlist_1_42_tag_name = "g:easytags_cmd"
-let tlist_1_42_ttype_idx = 41
-let tlist_1_43_tag = "g:easytags_file	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_file = '\"C:\\\\Users\\\\Proman02\\\\vimfiles\\\\tags\"'$/;\"	v	line:605"
-let tlist_1_43_tag_name = "g:easytags_file"
-let tlist_1_43_ttype_idx = 42
-let tlist_1_44_tag = "g:easytags_dynamic_files	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_dynamic_files=1$/;\"	v	line:609"
-let tlist_1_44_tag_name = "g:easytags_dynamic_files"
-let tlist_1_44_ttype_idx = 43
-let tlist_1_45_tag = "g:easytags_always_enabled	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_always_enabled=0$/;\"	v	line:610"
-let tlist_1_45_tag_name = "g:easytags_always_enabled"
-let tlist_1_45_ttype_idx = 44
-let tlist_1_46_tag = "g:easytags_on_cursorhold	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_on_cursorhold=0$/;\"	v	line:611"
-let tlist_1_46_tag_name = "g:easytags_on_cursorhold"
-let tlist_1_46_ttype_idx = 45
-let tlist_1_47_tag = "g:easytags_auto_highlight	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_auto_highlight=0$/;\"	v	line:612"
-let tlist_1_47_tag_name = "g:easytags_auto_highlight"
-let tlist_1_47_ttype_idx = 46
-let tlist_1_48_tag = "g:dbext_default_profile_sql_qa	C:/Users/Proman02/vimfiles/_vimrc	/^let g:dbext_default_profile_sql_qa = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'$/;\"	v	line:621"
-let tlist_1_48_tag_name = "g:dbext_default_profile_sql_qa"
-let tlist_1_48_ttype_idx = 47
-let tlist_1_49_tag = "g:dbext_default_profile_sql_qavw	C:/Users/Proman02/vimfiles/_vimrc	/^let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'$/;\"	v	line:622"
-let tlist_1_49_tag_name = "g:dbext_default_profile_sql_qavw"
-let tlist_1_49_ttype_idx = 48
-let tlist_1_50_tag = "g:tagbar_ctags_bin	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_ctags_bin='\"C:\\\\Users\\\\Proman02\\\\vimfiles\\\\ctags58\\\\ctags.exe\"'  \" Proper Ctags locations$/;\"	v	line:636"
-let tlist_1_50_tag_name = "g:tagbar_ctags_bin"
-let tlist_1_50_ttype_idx = 49
-let tlist_1_51_tag = "g:tagbar_width	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_width=26                          \" Default is 40, seems too wide$/;\"	v	line:638"
-let tlist_1_51_tag_name = "g:tagbar_width"
-let tlist_1_51_ttype_idx = 50
-let tlist_1_52_tag = "g:tagbar_width	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_width = 30$/;\"	v	line:639"
-let tlist_1_52_tag_name = "g:tagbar_width"
-let tlist_1_52_ttype_idx = 51
-let tlist_1_53_tag = "g:tagbar_autoclose	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_autoclose = 1$/;\"	v	line:640"
-let tlist_1_53_tag_name = "g:tagbar_autoclose"
-let tlist_1_53_ttype_idx = 52
-let tlist_1_54_tag = "g:tagbar_autofocus	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_autofocus = 1$/;\"	v	line:641"
-let tlist_1_54_tag_name = "g:tagbar_autofocus"
-let tlist_1_54_ttype_idx = 53
-let tlist_1_55_tag = "g:tagbar_compact	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_compact = 1$/;\"	v	line:642"
-let tlist_1_55_tag_name = "g:tagbar_compact"
-let tlist_1_55_ttype_idx = 54
-let tlist_1_56_tag = "g:tagbar_expand	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_expand = 0$/;\"	v	line:643"
-let tlist_1_56_tag_name = "g:tagbar_expand"
-let tlist_1_56_ttype_idx = 55
-let tlist_1_57_tag = "g:Powerline_symbols	C:/Users/Proman02/vimfiles/_vimrc	/^    let g:Powerline_symbols = 'fancy'$/;\"	v	line:654"
-let tlist_1_57_tag_name = "g:Powerline_symbols"
-let tlist_1_57_ttype_idx = 56
-let tlist_1_58_tag = "g:Powerline_symbols	C:/Users/Proman02/vimfiles/_vimrc	/^    let g:Powerline_symbols = 'compatible'$/;\"	v	line:656"
-let tlist_1_58_tag_name = "g:Powerline_symbols"
-let tlist_1_58_ttype_idx = 57
-let tlist_1_59_tag = "$VIM_INTELLISENSE	C:/Users/Proman02/vimfiles/_vimrc	/^let $VIM_INTELLISENSE=\"C:\\\\\\\\Program Files (x86)\\\\\\\\Vim\\\\\\\\Intellisense\\\\\\\\\"$/;\"	v	line:669"
-let tlist_1_59_tag_name = "$VIM_INTELLISENSE"
-let tlist_1_59_ttype_idx = 58
-let tlist_1_60_tag = "g:visual_studio_quickfix_errorformat	C:/Users/Proman02/vimfiles/_vimrc	/^let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\\\\ %#%f(%l)\\\\ :\\\\ %m'$/;\"	v	line:671"
-let tlist_1_60_tag_name = "g:visual_studio_quickfix_errorformat"
-let tlist_1_60_ttype_idx = 59
-let tlist_1_61_tag = "g:showmarks_enable	C:/Users/Proman02/vimfiles/_vimrc	/^let g:showmarks_enable=0$/;\"	v	line:678"
-let tlist_1_61_tag_name = "g:showmarks_enable"
-let tlist_1_61_ttype_idx = 60
-let tlist_1_62_tag = "g:indent_guides_start_level	C:/Users/Proman02/vimfiles/_vimrc	/^let g:indent_guides_start_level=1$/;\"	v	line:685"
-let tlist_1_62_tag_name = "g:indent_guides_start_level"
-let tlist_1_62_ttype_idx = 61
-let tlist_1_63_tag = "g:indent_guides_guide_size	C:/Users/Proman02/vimfiles/_vimrc	/^let g:indent_guides_guide_size=1$/;\"	v	line:686"
-let tlist_1_63_tag_name = "g:indent_guides_guide_size"
-let tlist_1_63_ttype_idx = 62
-let tlist_1_64_tag = "g:session_command_aliases	C:/Users/Proman02/vimfiles/_vimrc	/^let g:session_command_aliases = 1$/;\"	v	line:702"
-let tlist_1_64_tag_name = "g:session_command_aliases"
-let tlist_1_64_ttype_idx = 63
-let tlist_1_65_tag = "g:used_javascript_libs	C:/Users/Proman02/vimfiles/_vimrc	/^let g:used_javascript_libs = 'underscore,backbone'$/;\"	v	line:709"
-let tlist_1_65_tag_name = "g:used_javascript_libs"
-let tlist_1_65_ttype_idx = 64
-let tlist_1_66_tag = "g:user_zen_mode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:user_zen_mode='n'    \"only enable normal mode functions.$/;\"	v	line:723"
-let tlist_1_66_tag_name = "g:user_zen_mode"
-let tlist_1_66_ttype_idx = 65
-let tlist_1_67_tag = "g:user_zen_mode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:user_zen_mode='inv'  \"enable all functions, which is equal t$/;\"	v	line:724"
-let tlist_1_67_tag_name = "g:user_zen_mode"
-let tlist_1_67_ttype_idx = 66
-let tlist_1_68_tag = "g:user_zen_mode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:user_zen_mode='a'    \"enable all function in all mode.$/;\"	v	line:725"
-let tlist_1_68_tag_name = "g:user_zen_mode"
-let tlist_1_68_ttype_idx = 67
-let tlist_1_69_tag = "g:user_zen_expandabbr_key	C:/Users/Proman02/vimfiles/_vimrc	/^let g:user_zen_expandabbr_key = '<c-e>'$/;\"	v	line:726"
-let tlist_1_69_tag_name = "g:user_zen_expandabbr_key"
-let tlist_1_69_ttype_idx = 68
-let tlist_1_70_tag = "g:use_zen_complete_tag	C:/Users/Proman02/vimfiles/_vimrc	/^let g:use_zen_complete_tag = 1$/;\"	v	line:727"
-let tlist_1_70_tag_name = "g:use_zen_complete_tag"
-let tlist_1_70_ttype_idx = 69
-let tlist_1_71_tag = "g:badwolf_darkgutter	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_darkgutter = 1$/;\"	v	line:735"
-let tlist_1_71_tag_name = "g:badwolf_darkgutter"
-let tlist_1_71_ttype_idx = 70
-let tlist_1_72_tag = "g:badwolf_tabline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_tabline = 0$/;\"	v	line:737"
-let tlist_1_72_tag_name = "g:badwolf_tabline"
-let tlist_1_72_ttype_idx = 71
-let tlist_1_73_tag = "g:badwolf_tabline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_tabline = 1$/;\"	v	line:739"
-let tlist_1_73_tag_name = "g:badwolf_tabline"
-let tlist_1_73_ttype_idx = 72
-let tlist_1_74_tag = "g:badwolf_tabline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_tabline = 2$/;\"	v	line:741"
-let tlist_1_74_tag_name = "g:badwolf_tabline"
-let tlist_1_74_ttype_idx = 73
-let tlist_1_75_tag = "g:badwolf_tabline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_tabline = 3$/;\"	v	line:743"
-let tlist_1_75_tag_name = "g:badwolf_tabline"
-let tlist_1_75_ttype_idx = 74
-let tlist_1_76_tag = "g:badwolf_html_link_underline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_html_link_underline = 0$/;\"	v	line:745"
-let tlist_1_76_tag_name = "g:badwolf_html_link_underline"
-let tlist_1_76_ttype_idx = 75
-let tlist_1_77_tag = "g:badwolf_css_props_highlight	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_css_props_highlight = 1$/;\"	v	line:747"
-let tlist_1_77_tag_name = "g:badwolf_css_props_highlight"
-let tlist_1_77_ttype_idx = 76
-let tlist_1_78_tag = "g:skeletons_dir	C:/Users/Proman02/vimfiles/_vimrc	/^let g:skeletons_dir=$HOME . '\\/vimfiles\\/bundle\\/skeletons.vim\\/skeletons\\/'$/;\"	v	line:753"
-let tlist_1_78_tag_name = "g:skeletons_dir"
-let tlist_1_78_ttype_idx = 77
-let tlist_1_79_tag = "g:pdv_template_dir	C:/Users/Proman02/vimfiles/_vimrc	/^let g:pdv_template_dir = $HOME .\"\\/vimfiles\\/bundle\\/pdv\\/templates_snip\"$/;\"	v	line:760"
-let tlist_1_79_tag_name = "g:pdv_template_dir"
-let tlist_1_79_ttype_idx = 78
-let tlist_1_v = "    g:indentLine_char\n    g:NERDTreeBookmarksFile\n    g:NERDTreeShowBookmarks\n    g:NERDTreeWinSize\n    g:NERDTreeChristmasTree\n    g:NERDTreeCaseSensitiveSort\n    g:NERDTreeQuitOnOpen\n    g:NERDTreeMouseMode\n    g:nerdtree_tabs_open_on_gui_startup\n    g:nerdtree_tabs_open_on_console_startup\n    g:NERDTreeChDirMode\n    g:NERDTreeIgnore\n    NERDSpaceDelims\n    g:miniBufExplMapWindowNavVim\n    g:miniBufExplMapWindowNavArrows\n    g:miniBufExplMapCTabSwitchBufs\n    g:miniBufExplModSelTarget\n    g:EasyMotion_leader_key\n    g:ctrlp_map\n    g:ctrlp_cache_dir\n    g:ctrlp_max_height\n    g:ctrlp_clear_cache_on_exit\n    g:ctrlp_follow_symlinks\n    g:ctrlp_match_window_bottom\n    g:ctrlp_custom_ignore\n    g:ctrlp_user_command\n    g:syntastic_enable_balloons\n    g:syntastic_auto_loc_list\n    g:syntastic_auto_jump\n    g:syntastic_enable_signs\n    g:syntastic_mode_map\n    g:ctags_statusline\n    generate_tags\n    Tlist_Use_Horiz_Window\n    Tlist_Use_Right_Window\n    Tlist_Compact_Format\n    Tlist_Exit_OnlyWindow\n    Tlist_GainFocus_On_ToggleOpen\n    Tlist_File_Fold_Auto_Close\n    Tlist_Ctags_Cmd\n    g:easytags_cmd\n    g:easytags_file\n    g:easytags_dynamic_files\n    g:easytags_always_enabled\n    g:easytags_on_cursorhold\n    g:easytags_auto_highlight\n    g:dbext_default_profile_sql_qa\n    g:dbext_default_profile_sql_qavw\n    g:tagbar_ctags_bin\n    g:tagbar_width\n    g:tagbar_width\n    g:tagbar_autoclose\n    g:tagbar_autofocus\n    g:tagbar_compact\n    g:tagbar_expand\n    g:Powerline_symbols\n    g:Powerline_symbols\n    $VIM_INTELLISENSE\n    g:visual_studio_quickfix_errorformat\n    g:showmarks_enable\n    g:indent_guides_start_level\n    g:indent_guides_guide_size\n    g:session_command_aliases\n    g:used_javascript_libs\n    g:user_zen_mode\n    g:user_zen_mode\n    g:user_zen_mode\n    g:user_zen_expandabbr_key\n    g:use_zen_complete_tag\n    g:badwolf_darkgutter\n    g:badwolf_tabline\n    g:badwolf_tabline\n    g:badwolf_tabline\n    g:badwolf_tabline\n    g:badwolf_html_link_underline\n    g:badwolf_css_props_highlight\n    g:skeletons_dir\n    g:pdv_template_dir\n"
-let tlist_1_v_count = 78
-let tlist_1_v_1 = 2
-let tlist_1_v_2 = 3
-let tlist_1_v_3 = 4
-let tlist_1_v_4 = 5
-let tlist_1_v_5 = 6
-let tlist_1_v_6 = 7
-let tlist_1_v_7 = 8
-let tlist_1_v_8 = 9
-let tlist_1_v_9 = 10
-let tlist_1_v_10 = 11
-let tlist_1_v_11 = 12
-let tlist_1_v_12 = 13
-let tlist_1_v_13 = 14
-let tlist_1_v_14 = 15
-let tlist_1_v_15 = 16
-let tlist_1_v_16 = 17
-let tlist_1_v_17 = 18
-let tlist_1_v_18 = 19
-let tlist_1_v_19 = 20
-let tlist_1_v_20 = 21
-let tlist_1_v_21 = 22
-let tlist_1_v_22 = 23
-let tlist_1_v_23 = 24
-let tlist_1_v_24 = 25
-let tlist_1_v_25 = 26
-let tlist_1_v_26 = 27
-let tlist_1_v_27 = 28
-let tlist_1_v_28 = 29
-let tlist_1_v_29 = 30
-let tlist_1_v_30 = 31
-let tlist_1_v_31 = 32
-let tlist_1_v_32 = 33
-let tlist_1_v_33 = 34
-let tlist_1_v_34 = 35
-let tlist_1_v_35 = 36
-let tlist_1_v_36 = 37
-let tlist_1_v_37 = 38
-let tlist_1_v_38 = 39
-let tlist_1_v_39 = 40
-let tlist_1_v_40 = 41
-let tlist_1_v_41 = 42
-let tlist_1_v_42 = 43
-let tlist_1_v_43 = 44
-let tlist_1_v_44 = 45
-let tlist_1_v_45 = 46
-let tlist_1_v_46 = 47
-let tlist_1_v_47 = 48
-let tlist_1_v_48 = 49
-let tlist_1_v_49 = 50
-let tlist_1_v_50 = 51
-let tlist_1_v_51 = 52
-let tlist_1_v_52 = 53
-let tlist_1_v_53 = 54
-let tlist_1_v_54 = 55
-let tlist_1_v_55 = 56
-let tlist_1_v_56 = 57
-let tlist_1_v_57 = 58
-let tlist_1_v_58 = 59
-let tlist_1_v_59 = 60
-let tlist_1_v_60 = 61
-let tlist_1_v_61 = 62
-let tlist_1_v_62 = 63
-let tlist_1_v_63 = 64
-let tlist_1_v_64 = 65
-let tlist_1_v_65 = 66
-let tlist_1_v_66 = 67
-let tlist_1_v_67 = 68
-let tlist_1_v_68 = 69
-let tlist_1_v_69 = 70
-let tlist_1_v_70 = 71
-let tlist_1_v_71 = 72
-let tlist_1_v_72 = 73
-let tlist_1_v_73 = 74
-let tlist_1_v_74 = 75
-let tlist_1_v_75 = 76
-let tlist_1_v_76 = 77
-let tlist_1_v_77 = 78
-let tlist_1_v_78 = 79
-let tlist_1_f = "    MyFoldText\n"
-let tlist_1_f_count = 1
-let tlist_1_f_1 = 1
-let tlist_2_filename = 'C:/Users/Proman02/vimfiles/install.sh'
+let tlist_1_v = "    g:dbext_default_profile_mySQLServer\n"
+let tlist_1_v_count = 1
+let tlist_1_v_1 = 1
+let tlist_2_filename = 'C:/Users/Proman02/vimfiles/_vimrc'
 let tlist_2_sort_type = "order"
-let tlist_2_filetype = "sh"
-let tlist_2_tag_count = 0
+let tlist_2_filetype = "vim"
+let tlist_2_tag_count = 81
+let tlist_2_1_tag = "MyFoldText	C:/Users/Proman02/vimfiles/_vimrc	/^function! MyFoldText()$/;\"	f	line:329"
+let tlist_2_1_tag_name = "MyFoldText"
+let tlist_2_1_ttype_idx = 1
+let tlist_2_2_tag = "g:indentLine_char	C:/Users/Proman02/vimfiles/_vimrc	/^let g:indentLine_char = '|'$/;\"	v	line:419"
+let tlist_2_2_tag_name = "g:indentLine_char"
+let tlist_2_2_ttype_idx = 1
+let tlist_2_3_tag = "g:NERDTreeBookmarksFile	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeBookmarksFile = expand($HOME.'\\/vimfiles\\/_NERDTreeBookmarks')$/;\"	v	line:455"
+let tlist_2_3_tag_name = "g:NERDTreeBookmarksFile"
+let tlist_2_3_ttype_idx = 2
+let tlist_2_4_tag = "g:NERDTreeShowBookmarks	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeShowBookmarks = 1$/;\"	v	line:456"
+let tlist_2_4_tag_name = "g:NERDTreeShowBookmarks"
+let tlist_2_4_ttype_idx = 3
+let tlist_2_5_tag = "g:NERDTreeWinSize	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeWinSize = 25$/;\"	v	line:457"
+let tlist_2_5_tag_name = "g:NERDTreeWinSize"
+let tlist_2_5_ttype_idx = 4
+let tlist_2_6_tag = "g:NERDTreeChristmasTree	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeChristmasTree = 1$/;\"	v	line:458"
+let tlist_2_6_tag_name = "g:NERDTreeChristmasTree"
+let tlist_2_6_ttype_idx = 5
+let tlist_2_7_tag = "g:NERDTreeCaseSensitiveSort	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeCaseSensitiveSort = 1$/;\"	v	line:459"
+let tlist_2_7_tag_name = "g:NERDTreeCaseSensitiveSort"
+let tlist_2_7_ttype_idx = 6
+let tlist_2_8_tag = "g:NERDTreeQuitOnOpen	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeQuitOnOpen = 1$/;\"	v	line:460"
+let tlist_2_8_tag_name = "g:NERDTreeQuitOnOpen"
+let tlist_2_8_ttype_idx = 7
+let tlist_2_9_tag = "g:NERDTreeMouseMode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeMouseMode=2$/;\"	v	line:461"
+let tlist_2_9_tag_name = "g:NERDTreeMouseMode"
+let tlist_2_9_ttype_idx = 8
+let tlist_2_10_tag = "g:nerdtree_tabs_open_on_gui_startup	C:/Users/Proman02/vimfiles/_vimrc	/^let g:nerdtree_tabs_open_on_gui_startup=0$/;\"	v	line:463"
+let tlist_2_10_tag_name = "g:nerdtree_tabs_open_on_gui_startup"
+let tlist_2_10_ttype_idx = 9
+let tlist_2_11_tag = "g:nerdtree_tabs_open_on_console_startup	C:/Users/Proman02/vimfiles/_vimrc	/^let g:nerdtree_tabs_open_on_console_startup=0$/;\"	v	line:464"
+let tlist_2_11_tag_name = "g:nerdtree_tabs_open_on_console_startup"
+let tlist_2_11_ttype_idx = 10
+let tlist_2_12_tag = "g:NERDTreeChDirMode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeChDirMode=2$/;\"	v	line:469"
+let tlist_2_12_tag_name = "g:NERDTreeChDirMode"
+let tlist_2_12_ttype_idx = 11
+let tlist_2_13_tag = "g:NERDTreeIgnore	C:/Users/Proman02/vimfiles/_vimrc	/^let g:NERDTreeIgnore=[$/;\"	v	line:471"
+let tlist_2_13_tag_name = "g:NERDTreeIgnore"
+let tlist_2_13_ttype_idx = 12
+let tlist_2_14_tag = "NERDSpaceDelims	C:/Users/Proman02/vimfiles/_vimrc	/^let NERDSpaceDelims=1$/;\"	v	line:483"
+let tlist_2_14_tag_name = "NERDSpaceDelims"
+let tlist_2_14_ttype_idx = 13
+let tlist_2_15_tag = "g:miniBufExplMapWindowNavVim	C:/Users/Proman02/vimfiles/_vimrc	/^let g:miniBufExplMapWindowNavVim = 1$/;\"	v	line:492"
+let tlist_2_15_tag_name = "g:miniBufExplMapWindowNavVim"
+let tlist_2_15_ttype_idx = 14
+let tlist_2_16_tag = "g:miniBufExplMapWindowNavArrows	C:/Users/Proman02/vimfiles/_vimrc	/^let g:miniBufExplMapWindowNavArrows = 1$/;\"	v	line:493"
+let tlist_2_16_tag_name = "g:miniBufExplMapWindowNavArrows"
+let tlist_2_16_ttype_idx = 15
+let tlist_2_17_tag = "g:miniBufExplMapCTabSwitchBufs	C:/Users/Proman02/vimfiles/_vimrc	/^let g:miniBufExplMapCTabSwitchBufs = 1$/;\"	v	line:494"
+let tlist_2_17_tag_name = "g:miniBufExplMapCTabSwitchBufs"
+let tlist_2_17_ttype_idx = 16
+let tlist_2_18_tag = "g:miniBufExplModSelTarget	C:/Users/Proman02/vimfiles/_vimrc	/^let g:miniBufExplModSelTarget = 1$/;\"	v	line:495"
+let tlist_2_18_tag_name = "g:miniBufExplModSelTarget"
+let tlist_2_18_ttype_idx = 17
+let tlist_2_19_tag = "g:EasyMotion_leader_key	C:/Users/Proman02/vimfiles/_vimrc	/^let g:EasyMotion_leader_key = '<Leader>e'$/;\"	v	line:509"
+let tlist_2_19_tag_name = "g:EasyMotion_leader_key"
+let tlist_2_19_ttype_idx = 18
+let tlist_2_20_tag = "g:ctrlp_map	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_map = '<c-p>'$/;\"	v	line:518"
+let tlist_2_20_tag_name = "g:ctrlp_map"
+let tlist_2_20_ttype_idx = 19
+let tlist_2_21_tag = "g:ctrlp_cache_dir	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_cache_dir = $HOME.'\\/ctrlp_cache'$/;\"	v	line:519"
+let tlist_2_21_tag_name = "g:ctrlp_cache_dir"
+let tlist_2_21_ttype_idx = 20
+let tlist_2_22_tag = "g:ctrlp_max_height	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_max_height = 15$/;\"	v	line:520"
+let tlist_2_22_tag_name = "g:ctrlp_max_height"
+let tlist_2_22_ttype_idx = 21
+let tlist_2_23_tag = "g:ctrlp_clear_cache_on_exit	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_clear_cache_on_exit = 1$/;\"	v	line:521"
+let tlist_2_23_tag_name = "g:ctrlp_clear_cache_on_exit"
+let tlist_2_23_ttype_idx = 22
+let tlist_2_24_tag = "g:ctrlp_follow_symlinks	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_follow_symlinks = 1$/;\"	v	line:522"
+let tlist_2_24_tag_name = "g:ctrlp_follow_symlinks"
+let tlist_2_24_ttype_idx = 23
+let tlist_2_25_tag = "g:ctrlp_match_window_bottom	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_match_window_bottom = 0$/;\"	v	line:523"
+let tlist_2_25_tag_name = "g:ctrlp_match_window_bottom"
+let tlist_2_25_ttype_idx = 24
+let tlist_2_26_tag = "g:ctrlp_custom_ignore	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_custom_ignore = {$/;\"	v	line:526"
+let tlist_2_26_tag_name = "g:ctrlp_custom_ignore"
+let tlist_2_26_ttype_idx = 25
+let tlist_2_27_tag = "g:ctrlp_user_command	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctrlp_user_command = 'dir %s \\/-n \\/b \\/s \\/a-d' \" Windows$/;\"	v	line:532"
+let tlist_2_27_tag_name = "g:ctrlp_user_command"
+let tlist_2_27_ttype_idx = 26
+let tlist_2_28_tag = "g:syntastic_enable_balloons	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_enable_balloons = 1$/;\"	v	line:557"
+let tlist_2_28_tag_name = "g:syntastic_enable_balloons"
+let tlist_2_28_ttype_idx = 27
+let tlist_2_29_tag = "g:syntastic_auto_loc_list	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_auto_loc_list=2$/;\"	v	line:558"
+let tlist_2_29_tag_name = "g:syntastic_auto_loc_list"
+let tlist_2_29_ttype_idx = 28
+let tlist_2_30_tag = "g:syntastic_auto_jump	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_auto_jump=0$/;\"	v	line:559"
+let tlist_2_30_tag_name = "g:syntastic_auto_jump"
+let tlist_2_30_ttype_idx = 29
+let tlist_2_31_tag = "g:syntastic_enable_signs	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_enable_signs=1$/;\"	v	line:560"
+let tlist_2_31_tag_name = "g:syntastic_enable_signs"
+let tlist_2_31_ttype_idx = 30
+let tlist_2_32_tag = "g:syntastic_mode_map	C:/Users/Proman02/vimfiles/_vimrc	/^let g:syntastic_mode_map = { 'mode': 'active',$/;\"	v	line:561"
+let tlist_2_32_tag_name = "g:syntastic_mode_map"
+let tlist_2_32_ttype_idx = 31
+let tlist_2_33_tag = "g:ctags_statusline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:ctags_statusline=1$/;\"	v	line:590"
+let tlist_2_33_tag_name = "g:ctags_statusline"
+let tlist_2_33_ttype_idx = 32
+let tlist_2_34_tag = "generate_tags	C:/Users/Proman02/vimfiles/_vimrc	/^let generate_tags=1$/;\"	v	line:592"
+let tlist_2_34_tag_name = "generate_tags"
+let tlist_2_34_ttype_idx = 33
+let tlist_2_35_tag = "Tlist_Use_Horiz_Window	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Use_Horiz_Window=0$/;\"	v	line:594"
+let tlist_2_35_tag_name = "Tlist_Use_Horiz_Window"
+let tlist_2_35_ttype_idx = 34
+let tlist_2_36_tag = "Tlist_Use_Right_Window	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Use_Right_Window = 1$/;\"	v	line:597"
+let tlist_2_36_tag_name = "Tlist_Use_Right_Window"
+let tlist_2_36_ttype_idx = 35
+let tlist_2_37_tag = "Tlist_Compact_Format	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Compact_Format = 1$/;\"	v	line:598"
+let tlist_2_37_tag_name = "Tlist_Compact_Format"
+let tlist_2_37_ttype_idx = 36
+let tlist_2_38_tag = "Tlist_Exit_OnlyWindow	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Exit_OnlyWindow = 1$/;\"	v	line:599"
+let tlist_2_38_tag_name = "Tlist_Exit_OnlyWindow"
+let tlist_2_38_ttype_idx = 37
+let tlist_2_39_tag = "Tlist_GainFocus_On_ToggleOpen	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_GainFocus_On_ToggleOpen = 1$/;\"	v	line:600"
+let tlist_2_39_tag_name = "Tlist_GainFocus_On_ToggleOpen"
+let tlist_2_39_ttype_idx = 38
+let tlist_2_40_tag = "Tlist_File_Fold_Auto_Close	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_File_Fold_Auto_Close = 1$/;\"	v	line:601"
+let tlist_2_40_tag_name = "Tlist_File_Fold_Auto_Close"
+let tlist_2_40_ttype_idx = 39
+let tlist_2_41_tag = "Tlist_Ctags_Cmd	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Ctags_Cmd = '\"C:\\\\cygwin\\\\bin\\\\ctags.exe\"'$/;\"	v	line:602"
+let tlist_2_41_tag_name = "Tlist_Ctags_Cmd"
+let tlist_2_41_ttype_idx = 40
+let tlist_2_42_tag = "Tlist_Auto_Open	C:/Users/Proman02/vimfiles/_vimrc	/^let Tlist_Auto_Open = 1$/;\"	v	line:603"
+let tlist_2_42_tag_name = "Tlist_Auto_Open"
+let tlist_2_42_ttype_idx = 41
+let tlist_2_43_tag = "g:easytags_cmd	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_cmd = '\"C:\\\\cygwin\\\\bin\\\\ctags.exe\"'$/;\"	v	line:610"
+let tlist_2_43_tag_name = "g:easytags_cmd"
+let tlist_2_43_ttype_idx = 42
+let tlist_2_44_tag = "g:easytags_file	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_file = '\"C:\\\\Users\\\\Proman02\\\\vimfiles\\\\tags\"'$/;\"	v	line:611"
+let tlist_2_44_tag_name = "g:easytags_file"
+let tlist_2_44_ttype_idx = 43
+let tlist_2_45_tag = "g:easytags_dynamic_files	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_dynamic_files=1$/;\"	v	line:615"
+let tlist_2_45_tag_name = "g:easytags_dynamic_files"
+let tlist_2_45_ttype_idx = 44
+let tlist_2_46_tag = "g:easytags_always_enabled	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_always_enabled=0$/;\"	v	line:616"
+let tlist_2_46_tag_name = "g:easytags_always_enabled"
+let tlist_2_46_ttype_idx = 45
+let tlist_2_47_tag = "g:easytags_on_cursorhold	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_on_cursorhold=0$/;\"	v	line:617"
+let tlist_2_47_tag_name = "g:easytags_on_cursorhold"
+let tlist_2_47_ttype_idx = 46
+let tlist_2_48_tag = "g:easytags_auto_highlight	C:/Users/Proman02/vimfiles/_vimrc	/^let g:easytags_auto_highlight=0$/;\"	v	line:618"
+let tlist_2_48_tag_name = "g:easytags_auto_highlight"
+let tlist_2_48_ttype_idx = 47
+let tlist_2_49_tag = "g:dbext_default_profile_sql_qa	C:/Users/Proman02/vimfiles/_vimrc	/^let g:dbext_default_profile_sql_qa = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'$/;\"	v	line:627"
+let tlist_2_49_tag_name = "g:dbext_default_profile_sql_qa"
+let tlist_2_49_ttype_idx = 48
+let tlist_2_50_tag = "g:dbext_default_profile_sql_qavw	C:/Users/Proman02/vimfiles/_vimrc	/^let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'$/;\"	v	line:628"
+let tlist_2_50_tag_name = "g:dbext_default_profile_sql_qavw"
+let tlist_2_50_ttype_idx = 49
+let tlist_2_51_tag = "g:tagbar_ctags_bin	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_ctags_bin='\"C:\\\\Users\\\\Proman02\\\\vimfiles\\\\ctags58\\\\ctags.exe\"' \" Proper Ctags locations$/;\"	v	line:642"
+let tlist_2_51_tag_name = "g:tagbar_ctags_bin"
+let tlist_2_51_ttype_idx = 50
+let tlist_2_52_tag = "g:tagbar_width	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_width=26 \" Default is 40, seems too wide$/;\"	v	line:644"
+let tlist_2_52_tag_name = "g:tagbar_width"
+let tlist_2_52_ttype_idx = 51
+let tlist_2_53_tag = "g:tagbar_width	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_width = 30$/;\"	v	line:645"
+let tlist_2_53_tag_name = "g:tagbar_width"
+let tlist_2_53_ttype_idx = 52
+let tlist_2_54_tag = "g:tagbar_autoclose	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_autoclose = 1$/;\"	v	line:646"
+let tlist_2_54_tag_name = "g:tagbar_autoclose"
+let tlist_2_54_ttype_idx = 53
+let tlist_2_55_tag = "g:tagbar_autofocus	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_autofocus = 1$/;\"	v	line:647"
+let tlist_2_55_tag_name = "g:tagbar_autofocus"
+let tlist_2_55_ttype_idx = 54
+let tlist_2_56_tag = "g:tagbar_compact	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_compact = 1$/;\"	v	line:648"
+let tlist_2_56_tag_name = "g:tagbar_compact"
+let tlist_2_56_ttype_idx = 55
+let tlist_2_57_tag = "g:tagbar_expand	C:/Users/Proman02/vimfiles/_vimrc	/^let g:tagbar_expand = 0$/;\"	v	line:649"
+let tlist_2_57_tag_name = "g:tagbar_expand"
+let tlist_2_57_ttype_idx = 56
+let tlist_2_58_tag = "g:Powerline_symbols	C:/Users/Proman02/vimfiles/_vimrc	/^    let g:Powerline_symbols = 'fancy'$/;\"	v	line:660"
+let tlist_2_58_tag_name = "g:Powerline_symbols"
+let tlist_2_58_ttype_idx = 57
+let tlist_2_59_tag = "g:Powerline_symbols	C:/Users/Proman02/vimfiles/_vimrc	/^    let g:Powerline_symbols = 'compatible'$/;\"	v	line:662"
+let tlist_2_59_tag_name = "g:Powerline_symbols"
+let tlist_2_59_ttype_idx = 58
+let tlist_2_60_tag = "$VIM_INTELLISENSE	C:/Users/Proman02/vimfiles/_vimrc	/^let $VIM_INTELLISENSE=\"C:\\\\\\\\Program Files (x86)\\\\\\\\Vim\\\\\\\\Intellisense\\\\\\\\\"$/;\"	v	line:675"
+let tlist_2_60_tag_name = "$VIM_INTELLISENSE"
+let tlist_2_60_ttype_idx = 59
+let tlist_2_61_tag = "g:visual_studio_quickfix_errorformat	C:/Users/Proman02/vimfiles/_vimrc	/^let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\\\\ %#%f(%l)\\\\ :\\\\ %m'$/;\"	v	line:677"
+let tlist_2_61_tag_name = "g:visual_studio_quickfix_errorformat"
+let tlist_2_61_ttype_idx = 60
+let tlist_2_62_tag = "g:showmarks_enable	C:/Users/Proman02/vimfiles/_vimrc	/^let g:showmarks_enable=0$/;\"	v	line:684"
+let tlist_2_62_tag_name = "g:showmarks_enable"
+let tlist_2_62_ttype_idx = 61
+let tlist_2_63_tag = "g:indent_guides_start_level	C:/Users/Proman02/vimfiles/_vimrc	/^let g:indent_guides_start_level=1$/;\"	v	line:691"
+let tlist_2_63_tag_name = "g:indent_guides_start_level"
+let tlist_2_63_ttype_idx = 62
+let tlist_2_64_tag = "g:indent_guides_guide_size	C:/Users/Proman02/vimfiles/_vimrc	/^let g:indent_guides_guide_size=1$/;\"	v	line:692"
+let tlist_2_64_tag_name = "g:indent_guides_guide_size"
+let tlist_2_64_ttype_idx = 63
+let tlist_2_65_tag = "g:session_command_aliases	C:/Users/Proman02/vimfiles/_vimrc	/^let g:session_command_aliases = 1$/;\"	v	line:708"
+let tlist_2_65_tag_name = "g:session_command_aliases"
+let tlist_2_65_ttype_idx = 64
+let tlist_2_66_tag = "g:used_javascript_libs	C:/Users/Proman02/vimfiles/_vimrc	/^let g:used_javascript_libs = 'underscore,backbone'$/;\"	v	line:715"
+let tlist_2_66_tag_name = "g:used_javascript_libs"
+let tlist_2_66_ttype_idx = 65
+let tlist_2_67_tag = "g:user_zen_mode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:user_zen_mode='n' \"only enable normal mode functions.$/;\"	v	line:729"
+let tlist_2_67_tag_name = "g:user_zen_mode"
+let tlist_2_67_ttype_idx = 66
+let tlist_2_68_tag = "g:user_zen_mode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:user_zen_mode='inv' \"enable all functions, which is equal t$/;\"	v	line:730"
+let tlist_2_68_tag_name = "g:user_zen_mode"
+let tlist_2_68_ttype_idx = 67
+let tlist_2_69_tag = "g:user_zen_mode	C:/Users/Proman02/vimfiles/_vimrc	/^let g:user_zen_mode='a' \"enable all function in all mode.$/;\"	v	line:731"
+let tlist_2_69_tag_name = "g:user_zen_mode"
+let tlist_2_69_ttype_idx = 68
+let tlist_2_70_tag = "g:user_zen_expandabbr_key	C:/Users/Proman02/vimfiles/_vimrc	/^let g:user_zen_expandabbr_key = '<c-e>'$/;\"	v	line:732"
+let tlist_2_70_tag_name = "g:user_zen_expandabbr_key"
+let tlist_2_70_ttype_idx = 69
+let tlist_2_71_tag = "g:use_zen_complete_tag	C:/Users/Proman02/vimfiles/_vimrc	/^let g:use_zen_complete_tag = 1$/;\"	v	line:733"
+let tlist_2_71_tag_name = "g:use_zen_complete_tag"
+let tlist_2_71_ttype_idx = 70
+let tlist_2_72_tag = "g:badwolf_darkgutter	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_darkgutter = 1$/;\"	v	line:741"
+let tlist_2_72_tag_name = "g:badwolf_darkgutter"
+let tlist_2_72_ttype_idx = 71
+let tlist_2_73_tag = "g:badwolf_tabline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_tabline = 0$/;\"	v	line:743"
+let tlist_2_73_tag_name = "g:badwolf_tabline"
+let tlist_2_73_ttype_idx = 72
+let tlist_2_74_tag = "g:badwolf_tabline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_tabline = 1$/;\"	v	line:745"
+let tlist_2_74_tag_name = "g:badwolf_tabline"
+let tlist_2_74_ttype_idx = 73
+let tlist_2_75_tag = "g:badwolf_tabline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_tabline = 2$/;\"	v	line:747"
+let tlist_2_75_tag_name = "g:badwolf_tabline"
+let tlist_2_75_ttype_idx = 74
+let tlist_2_76_tag = "g:badwolf_tabline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_tabline = 3$/;\"	v	line:749"
+let tlist_2_76_tag_name = "g:badwolf_tabline"
+let tlist_2_76_ttype_idx = 75
+let tlist_2_77_tag = "g:badwolf_html_link_underline	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_html_link_underline = 0$/;\"	v	line:751"
+let tlist_2_77_tag_name = "g:badwolf_html_link_underline"
+let tlist_2_77_ttype_idx = 76
+let tlist_2_78_tag = "g:badwolf_css_props_highlight	C:/Users/Proman02/vimfiles/_vimrc	/^let g:badwolf_css_props_highlight = 1$/;\"	v	line:753"
+let tlist_2_78_tag_name = "g:badwolf_css_props_highlight"
+let tlist_2_78_ttype_idx = 77
+let tlist_2_79_tag = "g:skeletons_dir	C:/Users/Proman02/vimfiles/_vimrc	/^let g:skeletons_dir=$HOME . '\\/vimfiles\\/bundle\\/skeletons.vim\\/skeletons\\/'$/;\"	v	line:759"
+let tlist_2_79_tag_name = "g:skeletons_dir"
+let tlist_2_79_ttype_idx = 78
+let tlist_2_80_tag = "g:pdv_template_dir	C:/Users/Proman02/vimfiles/_vimrc	/^let g:pdv_template_dir = $HOME .\"\\/vimfiles\\/bundle\\/pdv\\/templates_snip\"$/;\"	v	line:766"
+let tlist_2_80_tag_name = "g:pdv_template_dir"
+let tlist_2_80_ttype_idx = 79
+let tlist_2_81_tag = "g:qb_hotkey	C:/Users/Proman02/vimfiles/_vimrc	/^let g:qb_hotkey='<leader>qb'$/;\"	v	line:772"
+let tlist_2_81_tag_name = "g:qb_hotkey"
+let tlist_2_81_ttype_idx = 80
+let tlist_2_v = "    g:indentLine_char\n    g:NERDTreeBookmarksFile\n    g:NERDTreeShowBookmarks\n    g:NERDTreeWinSize\n    g:NERDTreeChristmasTree\n    g:NERDTreeCaseSensitiveSort\n    g:NERDTreeQuitOnOpen\n    g:NERDTreeMouseMode\n    g:nerdtree_tabs_open_on_gui_startup\n    g:nerdtree_tabs_open_on_console_startup\n    g:NERDTreeChDirMode\n    g:NERDTreeIgnore\n    NERDSpaceDelims\n    g:miniBufExplMapWindowNavVim\n    g:miniBufExplMapWindowNavArrows\n    g:miniBufExplMapCTabSwitchBufs\n    g:miniBufExplModSelTarget\n    g:EasyMotion_leader_key\n    g:ctrlp_map\n    g:ctrlp_cache_dir\n    g:ctrlp_max_height\n    g:ctrlp_clear_cache_on_exit\n    g:ctrlp_follow_symlinks\n    g:ctrlp_match_window_bottom\n    g:ctrlp_custom_ignore\n    g:ctrlp_user_command\n    g:syntastic_enable_balloons\n    g:syntastic_auto_loc_list\n    g:syntastic_auto_jump\n    g:syntastic_enable_signs\n    g:syntastic_mode_map\n    g:ctags_statusline\n    generate_tags\n    Tlist_Use_Horiz_Window\n    Tlist_Use_Right_Window\n    Tlist_Compact_Format\n    Tlist_Exit_OnlyWindow\n    Tlist_GainFocus_On_ToggleOpen\n    Tlist_File_Fold_Auto_Close\n    Tlist_Ctags_Cmd\n    Tlist_Auto_Open\n    g:easytags_cmd\n    g:easytags_file\n    g:easytags_dynamic_files\n    g:easytags_always_enabled\n    g:easytags_on_cursorhold\n    g:easytags_auto_highlight\n    g:dbext_default_profile_sql_qa\n    g:dbext_default_profile_sql_qavw\n    g:tagbar_ctags_bin\n    g:tagbar_width\n    g:tagbar_width\n    g:tagbar_autoclose\n    g:tagbar_autofocus\n    g:tagbar_compact\n    g:tagbar_expand\n    g:Powerline_symbols\n    g:Powerline_symbols\n    $VIM_INTELLISENSE\n    g:visual_studio_quickfix_errorformat\n    g:showmarks_enable\n    g:indent_guides_start_level\n    g:indent_guides_guide_size\n    g:session_command_aliases\n    g:used_javascript_libs\n    g:user_zen_mode\n    g:user_zen_mode\n    g:user_zen_mode\n    g:user_zen_expandabbr_key\n    g:use_zen_complete_tag\n    g:badwolf_darkgutter\n    g:badwolf_tabline\n    g:badwolf_tabline\n    g:badwolf_tabline\n    g:badwolf_tabline\n    g:badwolf_html_link_underline\n    g:badwolf_css_props_highlight\n    g:skeletons_dir\n    g:pdv_template_dir\n    g:qb_hotkey\n"
+let tlist_2_v_count = 80
+let tlist_2_v_1 = 2
+let tlist_2_v_2 = 3
+let tlist_2_v_3 = 4
+let tlist_2_v_4 = 5
+let tlist_2_v_5 = 6
+let tlist_2_v_6 = 7
+let tlist_2_v_7 = 8
+let tlist_2_v_8 = 9
+let tlist_2_v_9 = 10
+let tlist_2_v_10 = 11
+let tlist_2_v_11 = 12
+let tlist_2_v_12 = 13
+let tlist_2_v_13 = 14
+let tlist_2_v_14 = 15
+let tlist_2_v_15 = 16
+let tlist_2_v_16 = 17
+let tlist_2_v_17 = 18
+let tlist_2_v_18 = 19
+let tlist_2_v_19 = 20
+let tlist_2_v_20 = 21
+let tlist_2_v_21 = 22
+let tlist_2_v_22 = 23
+let tlist_2_v_23 = 24
+let tlist_2_v_24 = 25
+let tlist_2_v_25 = 26
+let tlist_2_v_26 = 27
+let tlist_2_v_27 = 28
+let tlist_2_v_28 = 29
+let tlist_2_v_29 = 30
+let tlist_2_v_30 = 31
+let tlist_2_v_31 = 32
+let tlist_2_v_32 = 33
+let tlist_2_v_33 = 34
+let tlist_2_v_34 = 35
+let tlist_2_v_35 = 36
+let tlist_2_v_36 = 37
+let tlist_2_v_37 = 38
+let tlist_2_v_38 = 39
+let tlist_2_v_39 = 40
+let tlist_2_v_40 = 41
+let tlist_2_v_41 = 42
+let tlist_2_v_42 = 43
+let tlist_2_v_43 = 44
+let tlist_2_v_44 = 45
+let tlist_2_v_45 = 46
+let tlist_2_v_46 = 47
+let tlist_2_v_47 = 48
+let tlist_2_v_48 = 49
+let tlist_2_v_49 = 50
+let tlist_2_v_50 = 51
+let tlist_2_v_51 = 52
+let tlist_2_v_52 = 53
+let tlist_2_v_53 = 54
+let tlist_2_v_54 = 55
+let tlist_2_v_55 = 56
+let tlist_2_v_56 = 57
+let tlist_2_v_57 = 58
+let tlist_2_v_58 = 59
+let tlist_2_v_59 = 60
+let tlist_2_v_60 = 61
+let tlist_2_v_61 = 62
+let tlist_2_v_62 = 63
+let tlist_2_v_63 = 64
+let tlist_2_v_64 = 65
+let tlist_2_v_65 = 66
+let tlist_2_v_66 = 67
+let tlist_2_v_67 = 68
+let tlist_2_v_68 = 69
+let tlist_2_v_69 = 70
+let tlist_2_v_70 = 71
+let tlist_2_v_71 = 72
+let tlist_2_v_72 = 73
+let tlist_2_v_73 = 74
+let tlist_2_v_74 = 75
+let tlist_2_v_75 = 76
+let tlist_2_v_76 = 77
+let tlist_2_v_77 = 78
+let tlist_2_v_78 = 79
+let tlist_2_v_79 = 80
+let tlist_2_v_80 = 81
+let tlist_2_f = "    MyFoldText\n"
+let tlist_2_f_count = 1
+let tlist_2_f_1 = 1

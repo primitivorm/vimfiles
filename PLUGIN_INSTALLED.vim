@@ -89,7 +89,7 @@ webapi-vim      https://github.com/mattn/webapi-vim
 *vim-jade       https://github.com/statianzo/vim-jade
 vim-jquery      https://github.com/itspriddle/vim-jquery
 vim.preview     http://www.vim.org/scripts/script.php?script_id=3344
-*vim.sinatra    https://github.com/hallison/vim-ruby-sinatra                
+*vim.sinatra    https://github.com/hallison/vim-ruby-sinatra
 *sinatra        https://github.com/sinatra/sinatra/                         http://www.sinatrarb.com/
 vim-ruby        https://github.com/vim-ruby/vim-ruby
 +vim-ruby-debugger      https://github.com/astashov/vim-ruby-debugger
@@ -97,7 +97,7 @@ vim-ruby        https://github.com/vim-ruby/vim-ruby
 vim-textobj-user   http://www.vim.org/scripts/script.php?script_id=2100        http://www.vim.org/scripts/script.php?script_id=3382        http://vimcasts.org/blog/2010/12/a-text-object-for-ruby-blocks/         http://amaras-tech.co.uk/article/84         https://github.com/kana/vim-textobj-user
 vim-vroom       https://github.com/skalnik/vim-vroom
 +zen-coding      http://www.vim.org/scripts/script.php?script_id=2981        http://mattn.github.com/zencoding-vim/          http://mattn.github.com/zencoding-vim/      http://code.google.com/p/zen-coding/
-+ZoomWin         http://www.vim.org/scripts/script.php?script_id=508         https://github.com/vim-scripts/ZoomWin          http://www.drchip.org/astronaut/vim/index.html#ZOOMWIN 
++ZoomWin         http://www.vim.org/scripts/script.php?script_id=508         https://github.com/vim-scripts/ZoomWin          http://www.drchip.org/astronaut/vim/index.html#ZOOMWIN
 +csapprox        https://github.com/godlygeek/csapprox
 **delimitMate.vim https://github.com/vim-scripts/delimitMate.vim
 vim-git         https://github.com/tpope/vim-git
@@ -117,7 +117,7 @@ vim-shell       https://github.com/xolox/vim-shell
 vimshell        https://github.com/Shougo/vimshell
 +c-vim           https://github.com/vim-scripts/c.vim
 +L9              https://github.com/vim-scripts/L9
-+icomplete       https://github.com/vim-scripts/IComplete       
++icomplete       https://github.com/vim-scripts/IComplete
 +javascript-libraries-syntax         https://github.com/othree/javascript-libraries-syntax.vim
 +piv             https://github.com/spf13/PIV
 +pyflakes        https://github.com/kevinw/pyflakes-vim
@@ -150,7 +150,7 @@ sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
 *ag         https://github.com/rking/ag.vim
 *keepcase.vim    www.vim.org/scripts/script.php?script_id=6             https://github.com/vim-scripts/keepcase.vim
 +scratch.vim     http://www.vim.org/scripts/script.php?script_id=664    https://github.com/vim-scripts/scratch.vim
-+switch.vim      https://github.com/AndrewRadev/switch.vim 
++switch.vim      https://github.com/AndrewRadev/switch.vim
 +vim-json        https://github.com/leshill/vim-json
 +indenthtml      https://github.com/vim-scripts/indenthtml.vim
 +tomdoc          https://github.com/mutewinter/tomdoc.vim               http://tomdoc.org/
@@ -166,7 +166,7 @@ sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
 +ProtoDef       http://www.vim.org/scripts/script.php?script_id=2624
 +skeletons.vim  https://github.com/tobyS/skeletons.vim
 +vim-skeleton   https://github.com/kana/vim-skeleton
-*tSkeleton      http://www.vim.org/scripts/script.php?script_id=1160              https://github.com/tomtom/tskeleton_vim 
+*tSkeleton      http://www.vim.org/scripts/script.php?script_id=1160              https://github.com/tomtom/tskeleton_vim
 *VimDebug        https://github.com/kablamo/VimDebug
 +***badwolf        https://github.com/sjl/badwolf
 +pytest         https://github.com/alfredodeza/pytest.vim
@@ -176,13 +176,16 @@ sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
 +CSApprox        https://github.com/vim-scripts/CSApprox
 +vim-complete    https://github.com/mattsacks/vim-complete
 +ccimpl          http://vim.sourceforge.net/scripts/script.php?script_id=1146
-+pdv            https://github.com/tobyS/pdv 
++pdv            https://github.com/tobyS/pdv
++aspnet      https://github.com/biruh/vim-aspnet
++vim-aspnetide  https://github.com/bryanthankins/vim-aspnetide
+
 *mduem       https://github.com/kana/mduem
-*templator   http://vim.sourceforge.net/scripts/script.php?script_id=4345   https://github.com/tomtom/templator_vim/ 
+*templator   http://vim.sourceforge.net/scripts/script.php?script_id=4345   https://github.com/tomtom/templator_vim/
 ***vbnet        https://github.com/vim-scripts/VB.NET-Syntax
 -------------------------------------------------------------
 
-Notas: 
+Notas:
 +plugin installed
 *Pendiente de instalar
 **No se recomienda su instalacion
@@ -199,6 +202,6 @@ filetype plugin on
 ---instalar *.vba
 vim tagbar.vba
     :so %
-    :q 
+    :q
 ---------------------
 http://vim.wikia.com/wiki/Use_Vim_like_an_IDE
