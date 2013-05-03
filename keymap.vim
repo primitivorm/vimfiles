@@ -486,4 +486,4 @@ endfunction
 
 "minimap
 "https://github.com/koron/minimap-vim
-nnoremap <c-m> :MinimapSync<cr>
+"nnoremap <leader>' :MinimapSync<cr>
