@@ -43,6 +43,39 @@ perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack de
 <Leader>nr  -> narrow code
 :Scratch    -> open a temporal file
 :Sscratch   -> To open the scratch buffer in a new split window
+ggvG= 		-> autoindent entire file
+ctrl-w _ 	maximise height of current window
+ctrl-w | 	maximise width of current window
+:sp[lit] filename 	split the current window horizontally, loading filename in the new window
+:vsp[lit] filename 	split the current window vertically, loading filename in the new window
+g; | g,		-> moving around changelist
+:changes 	-> view changelist
+ctrl-O | 	ctrl-I 	-> moving around jumps
+:jumps 	-> view jumps
+ctrl-] 		-> moving around documentation files
+The gq{motion} command will format a section of text. The ip motion selects the current paragraph, so gqip applies formatting to the current paragraph.
+:h highlighting-group 	-> show highlighting groups for colorschema
+:MRU 	-> open most recent files
+/\v 	-> very magic search
+ctrl-p 	Show previous historical command/search
+ctrl-n 	Show next historical command/search
+ctrl-f 	Switch from commandline mode to the commandline window
+q/ 	Open the commandline window with history of searches
+q: 	Open the commandline window with history of commands
+ctrl-f 	Switch from commandline mode to the commandline window
+:MinimapSync 	-> open minimap as sublime text 2
+
+-----------------------------------------------
+spell
+-----------------------------------------------
+]s 	-> go to next spell check
+[s 	-> go to previous spell check
+z= 	-> show correct list options
+1z= 	-> change to 1 coincidence
+zg 		-> add word from the spelling dictionary
+zw 		-> remove word from the spelling dictionary
+zug     -> revert change add
+zuw 	-> revert change remove
 -----------------------------------------------
 
 -----------------------------------------------
@@ -138,6 +171,8 @@ yy@"     : same
 -----------------------------------------------
 Substitution
 -----------------------------------------------
+:%s/\s\+$//e 		-> delete space at end file
+:g/^$/d 			-> delete blank lines
 :%s/fred/joe/igc           : general substitute command
 :%s/\r//g                  : delete DOS Carriage Returns (^M)
 :'a,'bg/fred/s/dick/joe/gc : VERY USEFUL
@@ -208,7 +243,18 @@ o   cursor de selección al principio/fin del marcado
 gv  empezar a marcar utilizando última zona marcada
 aw as ap    seleccionar una palabra, oración, párrafo
 ab aB   seleccionar un bloque ( ), un bloque { }
-
+Vip 	-> selecciona el parrafo actual
+vit 	-> selecciona entre tag html
+v^h 	-> select hidden characters
+-----------------------------------------------
+visual block selection
+-----------------------------------------------
+c 	change selection (delete and switch to insert mode)
+I 	insert in front of cursor
+A 	append after cursor
+r 	replace every character in selection
+d 	delete selection
+o 	toggle cursor to opposite corner
 -----------------------------------------------
 Deshacer, repetir & registros
 -----------------------------------------------
@@ -247,6 +293,7 @@ tc Tc   antes de la siguiente, anterior occurencia de c
 -----------------------------------------------
 Búsqueda & sustitución
 -----------------------------------------------
+/^#\d\d -> This matches a Markdown style h1.
 /s↵  ?s↵    buscar s hacia adelante, atrás
 /s/o↵  ?s?o↵    buscar s adelante, atrás con desplaz. o
 n or /↵ repetir última búsqueda hacia adelante
@@ -302,6 +349,7 @@ s+n s-n n caract. der., izq. del final del matcheo
 Marcas y movimiento
 -----------------------------------------------
 mc  marcar posición actual con marca c ∈[a..Z]
+d'a 	deletes mark a
 `c `C   ir a marca c en archivo actual, cualquier archivo
 `0..9   ir a última posición de salida
 `` `"   ir a posición antes del salto, de última edición
@@ -607,26 +655,15 @@ SQLUCreateProcedure  : Creates a stored procedure to perform standard
 -----------------------------------------------
 --surround
 -----------------------------------------------
-It's easiest to explain with examples. Press cs"' inside
-"Hello world!"
-to change it to
-'Hello world!'
-Now press cs'<q> to change it to
-<q>Hello world!</q>
-To go full circle, press cst" to get
-"Hello world!"
-To remove the delimiters entirely, press ds".
-Hello world!
-Now with the cursor on "Hello", press ysiw] (iw is a text object).
-[Hello] world!
-Let's make that braces and add some space (use } instead of { for no space): cs]{
-{ Hello } world!
-Now wrap the entire line in parentheses with yssb or yss).
-({ Hello } world!)
-Revert to the original text: ds{ds)
-Hello world!
-Emphasize hello: ysiw<em>
-<em>Hello</em> world!
+It's easiest to explain with examples. Press cs"' inside "Hello world!" -> 'Hello world!'
+Now press cs'<q> to change it to <q>Hello world!</q>
+To go full circle, press cst" to get "Hello world!"
+To remove the delimiters entirely, press ds".  Hello world!
+Now with the cursor on "Hello", press ysiw] (iw is a text object).  [Hello] world!
+Let's make that braces and add some space (use } instead of { for no space): cs]{ { Hello } world!
+Now wrap the entire line in parentheses with yssb or yss).  ({ Hello } world!)
+Revert to the original text: ds{ds) Hello world!
+Emphasize hello: ysiw<em> <em>Hello</em> world!
 Finally, let's try out visual mode. Press a capital V (for linewise visual mode) followed by S<p class="important">.
 <p class="important">
   <em>Hello</em> world!
@@ -1021,6 +1058,7 @@ http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-patho
 cd ~/.vim
 git submodule init
 git submodule add git://github.com/tpope/vim-fugitive.git bundle/vim-fugitive
+git submodule update
 git commit -m 'Added vim-fugitive'
 git push
 -----------------------------------------------
@@ -1058,7 +1096,8 @@ git command
 git add .
 git add . -A    -> remove file
 git commit -m "message here"
-git push
+git push -> check in
+git pull -> get latest version
 -----------------------------------------------
 
 -----------------------------------------------

@@ -2,9 +2,15 @@
 "http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
 "mapea leader a coma
 let mapleader=","
-
 "Go to last edit location with ,.
 nnoremap ,. '.
+
+"opening files located in the same directory as the current file
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 " Map the arrow keys to be based on display lines, not physical lines
 "map <Down> gj
 "map <Up> gk
@@ -12,24 +18,37 @@ nnoremap ,. '.
 nnoremap j gj
 nnoremap k gk
 " Easy window navigation
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+noremap <C-w> <C-w>w " cycle between the open windows
+
+noremap <C-Left> <C-w>h " focus the window to the left
+noremap <C-Down> <C-w>j " focus the window to the down
+noremap <C-Up> <C-w>k " focus the window to the up
+noremap <C-Right> <C-w>l " focus the window to the right
 nnoremap <leader>w <C-w>v<C-w>l
 
 " buffer next/previous
-nnoremap <silent> <leader>< :bp<CR>
-nnoremap <silent> <leader>> :bn<CR>
+"nnoremap <silent> <leader>< :bp<CR>
+"nnoremap <silent> <leader>> :bn<CR>
 
 " Create window splits easier. The default
 " way is Ctrl-w,v and Ctrl-w,s. I remap
 " this to vv and ss
-nnoremap <silent> vv <C-w>v
-nnoremap <silent> ss <C-w>s
+nnoremap <silent>vv <C-w>v
+nnoremap <silent>ss <C-w>s
 
 " Adjust viewports to the same size
 nnoremap <Leader>= <C-w>=
+nnoremap <Leader>_ <C-w>_
+nnoremap <Leader><Bar> <C-w><Bar>
+
+"tab map
+nnoremap <leader>tn :tabnew<cr>
+nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>te :tabedit<cr>
+
+nnoremap <silent><C-Tab> :tabnext<cr>
+nnoremap <silent><S-Tab> :tabprev<cr>
+
 
 " Easy close windows with Q
 nnoremap <silent> Q <C-w>c
@@ -53,8 +72,8 @@ nnoremap <leader>if mqHmwgg=G`wzt`q
 
 " copy current filename into system clipboard - mnemonic: (c)urrent(f)ilename
 " this is helpful to paste someone the path you're looking at
-nnoremap <silent>,cf :let @* = expand("%:~")<CR>
-nnoremap <silent>,cn :let @* = expand("%:t")<CR>
+nnoremap <silent><leader>cf :let @* = expand("%:~")<CR>
+nnoremap <silent><leader>cn :let @* = expand("%:t")<CR>
 
 "Clear current search highlight by double tapping //
 nnoremap <silent> // :nohlsearch<CR>
@@ -73,28 +92,27 @@ map! <S-Insert> <MiddleMouse>
 
 " Ack
 if has("gui_macvim") && has("gui_running")
-" Command-Shift-F on OSX
-    map <D-F> :Ack<space>
-" CMD-Enter to enter new line, doesn't work in terminal
-    inoremap <D-Enter> <C-o>o
-    inoremap <D-S-Enter> <C-o>O
+"" Command-Shift-F on OSX
+    "map <D-F> :Ack<space>
+"" CMD-Enter to enter new line, doesn't work in terminal
+    "inoremap <D-Enter> <C-o>o
+    "inoremap <D-S-Enter> <C-o>O
 
-" ctrl-opt- left/right for tab movement
-    nnoremap <silent> <D-A-Left> :tabp<cr>
-    inoremap <silent> <D-A-Left> <esc>:tabp<cr>
-    nnoremap <silent> <D-A-Right> :tabn<cr>
-    inoremap <silent> <D-A-Right> <esc>:tabn<cr>
+"" ctrl-opt- left/right for tab movement
+    "nnoremap <silent> <D-A-Left> :tabp<cr>
+    "inoremap <silent> <D-A-Left> <esc>:tabp<cr>
+    "nnoremap <silent> <D-A-Right> :tabn<cr>
+    "inoremap <silent> <D-A-Right> <esc>:tabn<cr>
 
-" Resize windows with arrow keys
-    nnoremap <D-S-Down> <C-w>-
-    nnoremap <D-S-Left> <C-w><
-    nnoremap <D-S-Up> <C-w>+
-    nnoremap <D-S-Right> <C-w>>
+"" Resize windows with arrow keys
+    "nnoremap <D-S-Down> <C-w>-
+    "nnoremap <D-S-Left> <C-w><
+    "nnoremap <D-S-Up> <C-w>+
+    "nnoremap <D-S-Right> <C-w>>
 
-" Apple-* Highlight all occurrences of current word (like '*' but without moving)
-" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
-    nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-
+"" Apple-* Highlight all occurrences of current word (like '*' but without moving)
+"" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
+    "nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 else
 " Define <C-F> to a dummy value to see if it would set <C-f> as well.
     map <C-F> :dummy
@@ -113,11 +131,11 @@ else
     inoremap <C-S-Enter> <C-o>O
 
 " ctrl-opt- left/right for tab movement
-    nnoremap <silent> <C-A-Left> :tabp<cr>
-    inoremap <silent> <C-A-Left> <esc>:tabp<cr>
-    nnoremap <silent> <C-A-Right> :tabn<cr>
-    inoremap <silent> <C-A-Right> <esc>:tabn<cr>
-    nnoremap <C-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+"nnoremap <silent> <C-A-Left> :tabp<cr>
+"inoremap <silent> <C-A-Left> <esc>:tabp<cr>
+"nnoremap <silent> <C-A-Right> :tabn<cr>
+"inoremap <silent> <C-A-Right> <esc>:tabn<cr>
+"nnoremap <C-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
 
 endif
 
@@ -125,7 +143,7 @@ endif
 nnoremap <silent> <leader>z :ZoomWin<CR>
 
 " GUndo
-nnoremap ,u :GundoToggle<CR>
+nnoremap <c-u> :GundoToggle<CR>
 
 " ctrlp
 
@@ -174,24 +192,22 @@ vmap <leader>} c{ <C-R>" }<ESC>
 vmap <leader>{ c{<C-R>"}<ESC>
 
 " Tabular
-"nnoremap <Leader>t= :Tabularize /=<CR>
-vnoremap <Leader>t= :Tabularize /=<CR>
-"nnoremap <Leader>t: :Tabularize /:\zs<CR>
-vnoremap <Leader>t: :Tabularize /:\zs<CR>
-"nnoremap <Leader>t, :Tabularize /,\zs<CR>
-vnoremap <Leader>t, :Tabularize /,\zs<CR>
-nnoremap <Leader>t> :Tabularize /=>\zs<CR>
-vnoremap <Leader>t> :Tabularize /=>\zs<CR>
-nnoremap <Leader>t- :Tabularize /-<CR>
-vnoremap <Leader>t- :Tabularize /-<CR>
-nnoremap <Leader>t" :Tabularize /"<CR>
-vnoremap <Leader>t" :Tabularize /"<CR>
-vmap <Leader>t3 :Tabularize /#<CR>
-vmap <Leader>t' :Tabularize /'<CR>
-vmap <Leader>t'' :Tabularize /"<CR>
-vmap <Leader>t0 :Tabularize /)/r1c1l0<CR>
-vmap <Leader>t== :Tabularize /=/r1c1l0<CR>
-
+ if exists(":Tabularize")
+	vnoremap <Leader>t= :Tabularize /=<CR>
+	vnoremap <Leader>t: :Tabularize /:\zs<CR>
+	vnoremap <Leader>t, :Tabularize /,\zs<CR>
+	nnoremap <Leader>t> :Tabularize /=>\zs<CR>
+	vnoremap <Leader>t> :Tabularize /=>\zs<CR>
+	nnoremap <Leader>t- :Tabularize /-<CR>
+	vnoremap <Leader>t- :Tabularize /-<CR>
+	nnoremap <Leader>t" :Tabularize /"<CR>
+	vnoremap <Leader>t" :Tabularize /"<CR>
+	vmap <Leader>t3 :Tabularize /#<CR>
+	vmap <Leader>t' :Tabularize /'<CR>
+	vmap <Leader>t'' :Tabularize /"<CR>
+	vmap <Leader>t0 :Tabularize /)/r1c1l0<CR>
+	vmap <Leader>t== :Tabularize /=/r1c1l0<CR>
+endif
 " Tagbar toggle
 " o=outline
 nnoremap <Leader>o :TagbarToggle<CR>
@@ -208,11 +224,7 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 "nerdtree
 ""I make sure the working directory is set correctly.
 nmap <leader>lc :set list!<CR>
-"I hit <leader>n to open NERDTree.
-"nnoremap <leader>n :NERDTree .<CR>
-"mapea las teclas Ctrl+n para abrir NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
-"nmap <silent><Leader>nt :NERDTreeMirrorToggle<CR>
 
 "ctrl-p
 nmap <leader>b :CtrlPBuffer<CR>
@@ -228,11 +240,11 @@ nmap <silent> <leader>gp :Git push<CR>
 
 " Shorter commands to toggle Taglist display
 nnoremap TT :TlistToggle<CR>
-map <C-F4> :TlistToggle<CR>
-nnoremap ,T :Tlist<CR>
-nnoremap ,U :TlistUpdate<CR>
-nnoremap ,s :TlistSessionSave tlist<CR>
-nnoremap ,l :TlistSessionLoad tlist<CR>
+"map <C-F4> :TlistToggle<CR>
+"nnoremap <leader>T :Tlist<CR>
+"nnoremap <leader>U :TlistUpdate<CR>
+"nnoremap <leader>s :TlistSessionSave tlist<CR>
+"nnoremap <leader>l :TlistSessionLoad tlist<CR>
 
 "Search and destroy using tags
 "map <C-F12> :!C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
@@ -260,7 +272,7 @@ nnoremap <c-l> :SidewaysRight<cr>
 " HTML file, it will run:
 " start c:\absolute\filename.html
 " nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
-command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
+""" command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
 
 " Toggle the quickfix window {{{
 " From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
@@ -311,18 +323,18 @@ nnoremap <leader>y "+y
 nnoremap <leader>Y "+yy
 nnoremap <leader>p "+p
 nnoremap <leader>P "+P
+nnoremap <leader>x "+x
+nnoremap <leader>x "+x
 
-" YankRing stuff
-let g:yankring_history_dir = $HOME.'/vimfiles/tmp'
-nnoremap <leader>r :YRShow<CR>
-
-" Edit the vimrc file
-nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+ " " YankRing stuff
+" let g:yankring_history_dir = $HOME.'/vimfiles/tmp'
+" nnoremap <leader>r :YRShow<CR>
 
 " Edit the vimrc file
-nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
-nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+nnoremap <silent><leader>edv :e $MYVIMRC<CR>
+nnoremap <silent><leader>sv :so $MYVIMRC<CR>
+" nmap <leader>v :tabedit $MYVIMRC<CR>
+" source $MYVIMRC
 
 " Clears the search register
 nnoremap <silent> <leader>/ :nohlsearch<CR>
@@ -398,27 +410,27 @@ nnoremap <Leader>kf :call Complete('F')<CR>
 nnoremap <Leader>kj :call Complete('F app/javascripts*')<CR>
 
 "buftabs
- noremap <C-left> :bprev<CR>
- noremap <C-right> :bnext<CR>
+"nnoremap <C-left> :bprev<CR>
+"nnoremap <C-right> :bnext<CR>
 
 "Omnisharp
-map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
-map <F12> :call OmniSharp#GotoDefinition()<cr>
-map gd :call OmniSharp#GotoDefinition()<cr>
-nmap fi :call OmniSharp#FindImplementations()<cr>
-nmap fu :call OmniSharp#FindUsages()<cr>
-" nmap <leader>tt :call OmniSharp#TypeLookup()<cr>
-nmap <leader>ot :call OmniSharp#TypeLookup()<cr>
-"I find contextual code actions so useful that I have it mapped to the spacebar
-nmap <space> :call OmniSharp#GetCodeActions()<cr>
+" map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
+" map <F12> :call OmniSharp#GotoDefinition()<cr>
+" map gd :call OmniSharp#GotoDefinition()<cr>
+" nmap fi :call OmniSharp#FindImplementations()<cr>
+" nmap fu :call OmniSharp#FindUsages()<cr>
+" " nmap <leader>tt :call OmniSharp#TypeLookup()<cr>
+" nmap <leader>ot :call OmniSharp#TypeLookup()<cr>
+" "I find contextual code actions so useful that I have it mapped to the spacebar
+" nmap <space> :call OmniSharp#GetCodeActions()<cr>
 
-" rename with dialog
-nmap nm :call OmniSharp#Rename()<cr>
-nmap <F2> :call OmniSharp#Rename()<cr>
-" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
-command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
-" Force OmniSharp to reload the solution. Useful when switching branches etc.
-nmap <leader>rl :call OmniSharp#ReloadSolution()<cr>
+" " rename with dialog
+" nmap nm :call OmniSharp#Rename()<cr>
+" nmap <F2> :call OmniSharp#Rename()<cr>
+" " rename without dialog - with cursor on the symbol to rename... ':Rename newname'
+" command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+" " Force OmniSharp to reload the solution. Useful when switching branches etc.
+" nmap <leader>rl :call OmniSharp#ReloadSolution()<cr>
 
 " "neocomplcache
 
@@ -457,3 +469,21 @@ nmap <leader>rl :call OmniSharp#ReloadSolution()<cr>
 " "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 " let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 " let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+
+"http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+"minimap
+"https://github.com/koron/minimap-vim
+nnoremap <c-m> :MinimapSync<cr>

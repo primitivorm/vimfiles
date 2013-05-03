@@ -5,12 +5,18 @@
 source $HOME/vimfiles/keymap.vim
 set digraph
 
+" Source the vimrc file after saving it
+let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
+"if has("autocmd")
+  "autocmd bufwritepost _vimrc source $MYVIMRC
+"endif
+
 "pathogen plugin:
 "https://github.com/tpope/vim-pathogen
 "------------------------------------------------------
-call pathogen#infect()
+"call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-
 "------------------------------------------------------
 "vundle
  "https://github.com/gmarik/vundle
@@ -32,7 +38,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-commentary'
+" Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-ragtag'
@@ -40,7 +46,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/gem-ctags'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'drmingdrmer/xptemplate'
@@ -54,7 +60,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'SirVer/ultisnips'
 Bundle 'tobyS/skeletons.vim'
 Bundle 'kana/vim-skeleton'
-Bundle 'tobyS/pdv'
+" Bundle 'tobyS/pdv'
 Bundle 'majutsushi/tagbar'
 Bundle 'shemerey/vim-indexer'
 " Bundle 'esukram/autocomplpop.vim'
@@ -116,8 +122,8 @@ Bundle 'kablamo/VimDebug'
 Bundle 'sjl/badwolf'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'gagoar/StripWhiteSpaces'
-Bundle 'nosami/Omnisharp'
-Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'nosami/Omnisharp'
+"Bundle 'fholgado/minibufexpl.vim'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'icsharpcode/NRefactory'
 Bundle 'benizi/perl-support.vim'
@@ -144,6 +150,10 @@ Bundle 'biruh/vim-aspnet'
 " Bundle 'tek/vim-quickbuf'
 Bundle 'mklabs/vim-backbone'
 Bundle 'oranget/vim-csharp.git'
+Bundle 'sickill/coloration'
+Bundle 'sickill/vim-monokai'
+Bundle 'sickill/vim-sunburst'
+Bundle 'koron/minimap-vim'
 
 " vim-scripts repos
 Bundle 'c.vim'
@@ -156,13 +166,14 @@ Bundle 'dbext.vim'
 Bundle 'genutils'
 Bundle 'IComplete'
 Bundle 'DfrankUtil'
-Bundle 'YankRing.vim'
 Bundle 'ShowMarks'
 Bundle 'ZoomWin'
 Bundle 'IndexedSearch'
-Bundle 'YankRing.vim'
+"Bundle 'YankRing.vim'
 Bundle 'SearchComplete'
 " Bundle 'QuickBuf'
+Bundle 'hexHighlight.vim'
+Bundle 'multiselect'
 
 " Bundle 'AutoTag'
 Bundle 'Rainbow-Parenthesis'
@@ -176,7 +187,7 @@ Bundle 'VimClojure'
 Bundle 'pydoc.vim'
 Bundle 'quickfixsigns'
 Bundle 'vcscommand.vim'
-Bundle 'visual_studio.vim'
+"Bundle 'visual_studio.vim'
 " non github repos
  Bundle 'git://git.wincent.com/command-t.git'
  " ...
@@ -211,7 +222,8 @@ endif
 "http://vim.wikia.com/wiki/VimTip30
 set nrformats+=alpha
 set fileformats="unix,dos,mac"
-set formatoptions+=1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
+set formatoptions=tcq 	"fo
+set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 set nocp
 "evita crear archivos de respaldo
 set nobackup
@@ -227,6 +239,8 @@ set wildmode=list:full " show a list when pressing tab and complete
 " first full match
 set visualbell " don't beep
 set noerrorbells " don't beep
+set cmdheight=5     "especify the height of cmd
+set noshowmode
 set showcmd " show (partial) command in the last line of the screen
 " this also shows visual selection info
 " set nomodeline " disable mode lines (security measure)
@@ -258,9 +272,9 @@ syntax enable
 "colorscheme solarized
 "let g:solarized_termcolors=256
 "colorscheme proman
-colorscheme Monokai
-" colorscheme eclipse
-" colorscheme badwolf
+"colorscheme Monokai
+"colorscheme eclipse
+colorscheme badwolf
 "colorscheme mustang
 "colorscheme wombat
 "colorscheme github
@@ -268,6 +282,7 @@ colorscheme Monokai
 "colorscheme railscasts
 "colorscheme bandit "like visual studio
 "colorscheme blackboard "like visual studio
+"colorscheme Sunburst
 "colorscheme default
 
 "habilita plugin para sangrado de lineas
@@ -279,10 +294,11 @@ filetype plugin on
 "muestra numeros de linea del archivo
 set nu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
-set wrap!
+set wrap
+set linebreak 	"lbr
+set showbreak=...
 "set textwidth=79
 set textwidth=85
-set formatoptions=qrn1
 set colorcolumn=100
 
 "habilita sangrado inteligente
@@ -293,9 +309,9 @@ set ai
 "use 4 spaces for tabs set tabstop=4 softtabstop=4 shiftwidth=4 " display indentation guides
 set tabstop=4
 set shiftwidth=4
-set expandtab
-set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 set scrolloff=4 " keep 4 lines off the edges of the screen when scrolling
+set noexpandtab
+set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 set virtualedit=all " allow the cursor to go in to "invalid" places
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent " always set autoindenting on
@@ -390,7 +406,7 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "remarcado de lineas speciales
 highlight SpecialKey guifg=#c0c0c0 ctermfg=192
 "muestra los caracteres ocultos y los remplaza por los establecidos
-" set list
+set list
 " set listchars=tab:\|-,trail:-,eol:�
 set listchars=tab:▸\-,trail:-,eol:¬
 set mouse=a " enable using the mouse if terminal emulator
@@ -408,7 +424,7 @@ if has('gui_running')
 "set guifont=Monaco:h9:cDEFAULT
     "set guifont=Ubuntu_Mono_for_powerline:h14:cDEFAULT
 " set guifont=Ubuntu_Mono_for_powerline:h11:cANSI
-set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
+set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
 set cursorline cursorcolumn
 endif
 "set guioptions-=m  "remove menu bar
@@ -463,13 +479,11 @@ let g:NERDTreeBookmarksFile = expand($HOME.'/vimfiles/_NERDTreeBookmarks')
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeChristmasTree = 1
-let g:NERDTreeCaseSensitiveSort = 1
+let g:NERDTreeCaseSensitiveSort = 0
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeMouseMode=2
-'
-let g:nerdtree_tabs_open_on_gui_startup=0
-let g:nerdtree_tabs_open_on_console_startup=0
-
+let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_console_startup=1
 "the working directory is always the one where the active buffer is located.
 set autochdir
 "I make sure the working directory is set correctly.
@@ -487,7 +501,7 @@ let g:NERDTreeIgnore=[
 " NERDcommenter
 " https://github.com/scrooloose/nerdcommenter
 "------------------------------------------------------
-let NERDSpaceDelims=1
+" let NERDSpaceDelims=1
 " map <Leader>/ <Plug>NERDCommenterToggle<CR>
 " vmap <Leader>/ <Plug>NERDCommenterToggle<CR>
 "------------------------------------------------------
@@ -496,26 +510,26 @@ let NERDSpaceDelims=1
 "mini buffer explorer
 "https://github.com/fholgado/minibufexpl.vim
 "------------------------------------------------------
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-" MiniBufExpl Colors
-hi MBEVisibleActive guifg=#ff4500 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
+"" MiniBufExpl Colors
+"hi MBEVisibleActive guifg=#ff4500 guibg=fg
+"hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+"hi MBEVisibleChanged guifg=#F1266F guibg=fg
+"hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+"hi MBEChanged guifg=#CD5907 guibg=fg
+"hi MBENormal guifg=#808080 guibg=fg
 "------------------------------------------------------
 "
 "---------------------------------------------------------
 "easymotion
 "https://github.com/Lokaltog/vim-easymotion
 "---------------------------------------------------------
-let g:EasyMotion_leader_key = '<Leader>e'
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade Comment
+"let g:EasyMotion_leader_key = '<Leader>e'
+"hi link EasyMotionTarget ErrorMsg
+"hi link EasyMotionShade Comment
 "---------------------------------------------------------
 "
 "---------------------------------------------------------
@@ -606,7 +620,8 @@ let Tlist_Use_Horiz_Window=0
 let Tlist_Use_Right_Window = 1
 let Tlist_Compact_Format = 1
 let Tlist_Exit_OnlyWindow = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
+
+let Tlist_GainFocus_On_ToggleOpen = 0
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
 let Tlist_Auto_Open = 1
@@ -648,12 +663,11 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 " http://www.vim.org/scripts/script.php?script_id=3465
 " https://github.com/majutsushi/tagbar
 "---------------------------------------------------------
-let g:tagbar_ctags_bin='"C:\Users\Proman02\vimfiles\ctags58\ctags.exe"' " Proper Ctags locations
-" let g:tagbar_ctags_bin= $HOME .'/vimfiles/ctags58/ctags.exe' " Proper Ctags locations
+let g:tagbar_ctags_bin= '"C:\cygwin\bin\ctags.exe"'
 let g:tagbar_width=26 " Default is 40, seems too wide
-let g:tagbar_width = 30
+let g:tagbar_width =25
 let g:tagbar_autoclose = 1
-let g:tagbar_autofocus = 1
+let g:tagbar_autofocus = 0
 let g:tagbar_compact = 1
 let g:tagbar_expand = 0
 "---------------------------------------------------------
@@ -772,10 +786,12 @@ au BufNewFile * silent! 0r ~/vimfiles/bundle/skeleton.vim/skeletons/skeleton.%:e
 "https://github.com/tobyS/pdv
 "---------------------------------------------------------
 "---------------------------------------------------------
-let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
-nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
+"let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
+"nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 "---------------------------------------------------------
+"mru
 "---------------------------------------------------------
+let MRU_File = $HOME . '/vimfiles/_vim_mru_files'
 "---------------------------------------------------------
 "MatchTagAlways
 "https://github.com/Valloric/MatchTagAlways
@@ -788,9 +804,9 @@ nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
 "https://github.com/nosami/Omnisharp
 "---------------------------------------------------------
 "This is the default value, setting it isn't actually necessary
-let g:OmniSharp_host = "http://localhost:80"
+"let g:OmniSharp_host = "http://localhost:80"
 "Set the type lookup function to use the preview window instead of the status line
-let g:OmniSharp_typeLookupInPreview = 1
+"let g:OmniSharp_typeLookupInPreview = 1
 "---------------------------------------------------------
 "---------------------------------------------------------
 "neocomplcache
