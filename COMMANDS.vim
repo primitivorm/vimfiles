@@ -64,6 +64,14 @@ q/ 	Open the commandline window with history of searches
 q: 	Open the commandline window with history of commands
 ctrl-f 	Switch from commandline mode to the commandline window
 :MinimapSync 	-> open minimap as sublime text 2
+<leader>' 	-> open minimap state
+
+"https://github.com/terryma/vim-multiple-cursors
+"multiple-cursor-selection
+After you've marked all your locations with Ctrl-n, you can change the visual selection with normal Vim motion commands in Visual mode.
+You could go to Normal mode by pressing v and wield your motion commands there.
+Single key command to switch to Insert mode such as c or s from Visual mode or i, a, I, A in Normal mode should work without any issues.
+At any time, you can press <Esc> to exit back to regular Vim.
 
 -----------------------------------------------
 spell

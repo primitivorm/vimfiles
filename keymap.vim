@@ -91,54 +91,36 @@ map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 " Ack
-if has("gui_macvim") && has("gui_running")
-"" Command-Shift-F on OSX
-    "map <D-F> :Ack<space>
-"" CMD-Enter to enter new line, doesn't work in terminal
-    "inoremap <D-Enter> <C-o>o
-    "inoremap <D-S-Enter> <C-o>O
-
-"" ctrl-opt- left/right for tab movement
-    "nnoremap <silent> <D-A-Left> :tabp<cr>
-    "inoremap <silent> <D-A-Left> <esc>:tabp<cr>
-    "nnoremap <silent> <D-A-Right> :tabn<cr>
-    "inoremap <silent> <D-A-Right> <esc>:tabn<cr>
-
-"" Resize windows with arrow keys
-    "nnoremap <D-S-Down> <C-w>-
-    "nnoremap <D-S-Left> <C-w><
-    "nnoremap <D-S-Up> <C-w>+
-    "nnoremap <D-S-Right> <C-w>>
-
-"" Apple-* Highlight all occurrences of current word (like '*' but without moving)
-"" http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
-    "nnoremap <D-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-else
-" Define <C-F> to a dummy value to see if it would set <C-f> as well.
+if has('win32') || has('win64')
+	" Define <C-F> to a dummy value to see if it would set <C-f> as well.
     map <C-F> :dummy
 
     if maparg("<C-f>") == ":dummy"
-" <leader>f on systems where <C-f> == <C-F>
+	" <leader>f on systems where <C-f> == <C-F>
         map <leader-f> :Ack<space>
     else
-" <C-F> if we can still map <C-f> to <S-Down>
+	" <C-F> if we can still map <C-f> to <S-Down>
         map <C-F> :Ack<space>
     endif
-
     map <C-f> <S-Down>
-" CMD-Enter to enter new line, doesn't work in terminal
+	" CMD-Enter to enter new line, doesn't work in terminal
     inoremap <C-Enter> <C-o>o
     inoremap <C-S-Enter> <C-o>O
-
-" ctrl-opt- left/right for tab movement
-"nnoremap <silent> <C-A-Left> :tabp<cr>
-"inoremap <silent> <C-A-Left> <esc>:tabp<cr>
-"nnoremap <silent> <C-A-Right> :tabn<cr>
-"inoremap <silent> <C-A-Right> <esc>:tabn<cr>
-"nnoremap <C-*> :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-
 endif
 
+"SingleCompile
+nmap <F9> :SCCompile<cr>
+nmap <F10> :SCCompileRun<cr>
+"end SingleCompile
+
+"vim-multiple-cursors
+"let g:multi_cursor_use_default_mapping=0
+" Default mapping
+"let g:multi_cursor_next_key='<C-n>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
+"end vim-multiple-cursors
 " Zoom Window to Full Size
 nnoremap <silent> <leader>z :ZoomWin<CR>
 
@@ -218,13 +200,25 @@ inoremap <expr><c-CR> neocomplcache#smart_close_popup() . "\<CR>"
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 
+"GoldenView
+" 1. split to tiled windows
+nmap <silent> <C-L>  <Plug>GoldenViewSplit
+" 2. quickly switch current window with the main pane
+" and toggle back
+nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
+nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
+" 3. jump to next and previous window
+nmap <silent> <C-N>  <Plug>GoldenViewNext
+nmap <silent> <C-P>  <Plug>GoldenViewPrevious
+"end GoldenView
 "--------------------------------------------
 "proman
 "--------------------------------------------
 "nerdtree
 ""I make sure the working directory is set correctly.
 nmap <leader>lc :set list!<CR>
-nnoremap <leader>n :NERDTreeToggle<CR>
+"nnoremap <leader>n :NERDTreeToggle<CR>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 "ctrl-p
 nmap <leader>b :CtrlPBuffer<CR>
@@ -240,14 +234,12 @@ nmap <silent> <leader>gp :Git push<CR>
 
 " Shorter commands to toggle Taglist display
 nnoremap TT :TlistToggle<CR>
-"map <C-F4> :TlistToggle<CR>
 "nnoremap <leader>T :Tlist<CR>
 "nnoremap <leader>U :TlistUpdate<CR>
 "nnoremap <leader>s :TlistSessionSave tlist<CR>
 "nnoremap <leader>l :TlistSessionLoad tlist<CR>
 
 "Search and destroy using tags
-"map <C-F12> :!C:\cygwin\home\Proman02\vimfiles\ctags58\ctags.exe -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <C-F12> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "sql formatter
@@ -378,6 +370,18 @@ nnoremap <leader>a :Ack<Space><c-r><c-W>
 " Reselect text that was just pasted with ,v
 nnoremap <leader>v V`]
 
+" CamelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+map <S-W> <Plug>CamelCaseMotion_w
+map <S-B> <Plug>CamelCaseMotion_b
+map <S-E> <Plug>CamelCaseMotion_e
+"end CamelCaseMotion
+
 "http://vim.usrsb.in/117060445
 "can resize your windows using Alt plus an arrow key.
 nnoremap <C-A-Right> :vertical res +1<cr>
@@ -403,11 +407,11 @@ nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
 inoremap {<CR> {<CR>}<Esc>O
 
 "vim-complete
-nnoremap <Leader>ke :call Complete('e')<CR>
-nnoremap <Leader>kb :call Complete('b')<CR>
-" for use with fuzzee (http://github.com/mattsacks/vim-fuzzee)
-nnoremap <Leader>kf :call Complete('F')<CR>
-nnoremap <Leader>kj :call Complete('F app/javascripts*')<CR>
+"nnoremap <Leader>ke :call Complete('e')<CR>
+"nnoremap <Leader>kb :call Complete('b')<CR>
+"" for use with fuzzee (http://github.com/mattsacks/vim-fuzzee)
+"nnoremap <Leader>kf :call Complete('F')<CR>
+"nnoremap <Leader>kj :call Complete('F app/javascripts*')<CR>
 
 "buftabs
 "nnoremap <C-left> :bprev<CR>

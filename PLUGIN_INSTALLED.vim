@@ -179,6 +179,8 @@ sqlcomplete      http://www.vim.org/scripts/script.php?script_id=1572
 +pdv            https://github.com/tobyS/pdv
 +aspnet      https://github.com/biruh/vim-aspnet
 +vim-aspnetide  https://github.com/bryanthankins/vim-aspnetide
++vim-html5validator 	https://github.com/hokaccha/vim-html5validator
++GoldenView 			https://github.com/zhaocai/GoldenView.Vim
 
 *mduem       https://github.com/kana/mduem
 *templator   http://vim.sourceforge.net/scripts/script.php?script_id=4345   https://github.com/tomtom/templator_vim/
