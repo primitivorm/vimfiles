@@ -24,8 +24,8 @@ function! ToggleMinimap()
         exe "set lines=" . l
 
 " make font small
-		"set guifont=Ubuntu\ Mono\ 6
-        set guifont=Consolas_for_Powerline_FixedD:h8:cANSI
+"set guifont=Ubuntu\ Mono\ 6
+        set guifont=Consolas_for_Powerline_FixedD:h4:cANSI
 
         exe 'normal zR'
 
@@ -52,7 +52,7 @@ function! ToggleMinimap()
     else
 
         "set guifont=Ubuntu\ Mono\ 12
-		set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+        set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
         hi clear Visible
         set nocursorline
         set antialias

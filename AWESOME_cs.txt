@@ -1,0 +1,33 @@
+http://wiki.colar.net/awesome_window_manager
+Awesome cheat sheet
+
+
+Most useful keyboard shortcuts (there are more):
+By default the "Mod" key is the windows/apple button (between Ctrl and Alt)
+
+Windows (a.k.a clients):
+Mod + j : Next window
+Mod + k : Previous window
+Mod + Shift + 1-9 : Move window to workspace 1..9
+Mod + m : Maximize the window
+Mod + f : Full screen
+Mod + Shift + c : Close / Kill
+
+Mod + MouseLeft : Move window (for floating windows)
+Mod + MouseRight : Resize window (for floating windows)
+
+Mod + o : Move window to next screen
+
+Workspaces: (a.k.a tags but more powerful)
+Mod + Left : Next workspace
+Mod + Right : Previous workspace
+Mod + 1-9 : Switch to workspace 1..9
+Mod + Ctrl + 1-9 : Toggle workspace 1..9 (allows to "see" multiple workspaces at the same time)
+
+Layouts:
+Mod + Space : Next layout (you can change on the fly)
+Mod + h : Make tile 5% larger
+Mod + l : Make tile 5% smaller
+
+Other useful things:
+Mod + RETURN: Start a terminal

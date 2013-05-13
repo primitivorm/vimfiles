@@ -1,0 +1,1404 @@
+http://eclim.org/index.html
+-----------------------------------------------
+VIM - CARTA DE REFERENCIA RÁPIDA
+-----------------------------------------------
+"proman
+-----------------------------------------------
+<Leader><Leader>w -> clone window actual
+:scriptnames -> to get a list of sourced scripts in order in which they were first sourced in your Vim instance
+<F11>   :ZoomWin
+:Ex | TT   : file explorer note capital Ex
+zi -> turn on|off foldmethod
+za  -> toggle a line of code
+zM -> toggle all lines
+zR -> untoggle all lines
+<leader>s -> StripTrailingWhitespaces (delete space at end line)
+:verbose setlocal foldmethod? -> view foldmethod used
+:1,10SQLUFormatter -> formatea codigo T-SQL 1,10 son las lineas de inicio y fin del formateo
+:echo has('perl') -> devuelve true si soporta perl
+ctags -R -> genera las Etiquetas ctags -> execute under command linea
+:help help-writing -> help to write helps
+vim --version | grep +python    -> ver si vim soporta python
+vim --version | grep +signs     -> ver si vim soporta signs
+:files      -> open files from powerline
+:buffers    -> open buffers from powerline
+verbose autocmd CursorMoved     -> ver las funciones definidas por un script
+perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack desde cmd windows
+:make /t:rebuild    -> to build *.proj
+<leader>l   -> show hidden characters
+<leader>ig  -> show indent guides
+<leader>be     -> show buffer explorer (requires plugin)
+:ls     : list of buffers(eg following)
+:cd ..  : move to parent directory
+<C-g> ó g ->To simply display how many lines are in the current buffer
+:ball       -> open all buffers
+:echo &compatible -> view set nocompatible value
+<c-s-up>    ->swap_up()<CR>
+<c-s-down>  ->swap_down()<CR>
+:BufOnly    ->close all buffer except actual
+:BundleInstall  ->update/install new plugins whit vundle
+:g/^$/d     ->delete all whiteline
+:bufdo %s/pattern/replace/ge | update   ->replace on all buffers
+<c-e>   -> call sparkup plugin
+<Leader>nr  -> narrow code
+:Scratch    -> open a temporal file
+:Sscratch   -> To open the scratch buffer in a new split window
+ggvG= 		-> autoindent entire file
+ctrl-w _ 	maximise height of current window
+ctrl-w | 	maximise width of current window
+:sp[lit] filename 	split the current window horizontally, loading filename in the new window
+:vsp[lit] filename 	split the current window vertically, loading filename in the new window
+g; | g,		-> moving around changelist
+:changes 	-> view changelist
+ctrl-O | 	ctrl-I 	-> moving around jumps
+:jumps 	-> view jumps
+ctrl-] 		-> moving around documentation files
+The gq{motion} command will format a section of text. The ip motion selects the current paragraph, so gqip applies formatting to the current paragraph.
+:h highlighting-group 	-> show highlighting groups for colorschema
+:MRU 	-> open most recent files
+/\v 	-> very magic search
+ctrl-p 	Show previous historical command/search
+ctrl-n 	Show next historical command/search
+ctrl-f 	Switch from commandline mode to the commandline window
+q/ 	Open the commandline window with history of searches
+q: 	Open the commandline window with history of commands
+ctrl-f 	Switch from commandline mode to the commandline window
+:MinimapSync 	-> open minimap as sublime text 2
+<leader>' 	-> open minimap state
+<leader>cf 	->copy namefile into clipboard
+<leader>cf 	->copy namefile into clipboard
+<leader><F2> 	->call HexHighlight
+<F1> 	->Help
+<F2> 	->Taglist
+<C-F2> 	->Tagbar
+<F3> 	->NERDTreeToggle
+<F4> 	->QuickBuf
+{range}copy{address} | {range}t{address}
+{range}put{address}
+{range}yank{address}
+<leader>xm 		-> Formatting xml files
+"https://github.com/terryma/vim-multiple-cursors
+"multiple-cursor-selection
+After you've marked all your locations with Ctrl-n, you can change the visual selection with normal Vim motion commands in Visual mode.
+You could go to Normal mode by pressing v and wield your motion commands there.
+Single key command to switch to Insert mode such as c or s from Visual mode or i, a, I, A in Normal mode should work without any issues.
+At any time, you can press <Esc> to exit back to regular Vim.
+:argdo edit! -> revert last change command
+:argdo %s/\a/*/ge 	-> avoid message errors
+:silent argdo %s/\a/*/ge 	-> avoid message errors
+:silent! argdo %s/\a/*/g 	-> avoid message errors
+<C-r>{register} 			-> On the command line, you can paste the contents of a register by pressing
+
+
+-----------------------------------------------
+spell
+-----------------------------------------------
+]s 	-> go to next spell check
+[s 	-> go to previous spell check
+z= 	-> show correct list options
+1z= 	-> change to 1 coincidence
+zg 		-> add word from the spelling dictionary
+zw 		-> remove word from the spelling dictionary
+zug     -> revert change add
+zuw 	-> revert change remove
+-----------------------------------------------
+
+-----------------------------------------------
+Movimiento básico
+-----------------------------------------------
+h l k j caracter izq., derecha; línea arriba, abajo
+b w palabra/símbolo izquierda, derecha
+ge e    fin de palabra/símbolo izquierda, derecha
+{  }    principio del anterior, siguiente párrafo
+( ) comienzo de anterior, siguiente oración
+0 gm    principio, medio de la línea
+^  $    primer, último caracter de la línea
+nG ngg  línea n. por defecto la primera, última
+n%  porcentaje n del archivo (n es obligatorio)
+n|  columna n de la línea actual
+%   siguiente llave, paréntesis, comentario, #define
+nH nL   línea n desde el principio, medio de la ventana
+M   medio de la ventana
+
+-----------------------------------------------
+Inserción & sustitución → modo insertar
+-----------------------------------------------
+i a insertar antes, después del cursor
+I A insertar al principio, fin de la línea
+gI  insertar texto en la primera columna
+o O insertar nueva línea abajo, arriba de la actual
+rc  sustituir caracter bajo el cursor por c
+grc como r, pero sin afectar el diseño
+R   sustituir caracteres a partir del cursor
+gR  como R, pero sin afectar el diseño
+cm  cambiar texto del comando de deplazamiento m
+cc or S cambiar línea actual
+C   cambiar hasta el fin de la línea
+s   cambiar un caracter e insertar
+~   invertir mayúscula/minúscula y avanzar el cursor
+g~m invertir mayús/minús del movimiento m
+gum gUm minúscula, mayúscula texto movimiento m
+guu     : lowercase line
+gUU     : uppercase line
+<m >m   desplazar izq., der. texto del movimiento m
+n<< n>> desplazar n líneas a la izquierda, derecha
+
+-----------------------------------------------
+Borrado
+-----------------------------------------------
+x X eliminar caracter sobre, previo al cursor
+dm  eliminar texto de comando de movimiento m
+dd D    eliminar línea actual, hasta fin de línea actual
+J gJ    juntar linea actual con la siguiente, sin espacio
+:rd↵    eliminar rango r de líneas
+:rdx↵   eliminar rango r de líneas al registro x
+
+-----------------------------------------------
+Modo insertar
+-----------------------------------------------
+^Vc ^Vn insertar caracter c literal, con valor decimal n
+^A  insertar último texto insertado
+^@  igual que ^A y detener inserción → modo comando
+^Rx ^R^Rx   insertar contenido de registro x, literal
+^N ^P   completar texto antes, luego del cursor
+^W  eliminar palabra anterior al cursor
+^U  eliminar todo el texto insertado en la línea actual
+^D ^T   desplazar linea a la izquierda, derecha
+^Kc1c2 or c1←c2 entrar dígrafo \c1,c2\
+^Oc ejecutar c en modo de temporal de comando
+^X^E ^X^Y   scrollear arriba, abajo
+<esc> or ^[ salir del modo edición → modo comando
+
+-----------------------------------------------
+Copiado
+-----------------------------------------------
+"x  usar registro x para la siguiente acción
+:reg↵   mostrar contenido de todos los registros
+:reg x↵ mostrar contenido de los registros x
+"1p      : paste from register 1
+ym  copiar texto del movimiento m
+yy or Y copiar línea actual al registro
+p P pegar registro antes, despues del cursor
+]p [p   como p, P pero ajustando la sangría
+gp gP   igual, pero cursor queda luego de texto nuevo
+"ayy@a   : execute the Vim command in the current line
+yy@"     : same
+
+-----------------------------------------------
+# yank 5 lines into "a" then add a further 5
+-----------------------------------------------
+"a5yy
+10j
+"A5yy
+[I : show lines matching word under cursor <cword>
+-----------------------------------------------
+
+-----------------------------------------------
+Substitution
+-----------------------------------------------
+:%s/\s\+$//e 		-> delete space at end file
+:g/^$/d 			-> delete blank lines
+:%s/fred/joe/igc           : general substitute command
+:%s/\r//g                  : delete DOS Carriage Returns (^M)
+:'a,'bg/fred/s/dick/joe/gc : VERY USEFUL
+:s/\(.*\):\(.*\)/\2 : \1/  : reverse fields separated by :
+# non-greedy matching \{-}
+:%s/^.\{-}pdf/new.pdf/     : to first pdf)
+:s/fred/<c-r>a/g           : substitute "fred" with contents of register "a"
+:%s/^\(.*\)\n\1/\1$/       : delete duplicate lines
+:help /\{-}
+# multiple commands
+:%s/\f\+\.gif\>/\r&\r/g | v/\.gif$/d | %s/gif/jpg/
+:%s/suck\|buck/loopy/gc       : ORing
+:s/__date__/\=strftime("%c")/ : insert datestring
+-----------------------------------------------
+
+-----------------------------------------------
+Global command
+-----------------------------------------------
+:g/one\|two/     : list lines containing "one" or "two"
+:g/^\s*$/d       : delete all blank lines
+:g/green/d       : delete all lines containing "green"
+:v/green/d       : delete all lines not containing "green"
+:g/one/,/two/d   : not line based
+:v/./.,/./-1join : compress empty lines
+-----------------------------------------------
+
+-----------------------------------------------
+Paste register *
+-----------------------------------------------
+:redir @* : redirect commands to paste
+:redir END
+"*yy      : yank to paste
+"*p       : insert paste buffer
+-----------------------------------------------
+
+-----------------------------------------------
+Formatting text
+-----------------------------------------------
+gq<CR>
+gqap (a is motion p paragraph (visual mode))
+-----------------------------------------------
+Operate command over multiple files
+-----------------------------------------------
+:argdo %s/foo/bar/
+:bufdo %s/foo/bar/
+:windo %s/foo/bar/
+:tabdo %s/foo/bar/
+-----------------------------------------------
+
+-----------------------------------------------
+Inserción avanzada
+-----------------------------------------------
+g?m realizar codificación rot13 en movimiento m
+n^A n^X incrementar/disminuir numero bajo el cursor
+gqm formatear línea de movimiento m a ancho fijo
+:rce w↵ centrar líneas en rango r a ancho w
+:rle i↵ alinear izq. lineas en rango r con sangría i
+:rri w↵ alinear der. lineas en rango r con ancho w
+!mc↵    aplicar comando c al movimiento m
+n!!c↵   aplicar comando c a siguientes n lineas
+:r!c↵   aplicar comando c a rango de líneas r
+
+-----------------------------------------------
+Modo visual
+-----------------------------------------------
+v V ^V  empezar/terminar marca caract, líneas, bloque
+o   cursor de selección al principio/fin del marcado
+gv  empezar a marcar utilizando última zona marcada
+aw as ap    seleccionar una palabra, oración, párrafo
+ab aB   seleccionar un bloque ( ), un bloque { }
+Vip 	-> selecciona el parrafo actual
+vit 	-> selecciona entre tag html
+v^h 	-> select hidden characters
+-----------------------------------------------
+visual block selection
+-----------------------------------------------
+c 	change selection (delete and switch to insert mode)
+I 	insert in front of cursor
+A 	append after cursor
+r 	replace every character in selection
+d 	delete selection
+o 	toggle cursor to opposite corner
+-----------------------------------------------
+Deshacer, repetir & registros
+-----------------------------------------------
+u U deshacer último comando, restaurar última línea
+.  ^R   repetir últimos cambios, rehacer último deshacer
+n.      repetir últimos cambios n veces
+qc qC   grabar, agregar teclas tipeadas en registro c
+q   detener grabación
+@c  ejecutar el contenido del registro c
+@@  repetir comando @ anterior
+:@c↵    ejecutar registro c como un comando Ex
+:rg/p/c↵    ejecutar comando Ex c en rango r
+    donde se cumpla el patrón p
+
+-----------------------------------------------
+Movimiento complejo
+-----------------------------------------------
+- + línea arriba, abajo al primer caracter no blanco
+B W siguiente, anterior palabra separada por espacio
+gE E    fin de anterior, siguiente palabra espaciada
+n_  al primer caracter no blanco en linea n-1 debajo
+g0  principio de la línea en pantalla
+g^  g$  primer, último caracter de la línea en pantalla
+gk gj   línea en pantalla arriba, abajo
+fc Fc   siguiente, anterior ocurrencia del caracter c
+tc Tc   antes de la siguiente, anterior occurencia de c
+; , repetir última fFtT, en dirección opuesta
+[[ ]]   comienzo de la sección hacia atrás, adelante
+[] ][   fin de la sección hacia atrás, adelante
+[( ])   seccion (, ) abierta hacia atrás, adelante
+[{  ]}  seccion {, } abierta hacia atrás, adelante
+[m ]m   comienzo de método Java hacia atrás, adelante
+[# ]#   #if, #else, #endif abierto atrás, adelante
+[* ]*   principio, fin de /* */ hacia atrás, adelante
+
+-----------------------------------------------
+Búsqueda & sustitución
+-----------------------------------------------
+/^#\d\d -> This matches a Markdown style h1.
+/s↵  ?s↵    buscar s hacia adelante, atrás
+/s/o↵  ?s?o↵    buscar s adelante, atrás con desplaz. o
+n or /↵ repetir última búsqueda hacia adelante
+N or ?↵ repetir última búsqueda hacia atrás
+# * buscar adelante, atrás palabra sobre cursor
+g# g*   igual, pero buscar tambien resultados parciales
+gd gD   definición local, global de símbolo sobre cursor
+:rs/f/t/x↵  sustituir f por t en rango r
+    x: g-todas las ocurrencias, c-confirmar cambios
+:rs x↵  repetir sustitución con nuevo r & x
+
+-----------------------------------------------
+Caracteres especiales en patrones de busqueda
+-----------------------------------------------
+.   ^  $    caracter simple; comienzo, fin de línea
+\< \>   comienzo, fin de palabra
+[c1-c2] caracter simple en el rango c1..c2
+[^c1-c2]    caracter simple no en el rango c1..c2
+\i \k \I \K identificador, palabra clave; excl. dígitos
+\f \p \F \P nombre arch, car. imprim.; ign. dígitos
+\s \S   espacio en blanco, no espacio en blanco
+\e \t \r \b <esc>, <tab>, <↵>, <←>
+\= * \+ 0..1, 0..∞, 1..∞ del átomo anterior
+\|  separar dos ramas ( ≡ o)
+\( \)   agrupa patrones en un átomo
+\& \n   todo el patrón encontrado, grupo no ()
+\u \l   próximo caracter a mayúscula, minúscula
+/^fred.*joe.*bill  : line beginning with fred, followed by joe then bill
+/^[A-J]            : line beginning A-J
+/^[A-J][a-z]\+\s   : line beginning A-J then one or more lowercase characters then space or tab
+/fred\_.\{-}joe    : fred then anything then joe (over multiple lines)
+/fred\_s\{-}joe    : fred then any whitespace (including newlines) then joe
+/fred\|joe         : fred OR joe
+/fred\+/ : matches fred/freddy but not free
+/codes\(\n\|\s\)*where : normal regexp
+/\vcodes(\n|\s)*where  : very magic
+/<!--\_p\{-}-->    : search for multiple line comments
+/fred\_s*joe/i     : any whitespace including newline
+/bugs\_.*bunny : bugs followed by bunny anywhere in file
+:h \_              : help
+"To substitute any word (say FILE) by actual filename you can use
+:%s/FILE/\=expand("%:t")
+-----------------------------------------------
+Desplazamientos en comandos de búsqueda
+-----------------------------------------------
+n or +n n líneas hacia abajo en columna 1
+-n  n líneas hacia arriba en columna 1
+e+n e-n n caract. der., izq de comienzo del matcheo
+s+n s-n n caract. der., izq. del final del matcheo
+;sc ejecutar comando de búsqueda sc a continuación
+
+-----------------------------------------------
+Marcas y movimiento
+-----------------------------------------------
+mc  marcar posición actual con marca c ∈[a..Z]
+d'a 	deletes mark a
+`c `C   ir a marca c en archivo actual, cualquier archivo
+`0..9   ir a última posición de salida
+`` `"   ir a posición antes del salto, de última edición
+`[ `]   ir al principio, fin del último texto operado
+:marks↵ mostrar lista de marcas activas
+:jumps↵ mostrar lista de saltos
+n^O ir a la na posición más vieja de la lista de saltos
+n^I ir a la na posición más nueva de la lista de saltos
+
+-----------------------------------------------
+Mapeo de teclas & abreviaciones
+-----------------------------------------------
+:map c e↵   mapear c ↦ e. modo normal & visual
+:map!  c e↵ map. c ↦ e. modo insertar & comandos
+:unmap c↵  :unmap!  c↵  borrar mapeo c
+:mk f↵  guardar mapeos actuales en archivo f
+:ab c e↵    agregar abreviatura para c ↦ e
+:ab c↵  mostrar abreviaturas que empiezan con c
+:una c↵ borrar abreviatura c
+
+-----------------------------------------------
+Etiquetas
+-----------------------------------------------
+:ta t↵  saltar a etiqueta t
+:nta↵   saltar a la na etiqueta mas nueva
+^] ^T   saltar a etiqueta sobre cursor, volver de etiqueta
+:ts t↵  listar etiquetas que matchean y elegir una
+:tj t↵  saltar a etiqueta o elegir una si varias cumplen
+:tags↵  mostrar lista de etiquetas
+:npo↵  :n^T↵    saltar desde, hacia n^va etiqueta vieja
+:tl↵    saltar a última etiqueta que matchea
+^W}  :pt t↵ vista previa etiqueta sobre cursor, etiq. t
+^W] separar ventana y mostrar etiqueta sobre el cursor
+^Wz or :pc↵ cerrar vista previa de etiquetas
+
+-----------------------------------------------
+Scrolleo & ventanas
+-----------------------------------------------
+^E ^Y   scrollear una línea arriba, abajo
+^D ^U   scrollear media página arriba, abajo
+^F ^B   scrollear una página arriba, abajo
+zt or z↵    poner línea actual al principio de la ventana
+zz or z.    poner línea actual al centro de la ventana
+zb or z-    poner línea actual al final de la ventana
+zh zl   scrollear un caracter a la derecha, izquierda
+zH zL   scrollear media pantalla a la derecha, izquierda
+^Ws or :split↵  dividir ventana en dos
+^Wn or :new↵    crear nueva ventana vacía
+^Wo or :on↵ hacer ventana actual única en la pantalla
+^Wj ^Wk pasar a la ventana de abajo, arriba
+^Ww ^W^W    pasar a la ventana de abajo, arriba (ciclíco)
+
+-----------------------------------------------
+Comandos Ex (↵)
+-----------------------------------------------
+:e f    editar archivo f, a menos que hayan cambios
+:e!  f  editar archivo f siempre (recargar el actual)
+:wn :wN guardar archivo y editar siguiente, anterior
+:n :N   editar archivo siguiente, anterior de la lista
+:rw guardar rango r en archivo actual
+:rw f   guardar rango r a archivo f
+:rw>>f  agregar rango r al archivo f
+:q :q!  salir y confirmar, salir e ignorar cambios
+:wq or :x or ZZ guardar archivo actual y salir
+<up> <down> recordar comandos anteriores (historial)
+:r f    insertar contenido archivo f debajo del cursor
+:r!  c  insertar salida del comando c debajo del cursor
+:all    abrir una vent. por cada arch. pasado en los arg.
+:args   mostrar lista de argumentos
+
+-----------------------------------------------
+Rangos Ex
+-----------------------------------------------
+, ;     separa dos números de línea, primera linea
+n   número de linea absoluto n
+.   $   línea actual, última linea del archivo
+% * todo el archivo, toda el área visual
+'t  posición de la marca t
+/p/ ?p? la próxima, anterior línea que cumple con p
++n -n   +n, -n al numero de línea predecesor
+
+-----------------------------------------------
+Pliegues (folding)
+-----------------------------------------------
+zfm crear pliegue del movimiento m
+:rfo    crear pliegue para el rango r
+zd zE   borrar pliegue activo, todos los de la ventana
+zo zc zO zC abrir, cerrar un pliegue; recursivamente
+[z ]z   ir al comienzo, fin del pliegue actual
+zj zk   ir abajo, arriba del comienzo, fin de sig. pliegue
+zi 	switch folding on or off
+za 	toggle current fold open/closed
+zc 	close current fold
+zR 	open all folds
+zM 	close all folds
+zv 	expand folds to reveal cursor
+zA 	recursively open/close current fold
+zm 	reduce `foldlevel` by one
+zr 	increase `foldlevel` by one
+-----------------------------------------------
+
+-----------------------------------------------
+Misceláneas
+-----------------------------------------------
+:sh↵  :!c↵  correr shell, ejecutar comando c
+K   buscar palabra sobre el cursor con man
+:make↵  correr make, leer errores y saltar al primero
+:cn↵  :cp↵  mostrar el siguiente, anterior error
+:cl↵  :cf↵  listar errores, leer errores de archivo
+^L ^G   redibujar pant., mostrar nombre archivo y pos.
+g^G mostrar columna, línea, palabra, byte actual
+ga  mostrar código ASCII del caracter actual
+gf  abrir archivo con nombre debajo del cursor
+:redir>f↵   redirigir salida al archivo f
+:mkview [f] guardar config. de vista [en archivo f]
+:loadview [f]   cargar config. de vista [de archivo f]
+^@ ^K ^_  \  Fn ^Fn teclas no mapeadas
+g8      : display hex value of utf-8 character under cursor
+ggg?G   : rot13 whole file
+xp      : swap next two characters around
+CTRL-A,CTRL-X : increment, decrement next number on same line as the cursor
+CTRL-R=5*5    : insert 25 into text
+=             : (re)indent the text on the current line or on the area selected (SUPER)
+=%            : (re)indent the current braces { ... }
+G=gg          : auto (re)indent entire document
+CTRL-R CTRL-W   : pull word under the cursor into a command line or search
+CTRL-R CTRL-A   : pull whole word including punctuation
+CTRL-R -        : pull small register
+CTRL-R [0-9a-z] : pull named registers
+CTRL-R %        : pull file name (also #)
+<c-r>           :Retrieving last command line command for copy & pasting into text
+<c-r>/          :Retrieving last Search Command for copy & pasting into text
+<C-X><C-F>      :insert name of a file in current directory
+-----------------------------------------------
+VimDiff
+-----------------------------------------------
+do -> Get changes from other window into the current window.
+dp -> Put the changes from current window into the other window.
+]c -> Jump to the next change.
+[c -> Jump to the previous change.
+Ctrl W + Ctrl W -> Switch to the other split window
+:diffupdate -- diff update
+:syntax off -- syntax off
+zo -- open folded text
+zc -- close folded text
+
+-----------------------------------------------
+NERDTree
+-----------------------------------------------
+Use the natural vim navigation keys hjkl to navigate the files.
+Press o to open the file in a new buffer or open/close directory.
+Press t to open the file in a new tab.
+Press i to open the file in a new horizontal split.
+Press s to open the file in a new vertical split.
+Press p to go to parent directory.
+Press r to refresh the current directory.
+Press m to launch NERDTree menu inside vim.
+  (a)dd a childnode
+  (m)ove the curent node
+  (d)elete the curent node
+  (c)copy the current node
+gt = next tab
+gT = previous tab
+Control+l moves to the next tab
+Control+h moves to the previous tab
+:edit somefile.     -> edita arhivo en ruta actual
+-----------------------------------------------
+-----------------------------------------------
+NerdCommenter
+-----------------------------------------------
+[count]<leader>cc |NERDComComment|
+Comment out the current line or text selected in visual mode.
+[count]<leader>cn |NERDComNestedComment|
+Same as <leader>cc but forces nesting.
+[count]<leader>c |NERDComToggleComment|
+Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
+[count]<leader>cm |NERDComMinimalComment|
+Comments the given lines using only one set of multipart delimiters.
+[count]<leader>ci |NERDComInvertComment|
+Toggles the comment state of the selected line(s) individually.
+[count]<leader>cs |NERDComSexyComment|
+Comments out the selected lines ``sexily''
+[count]<leader>cy |NERDComYankComment|
+Same as <leader>cc except that the commented line(s) are yanked first.
+<leader>c$ |NERDComEOLComment|
+Comments the current line from the cursor to the end of line.
+<leader>cA |NERDComAppendComment|
+Adds comment delimiters to the end of line and goes into insert mode between them.
+|NERDComInsertComment|
+Adds comment delimiters at the current cursor position and inserts between. Disabled by default.
+<leader>ca |NERDComAltDelim|
+Switches to the alternative set of delimiters.
+[count]<leader>cl
+[count]<leader>cb |NERDComAlignedComment|
+[count]<leader>cu |NERDComUncommentLine|
+Uncomments the selected line(s).
+
+-----------------------------------------------
+"buffer-explorer
+-----------------------------------------------
+<Leader>be -> Opens BE.
+<Leader>bs -> Opens horizontally window BE.
+<Leader>bv -> Opens vertically window BE.
+-----------------------------------------------
+
+-----------------------------------------------
+dbext
+-----------------------------------------------
+    (In addition to the above mappings)
+    DBExecSQL             - Enter any command you want sent to the database
+    DBExecSQLTopX         - Enter any command you want sent to the database
+                            and limit the result set to X rows
+    DBExecRangeSQL        - Enter any command you want sent to the database
+    Select                - Enter the remainder of a select (ie :Select from
+                            customer)
+    Update                - Enter the remainder of an update
+    Insert                - Enter the remainder of an insert
+    Delete                - Enter the remainder of an delete
+    Call                  - Enter the remainder of a call/exec statement
+    Drop                  - Enter the remainder of a drop
+    Alter                 - Enter the remainder of an alter
+    Create                - Enter the remainder of a create
+    DBSetOption           - Allow you to set options from the command line.
+                            This is useful in functions and mappings, see
+                            |dbext-in-mappings|
+    DBGetOption           - Retrieves current setting
+    DBCheckModeline       - Checks the file for a dbext modeline, and sets
+                            the connection information
+    DBResultsOpen         - Re-opens the result window if it was closed
+    DBResultsClose        - Closes the result window
+    DBResultsToggleResize - Toggles the size of the result window
+    DBResultsRefresh      - Re-runs the statement currently displayed in the
+                            result window
+    DBCompleteTable       - Sets up table name completion for the buffer
+    DBCompleteProcedure   - Sets up table name completion for the buffer
+    DBCompleteView        - Sets up table name completion for the buffer
+    DBListTable           - Lists all tables (optional wildcard)
+    DBListProcedure       - Lists all procedures (optional wildcard)
+    DBListView            - Lists all views (optional wildcard)
+    DBListColumn          - Comma separated list of columns for the given table
+    DBListConnections     - Lists all active DBI connections
+    DBCommit              - When using the DBI or ODBC layer and in your
+                            connection profile you have specified AutoCommit=1,
+                            you have the ability to commit any changes on the
+                            connection.
+    DBRollback            - When using the DBI or ODBC layer and in your
+                            connection profile you have specified
+                            AutoCommit=1, you have the ability to rollback any
+                            changes on the connection.
+    DBOrientation         - When using the DBI or DBI::ODBC interface you have
+                            the option of displaying the results in the
+                            standard horizontal layout or in a vertical layout
+                            which is especially useful for one or two rows of
+                            output.
+                            This will toggle the current display.
+
+-----------------------------------------------
+Creating the connection and connection profiles
+\sbp :DBPromptForBufferParameters Prompt for database type and connection settings
+let g:dbext_default_profile_mySQLServer = 'type=SQLSRV:integratedlogin=1:dbname=myDB' in your .vimrc
+Executing commands
+\sel sql execute line
+\se :DBExecSQLUnderCursor
+:DBExecVisualSQL
+Execute command under the cursor
+\st :DBSelectFromTable Display contents of the table under the cursor
+\sT :DBSelectFromTableTopX -//- top X records
+\stw :DBSelectFromTableWithWhere -//- with where clause
+\sta :DBSelectFromTableAskName Ask for table and display contents
+R Re-run last command. In the results buffer only.
+Describing objects
+\sdt :DBDescribeTable Describe column names and datatypes of the table under the cursor.
+\dp :DBDescribeProcedure -//- describe procedures Listing objects
+\slt :DBListTable Display listing of tables
+\slp :DBListProcedure Display listing of procedures;
+\slv :DBListView Display listing of views
+\slc :DBListColumn Yank column list of the table under the cursor
+-----------------------------------------------
+
+
+-----------------------------------------------
+--SQL Utilities
+-----------------------------------------------
+[range]SQLUFormatter ..list..
+                     : Reformats the SQL statements over the specified
+                       range.  Statement will lined up given the
+                       existing indent of the first word.
+SQLUCreateColumnList:  Creates a comma separated list of column names
+                       for the table name under the cursor, assuming
+                       the table definition exists in any open
+                       buffer.  The column list is placed in the unnamed
+                       buffer.
+                       This also uses the g:sqlutil_cmd_terminator.
+                       By default a table alias will be added to each of the columns, this is
+                       configurable, see documentation (new 1.3.7).
+                       This routine can optionally take 2 parameters
+                       SQLUCreateColumnList T1
+                           Creates a column list for T1
+                       SQLUCreateColumnList T1 1
+                           Creates a column list for T1 but only for
+                           the primary keys for that table.
+SQLUGetColumnDef     : Displays the column definition of the column name
+                       under the cursor.  It assumes the CREATE TABLE
+                       statement is in an open buffer.
+SQLUGetColumnDataType
+                     : Displays the column datatype of the column name
+                       under the cursor.  It assumes the CREATE TABLE
+                       statement is in an open buffer.
+SQLUCreateProcedure  : Creates a stored procedure to perform standard
+                       operations against the table that the cursor
+                       is currently under.
+
+-----------------------------------------------
+--surround
+-----------------------------------------------
+It's easiest to explain with examples. Press cs"' inside "Hello world!" -> 'Hello world!'
+Now press cs'<q> to change it to <q>Hello world!</q>
+To go full circle, press cst" to get "Hello world!"
+To remove the delimiters entirely, press ds".  Hello world!
+Now with the cursor on "Hello", press ysiw] (iw is a text object).  [Hello] world!
+Let's make that braces and add some space (use } instead of { for no space): cs]{ { Hello } world!
+Now wrap the entire line in parentheses with yssb or yss).  ({ Hello } world!)
+Revert to the original text: ds{ds) Hello world!
+Emphasize hello: ysiw<em> <em>Hello</em> world!
+Finally, let's try out visual mode. Press a capital V (for linewise visual mode) followed by S<p class="important">.
+<p class="important">
+  <em>Hello</em> world!
+</p>
+-----------------------------------------------
+
+-----------------------------------------------
+--tag list
+-----------------------------------------------
+    :ts – shows the list.
+    :tn – goes to the next tag in that list.
+    :tp - goes to the previous tag in that list.
+    :tf – goes to the function which is in the first of the list.
+    :tl – goes to the function which is in the last of the list.
+-----------------------------------------------
+
+
+-----------------------------------------------
+"taglist
+-----------------------------------------------
+:ta -> Navigate to function definition by specifying the function name
+:ta /^get -> Navigating through a list of function names which has the similar names
+Ctrl + ] -> Navigating to the function definition from ‘function call’
+Ctrl + t -> Returning back again to function call from the definition
+:ts – shows the list.
+:tn – goes to the next tag in that list.
+:tp - goes to the previous tag in that list.
+:tf – goes to the function which is in the first of the list.
+:tl – goes to the function which is in the last of the list.
+
+
+-----------------------------------------------
+"visual studio
+"http://www.plan10.com/vim/visual-studio/doc/1.2/
+"https://github.com/vim-scripts/visual_studio.vim
+-----------------------------------------------
+Command mode mapppings Mapping  Action
+\vg     Get the VS file into Vim
+\vp     Put the Vim file into VS
+\vt     Load the VS Task List into the Vim quickfix buffer
+\vo     Load the VS Output window into the Vim quickfix buffer
+\vf     Load the VS Find Results 1 window into the Vim quickfix buffer
+\v2     Load the VS Find Results 2 window into the Vim quickfix buffer
+\vb     Build the VS Solution
+\vu     Build the VS Startup Project
+\vc     Compile the current file
+\vs     Select the current VS Solution instance
+\vp     Select the current VS Startup Project
+\va     About visual_studio.vim
+\vh     Online help - this page!
+
+-----------------------------------------------
+--Exuberant ctags
+-----------------------------------------------
+
+--You have to build your database with at least the following options:
+        --c++-kinds=+p  : Adds prototypes in the database for C/C++ files.
+        --fields=+iaS   : Adds inheritance (i), access (a) and function
+                          signatures (S) information.
+        --extra=+q      : Adds context to the tag name. Note: Without this
+                          option, the script cannot get class members.
+
+Thus to build recursively a ctags database from the current directory, the
+command looks like this:
+>
+        ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
+<
+You can add a map in your |.vimrc| file, eg: >
+
+        map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+<
+Or you can add these options in your ctags config file (~/.ctags under unix or
+%HOMEPATH%\ctags.cnf under windows) and execute the command : >
+ :!ctags -R .
+<
+If your project contains files of other languages you may add the following
+options:
+        --languages=c++ : Builds only the tags for C++ files.
+
+If your project contains macros you may also use the -I option.
+
+Please read the ctags help or ctags man page for more details.
+
+-----------------------------------------------
+
+-----------------------------------------------
+vim-scmdiff
+https://github.com/ghewgill/vim-scmdiff
+-----------------------------------------------
+Default commands:
+  \d Toggle diff view on/off
+  :D rev Difference between current and rev
+-----------------------------------------------
+
+-----------------------------------------------
+conque
+http://code.google.com/p/conque/wiki/Usage
+-----------------------------------------------
+:ConqueTerm bash
+:ConqueTerm mysql -h localhost -u joe_lunchbox Menu
+:ConqueTerm Powershell.exe
+-----------------------------------------------
+
+-----------------------------------------------
+gist
+-----------------------------------------------
+Usage:
+    Post current buffer to gist, using default privacy option.
+    :Gist
+    Post selected text to gist, using default privacy option. This applies to all permutations listed below (except multi).
+    :'<,'>Gist
+    Create a private gist.
+    :Gist -p
+    Create a public gist. (Only relevant if you've set gists to be private by default.)
+    :Gist -P
+    This is only relevant if you've set gists to be private by default; if you get an empty gist list, try ":Gist --abandon".
+    Create a gist anonymously.
+    :Gist -a
+    Create a gist with all open buffers.
+    :Gist -m
+    Edit the gist (you need to have opened the gist buffer first). You can update the gist with the ":w" command within the gist buffer.
+    :Gist -e
+    Edit the gist with name 'foo.js' (you need to have opened the gist buffer first).
+    :Gist -e foo.js
+    Post/Edit with the description " (you need to have opened the gist buffer first). >
+    :Gist -s something :Gist -e -s something
+    Delete the gist (you need to have opened the gist buffer first). Password authentication is needed.
+    :Gist -d
+    Fork the gist (you need to have opened the gist buffer first). Password authentication is needed.
+    :Gist -f
+    Star the gist (you need to have opened the gist buffer first). Password authentication is needed.
+    :Gist +1
+    Unstar the gist (you need to have opened the gist buffer first). Password authentication is needed.
+    :Gist -1
+    Get gist XXXXX.
+    :Gist XXXXX
+    Get gist XXXXX and add to clipboard.
+    :Gist -c XXXXX
+    List your public gists.
+    :Gist -l
+    List gists from user "mattn".
+    :Gist -l mattn
+    List everyone's gists.
+    :Gist -la
+    List gists from your starred gists.
+    :Gist -ls
+-----------------------------------------------
+-----------------------------------------------
+yank ring
+-----------------------------------------------
+yy - Adds the current line to the yankring.
+dd - Adds the current line to the yankring and deletes it.
+5yw - Adds 5 words to the yankring.
+ade - Deletes the word, and puts it into both the yankring and the "a register.
+cw - Changes the word and stores the previous value in the yankring.
+10"zyy - Places 10 lines into both the yankring and the "z register.
+:1,4YRYankRange   - Similar to 1,4y
+:3,$YRDeleteRange  - Similar to 3,$d
+
+-----------------------------------------------
+
+-----------------------------------------------
+FuzzyFinder
+-----------------------------------------------
+|:FufBuffer|       - Buffer mode (|fuf-buffer-mode|)
+|:FufFile|         - File mode (|fuf-file-mode|)
+|:FufCoverageFile| - Coverage-File mode (|fuf-coveragefile-mode|)
+|:FufDir|          - Directory mode (|fuf-dir-mode|)
+|:FufMruFile|      - MRU-File mode (|fuf-mrufile-mode|)
+|:FufMruCmd|       - MRU-Command mode (|fuf-mrucmd-mode|)
+|:FufBookmarkFile| - Bookmark-File mode (|fuf-bookmarkfile-mode|)
+|:FufBookmarkDir|  - Bookmark-Dir mode (|fuf-bookmarkdir-mode|)
+|:FufTag|          - Tag mode (|fuf-tag-mode|)
+|:FufBufferTag|    - Buffer-Tag mode (|fuf-buffertag-mode|)
+|:FufTaggedFile|   - Tagged-File mode (|fuf-taggedfile-mode|)
+|:FufJumpList|     - Jump-List mode (|fuf-jumplist-mode|)
+|:FufChangeList|   - Change-List mode (|fuf-changelist-mode|)
+|:FufQuickfix|     - Quickfix mode (|fuf-quickfix-mode|)
+|:FufLine|         - Line mode (|fuf-line-mode|)
+|:FufHelp|         - Help mode (|fuf-help-mode|)
+-----------------------------------------------
+
+-----------------------------------------------
+a.vim
+http://www.vim.org/scripts/script.php?script_id=31
+-----------------------------------------------
+:A switches to the header file corresponding to the current file being edited (or vise versa)
+:AS splits and switches
+:AV vertical splits and switches
+:AT new tab and switches
+:AN cycles through matches
+:IH switches to file under cursor
+:IHS splits and switches
+:IHV vertical splits and switches
+:IHT new tab and switches
+:IHN cycles through matches
+<Leader>ih switches to file under cursor
+<Leader>is switches to the alternate file of file under cursor (e.g. on  <foo.h> switches to foo.cpp)
+<Leader>ihn cycles through matches
+-----------------------------------------------
+
+-----------------------------------------------
+ShowMarks  (BREAK VIM)
+http://www.vim.org/scripts/script.php?script_id=152
+-----------------------------------------------
+   \mt : Toggles ShowMarks on and off.
+   \mh : Hides an individual mark.
+   \ma : Hides all marks in the current buffer.
+   \mm : Places the next available mark.
+-----------------------------------------------
+
+-----------------------------------------------
+Align -> DrChip
+http://www.vim.org/scripts/script.php?script_id=294
+http://www.drchip.org/astronaut/vim/align.html#Examples
+-----------------------------------------------
+\t=  : align assignments (don't count logic, like == or !=)
+\t,  : align on commas
+\t|  : align on vertical bars (|)
+\tsp : align on whitespace
+\tt  : align LaTeX tabular tables
+-----------------------------------------------
+\acom : align comments
+\adec : align C declarations (one variable per line)
+\afnc : align ansi-style C function input arguments
+\Htd  : align html tables
+-----------------------------------------------
+
+-----------------------------------------------
+ctrlp
+-----------------------------------------------
+Run :CtrlP or :CtrlP [starting-directory] to invoke CtrlP in find file mode.
+Run :CtrlPBuffer or :CtrlPMRU to invoke CtrlP in find buffer or find MRU file mode.
+Run :CtrlPMixed to search in Files, Buffers and MRU files at the same time.
+
+Once CtrlP is open:
+
+    Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+    Press <c-f> and <c-b> to cycle between modes.
+    Press <c-d> to switch to filename only search instead of full path.
+    Press <c-r> to switch to regexp mode.
+    Press <c-r>= to do calculation
+    Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+    Use <c-y> to create a new file and its parent directories.
+    Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+
+Run :help ctrlp-mappings or submit ? in CtrlP for more mapping help.
+
+    Submit two or more dots .. to go up the directory tree by one or multiple levels.
+    End the input string with a colon : followed by a command to execute it on the opening file(s):
+    Use :25 to jump to line 25.
+    Use :diffthis when opening multiple files to run :diffthis on the first 4 files.
+
+-----------------------------------------------
+
+-----------------------------------------------
+cref
+http://www.vim.org/scripts/script.php?script_id=614
+-----------------------------------------------
+ <Leader>cr normal mode:  get help for word under cursor
+                           Memory aid cr: (c)-(r)eference
+  <Leader>cr visual mode:  get help for visually selected text
+                           Memory aid cr: (c)-(r)eference
+  <Leader>cw:              prompt for word CRefVim should search for
+                           Memory aid cw: (c)-reference (w)hat
+  <Leader>cc:              jump to table of contents of the C-reference manual
+                           Memory aid cc: (c)-reference (c)ontents
+-----------------------------------------------
+
+-----------------------------------------------
+ack
+https://github.com/mileszs/ack.vim
+-----------------------------------------------
+o    to open (same as enter)
+go   to preview file (open but maintain focus on ack.vim results)
+t    to open in new tab
+T    to open in new tab silently
+h    to open in horizontal split
+H    to open in horizontal split silently
+v    to open in vertical split
+gv   to open in vertical split silently
+q    to close the quickfix window
+
+-----------------------------------------------
+
+-----------------------------------------------
+https://github.com/xolox/vim-easytags
+http://ctags.sourceforge.net/ctags.html#FILES
+-----------------------------------------------
+:UpdateTags     -> This command executes Exuberant Ctags from inside Vim to update the global tags file defined by g:easytags_file
+:HighlightTags  -> When you execute this command while editing one of the supported file types (see above) the relevant tags in the current file are highlighted
+-----------------------------------------------
+
+-----------------------------------------------
+git-fugitive
+-----------------------------------------------
+git 	fugitive 	action
+:Git add % 	:Gwrite 	Stage the current file to the index
+:Git checkout % 	:Gread 	Revert current file to last checked in version
+:Git rm % 	:Gremove 	Delete the current file and the corresponding Vim buffer
+:Git mv % 	:Gmove 	Rename the current file and the corresponding Vim buffer
+-----------------------------------------------
+
+-----------------------------------------------
+Gist
+-----------------------------------------------
+
+
+    Post current buffer to gist, using default privacy option.
+    :Gist
+    Post selected text to gist, using default privacy option. This applies to all permutations listed below (except multi).
+    :'<,'>Gist
+    Create a private gist.
+    :Gist -p
+    Create a public gist. (Only relevant if you've set gists to be private by default.)
+    :Gist -P
+    This is only relevant if you've set gists to be private by default; if you get an empty gist list, try ":Gist --abandon".
+    Create a gist anonymously.
+    :Gist -a
+    Create a gist with all open buffers.
+    :Gist -m
+    Edit the gist (you need to have opened the gist buffer first). You can update the gist with the ":w" command within the gist buffer.
+    :Gist -e
+    Edit the gist with name 'foo.js' (you need to have opened the gist buffer first).
+    :Gist -e foo.js
+    Post/Edit with the description " (you need to have opened the gist buffer first). >
+    :Gist -s something :Gist -e -s something
+    Delete the gist (you need to have opened the gist buffer first). Password authentication is needed.
+    :Gist -d
+    Fork the gist (you need to have opened the gist buffer first). Password authentication is needed.
+    :Gist -f
+    Star the gist (you need to have opened the gist buffer first). Password authentication is needed.
+    :Gist +1
+    Unstar the gist (you need to have opened the gist buffer first). Password authentication is needed.
+    :Gist -1
+    Get gist XXXXX.
+    :Gist XXXXX
+    Get gist XXXXX and add to clipboard.
+    :Gist -c XXXXX
+    List your public gists.
+    :Gist -l
+    List gists from user "mattn".
+    :Gist -l mattn
+    List everyone's gists.
+    :Gist -la
+    List gists from your starred gists.
+    :Gist -ls
+
+-----------------------------------------------
+
+-----------------------------------------------
+QuickBuf
+-----------------------------------------------
+Press the assigned hotkey to activate QuickBuf (default <F4>). It brings out a list of buffers that you can browse and give commands on! Some indicators in the list:
+	- * : the buffer being opened in the active window
+	- = : a buffer being opened in a window, but not active
+	- [+] : modifed buffer
++ Use k/j or <Up>/<Down> keys to select the buffer.
++ Press a key to give a command to the currently selected buffer
+	- d : delete buffer
+	- w : wipe out buffer
+	- s : open buffer in a new horizontally split window
+	- u : open buffer
+	- <enter> : open buffer and leave QuickBuf; if the	buffer is already opened in a window, switch to that window.
+-----------------------------------------------
+
+-----------------------------------------------
+vimpdb commands
+https://github.com/gotcha/vimpdb
+-----------------------------------------------
+Ex Command 	Key binding 	Details
+:PDBNext 	n 	pdb (n)ext
+:PDBStep 	s 	pdb (s)tep
+:PDBArgs 	a 	pdb (a)rgs
+:PDBUp 	u 	pdb (u)p
+:PDBDown 	d 	pdb (d)own
+:PDBReturn 	r 	pdb (r)eturn
+:PDBContinue 	c 	pdb (c)ontinue
+:PDBBreak 	b 	Sets a breakpoint at the line on which the cursor is sitting; similar to pdb b(reak)
+:PDBClear 	B 	Clears a breakpoint at the line on which the cursor is sitting; similar to pdb cl(ear)
+:PDBWord 	w 	Evaluates the value of the identifier on which the cursor is sitting.
+:PDBEval 	? 	Evaluates a Python expression after having asked for it.
+:PDBReset 	x 	Switch back to normal debugging in shell with standard pdb.
+N/A 	v(im) 	Switch back to vimpdb; only in plain pdb.
+-----------------------------------------------
+
+-----------------------------------------------
+submodules
+http://usevim.com/2012/03/01/using-pathogen-with-git-submodules/
+http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
+-----------------------------------------------
+cd ~/.vim
+git submodule init
+git submodule add git://github.com/tpope/vim-fugitive.git bundle/vim-fugitive
+git submodule update
+git commit -m 'Added vim-fugitive'
+git push
+git remote add origin https://github.com/primitivorm/emacs.git  	-> add origin
+git push origin master 		-> push in the master branch
+git pull origin master 		-> get lastest version from master and resolve conflicts
+git pull -s recursive -X theirs
+
+-> to resolve merge conflicts
+# fetch from the default remote, origin
+git fetch
+# create a branch at your current master
+git branch old-master
+# reset to origin's master
+git reset --hard origin/master
+# merge your old master, keeping "our" (origin/master's) content
+git merge -s ours old-master
+-----------------------------------------------
+
+-----------------------------------------------
+Vim key notation
+-----------------------------------------------
+<BS>           Backspace
+<Tab>          Tab
+<CR>           Enter
+<Enter>        Enter
+<Return>       Enter
+<Esc>          Escape
+<Space>        Space
+<Up>           Up arrow
+<Down>         Down arrow
+<Left>         Left arrow
+<Right>        Right arrow
+<F1> - <F12>   Function keys 1 to 12
+#1, #2..#9,#0  Function keys F1 to F9, F10
+<Insert>       Insert
+<Del>          Delete
+<Home>         Home
+<End>          End
+<PageUp>       page-up
+<PageDown>     page-down
+<Bar>          | pipe
+<Leader>       normally \  change with :let mapleader = ","
+<D>            window key
+-----------------------------------------------
+
+-----------------------------------------------
+git command
+-----------------------------------------------
+git add .
+git add . -A    -> remove file
+git commit -m "message here"
+git push -> check in
+git pull -> get latest version
+-----------------------------------------------
+
+-----------------------------------------------
+sideways
+http://www.vim.org/scripts/script.php?script_id=4171
+https://github.com/AndrewRadev/sideways.vim
+-----------------------------------------------
+<c-h>   move parameters to Left
+<c-l>   move parameters to Right
+-----------------------------------------------
+
+-----------------------------------------------
+ColorV is a color view/pick/edit/design/scheme tool in vim.
+https://github.com/Rykka/colorv.vim
+-----------------------------------------------
+View colors
+    :ColorV (<leader>cv): show ColorV window
+    :ColorVView (<leader>cw): show ColorV window with color text under cursor.
+    :ColorVPreview (<leader>cpp): Preview colors in current buffer
+Edit colors
+    :ColorVEdit (<leader>ce): Edit color text under cursor
+    :ColorVEditAll (<leader>cE): Edit color text under cursor and change all in current buffer.
+    :ColorVInsert (<leader>cii): Insert color with ColorV window.
+Design Colors
+    :ColorVName (<leader>cn): show color name list window.
+    :ColorVList Hue (<leader>cgh) generate Hue list with color text under cursor.
+    :ColorVTurn2 {hex1} {hex2} (<leader>cgg) generate Hue list from hex1 to hex2.
+    :ColorVPicker (<leader>cd): show a GUI color picker.
+Design Schemes
+    :ColorVScheme (<leader>css) Fetch scheme from Kuler or ColourLover
+    :ColorVSchemeFav (<leader>csf) Show Faved schemes
+    :ColorVSchemeNew (<leader>csn) Create a new scheme
+And More
+    You can even use it under 8/256 color terminal.
+Get latest and Post issues at https://github.com/Rykka/colorv.vim
+-----------------------------------------------
+
+-----------------------------------------------
+vim-tomdoc
+https://github.com/jc00ke/vim-tomdoc
+-----------------------------------------------
+TomDocMethod() — mapped to normal tdm
+TomDocClass() — mapped to normal tdc
+TomDocModule() — mapped to normal tdmo
+TomDocConstant() — mapped to normal tdco
+TomDocAttrReader() — mapped to normal tdar
+TomDocAttrWriter() — mapped to normal tdaw
+TomDocAttrAccessor() — mapped to normal tdaa
+-----------------------------------------------
+
+-----------------------------------------------
+taskpaper
+https://github.com/mutewinter/taskpaper.vim
+-----------------------------------------------
+\td     Mark task as done
+\tx     Mark task as cancelled
+\tt     Mark task as today
+\tD     Archive @done items
+\tX     Show tasks marked as cancelled
+\tT     Show tasks marked as today
+\t/     Search for items including keyword
+\ts     Search for items including tag
+\tp     Fold all projects
+\t.     Fold all notes
+\tP     Focus on the current project
+\tj     Go to next project
+\tk     Go to previous project
+\tg     Go to specified project
+\tm     Move task to specified project
+-----------------------------------------------
+
+-----------------------------------------------
+FSwitch
+http://www.vim.org/scripts/script.php?script_id=2590
+-----------------------------------------------
+  - switch the file and keep it in the current window with :FSHere
+  - switch the file and put it in the window to the left with :FSLeft
+  - switch the file, split the window to the left and put it there with :FSSwitchLeft
+-----------------------------------------------
+-----------------------------------------------
+pytest
+-----------------------------------------------
+Pytest
+All arguments are able to be tab-completed.
+Python Objects
+For running tests the plugin provides 4 arguments with an optional one. These arguments are:
+class
+method
+function
+file
+-----------------------------------------------
+
+-----------------------------------------------
+easymotion
+-----------------------------------------------
+let g:EasyMotion_leader_key = '<Leader>' ->
+-----------------------------------------------
+<Leader>ee -> open easymotion
+<Leader>et   -> find next coincidence
+<Leader>egE  -> on all document
+<Leader>ek   -> by row
+-----------------------------------------------
+
+-----------------------------------------------
+Combinaciones del Corrector Ortogrfico
+-----------------------------------------------
+Secuencia Descripcin
+]s Va a la siguiente palabra
+mal deletreada
+[s Va a la anterior palabra
+mal deletreada
+z= Presenta sugerencias
+para una ortografa
+correcta
+zg Aade una palabra
+como correctamente
+deletreada al diccionario
+-----------------------------------------------
+
+-----------------------------------------------
+Markers and moving about
+-----------------------------------------------
+'.       : jump to last modification line (SUPER)
+`.       : jump to exact spot in last modification line
+<C-O>    : retrace your movements in file (backward)
+<C-I>    : retrace your movements in file (forward)
+:ju(mps) : list of your movements {{help|jump-motions}}
+:history : list of all your commands
+
+-----------------------------------------------
+Get output from shell commands
+-----------------------------------------------
+:r!ls                 : reads in output of ls (use dir on Windows)
+:r !grep "^ebay" file.txt  : read output of grep
+:20,25 !rot13        : rot13 lines 20 to 25
+:r!date              : insert date (use  date /T on Windows)
+:.!sh                : execute contents of current line in buffer and capture the output
+
+-----------------------------------------------
+Sorting with external sort
+-----------------------------------------------
+:%!sort -u           : contents of the current file is sorted and only unique lines are kept
+:'v,'w!sort          : sort from line marked v thru lines marked w
+:g/^$/;,/^$/-1!sort  : sort each block (note the crucial ;)
+
+!1} sort             : sorts paragraph; this is issued from normal mode!)
+
+-----------------------------------------------
+ Entering !! in normal mode is translated to  :.!
+-----------------------------------------------
+ Appending a command sends the current line to the command replacing it with command's result
+!!date              : Replace current line with date
+!!which command     : Replace current line with the absolute path to command
+!!tr -d AEIO        : translate current line deleting As, Es, Is, and Os from the current line
+
+-----------------------------------------------
+ You can also use ! on a visual selection. Select an area with one of the visualmode
+-----------------------------------------------
+ commands, and then type !command to pipe the whole selection through command.
+This is equivalent to :'<,'>!command.
+For example, after selecting multiple lines with visualmode:
+!sort              : sort selected lines
+!grep word         : keep only lines containing 'word' in the selected range.
+
+
+-----------------------------------------------
+multiple files
+-----------------------------------------------
+:wn           : write file and move to next (SUPER)
+:bd           : remove file from buffer list (SUPER)
+:sav php.html : Save current file as php.html and "move" to php.html
+:sp fred.txt  : open fred.txt into a split
+:e!           : return to unmodified file
+:w /some/path/%:r   : save file in another directory, but with the same name
+:e #          : edit alternative file
+:args         : display argument list
+:n            : next file in argument list
+:prev         : previous file in argument list
+:rew          : rewind to first file in argument list
+:ls           : display buffer list
+:bn           : next buffer
+:bp           : previous buffer
+:brew         : rewind to first buffer in buffer list
+:tabe         : open new tab page (Ctrl-PgUp, Ctrl-PgDown for next/previous tab)
+:tabm n       : move tab to position n (0=leftmost position)
+
+-----------------------------------------------
+Recording
+-----------------------------------------------
+qa            : record keystrokes to register a
+your commands
+q             : quit recording
+@a            : execute commands again
+@@            : repeat
+# editing a register/recording
+"ap
+<you can now see register contents, edit as required>
+"add
+@a
+:%normal @a #execute the macro recorded in register a on all lines of the current file.
+#or, with a visually selected set of lines:
+:normal @a
+
+-----------------------------------------------
+Command line tricks
+-----------------------------------------------
+gvim -h
+ls | gvim -   : edit a PIPE!
+# vg.ksh (shell script)
+# vi all files in directory containing keyword $1 and jump to $1
+gvim.exe -c "/$1" $(grep -isl "$1" *) &
+-----------------------------------------------
+
+-----------------------------------------------
+Help for help
+-----------------------------------------------
+:h visual<C-D><Tab> : obtain list of all visual help topics
+                    : Then use tab to step through them
+:h ctrl<C-D> : list help of all control keys
+:h :r        : help for :ex command
+:h CTRL-R    : normal mode
+:h \r        : what's \r in a regexp
+:h i_CTRL-R  : help for say <C-R> in insert mode
+:h c_CTRL-R  : help for say <C-R> in command mode
+:h v_CTRL-V  : visual mode
+:h 'ai       : help on setting option 'autoindent'
+
+-Zen-coding
+<c-e>    ->expand zencoding
+http://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
+http://code.google.com/p/zen-coding/wiki/ZenHTMLElementsEn
+-----------------------------------------------
+
+-----------------------------------------------
+Buffergator
+https://github.com/jeetsukumaran/vim-buffergator
+-----------------------------------------------
+<Leader>b Invokes ":BuffergatorOpen": open the buffer catalog, or go
+                    to it if it is already open.
+<Leader>B Invokes ":BuffergatorClose": close the buffer catalog.
+<Leader>t Invokes ":BuffergatorTabsOpen": open the tab page catalog,
+                    or go to it if it is already open.
+<Leader>T Invokes ":BuffergatorTabsClose": close the tab page
+                    catalog.
+-----------------------------------------------
+-----------------------------------------------
+vim-complete
+https://github.com/mattsacks/vim-complete
+-----------------------------------------------
+<Leader>ke :call Complete('e')<CR>
+<Leader>kb :call Complete('b')<CR>
+ with fuzzee (http://github.com/mattsacks/vim-fuzzee)
+<Leader>kf :call Complete('F')<CR>
+<Leader>kj :call Complete('F app/javascripts*')<CR>
+-----------------------------------------------
