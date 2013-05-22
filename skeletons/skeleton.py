@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #coding : utf-8
 #file : <+FILE_NAME+>
-#author : ning
+#author : <+AUTHOR+>
 #date : <+DATE+>
 
 def main():

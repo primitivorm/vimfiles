@@ -1,0 +1,64 @@
+General remarks:
+
+A list of special tags:
+
+    <+FILE NAME ROOT+> :: the file name root
+    <+FILE NAME+>      :: the file name
+    <+FILE SUFFIX+>    :: the file suffix
+    <+FILE DIRNAME+>   :: the file's directory
+    <+NOTE+>           :: a note
+    <+DATE+>           :: the current date (the format is controlled via
+                          g:tskelDateFormat)
+    <+AUTHOR+>         :: the author's name (g:tskelUserName)
+    <+EMAIL+>          :: the author's e-mail (g:tskelUserEmail)
+    <+WEBSITE+>        :: the author's homepage (g:tskelUserWWW)
+    <+LICENSE+>        :: the name of the license this file is released
+                          under (g:tskelLicense)
+
+tSkeleton also supports the following pseudo-tags:
+    <+CURSOR+>         :: where to place the cursor after insertion
+    <+&NAME+>          :: a vim option
+    <+g:NAME+>         :: a global variable
+    <+b:NAME+>         :: a buffer local variable
+    <+?QUERY?+>        :: query the user
+    <+?VAR|QUERY?+>    :: query the user and propose some choices from
+                          the variable ${VAR}
+    <+bit:BIT>, <+bit:BIT|"DEFAULT">, <+bit:BIT|COMMANDS> :: insert a
+                          bit; if the bit isn't defined for the current
+                          filetype, use DEFAULT; if DEFAULT matches ".*"
+                          insert it as a string; otherwise interpret it
+                          as a command sequence to be fed to normal
+    <+tskel:TSKELETON> ... :: same as the above
+    <+include(TSKELETON)+> :: Another synonym for the above.
+    <+call:FUNCTION(ARGS)+> :: Insert the result value of some function
+    <+execute(EX COMMAND)+> :: Run a vim command.
+
+Flow control:
+    <+if(CONDITION)+>
+    <+elseif(CONDITION)+>
+    <+else+>
+    <+endif+>
+
+Loops:
+    <+for(VAR in LIST)+>
+    <+endfor+>, <+endfor(VAR)+>
+
+Variables:
+    <+let(VAR=VALUE)+>
+
+Interaction:
+    <+input(VAR, QUERY, [DEFAULT], [COMPLETION])+>
+
+Other:
+    <+nl+>
+    <+joinline+>
+    <+nop+>
+
+A wiki like table could then be constructed using a skeleton like this:
+
+    <+input('s:my_rows?!', 'Rows: ')+>
+    <+input('s:my_cols?!', 'Cols: ')+>
+    <+for(i in range(s:my_rows))+>
+    |<+for(j in range(s:my_cols))+> <+CURSOR+> |<+endfor(j)+><+nop+>
+    <+endfor(i)+>
+

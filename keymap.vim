@@ -2,9 +2,6 @@
 "http://vim.wikia.com/wiki/Mapping_keys_in_Vim_-_Tutorial_(Part_1)
 "mapea leader a coma
 let mapleader=","
-"Go to last edit location with ,.
-nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
-nnoremap ,. '.
 
 " Opening files located in the same directory as the current file {{{
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -14,12 +11,12 @@ map <leader>ev :vsp %%
 map <leader>et :tabe %%
 " }}}
 
-" Easy window navigation {{{
-noremap <D-w> <C-w>w " cycle between the open windows
-noremap <D-Left> <C-w>h " focus the window to the left
-noremap <D-Down> <C-w>j " focus the window to the down
-noremap <D-Up> <C-w>k " focus the window to the up
-noremap <D-Right> <C-w>l " focus the window to the right
+" Window navigation {{{
+noremap <C-w> <C-w>w " cycle between the open windows
+noremap <C-Left> <C-w>h " focus the window to the left
+noremap <C-Down> <C-w>j " focus the window to the down
+noremap <C-Up> <C-w>k " focus the window to the up
+noremap <C-Right> <C-w>l " focus the window to the right
 "}}}
 
 " Create window splits easier. The default {{{
@@ -44,7 +41,116 @@ nnoremap <C-A-Down> :res -1<cr>
 nnoremap <C-A-Left> :vertical res -1<cr>
 " }}}
 
+" Tab maps {{{
+nnoremap <silent><C-Tab> :tabnext<cr>
+nnoremap <silent><S-Tab> :tabprev<cr>
+nnoremap <silent><C-F4> :tabclose<cr>
+inoremap <silent><C-Tab> :tabnext<cr>
+inoremap <silent><S-Tab> :tabprev<cr>
+inoremap <silent><C-F4> :tabclose<cr>
+
+"http://vim.wikia.com/wiki/Alternative_tab_navigation
+nnoremap <A-F1> 1gt
+nnoremap <A-F2> 2gt
+nnoremap <A-F3> 3gt
+nnoremap <A-F4> 4gt
+nnoremap <A-F5> 5gt
+nnoremap <A-F6> 6gt
+nnoremap <A-F7> 7gt
+nnoremap <A-F8> 8gt
+nnoremap <A-F9> 9gt
+nnoremap <A-F0> 10gt
+
+"http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
+function TabLeft()
+   let tab_number = tabpagenr() - 1
+   if tab_number == 0
+      execute "tabm" tabpagenr('$') - 1
+   else
+      execute "tabm" tab_number - 1
+   endif
+endfunction
+
+function TabRight()
+   let tab_number = tabpagenr() - 1
+   let last_tab_number = tabpagenr('$') - 1
+   if tab_number == last_tab_number
+      execute "tabm" 0
+   else
+      execute "tabm" tab_number + 1
+   endif
+endfunction
+
+nnoremap <silent><A-Left> :call TabLeft()<CR>
+nnoremap <silent><A-Right> :call TabRight()<CR>
+" }}}
+
+" Easy Vim {{{
+
+"Sift-Home, Shift-End
+inoremap <silent><S-Home> <Esc>v^
+inoremap <silent><S-End> <Esc>lv$
+nnoremap <silent><S-Home> <Esc>v^
+nnoremap <silent><S-End> <Esc>v$
+
+"Ctrl-Shift-Left, Ctrl-Shift-Right
+inoremap <silent><C-S-Left> <Esc>v<Left>
+inoremap <silent><C-S-Right> <Esc>lv<Right>
+nnoremap <silent><C-S-Left> <Esc>v<Left>
+nnoremap <silent><C-S-Right> <Esc>v<Right>
+
+"Sift-Up, Shift-Down
+nnoremap <silent><S-Up> <Esc>vk
+nnoremap <silent><S-Down> <Esc>vj
+inoremap <silent><S-Up> <Esc>vk
+inoremap <silent><S-Down> <Esc>vj
+vnoremap <silent><S-Up> k
+vnoremap <silent><S-Down> j
+
+" Backspace in Visual mode deletes selection
+vnoremap <BS> d
+
+" to the clipboard with ,y and ,p
+map <leader>Y "+yy
+map <leader>p "+gp
+map <leader>P "+gP
+nnoremap <leader>x "+x
+vnoremap <leader>y "+y
+vnoremap <leader>x "+x
+
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S>       :update<CR>
+vnoremap <C-S>      <C-C>:update<CR>
+inoremap <C-S>      <C-O>:update<CR>
+
+" CTRL-Z is Undo; not in cmdline though
+noremap <C-Z> u
+inoremap <C-Z> <C-O>u
+
+" CTRL-A is Select all
+noremap <C-A> gggH<C-O>G
+inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A> <C-C>gggH<C-O>G
+onoremap <C-A> <C-C>gggH<C-O>G
+snoremap <C-A> <C-C>gggH<C-O>G
+xnoremap <C-A> <C-C>ggVG
+
+"Find and Replace
+map <C-f> /<C-r><C-w>
+map <C-r> %s<C-r><C-w>/new_word
+
+"Change minus - MAYUS
+vnoremap <C-u> ~
+"insert automatically } and insert above {
+inoremap {<CR> {<CR>}<Esc>O
+
+" }}}
+
 " General {{{
+
+"Go to last edit location with ,.
+nnoremap ,. '.
+
 " reindent complete file without losing position
 nnoremap <leader>if mqHmwgg=G`wzt`q
 
@@ -56,8 +162,8 @@ nnoremap <silent><leader>cn :let @* = expand("%:t")<CR>
 "Clear current search highlight by double tapping //
 nnoremap <silent> // :nohlsearch<CR>
 
-" Type ,hl to toggle highlighting on/off, and show current value.
-noremap ,hl :set hlsearch! hlsearch?<CR>
+" Type <leader>hl to toggle highlighting on/off, and show current value.
+noremap <leader>hl :set hlsearch! hlsearch?<CR>
 
 " cd to the directory containing the file in the buffer
 map <silent><leader>cd :lcd %:h<CR>
@@ -131,66 +237,18 @@ nnoremap <leader>v V`]
 " Creating folds for tags in HTML
 nnoremap <leader>ft Vatzf
 
+" Since I use linux, I want this
+let g:clipbrdDefaultReg = '+'
+
 " }}}
 
-" Disable arrow keys {{{
+"" Disable arrow keys {{{
 "noremap <Up> <Nop>
 "noremap <Down> <Nop>
 "noremap <Left> <Nop>
 "noremap <Right> <Nop>
-" }}}
+"" }}}
 
-" Easy Edit {{{
-"select with shift
-inoremap <silent><S-Home> <Esc>v^
-inoremap <silent><S-End> <Esc>v$
-nnoremap <silent><S-Home> <Esc>v^
-nnoremap <silent><S-End> <Esc>v$
-inoremap <silent><C-S-Left> <Esc>v
-inoremap <silent><C-S-Right> <Esc>v
-nnoremap <silent><C-S-Left> <Esc>v
-nnoremap <silent><C-S-Right> <Esc>v
-
-" backspace in Visual mode deletes selection
-" backspace in Visual mode deletes selection
-vnoremap <BS> d
-
-" to the clipboard with ,y and ,p
-cnoremap <leader>y "+y
-cnoremap <leader>Y "+yy
-cnoremap <leader>p "+gP
-cnoremap <leader>P "+gP
-cnoremap <leader>x "+x
-vnoremap <leader>y "+y
-vnoremap <leader>Y "+yy
-vnoremap <leader>x "+x
-
-" Use CTRL-S for saving, also in Insert mode
-noremap <C-S>		:update<CR>
-vnoremap <C-S>		<C-C>:update<CR>
-inoremap <C-S>		<C-O>:update<CR>
-
-" CTRL-Z is Undo; not in cmdline though
-noremap <C-Z> u
-inoremap <C-Z> <C-O>u
-
-" CTRL-A is Select all
-noremap <C-A> gggH<C-O>G
-inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
-cnoremap <C-A> <C-C>gggH<C-O>G
-onoremap <C-A> <C-C>gggH<C-O>G
-snoremap <C-A> <C-C>gggH<C-O>G
-xnoremap <C-A> <C-C>ggVG
-
-" Tab maps
-nnoremap <silent><C-Tab> :tabnext<cr>
-nnoremap <silent><S-Tab> :tabprev<cr>
-nnoremap <silent><C-F4> :tabclose<cr>
-
-"insert automatically } and insert above {
-inoremap {<CR> {<CR>}<Esc>O
-
-" }}}
 "--------------------------------------------
 "FUNCTIONS
 "--------------------------------------------
@@ -207,7 +265,7 @@ endfun
 nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 "auto-strip trailing white space for ruby files
 "autocmd BufWritePre *.rb :call <SID>StripTrailingWhitespaces()
-"}}}
+" }}}
 
 " Align {{{
 "http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
@@ -273,83 +331,107 @@ endfunction
 
 nnoremap <silent> <expr> <CR> Highlighting()
 "nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
-nnoremap <silent><2-LeftMouse> viw
+"nnoremap <silent><2-LeftMouse> viw
 
 " }}}
 
 " XML formatter {{{
 function! DoFormatXML() range
-	" Save the file type
-	let l:origft = &ft
+    " Save the file type
+    let l:origft = &ft
 
-	" Clean the file type
-	set ft=
+    " Clean the file type
+    set ft=
 
-	" Add fake initial tag (so we can process multiple top-level elements)
-	exe ":let l:beforeFirstLine=" . a:firstline . "-1"
-	if l:beforeFirstLine < 0
-		let l:beforeFirstLine=0
-	endif
-	exe a:lastline . "put ='</PrettyXML>'"
-	exe l:beforeFirstLine . "put ='<PrettyXML>'"
-	exe ":let l:newLastLine=" . a:lastline . "+2"
-	if l:newLastLine > line('$')
-		let l:newLastLine=line('$')
-	endif
+    " Add fake initial tag (so we can process multiple top-level elements)
+    exe ":let l:beforeFirstLine=" . a:firstline . "-1"
+    if l:beforeFirstLine < 0
+        let l:beforeFirstLine=0
+    endif
+    exe a:lastline . "put ='</PrettyXML>'"
+    exe l:beforeFirstLine . "put ='<PrettyXML>'"
+    exe ":let l:newLastLine=" . a:lastline . "+2"
+    if l:newLastLine > line('$')
+        let l:newLastLine=line('$')
+    endif
 
-	" Remove XML header
-	exe ":" . a:firstline . "," . a:lastline . "s/<\?xml\\_.*\?>\\_s*//e"
+    " Remove XML header
+    exe ":" . a:firstline . "," . a:lastline . "s/<\?xml\\_.*\?>\\_s*//e"
 
-	" Recalculate last line of the edited code
-	let l:newLastLine=search('</PrettyXML>')
+    " Recalculate last line of the edited code
+    let l:newLastLine=search('</PrettyXML>')
 
-	" Execute external formatter
-	exe ":silent " . a:firstline . "," . l:newLastLine . "!xmllint --noblanks --format --recover -"
+    " Execute external formatter
+    exe ":silent " . a:firstline . "," . l:newLastLine . "!xmllint --noblanks --format --recover -"
 
-	" Recalculate first and last lines of the edited code
-	let l:newFirstLine=search('<PrettyXML>')
-	let l:newLastLine=search('</PrettyXML>')
+    " Recalculate first and last lines of the edited code
+    let l:newFirstLine=search('<PrettyXML>')
+    let l:newLastLine=search('</PrettyXML>')
 
-	" Get inner range
-	let l:innerFirstLine=l:newFirstLine+1
-	let l:innerLastLine=l:newLastLine-1
+    " Get inner range
+    let l:innerFirstLine=l:newFirstLine+1
+    let l:innerLastLine=l:newLastLine-1
 
-	" Remove extra unnecessary indentation
-	exe ":silent " . l:innerFirstLine . "," . l:innerLastLine "s/^  //e"
+    " Remove extra unnecessary indentation
+    exe ":silent " . l:innerFirstLine . "," . l:innerLastLine "s/^  //e"
 
-	" Remove fake tag
-	exe l:newLastLine . "d"
-	exe l:newFirstLine . "d"
+    " Remove fake tag
+    exe l:newLastLine . "d"
+    exe l:newFirstLine . "d"
 
-	" Put the cursor at the first line of the edited code
-	exe ":" . l:newFirstLine
+    " Put the cursor at the first line of the edited code
+    exe ":" . l:newFirstLine
 
-	" Restore the file type
-	exe "set ft=" . l:origft
+    " Restore the file type
+    exe "set ft=" . l:origft
 endfunction
 command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
 
-nmap <silent> <leader>xm :%FormatXML<CR>
-vmap <silent> <leader>xm :FormatXML<CR>
+nmap <silent> <leader>fx :%FormatXML<CR>
+vmap <silent> <leader>fx :FormatXML<CR>
 " }}}
 
+  "{{{Theme Rotating
+let themeindex=0
+function! RotateColorTheme()
+   let y = -1
+   while y == -1
+      "let colorstring = "inkpot#ron#blue#elflord#evening#koehler#murphy#pablo#desert#torte#"
+      let colorstring = "solarized#proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#railscasts#bandit#blackboard#Sunburst#default"
+
+      let x = match( colorstring, "#", g:themeindex )
+      let y = match( colorstring, "#", x + 1 )
+      let g:themeindex = x + 1
+      if y == -1
+         let g:themeindex = 0
+      else
+         let themestring = strpart(colorstring, x + 1, y - x - 1)
+         return ":colorscheme ".themestring
+      endif
+   endwhile
+endfunction
+
+" Rotate Color Scheme <F12>
+nnoremap <silent><F12> :execute RotateColorTheme()<CR>
+
+" }}}
 "--------------------------------------------
 "PLUGINS
 "--------------------------------------------
 
 " Ack {{{
 "if has('win32') || has('win64')
-	"" Define <C-F> to a dummy value to see if it would set <C-f> as well.
+    "" Define <C-F> to a dummy value to see if it would set <C-f> as well.
     "map <C-F> :dummy
     "if maparg("<C-f>") == ":dummy"
-	"" <leader>f on systems where <C-f> == <C-F>
+    "" <leader>f on systems where <C-f> == <C-F>
         "map <leader-f> :Ack<space>
     "else
-	"" <C-F> if we can still map <C-f> to <S-Down>
+    "" <C-F> if we can still map <C-f> to <S-Down>
         "map <C-F> :Ack<space>
     "endif
     "map <C-f> <S-Down>
-	"" CMD-Enter to enter new line, doesn't work in terminal
+    "" CMD-Enter to enter new line, doesn't work in terminal
     "inoremap <C-Enter> <C-o>o
     "inoremap <C-S-Enter> <C-o>O
 "endif
@@ -357,11 +439,11 @@ vmap <silent> <leader>xm :FormatXML<CR>
 "" Ack for the word under cursor
 ""nnoremap <leader>a :Ack<Space>
 "nnoremap <leader>a :Ack<Space><c-r><c-W>
-"}}}
+" }}}
 
 " GUndo {{{
-nnoremap <c-u> :GundoToggle<CR>
-"}}}
+nnoremap <silent><S-U> :GundoToggle<CR>
+" }}}
 
 " Ctrlp {{{
 nnoremap <C-p> :CtrlP<CR>
@@ -406,56 +488,77 @@ vmap <leader>{ c{<C-R>"}<ESC>
 
 " Tabular {{{
  if exists(":Tabularize")
-	vnoremap <Leader>t= :Tabularize /=<CR>
-	vnoremap <Leader>t: :Tabularize /:\zs<CR>
-	vnoremap <Leader>t, :Tabularize /,\zs<CR>
-	nnoremap <Leader>t> :Tabularize /=>\zs<CR>
-	vnoremap <Leader>t> :Tabularize /=>\zs<CR>
-	nnoremap <Leader>t- :Tabularize /-<CR>
-	vnoremap <Leader>t- :Tabularize /-<CR>
-	nnoremap <Leader>t" :Tabularize /"<CR>
-	vnoremap <Leader>t" :Tabularize /"<CR>
-	vmap <Leader>t3 :Tabularize /#<CR>
-	vmap <Leader>t' :Tabularize /'<CR>
-	vmap <Leader>t" :Tabularize /"<CR>
-	vmap <Leader>t0 :Tabularize /)/r1c1l0<CR>
-	vmap <Leader>t== :Tabularize /=/r1c1l0<CR>
+    vnoremap <Leader>t= :Tabularize /=<CR>
+    vnoremap <Leader>t: :Tabularize /:\zs<CR>
+    vnoremap <Leader>t, :Tabularize /,\zs<CR>
+    nnoremap <Leader>t> :Tabularize /=>\zs<CR>
+    vnoremap <Leader>t> :Tabularize /=>\zs<CR>
+    nnoremap <Leader>t- :Tabularize /-<CR>
+    vnoremap <Leader>t- :Tabularize /-<CR>
+    nnoremap <Leader>t" :Tabularize /"<CR>
+    vnoremap <Leader>t" :Tabularize /"<CR>
+    vmap <Leader>t3 :Tabularize /#<CR>
+    vmap <Leader>t' :Tabularize /'<CR>
+    vmap <Leader>t" :Tabularize /"<CR>
+    vmap <Leader>t0 :Tabularize /)/r1c1l0<CR>
+    vmap <Leader>t== :Tabularize /=/r1c1l0<CR>
 endif
-" }}}
-
-" Tagbar {{{
-" o=outline
-"nmap <silent><leader>T :TagbarToggle<CR>
-nmap <silent><F3> :TagbarToggle<CR>
-"nnoremap <Leader>o :TagbarToggle<CR>
-"noremap <silent> <Leader>y :TagbarToggle " Display panel with y (or ,y)
-" }}}
-
-" neocomplcache {{{
-"inoremap <expr><c-space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>"
-"inoremap <expr><c-CR> neocomplcache#smart_close_popup() . "\<CR>"
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-"}}}
-
-" GoldenView {{{
-"" 1. split to tiled windows
-"nmap <silent> <C-L>  <Plug>GoldenViewSplit
-"" 2. quickly switch current window with the main pane
-"" and toggle back
-"nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
-"nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
-"" 3. jump to next and previous window
-"nmap <silent> <C-N>  <Plug>GoldenViewNext
-"nmap <silent> <C-P>  <Plug>GoldenViewPrevious
 " }}}
 
 " nerdtree {{{
 ""I make sure the working directory is set correctly.
-"nnoremap <leader>n :NERDTreeToggle<CR>
 "map <Leader>n <plug>NERDTreeMirror<CR>
 "map <F2> <plug>NERDTreeTabsToggle<CR>
-nnoremap <F2> :NERDTreeToggle<CR>
+map <F2> :NERDTreeTabsToggle<CR>
+"map <F2> :NERDTreeToggle<CR>
+
+"Funtion to open and close NERDTreeAndTagbar
+"function! ToggleNERDTreeAndTagbar()
+    "let w:jumpbacktohere = 1
+
+    "" Detect which plugins are open
+    "if exists('t:NERDTreeBufName')
+        "let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
+    "else
+        "let nerdtree_open = 0
+    "endif
+    "let tagbar_open = bufwinnr('__Tagbar__') != -1
+
+    "" Perform the appropriate action
+    "if nerdtree_open && tagbar_open
+        "NERDTreeClose
+        "TagbarClose
+    "elseif nerdtree_open
+        "TagbarOpen
+    "elseif tagbar_open
+        "NERDTree
+    "else
+        "NERDTree
+        "TagbarOpen
+    "endif
+
+    "" Jump back to the original window
+    "for window in range(1, winnr('$'))
+        "execute window . 'wincmd w'
+        "if exists('w:jumpbacktohere')
+            "unlet w:jumpbacktohere
+            "break
+        "endif
+    "endfor
+"endfunction
+"nnoremap <F2> :call ToggleNERDTreeAndTagbar()<CR>
+
+" }}}
+
+" Tagbar {{{
+map <F3> :TagbarToggle<CR>
+nnoremap <C-]> :tabnew %<CR>g<C-]>
+vnoremap <C-]> <Esc>:tabnew %<CR>gvg<C-]>
+" }}}
+
+" ctags {{{
+"Search and destroy using tags
+map <C-F3> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
 " }}}
 
 " Fugitive {{{
@@ -482,19 +585,6 @@ nnoremap <silent> <leader>z :ZoomWin<CR>
 nnoremap <leader>' :MinimapSync<cr>
 " }}}
 
-"" Toggle Taglist display {{{
-"nnoremap <C-F3> :TlistToggle<CR>
-""nnoremap <leader>T :Tlist<CR>
-""nnoremap <leader>U :TlistUpdate<CR>
-""nnoremap <leader>s :TlistSessionSave tlist<CR>
-""nnoremap <leader>l :TlistSessionLoad tlist<CR>
-"" }}}
-
-" ctags {{{
-"Search and destroy using tags
-map <silent> <S-F3> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
-" }}}
-
 " sql formatter {{{
 vmap <silent>sf <Plug>SQLU_Formatter<CR>
 nmap <silent>scl <Plug>SQLU_CreateColumnList<CR>
@@ -503,15 +593,19 @@ nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
 nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
 " }}}
 
-" Command-t {{{
-"nnoremap <silent> <Leader>t :CommandT<CR>
-"nnoremap <silent> <Leader>b :CommandTBuffer<CR>
-" }}}
-
 " sidewise {{{
 nnoremap <c-h> :SidewaysLeft<cr>
 nnoremap <c-l> :SidewaysRight<cr>
 "}}}
+
+" Syntastic {{{
+nmap <silent> <leader>y :SyntasticCheck<cr>
+" }}}
+
+" Command-t {{{
+"nnoremap <silent> <Leader>t :CommandT<CR>
+"nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+" }}}
 
 " HardMode {{{
  "nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -521,6 +615,27 @@ nnoremap <c-l> :SidewaysRight<cr>
 " let g:yankring_history_dir = $HOME.'/vimfiles/tmp'
 " nnoremap <leader>r :YRShow<CR>
 " }}}
+
+" Numbers {{{
+"https://github.com/myusuf3/numbers.vim
+"nnoremap <leader>n :NumbersToggle<CR>
+"nnoremap <leader>no :NumbersOnOff<CR>
+" }}}
+
+""Lusty Explorer {{{
+"map <Leader>lf :LustyFilesystemExplorer<cr>
+"map <Leader>lr :LustyFilesystemExplorerFromHere<cr>
+"map <Leader>lb :LustyBufferExplorer<cr>
+"map <Leader>lg :LustyBufferGrep<cr>
+"" }}}
+
+"" Toggle Taglist display {{{
+"map <F3> :TlistToggle<CR>
+""nnoremap <leader>T :Tlist<CR>
+""nnoremap <leader>U :TlistUpdate<CR>
+""nnoremap <leader>s :TlistSessionSave tlist<CR>
+""nnoremap <leader>l :TlistSessionLoad tlist<CR>
+"" }}}
 
 "" Omnisharp {{{
 
@@ -542,4 +657,23 @@ nnoremap <c-l> :SidewaysRight<cr>
 "nmap <leader>cf :call OmniSharp#CodeFormat()<cr>
 
 "" }}}
-""
+
+" neocomplcache {{{
+"inoremap <expr><c-space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>"
+"inoremap <expr><c-CR> neocomplcache#smart_close_popup() . "\<CR>"
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+" }}}
+
+" GoldenView {{{
+"" 1. split to tiled windows
+"nmap <silent> <C-L>  <Plug>GoldenViewSplit
+"" 2. quickly switch current window with the main pane
+"" and toggle back
+"nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
+"nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
+"" 3. jump to next and previous window
+"nmap <silent> <C-N>  <Plug>GoldenViewNext
+"nmap <silent> <C-P>  <Plug>GoldenViewPrevious
+" }}}
+

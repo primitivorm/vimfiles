@@ -1,3 +1,5 @@
+ "http://learnvimscriptthehardway.stevelosh.com/
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -13,7 +15,7 @@ let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 "if has("autocmd")
   "autocmd bufwritepost _vimrc source $MYVIMRC
 "endif
-"}}}
+" }}}
 
 " Pathogen {{{
 "------------------------------------------------------
@@ -33,14 +35,14 @@ call pathogen#helptags()
 "------------------------------------------------------
 set nocompatible " be iMproved
 "filetype off " required!
-
-set rtp+=~/vimfiles/bundle/vundle/
+"rtp
+set runtimepath+=~/vimfiles/bundle/vundle/
 call vundle#rc()
 "" let Vundle manage Vundle
 "" required!
 Bundle 'gmarik/vundle'
 
-" My Bundles here:
+" Mysetndles here:
  "
 " original repos on github
 Bundle 'tpope/vim-surround'
@@ -50,6 +52,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-abolish'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
@@ -58,16 +61,13 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'mattn/gist-vim'
 Bundle 'othree/html5.vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'SirVer/ultisnips'
-"Bundle 'tobyS/skeletons.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'shemerey/vim-indexer'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
 Bundle 'mattn/webapi-vim'
 Bundle 'Townk/vim-autoclose'
-"Bundle 'Shougo/neosnippet'
 Bundle 'mattn/lisper-vim.git'
 Bundle 'scrooloose/syntastic'
 Bundle 'valloric/MatchTagAlways'
@@ -80,12 +80,12 @@ Bundle 'godlygeek/tabular'
 Bundle 'powerman/vim-plugin-viewdoc'
 Bundle 'xolox/vim-shell'
 Bundle 'Shougo/vimshell'
-Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'Shougo/vimproc'
 Bundle 'xolox/vim-session'
-Bundle 'Lokaltog/vim-powerline.git'
-Bundle 'Lokaltog/powerline-fonts.git'
+"Bundle 'Lokaltog/powerline'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline-fonts'
 Bundle 'wavded/vim-stylus'
 Bundle 'heaths/vim-msbuild'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -95,17 +95,17 @@ Bundle 'AndrewRadev/switch.vim'
 Bundle 'leshill/vim-json'
 Bundle 'rking/ag.vim'
 Bundle 'mutewinter/vim-css3-syntax'
-"Bundle 'jwu/exvim'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'honza/vim-snippets'
-"alow template files
 Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tomtom/tplugin_vim'
 Bundle 'tomtom/stakeholders_vim'
 Bundle 'tomtom/templator_vim'
-"
+Bundle 'tomtom/tskeleton_vim'
+Bundle 'tomtom/tskeletons'
+Bundle 'aperezdc/vim-template'
 Bundle 'motemen/git-vim'
 Bundle 'shemerey/vim-project'
 Bundle 'ghewgill/vim-scmdiff'
@@ -117,14 +117,14 @@ Bundle 'mklabs/vim-backbone'
 Bundle 'oranget/vim-csharp.git'
 Bundle 'sickill/coloration'
 Bundle 'wikitopian/hardmode'
-"Bundle 'bkad/CamelCaseMotion'
 Bundle 'koron/minimap-vim'
 Bundle 'sjl/splice.vim'
 Bundle 'hokaccha/vim-html5validator'
 Bundle 'michaeljsmith/vim-indent-object'
-"Bundle 'zhaocai/GoldenView.Vim'
 Bundle 'terryma/vim-multiple-cursors'
-"Bundle 'Twinside/vim-codeoverview'
+Bundle 'mkitt/tabline.vim'
+Bundle 'bronson/vim-visual-star-search'
+Bundle 'bryanthankins/vim-aspnetide'
 
 "colors
 Bundle 'sjl/badwolf'
@@ -152,7 +152,6 @@ Bundle 'nelstrom/vim-mac-classic-theme'
 "Bundle 'mileszs/ack.vim'
 "Bundle 'drmingdrmer/xptemplate'
 "Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'tpope/vim-abolish'
 "Bundle 'tpope/vim-commentary'
 "Bundle 'tpope/vim-cucumber'
 "Bundle 'tpope/vim-rails'
@@ -177,12 +176,23 @@ Bundle 'nelstrom/vim-mac-classic-theme'
 "Bundle 'davidoc/taskpaper.vim'
 "Bundle 'xolox/vim-lua-inspect'
 "Bundle 'kablamo/VimDebug'
-Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'kevinw/pyflakes-vim'
 "Bundle 'klen/python-mode'
 "Bundle 'rorymckinley/vim-symbols-strings'
 "Bundle 'goldfeld/vim-seek'
 "Bundle 'tek/vim-quickbuf'
+"Bundle 'Yggdroot/indentLine'
+"Bundle 'fholgado/minibufexpl.vim'
+"Bundle 'Twinside/vim-codeoverview'
+"Bundle 'myusuf3/numbers.vim'
+"Bundle 'zhaocai/GoldenView.Vim'
+"Bundle 'bkad/CamelCaseMotion'
+"Bundle 'thinca/vim-template'
+"Bundle 'tobyS/skeletons.vim'
+"Bundle 'sjbach/lusty'
+"Bundle 'vim-scripts/tSkeleton'
+"Bundle 'jwu/exvim'
+"Bundle 'Shougo/neosnippet'
 
 " vim-scripts repos
 Bundle 'c.vim'
@@ -297,21 +307,25 @@ set fileencodings=utf-8,iso-8859-15,ucs-bom
 " Gui {{{
 
 syntax enable
-
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 if has('gui_running')
-	set background=light
+	"show tabs always
+	set showtabline=2
+	"max num of tabs
+	set tabpagemax=15
 	hi CursorLine guibg=#e6e6fa
 	hi CursorColumn guibg=#e6e6fa
-	set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+	"set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
+	"set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
+	set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
+	"set guifont=Monaco:h9:cANSI
 else
-	set background=dark
-	hi CursorLine guibg=Gray40 guifg=#ffffff
-	hi CursorColumn guibg=Gray40 guifg=#ffffff
+	hi CursorLine guibg=Gray40
+	hi CursorColumn guibg=Gray40
 endif
-
-"set background=dark
+'
+"set background=light
 "colorscheme solarized
 "let g:solarized_termcolors=256
 colorscheme proman
@@ -328,8 +342,6 @@ colorscheme proman
 "colorscheme Sunburst
 "colorscheme default
 
-"habilita plugin para sangrado de lineas
-filetype plugin indent on
 "habilita soporte para plugins
 filetype plugin on
 "muestra numeros de linea del archivo
@@ -344,7 +356,7 @@ set linebreak	"lbr
 set showbreak=...
 "set textwidth=79
 set textwidth=85
-set colorcolumn=100
+set colorcolumn=150
 "habilita sangrado inteligente
 set smartindent
 "sangrado automatico
@@ -361,6 +373,7 @@ set backspace=indent,eol,start " allow backspacing over everything in insert mod
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
 "Use Mark plugin to highlight selected word
+"hl
 set hlsearch
 "jumps to search word as you type (annoying but excellent)
 set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
@@ -379,7 +392,7 @@ set foldnestmax=10 "deepest fold is 10 levels
 "set nofoldenable "dont fold by default
 set foldlevel=1 "this is just what i Use
 " Folding : http://vim.wikia.com/wiki/Syntax-based_folding, see comment by Ostrygen
-" au FileType cs set omnifunc=syntaxcomplete#Complete
+" autocmd FileType cs set omnifunc=syntaxcomplete#Complete
 
 "if has("gui_running")
   "" GUI is running or is about to start.
@@ -388,10 +401,10 @@ set foldlevel=1 "this is just what i Use
 "else
   "" This is console Vim.
   "if exists("+lines")
-    "set lines=50
+	"set lines=50
   "endif
   "if exists("+columns")
-    "set columns=100
+	"set columns=100
   "endif
 "endif
 
@@ -410,31 +423,31 @@ set foldtext=MyFoldText()
 function! MyFoldText()
   let line = getline(v:foldstart)
   if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-    let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-    let linenum = v:foldstart + 1
-    while linenum < v:foldend
-      let line = getline( linenum )
-      let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-      if comment_content != ''
-        break
-      endif
-      let linenum = linenum + 1
-    endwhile
-    let sub = initial . ' ' . comment_content
+	let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+	let linenum = v:foldstart + 1
+	while linenum < v:foldend
+	  let line = getline( linenum )
+	  let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+	  if comment_content != ''
+		break
+	  endif
+	  let linenum = linenum + 1
+	endwhile
+	let sub = initial . ' ' . comment_content
   else
-    let sub = line
-    let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-    if startbrace == '{'
-      let line = getline(v:foldend)
-      let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-      if endbrace == '}'
-        let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-      endif
-    endif
+	let sub = line
+	let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+	if startbrace == '{'
+	  let line = getline(v:foldend)
+	  let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+	  if endbrace == '}'
+		let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+	  endif
+	endif
   endif
   let n = v:foldend - v:foldstart + 1
   let info = " " . n . " lines"
-  let sub = sub . "                                                                                                                  "
+  let sub = sub . "																													 "
   let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
   let fold_w = getwinvar( 0, '&foldcolumn' )
   let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
@@ -466,13 +479,11 @@ if v:version >= 730
 	set undodir=~/vimfiles/tmp,~/tmp,/tmp
 endif
 
-if (&diff==0)
-	:autocmd BufReadPost * tab ball
-endif
-au FileType cs set foldmethod=marker
-au FileType cs set foldmarker={,}
-au FileType cs set foldtext=substitute(getline(v:foldstart),'{.*','{...}',)
-au FileType cs set foldlevelstart=2
+"au
+autocmd FileType cs set foldmethod=marker
+autocmd FileType cs set foldmarker={,}
+autocmd FileType cs set foldtext=substitute(getline(v:foldstart),'{.*','{...}',)
+autocmd FileType cs set foldlevelstart=2
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -480,8 +491,8 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-au FileType c,cpp,h set omnifunc=ccomplete#Complete
-au FileType java set omnifunc=javacomplete#Complete
+autocmd FileType c,cpp,h set omnifunc=ccomplete#Complete
+autocmd FileType java set omnifunc=javacomplete#Complete
 "For the most accurate but slowest result, set the syntax synchronization method to fromstart
 autocmd BufEnter * :syntax sync fromstart
 "suffixes added to command gf
@@ -490,12 +501,22 @@ set suffixesadd+=.c,.cpp,.cs,.js,.css,.html,.xml,.rb,.h,.aspx,.java,.py,.lisp,.p
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "remarcado de lineas speciales
 "guifg=#F8F8FF
-highlight SpecialKey guifg=#E6E6FA ctermfg=192
-highlight NonText guifg=#E6E6FA ctermfg=192
+"Added to coloscheme proman
+"highlight SpecialKey guifg=#E6E6FA ctermfg=192
+"highlight NonText guifg=#E6E6FA ctermfg=192
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 "set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 set listchars=tab:\|-,trail:-,eol:¬,extends:→,precedes:←,nbsp:×
+" Automatic re-tab
+autocmd BufReadPost * if &modifiable | retab | endif
+" convert spaces to tabs when reading file
+"autocmd! bufreadpost * set noexpandtab | retab!
+" convert tabs to spaces before writing file
+"autocmd! bufwritepre * set expandtab | retab!
+" convert spaces to tabs after writing file (to show guides again)
+"autocmd! bufwritepost * set noexpandtab | retab!
+
 set mouse=a " enable using the mouse if terminal emulator
 "set guioptions-=m	"remove menu bar
 set guioptions-=T  "remove toolbar
@@ -503,8 +524,6 @@ set guioptions-=T  "remove toolbar
 set guioptions+=b  "remove right-hand scroll bar
 "let g:gui_fonts = ['Monospace 10', 'Lucida Console 10', 'Courier New 10']
 "let g:gui_colors = ['ego', 'corporation', 'github', 'satori', 'sienna']
-" indentline
-let g:indentLine_char = '|'
 "customize tab color
 hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 hi TabLine ctermfg=Blue ctermbg=Yellow
@@ -514,8 +533,8 @@ hi Title ctermfg=LightBlue ctermbg=Magenta
 
 " Spell {{{
 "habilita corrector ortografico
-"set spell 	"active spell check
-set spelllang=en "Carga el diccionario en o los lenguajes que necesitemos
+"set spell	"active spell check
+set spelllang=es "Carga el diccionario en o los lenguajes que necesitemos
 	"set spell "Activa el corrector ortogr�fico en tiempo real :set nospell desactiva
 	"will add dictionary scanning
 set complete+=k
@@ -525,12 +544,14 @@ set dictionary+=~/spell/en.latin1.spl
 set dictionary+=~/spell/en.latin1.sug
 set dictionary+=~/spell/en.utf-8.spl
 set dictionary+=~/spell/en.utf-8.sug
+"set file for new words
+set spellfile=~/vimfiles/spell/dict.add
 "enable matchit plugin
 "runtime macros/matchit.vim
 " }}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS CONFIGURATION
+" PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Thesaurus {{{
@@ -542,7 +563,7 @@ set dictionary+=~/spell/en.utf-8.sug
 set thesaurus+=~\bundle\mthes10\mthesaur.txt
 set thesaurus+=~\bundle\mthes10\roget13a.txt
 "------------------------------------------------------
-"}}}
+" }}}
 
 " Ragtag {{{
 "------------------------------------------------------
@@ -552,13 +573,13 @@ set thesaurus+=~\bundle\mthes10\roget13a.txt
 "------------------------------------------------------
  let g:ragtag_global_maps = 1
 "------------------------------------------------------
-"}}}
+" }}}
 
 " SnipMate {{{
 "------------------------------------------------------
 "c compiler
-" au FileType C set makeprg=gcc\ %
-" au FileType Cpp set makeprg=g++\ %
+" autocmd FileType C set makeprg=gcc\ %
+" autocmd FileType Cpp set makeprg=g++\ %
 "------------------------------------------------------
 "snipMate plugin
 "https://github.com/msanders/snipmate.vim
@@ -579,8 +600,8 @@ let g:snippets_dir="$HOME\\vimfiles\\bundle\\snipmate\\snippets\\"
 let g:UltiSnips = {}
 
 let g:UltiSnips.snipmate_ft_filter = {
-            \ 'default' : {'filetypes': ["FILETYPE"] },
-            \ 'ruby'    : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
+			\ 'default' : {'filetypes': ["FILETYPE"] },
+			\ 'ruby'	: {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
 			\ }
 "------------------------------------------------------
 " }}}
@@ -590,20 +611,27 @@ let g:UltiSnips.snipmate_ft_filter = {
 "NERDTree plugin
 "https://github.com/scrooloose/nerdtree"
 "------------------------------------------------------
-"abre el plugin NERDTree al iniciar Vim
-autocmd vimenter * NERDTree
-autocmd vimenter * if !argc() | NERDTree | endif
+"open the plugin NERDTree at startup Vim
+if (&diff==0)
+	autocmd vimenter * NERDTree
+	autocmd vimenter * if !argc() | NERDTree | endif
+endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "custom settings
-let g:NERDTreeBookmarksFile = expand($HOME.'/vimfiles/_NERDTreeBookmarks')
-let g:NERDTreeShowBookmarks = 1
-let g:NERDTreeWinSize = 30
-let g:NERDTreeChristmasTree = 1
+let g:NERDTreeBookmarksFile		= expand($HOME.'/vimfiles/_NERDTreeBookmarks')
+let g:NERDTreeShowBookmarks		= 1
+let g:NERDTreeWinSize			= 30
+let g:NERDTreeChristmasTree		= 1
 let g:NERDTreeCaseSensitiveSort = 0
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeMouseMode=2
+let g:NERDTreeQuitOnOpen		= 0
+let g:NERDTreeMouseMode			= 2
+"let g:NERDTreeMapOpenInTab		= 't'
+"let g:NERDTreeMapOpenInTab		= '<2-LeftMouse>'
+"let g:NERDTreeMapOpenInTab='<2-LeftMouse>'
+"let g:NERDTreeMapOpenInTabSilent = 'T'
 "the working directory is always the one where the active buffer is located.
+"let g:NERDTreeMapActivateNode = '<2-LeftMouse>'
 set autochdir
 "I make sure the working directory is set correctly.
 let g:NERDTreeChDirMode=2
@@ -623,60 +651,104 @@ let g:NERDTreeIgnore=[
 "nerdtree-tabs
 "https://github.com/jistr/vim-nerdtree-tabs
 "------------------------------------------------------
-"let g:nerdtree_tabs_open_on_gui_startup=1
-let g:nerdtree_tabs_open_on_console_startup=1 	"default 0"
-"let g:nerdtree_tabs_no_startup_for_diff=1
-let g:nerdtree_tabs_smart_startup_focus=2"		"default 1"
-"let g:nerdtree_tabs_open_on_new_tab = 1
-"let g:nerdtree_tabs_meaningful_tab_names = 1
-"let g:nerdtree_tabs_autoclose = 1
-"let g:nerdtree_tabs_synchronize_view = 1
-"let g:nerdtree_tabs_synchronize_focus = 1
-let g:nerdtree_tabs_focus_on_files = 1 		"default 0"
-"let g:nerdtree_tabs_startup_cd = 1
-let g:NERDTreeMapOpenInTabSilent = '<2-LeftMouse>'
+"let g:nerdtree_tabs_open_on_gui_startup	 = 1	"default 1
+let g:nerdtree_tabs_open_on_console_startup = 1 "default 0
+"let g:nerdtree_tabs_no_startup_for_diff	 = 1	"default 1
+let g:nerdtree_tabs_smart_startup_focus	 = 2	 "default 1
+"let g:nerdtree_tabs_open_on_new_tab			= 1		"default 1
+"let g:nerdtree_tabs_meaningful_tab_names	 = 1	"default 1
+"let g:nerdtree_tabs_autoclose				 = 1	"default 1
+let g:nerdtree_tabs_synchronize_view		= 0			"default 1
+"let g:nerdtree_tabs_synchronize_focus		 = 1		"default 1
+let g:nerdtree_tabs_focus_on_files			= 1		   "default 0
+"let g:nerdtree_tabs_startup_cd				 = 1		"default 1
 "------------------------------------------------------
 " }}}
 
-" NERDcommenter {{{
-"------------------------------------------------------
-" NERDcommenter
-" https://github.com/scrooloose/nerdcommenter
-"------------------------------------------------------
-" let NERDSpaceDelims=1
-" map <Leader>/ <Plug>NERDCommenterToggle<CR>
-" vmap <Leader>/ <Plug>NERDCommenterToggle<CR>
-"------------------------------------------------------
-" }}}
+" Tagbar {{{
+"---------------------------------------------------------
+"tagbar
+" http://www.vim.org/scripts/script.php?script_id=3465
+" https://github.com/majutsushi/tagbar
+"---------------------------------------------------------
+let g:tagbar_width			 = 25	   "default 40
+let g:tagbar_compact		 = 1	   "default 0
+let g:tagbar_foldlevel		 = 2		"default 99
+"especify ctags path
+let g:tagbar_ctags_bin		 = '~\vimfiles\ctags58\ctags.exe'
 
-" MiniBufExpl {{{
-"------------------------------------------------------
-"mini buffer explorer
-"https://github.com/fholgado/minibufexpl.vim
-"------------------------------------------------------
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-" MiniBufExpl Colors
-hi MBEVisibleActive guifg=#ff4500 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
-"------------------------------------------------------
-" }}}
+"let g:tagbar_expand		 = 1		"default 0
+"let g:tagbar_sort			  = 0	 "default 1
+"let g:tagbar_show_visibility = 1
+"let g:tagbar_autoshowtag	 = 1		"default 0
+"let g:tagbar_autoclose		 = 1		"default 0
+"let g:tagbar_iconchars		 = ['+', '-']		"default ['+', '-']
+"let g:tagbar_singleclick	 = 1		"default 0
+"let g:tagbar_indent		 = 1		"default 2
+"let g:tagbar_autofocus		 = 1		"default )
 
-" EasyMotion {{{
-"---------------------------------------------------------
-"easymotion
-"https://github.com/Lokaltog/vim-easymotion
-"---------------------------------------------------------
-"let g:EasyMotion_leader_key = '<Leader>e'
-"hi link EasyMotionTarget ErrorMsg
-"hi link EasyMotionShade Comment
-"---------------------------------------------------------
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" uncomment this section for open new buffers in a tab always
+"If you use multiple tabs and want Tagbar to also open in the current tab when
+"you switch to an already loaded, supported buffer
+autocmd BufEnter * nested :call tagbar#autoopen(0)
+if (&diff==0)
+	autocmd BufReadPost * OpenInTab
+	"Open files always in new tabs
+	"autocmd VimEnter * tab all
+	"autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
+endif
+function! DoOpenInTab()
+	if (&modifiable)
+		tab ball
+		tabn
+	endif
+endfunction
+command! -nargs=0 OpenInTab call DoOpenInTab()
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+""---------------------------------------------------------
+"" }}}
+
+" CoffeScript {{{
+let g:tagbar_type_coffee = {
+	\ 'ctagstype' : 'coffee',
+	\ 'kinds'	  : [
+		\ 'c:classes',
+		\ 'm:methods',
+		\ 'f:functions',
+		\ 'v:variables',
+		\ 'f:fields',
+	\ ]
+\ }
+
+" Posix regular expressions for matching interesting items. Since this will
+" be passed as an environment variable, no whitespace can exist in the options
+" so [:space:] is used instead of normal whitespaces.
+" Adapted from: https://gist.github.com/2901844
+let s:ctags_opts = '
+\ --langdef=coffee
+\ --langmap=coffee:.coffee
+\ --regex-coffee=/(^|=[[:space:]])*class[[:space:]]([A-Za-z]+\.)*([A-Za-z]+)([[:space:]]extends[[:space:]][A-Za-z.]+)?$/\3/c,class/
+\ --regex-coffee=/^[[:space:]]*(module\.)?(exports\.)?@?([A-Za-z.]+):.*[-=]>.*$/\3/m,method/
+\ --regex-coffee=/^[[:space:]]*(module\.)?(exports\.)?([A-Za-z.]+)[[:space:]]+=.*[-=]>.*$/\3/f,function/
+\ --regex-coffee=/^[[:space:]]*([A-Za-z.]+)[[:space:]]+=[^->\n]*$/\1/v,variable/
+\ --regex-coffee=/^[[:space:]]*@([A-Za-z.]+)[[:space:]]+=[^->\n]*$/\1/f,field/
+\ --regex-coffee=/^[[:space:]]*@([A-Za-z.]+):[^->\n]*$/\1/f,staticField/
+\ --regex-coffee=/^[[:space:]]*([A-Za-z.]+):[^->\n]*$/\1/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@([A-Za-z.]+)/\2/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){0}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){1}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){2}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){3}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){4}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){5}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){6}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){7}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){8}/\3/f,field/
+\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){9}/\3/f,field/'
+
+let $CTAGS = substitute(s:ctags_opts, '\v\([nst]\)', '\\', 'g')
 " }}}
 
 " CtrlP {{{
@@ -706,6 +778,47 @@ endif
 "---------------------------------------------------------
 " }}}
 
+" NERDcommenter {{{
+"------------------------------------------------------
+" NERDcommenter
+" https://github.com/scrooloose/nerdcommenter
+"------------------------------------------------------
+" let NERDSpaceDelims=1
+" map <Leader>/ <Plug>NERDCommenterToggle<CR>
+" vmap <Leader>/ <Plug>NERDCommenterToggle<CR>
+"------------------------------------------------------
+" }}}
+
+" MiniBufExpl {{{
+"------------------------------------------------------
+"mini buffer explorer
+"https://github.com/fholgado/minibufexpl.vim
+"------------------------------------------------------
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
+"" MiniBufExpl Colors
+"hi MBEVisibleActive guifg=#ff4500 guibg=fg
+"hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+"hi MBEVisibleChanged guifg=#F1266F guibg=fg
+"hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+"hi MBEChanged guifg=#CD5907 guibg=fg
+"hi MBENormal guifg=#808080 guibg=fg
+"------------------------------------------------------
+" }}}
+
+" EasyMotion {{{
+"---------------------------------------------------------
+"easymotion
+"https://github.com/Lokaltog/vim-easymotion
+"---------------------------------------------------------
+"let g:EasyMotion_leader_key = '<Leader>e'
+"hi link EasyMotionTarget ErrorMsg
+"hi link EasyMotionShade Comment
+"---------------------------------------------------------
+" }}}
+
 " Fugitive {{{
 "--------------------------------------------------------
 " fugitive
@@ -719,10 +832,10 @@ endif
 " rainbow parentheses
 " https://github.com/vim-scripts/Rainbow-Parenthesis
 "--------------------------------------------------------
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
+"autocmd VimEnter * RainbowParenthesesToggle
+"autocmd Syntax * RainbowParenthesesLoadRound
+"autocmd Syntax * RainbowParenthesesLoadSquare
+"autocmd Syntax * RainbowParenthesesLoadBraces
 "
 "--------------------------------------------------------
 " }}}
@@ -739,6 +852,18 @@ let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
 \ 'active_filetypes': ['ruby', 'php'],
 \ 'passive_filetypes': ['puppet'] }
+
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_error_symbol='E'
+let g:syntastic_style_error_symbol='S'
+let g:syntastic_warning_symbol='W'
+let g:syntastic_style_warning_symbol='S'
+let g:syntastic_always_populate_loc_list=1
+
+if ! &diff
+	let g:syntastic_check_on_open=1
+endif
+
 "--------------------------------------------------------
 "default signs
 " syntastic_error_symbol - For syntax errors, defaults to '>>'
@@ -750,60 +875,13 @@ let g:syntastic_mode_map = { 'mode': 'active',
 "--------------------------------------------------------
 " }}}
 
-"Tabular {{{
+" Tabular {{{
 "--------------------------------------------------------
 " tabular
 " https://github.com/godlygeek/tabular
 "--------------------------------------------------------
 "--------------------------------------------------------
 " }}}
-
-"" Taglist {{{
-""---------------------------------------------------------
-""taglist
-""http://www.vim.org/scripts/script.php?script_id=273
-""http://ctags.sourceforge.net/
-""http://vim.sourceforge.net/scripts/script.php?script_id=273
-""http://sourceforge.net/projects/vim-taglist/files/
-""http://ctags.sourceforge.net/ctags.html
-""---------------------------------------------------------
-"" Taglist variables
-"" Display function name in status bar:
-"let g:ctags_statusline=1
-"" Automatically start script
-"let generate_tags=1
-"" Displays taglist results in a vertical window:
-"let Tlist_Use_Horiz_Window=0
-"":!which ctags -> tofindctalocation
-"" Various Taglist diplay config:
-"let Tlist_Use_Right_Window = 1
-"let Tlist_Compact_Format = 1
-"let Tlist_Exit_OnlyWindow = 1
-"let Tlist_GainFocus_On_ToggleOpen = 1
-"let Tlist_File_Fold_Auto_Close = 0
-"let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
-"let Tlist_Auto_Open = 1
-""---------------------------------------------------------
-"" }}}
-
-"" Easytag {{{
-""---------------------------------------------------------
-""easytags
-""https://github.com/xolox/vim-easytags
-""---------------------------------------------------------
-"let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
-""let g:easytags_file = '"C:\Users\Proman02\vimfiles\tags"'
-"let g:easytags_file = $HOME . '/vimfiles/tags'
-
-"" let g:easytags_file = $HOME . '/tags'
-""" search first in current directory then file directory for tag file
-"set tags=tags,./tags
-"let g:easytags_dynamic_files=1
-"let g:easytags_always_enabled=0
-"let g:easytags_on_cursorhold=0
-"let g:easytags_auto_highlight=0
-""---------------------------------------------------------
-"" }}}
 
 " Dbext {{{
 "---------------------------------------------------------
@@ -825,68 +903,6 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 "---------------------------------------------------------
 " }}}
 
-" Tagbar {{{
-"---------------------------------------------------------
-"tagbar
-" http://www.vim.org/scripts/script.php?script_id=3465
-" https://github.com/majutsushi/tagbar
-"---------------------------------------------------------
-autocmd VimEnter * nested :TagbarOpen
-"let g:tagbar_ctags_bin= '"C:\cygwin\bin\ctags.exe"'
-let g:tagbar_ctags_bin= '~\vimfiles\ctags58\ctags.exe'
-let g:tagbar_width =30 		"default 40
-"let g:tagbar_autoclose = 0
-"let g:tagbar_autofocus = 0
-let g:tagbar_compact = 1 		"default 0
-let g:tagbar_expand = 0
-let g:tagbar_sort = 0 	"default 1
-let g:tagbar_indent = 1 	"default 2
-"let g:tagbar_show_visibility = 1
-
-	" CoffeScript {{{
-
-	let g:tagbar_type_coffee = {
-		\ 'ctagstype' : 'coffee',
-		\ 'kinds'     : [
-			\ 'c:classes',
-			\ 'm:methods',
-			\ 'f:functions',
-			\ 'v:variables',
-			\ 'f:fields',
-		\ ]
-	\ }
-
-	" Posix regular expressions for matching interesting items. Since this will
-	" be passed as an environment variable, no whitespace can exist in the options
-	" so [:space:] is used instead of normal whitespaces.
-	" Adapted from: https://gist.github.com/2901844
-	let s:ctags_opts = '
-	\ --langdef=coffee
-	\ --langmap=coffee:.coffee
-	\ --regex-coffee=/(^|=[[:space:]])*class[[:space:]]([A-Za-z]+\.)*([A-Za-z]+)([[:space:]]extends[[:space:]][A-Za-z.]+)?$/\3/c,class/
-	\ --regex-coffee=/^[[:space:]]*(module\.)?(exports\.)?@?([A-Za-z.]+):.*[-=]>.*$/\3/m,method/
-	\ --regex-coffee=/^[[:space:]]*(module\.)?(exports\.)?([A-Za-z.]+)[[:space:]]+=.*[-=]>.*$/\3/f,function/
-	\ --regex-coffee=/^[[:space:]]*([A-Za-z.]+)[[:space:]]+=[^->\n]*$/\1/v,variable/
-	\ --regex-coffee=/^[[:space:]]*@([A-Za-z.]+)[[:space:]]+=[^->\n]*$/\1/f,field/
-	\ --regex-coffee=/^[[:space:]]*@([A-Za-z.]+):[^->\n]*$/\1/f,staticField/
-	\ --regex-coffee=/^[[:space:]]*([A-Za-z.]+):[^->\n]*$/\1/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@([A-Za-z.]+)/\2/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){0}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){1}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){2}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){3}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){4}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){5}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){6}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){7}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){8}/\3/f,field/
-	\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){9}/\3/f,field/'
-
-	let $CTAGS = substitute(s:ctags_opts, '\v\([nst]\)', '\\', 'g')
-	" }}}
-"---------------------------------------------------------
-" }}}
-
 " Powerline {{{
 "---------------------------------------------------------
 "powerline
@@ -900,6 +916,8 @@ if has("gui_running")
 else
 	let g:Powerline_symbols = 'compatible'
 endif
+"for testing version
+"set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
 " set laststatus=2
 " let g:Powerline_theme='short'
 " let g:Powerline_colorscheme='solarized256'
@@ -931,28 +949,33 @@ let g:showmarks_enable=1
 "vim-indent-guides
 "https://github.com/nathanaelkane/vim-indent-guides
 "---------------------------------------------------------
-"let g:indent_guides_start_level=1
 let g:indent_guides_start_level=1
+"let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 "setting custom indent colors
-" let g:indent_guides_auto_colors = 0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=red ctermbg=3
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+let g:indent_guides_auto_colors=1
+
 " Indentation style color guides
-hi IndentGuidesOdd ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=black ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
-"<Leader>ig 	->show guides
+"hi IndentGuidesOdd ctermbg=black
+"hi IndentGuidesEven ctermbg=darkgrey
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=black ctermbg=black
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
+" Treat files ending in .thpl as Perl:
+"au BufRead,BufNewFile *.thpl set filetype=perl
+"<Leader>ig		->show guides
 "---------------------------------------------------------
-"
+" }}}
+
+" vim-session {{{
 "---------------------------------------------------------
 "vim-session
 "https://github.com/xolox/vim-session
 "---------------------------------------------------------
 let g:session_command_aliases = 1
 "---------------------------------------------------------
-"
+" }}}
+
+" javascript-libraries-syntax {{{
 "---------------------------------------------------------
 "javascript-libraries-syntax.vim
 "https://github.com/othree/javascript-libraries-syntax.vim
@@ -966,7 +989,7 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 "---------------------------------------------------------
 " }}}
 
-"zencoding {{{
+" zencoding {{{
 "---------------------------------------------------------
 "zencoding
 "https://github.com/mattn/zencoding-vim
@@ -1003,12 +1026,26 @@ let g:badwolf_css_props_highlight = 1
 "---------------------------------------------------------
 " }}}
 
-"skeletons {{{
+" tskeleton_vim {{{
+"---------------------------------------------------------
+"https://github.com/tomtom/tskeleton_vim
+"---------------------------------------------------------
+let g:tskelDir=$HOME . '/vimfiles/skeletons/'
+let g:tskelUserName='BSD->Primitivo R. Montero'
+let g:tskelUserEmail='primitivo.roman@marsh.com.mx'
+"autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
+autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
+autocmd BufNewFile *.py TSkeletonSetup skeleton.py
+autocmd BufNewFile *.php TSkeletonSetup skeleton.php
+"---------------------------------------------------------
+" }}}
+
+" skeletons {{{
 "---------------------------------------------------------
 "https://github.com/tobyS/skeletons.vim
 "---------------------------------------------------------
 "let g:skeletons_dir=$HOME . '/vimfiles/bundle/skeletons.vim/skeletons/'
-"au BufNewFile * silent! 0r ~/vimfiles/bundle/skeletons.vim/skeletons/skeleton.%:e
+"autocmd BufNewFile * silent! 0r ~/vimfiles/bundle/skeletons.vim/skeletons/skeleton.%:e
 "---------------------------------------------------------
 "pdv
 "https://github.com/tobyS/pdv
@@ -1044,6 +1081,7 @@ let g:mta_filetypes = {
 	\}
 "Highlighting braces parentheses
 hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
+"hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#1E90FF
 "---------------------------------------------------------
 " }}}
 
@@ -1114,12 +1152,100 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 "---------------------------------------------------------
 " }}}
 
+" vimtlib {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vimtelib
+"vimtlib
 "https://github.com/tomtom/vimtlib/blob/master/INSTALL.TXT
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-runtime ~/bundle/tplugin_vim/macros/tplugin.vim
-set rtp+=~/bundle/tplugin_vim/
+"for template generator add
+"runtime bundle/tplugin_vim/macros/tplugin.vim
+"run :TPluginScan!
+set runtimepath+=~/vimfiles/bundle/vimtlib
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+" vim template {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"vim-template
+"https://github.com/aperezdc/vim-template
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:templates_plugin_loaded = 1 "to skip loading of this plugin.
+let g:templates_no_autocmd = 1 "to disable automatic insertion of template in new files.
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+" templator {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"templator_vim
+"https://github.com/tomtom/templator_vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"\vimfiles\bundle\vimtlib\templator
+let b:templator_root_dir='~/vimfiles/templator/'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+" Tab line {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"https://github.com/mkitt/tabline.vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"hi TabLine		ctermfg=Black  ctermbg=Green	 cterm=NONE
+"hi TabLineFill ctermfg=Black  ctermbg=Green	 cterm=NONE
+"hi TabLineSel	ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+"" Taglist {{{
+""---------------------------------------------------------
+"""taglist
+""http://www.vim.org/scripts/script.php?script_id=273
+""http://ctags.sourceforge.net/
+""http://vim.sourceforge.net/scripts/script.php?script_id=273
+""http://sourceforge.net/projects/vim-taglist/files/
+""http://ctags.sourceforge.net/ctags.html
+""---------------------------------------------------------
+"" Taglist variables
+"" Display function name in status bar:
+"let g:ctags_statusline=1
+"" Automatically start script
+"let generate_tags=1
+"" Displays taglist results in a vertical window:
+"let Tlist_Use_Horiz_Window=0
+"":!which ctags -> tofindctalocation
+"" Various Taglist diplay config:
+"let Tlist_Use_Right_Window = 1
+"let Tlist_Compact_Format = 1
+"let Tlist_Exit_OnlyWindow = 1
+"let Tlist_GainFocus_On_ToggleOpen = 1
+"let Tlist_File_Fold_Auto_Close = 0
+"let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
+"let Tlist_Auto_Open = 1
+""---------------------------------------------------------
+"" }}}
+
+"" Easytag {{{
+""---------------------------------------------------------
+""easytags
+""https://github.com/xolox/vim-easytags
+""---------------------------------------------------------
+"let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
+""let g:easytags_file = '"C:\Users\Proman02\vimfiles\tags"'
+"let g:easytags_file = $HOME . '/vimfiles/tags'
+
+"" let g:easytags_file = $HOME . '/tags'
+""" search first in current directory then file directory for tag file
+"set tags=tags,./tags
+"let g:easytags_dynamic_files=1
+"let g:easytags_always_enabled=0
+"let g:easytags_on_cursorhold=0
+"let g:easytags_auto_highlight=0
+""---------------------------------------------------------
+"" }}}
+
+"" indentLine {{{
+""https://github.com/Yggdroot/indentLine
+"let g:indentLine_color_term = 239
+"let g:indentLine_char = '│'
+"let g:indentLine_first_char = '│'
+"let g:indentLine_showFirstIndentLevel = 1
+"let g:indentLine_color_gui = '#303030'
+"" }}}
