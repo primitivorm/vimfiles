@@ -1,0 +1,46 @@
+# my snippets for csharp code
+# header
+snippet header
+	/*
+	* Nombre: ${1:`Filename()`}.cs
+	*******************************
+	* Fecha de creación: ${2}/${3}/${4}
+	* Autor: BSD->Primitivo Roman Montero
+	* Modificaciones:
+	* Persona              Fecha            Motivo
+	*******************************/
+# if else
+snippet ifel
+	if (${1}) {
+		${2}
+	}else {
+		${3}
+	}
+snippet try
+	try{
+		${1}
+	}catch(Exception){
+		throw;
+	}
+snippet tryf
+	try{
+		${1}
+	}finally{
+		${2}
+	}
+snippet trycf
+	try{
+		${1}
+	}catch(Exception){
+		throw;
+	}finally{
+		${2}
+	}
+snippet name
+	namespace ${1}{
+		${2}
+	}
+snippet region
+	#region ${1}
+		${2}
+	#endregion

@@ -6,20 +6,19 @@
 
 " Source {{{
 "https://github.com/tpope/tpope/blob/master/.vimrc
-"archivos de configuracion auxiliares para windows
+"configuration file like Windows editor
 " source $HOME/vimfiles/mswin.vim
-" Key mappings, functions, autocommands
+" Key mappings, functions, auto commands
 source $HOME/vimfiles/keymap.vim
 " Source the vimrc file after saving it
 let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 "if has("autocmd")
-  "autocmd bufwritepost _vimrc source $MYVIMRC
+  "autocmd bufwritepost _vimrc source $MYVIMC
 "endif
 " }}}
 
 " Pathogen {{{
 "------------------------------------------------------
-"pathogen plugin:
 "https://github.com/tpope/vim-pathogen
 "------------------------------------------------------
 "call pathogen#infect()
@@ -28,9 +27,8 @@ call pathogen#helptags()
 "------------------------------------------------------
 " }}}
 
-" Bundle {{{
+" Vundle {{{
 "------------------------------------------------------
-"vundle
 "https://github.com/gmarik/vundle
 "------------------------------------------------------
 set nocompatible " be iMproved
@@ -42,7 +40,7 @@ call vundle#rc()
 "" required!
 Bundle 'gmarik/vundle'
 
-" Mysetndles here:
+" My Bundles set here:
  "
 " original repos on github
 Bundle 'tpope/vim-surround'
@@ -61,7 +59,6 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'mattn/gist-vim'
 Bundle 'othree/html5.vim'
 Bundle 'othree/javascript-libraries-syntax.vim'
-Bundle 'SirVer/ultisnips'
 Bundle 'majutsushi/tagbar'
 Bundle 'shemerey/vim-indexer'
 Bundle 'sjl/gundo.vim'
@@ -89,7 +86,8 @@ Bundle 'Lokaltog/powerline-fonts'
 Bundle 'wavded/vim-stylus'
 Bundle 'heaths/vim-msbuild'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Rykka/colorv.vim'
+"Bundle 'Rykka/colorv.vim'
+Bundle 'guns/xterm-color-table.vim'
 Bundle 'AndrewRadev/sideways.vim'
 Bundle 'AndrewRadev/switch.vim'
 Bundle 'leshill/vim-json'
@@ -97,7 +95,6 @@ Bundle 'rking/ag.vim'
 Bundle 'mutewinter/vim-css3-syntax'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'tsaleh/vim-matchit'
-Bundle 'honza/vim-snippets'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tomtom/tplugin_vim'
@@ -109,7 +106,9 @@ Bundle 'aperezdc/vim-template'
 Bundle 'motemen/git-vim'
 Bundle 'shemerey/vim-project'
 Bundle 'ghewgill/vim-scmdiff'
+Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
+Bundle 'SirVer/ultisnips'
 Bundle 'kana/vim-textobj-user'
 Bundle 'Raimondi/delimitMate'
 Bundle 'biruh/vim-aspnet'
@@ -124,9 +123,11 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'mkitt/tabline.vim'
 Bundle 'bronson/vim-visual-star-search'
-Bundle 'bryanthankins/vim-aspnetide'
+Bundle 'vim-pandoc/vim-pandoc'
+"Bundle 'bryanthankins/vim-aspnetide'
 
 "colors
+Bundle 'primitivorm/vim-proman-theme'
 Bundle 'sjl/badwolf'
 Bundle 'sickill/vim-monokai'
 Bundle 'sickill/vim-sunburst'
@@ -135,8 +136,9 @@ Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'chriskempson/tomorrow-theme'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'xuhdev/SingleCompile'
+"Bundle 'xuhdev/SingleCompile'
 Bundle 'nelstrom/vim-mac-classic-theme'
+Bundle 'Rykka/galaxy.vim'
 
 "Bundle 'icsharpcode/NRefactory'
 "Bundle 'tomtom/quickfixsigns_vim'
@@ -215,6 +217,7 @@ Bundle 'indenthtml.vim'
 Bundle 'bash-support.vim'
 "Bundle 'taglist.vim'
 Bundle 'SQLUtilities'
+Bundle 'SQLComplete.vim'
 Bundle 'quickfixsigns'
 Bundle 'vcscommand.vim'
 Bundle 'SearchComplete'
@@ -224,6 +227,7 @@ Bundle 'netrw.vim'
 Bundle 'ftpsync'
 Bundle 'grep.vim'
 Bundle 'Decho'
+Bundle 'OmniCppComplete'
 
 "Bundle 'YankRing.vim'
 "Bundle 'QuickBuf'
@@ -250,13 +254,6 @@ Bundle 'git://git.wincent.com/command-t.git'
 " NOTE: comments after Bundle command are not allowed..
 
 "------------------------------------------------------
-" }}}
-
-" Highlighting {{{
-if &t_Co > 2 || has('gui_running')
-	" switch syntax highlighting on, when the terminal has colors
-	syntax on
-endif
 " }}}
 
 " Formatting {{{
@@ -310,7 +307,7 @@ syntax enable
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 if has('gui_running')
-	"show tabs always
+	"show tabs always = 2
 	set showtabline=2
 	"max num of tabs
 	set tabpagemax=15
@@ -320,27 +317,16 @@ if has('gui_running')
 	"set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
 	set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
 	"set guifont=Monaco:h9:cANSI
+	" switch syntax highlighting on, when the terminal has colors
+	syntax on
 else
 	hi CursorLine guibg=Gray40
 	hi CursorColumn guibg=Gray40
 endif
-'
-"set background=light
-"colorscheme solarized
-"let g:solarized_termcolors=256
+
+"set colorscheme
+"https://github.com/primitivorm/vim-proman-theme
 colorscheme proman
-"colorscheme Monokai
-"colorscheme eclipse
-"colorscheme badwolf
-"colorscheme mustang
-"colorscheme wombat
-"colorscheme github
-"colorscheme smyck
-"colorscheme railscasts
-"colorscheme bandit "like visual studio
-"colorscheme blackboard "like visual studio
-"colorscheme Sunburst
-"colorscheme default
 
 "habilita soporte para plugins
 filetype plugin on
@@ -360,7 +346,7 @@ set colorcolumn=150
 "habilita sangrado inteligente
 set smartindent
 "sangrado automatico
-set ai
+"set ai
 "define el numero espacios para la tecla <TAB>
 "use 4 spaces for tabs set tabstop=4 softtabstop=4 shiftwidth=4 " display indentation guides
 set tabstop=4
@@ -506,8 +492,8 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "highlight NonText guifg=#E6E6FA ctermfg=192
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
-"set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-set listchars=tab:\|-,trail:-,eol:¬,extends:→,precedes:←,nbsp:×
+set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+"set listchars=tab:\|-,trail:-,eol:¬,extends:→,precedes:←,nbsp:×
 " Automatic re-tab
 autocmd BufReadPost * if &modifiable | retab | endif
 " convert spaces to tabs when reading file
@@ -533,17 +519,17 @@ hi Title ctermfg=LightBlue ctermbg=Magenta
 
 " Spell {{{
 "habilita corrector ortografico
-"set spell	"active spell check
+set nospell	"active spell check
 set spelllang=es "Carga el diccionario en o los lenguajes que necesitemos
-	"set spell "Activa el corrector ortogr�fico en tiempo real :set nospell desactiva
+	"set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
 	"will add dictionary scanning
 set complete+=k
-set dictionary+=~/spell/en.ascii.spl
-set dictionary+=~/spell/en.ascii.sug
-set dictionary+=~/spell/en.latin1.spl
-set dictionary+=~/spell/en.latin1.sug
-set dictionary+=~/spell/en.utf-8.spl
-set dictionary+=~/spell/en.utf-8.sug
+set dictionary+=~/vimfiles/spell/en.ascii.spl
+set dictionary+=~/vimfiles/spell/en.ascii.sug
+set dictionary+=~/vimfiles/spell/en.latin1.spl
+set dictionary+=~/vimfiles/spell/en.latin1.sug
+set dictionary+=~/vimfiles/spell/en.utf-8.spl
+set dictionary+=~/vimfiles/spell/en.utf-8.sug
 "set file for new words
 set spellfile=~/vimfiles/spell/dict.add
 "enable matchit plugin
@@ -556,18 +542,16 @@ set spellfile=~/vimfiles/spell/dict.add
 
 " Thesaurus {{{
 "------------------------------------------------------
-"thesaurus plugin
 "http://www.vim.org/scripts/script.php?script_id=2528
 "https://github.com/vim-scripts/Thesaurus
 "------------------------------------------------------
-set thesaurus+=~\bundle\mthes10\mthesaur.txt
-set thesaurus+=~\bundle\mthes10\roget13a.txt
+set thesaurus+=~/vimfiles/bundle/mthes10/mthesaur.txt
+set thesaurus+=~/vimfiles/bundle/mthes10/roget13a.txt
 "------------------------------------------------------
 " }}}
 
 " Ragtag {{{
 "------------------------------------------------------
-"ragtag
 "https://github.com/tpope/vim-ragtag
 "http://www.vim.org/scripts/script.php?script_id=1896
 "------------------------------------------------------
@@ -588,13 +572,15 @@ let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['cs'] = 'cs'
 "especifica la ruta en donde se encuentran los snippets para el plugin snipMate
-let g:snippets_dir="$HOME\\vimfiles\\bundle\\snipmate\\snippets\\"
+"let g:snippets_dir="$HOME\\vimfiles\\bundle\\snipmate\\snippets\\"
+let g:snippets_dir='~/vimfiles/bundle/vim-snippets/snippets/'
+"my snippets
+let g:snippets_dir+='~/vimfiles/snippets/'
 "------------------------------------------------------
 " }}}
 
 " Ultisnip {{{
 "------------------------------------------------------
-"Ultisnip
 "https://github.com/vim-scripts/UltiSnips
 "------------------------------------------------------
 let g:UltiSnips = {}
@@ -608,7 +594,6 @@ let g:UltiSnips.snipmate_ft_filter = {
 
 " NERDTree {{{
 "------------------------------------------------------
-"NERDTree plugin
 "https://github.com/scrooloose/nerdtree"
 "------------------------------------------------------
 "open the plugin NERDTree at startup Vim
@@ -619,7 +604,7 @@ endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "custom settings
-let g:NERDTreeBookmarksFile		= expand($HOME.'/vimfiles/_NERDTreeBookmarks')
+let g:NERDTreeBookmarksFile		= expand($HOME.'/_NERDTreeBookmarks')
 let g:NERDTreeShowBookmarks		= 1
 let g:NERDTreeWinSize			= 30
 let g:NERDTreeChristmasTree		= 1
@@ -648,7 +633,6 @@ let g:NERDTreeIgnore=[
 
 " NERDTree-Tabs {{{
 "------------------------------------------------------
-"nerdtree-tabs
 "https://github.com/jistr/vim-nerdtree-tabs
 "------------------------------------------------------
 "let g:nerdtree_tabs_open_on_gui_startup	 = 1	"default 1
@@ -667,10 +651,11 @@ let g:nerdtree_tabs_focus_on_files			= 1		   "default 0
 
 " Tagbar {{{
 "---------------------------------------------------------
-"tagbar
 " http://www.vim.org/scripts/script.php?script_id=3465
 " https://github.com/majutsushi/tagbar
 "---------------------------------------------------------
+"file to find tags
+set tags=tags,./tags
 let g:tagbar_width			 = 25	   "default 40
 let g:tagbar_compact		 = 1	   "default 0
 let g:tagbar_foldlevel		 = 2		"default 99
@@ -685,18 +670,16 @@ let g:tagbar_ctags_bin		 = '~\vimfiles\ctags58\ctags.exe'
 "let g:tagbar_iconchars		 = ['+', '-']		"default ['+', '-']
 "let g:tagbar_singleclick	 = 1		"default 0
 "let g:tagbar_indent		 = 1		"default 2
-"let g:tagbar_autofocus		 = 1		"default )
+let g:tagbar_autofocus		 = 1		"default 0
 
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" uncomment this section for open new buffers in a tab always
 "If you use multiple tabs and want Tagbar to also open in the current tab when
 "you switch to an already loaded, supported buffer
-autocmd BufEnter * nested :call tagbar#autoopen(0)
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" uncomment this section for open new buffers in a tab always
 if (&diff==0)
-	autocmd BufReadPost * OpenInTab
 	"Open files always in new tabs
-	"autocmd VimEnter * tab all
-	"autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
+	autocmd BufReadPost * OpenInTab
 endif
 function! DoOpenInTab()
 	if (&modifiable)
@@ -753,7 +736,6 @@ let $CTAGS = substitute(s:ctags_opts, '\v\([nst]\)', '\\', 'g')
 
 " CtrlP {{{
 "---------------------------------------------------------
-"ctrlp
 "https://github.com/kien/ctrlp.vim
 "---------------------------------------------------------
 let g:ctrlp_map = '<c-p>'
@@ -780,7 +762,6 @@ endif
 
 " NERDcommenter {{{
 "------------------------------------------------------
-" NERDcommenter
 " https://github.com/scrooloose/nerdcommenter
 "------------------------------------------------------
 " let NERDSpaceDelims=1
@@ -791,7 +772,6 @@ endif
 
 " MiniBufExpl {{{
 "------------------------------------------------------
-"mini buffer explorer
 "https://github.com/fholgado/minibufexpl.vim
 "------------------------------------------------------
 "let g:miniBufExplMapWindowNavVim = 1
@@ -810,7 +790,6 @@ endif
 
 " EasyMotion {{{
 "---------------------------------------------------------
-"easymotion
 "https://github.com/Lokaltog/vim-easymotion
 "---------------------------------------------------------
 "let g:EasyMotion_leader_key = '<Leader>e'
@@ -821,7 +800,6 @@ endif
 
 " Fugitive {{{
 "--------------------------------------------------------
-" fugitive
 " http://www.vim.org/scripts/script.php?script_id=2975
 " https://github.com/tpope/vim-fugitive
 "--------------------------------------------------------
@@ -829,7 +807,6 @@ endif
 
 " RainbowParentheses {{{
 "--------------------------------------------------------
-" rainbow parentheses
 " https://github.com/vim-scripts/Rainbow-Parenthesis
 "--------------------------------------------------------
 "autocmd VimEnter * RainbowParenthesesToggle
@@ -842,7 +819,6 @@ endif
 
 " Syntastic {{{
 "--------------------------------------------------------
-" syntastic
 " https://github.com/scrooloose/syntastic
 "--------------------------------------------------------
 let g:syntastic_enable_balloons = 1
@@ -877,7 +853,6 @@ endif
 
 " Tabular {{{
 "--------------------------------------------------------
-" tabular
 " https://github.com/godlygeek/tabular
 "--------------------------------------------------------
 "--------------------------------------------------------
@@ -885,7 +860,6 @@ endif
 
 " Dbext {{{
 "---------------------------------------------------------
-"db ext plugin
 "http://www.vim.org/scripts/script.php?script_id=356
 "https://mutelight.org/dbext-the-last-sql-client-youll-ever-need
 "---------------------------------------------------------
@@ -897,15 +871,21 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 
 " SQLUtilities {{{
 "---------------------------------------------------------
-"sql formatter
 "http://www.vim.org/scripts/script.php?script_id=492
 "https://github.com/vim-scripts/SQLUtilities
 "---------------------------------------------------------
 " }}}
 
+" SQLComplete {{{
+"---------------------------------------------------------
+"https://github.com/vim-scripts/SQLComplete.vim
+"---------------------------------------------------------
+let g:ftplugin_sql_omni_key = '<C-C>'
+"---------------------------------------------------------
+" }}}
+
 " Powerline {{{
 "---------------------------------------------------------
-"powerline
 "https://github.com/Lokaltog/vim-powerline.git
 "https://github.com/Lokaltog/powerline
 "https://powerline.readthedocs.org/en/latest/
@@ -922,9 +902,10 @@ endif
 " let g:Powerline_theme='short'
 " let g:Powerline_colorscheme='solarized256'
 "---------------------------------------------------------
-"
-"---------------------------------------------------------
-"Vim intellisence
+" }}}
+
+""Vim intellisence {{{
+""---------------------------------------------------------
 "http://insenvim.sourceforge.net/
 "https://github.com/tomtom/checksyntax_vim.git
 "---------------------------------------------------------
@@ -932,11 +913,10 @@ endif
 "let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense"
 "let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
 "---------------------------------------------------------
-" }}}
+"" }}}
 
 " Showmarks {{{
 "---------------------------------------------------------
-"Showmarks
 "http://www.vim.org/scripts/script.php?script_id=152
 "https://github.com/vim-scripts/ShowMarks
 "---------------------------------------------------------
@@ -946,7 +926,6 @@ let g:showmarks_enable=1
 
 " IndentGuides {{{
 "---------------------------------------------------------
-"vim-indent-guides
 "https://github.com/nathanaelkane/vim-indent-guides
 "---------------------------------------------------------
 let g:indent_guides_start_level=1
@@ -968,7 +947,6 @@ let g:indent_guides_auto_colors=1
 
 " vim-session {{{
 "---------------------------------------------------------
-"vim-session
 "https://github.com/xolox/vim-session
 "---------------------------------------------------------
 let g:session_command_aliases = 1
@@ -977,7 +955,6 @@ let g:session_command_aliases = 1
 
 " javascript-libraries-syntax {{{
 "---------------------------------------------------------
-"javascript-libraries-syntax.vim
 "https://github.com/othree/javascript-libraries-syntax.vim
 "---------------------------------------------------------
 let g:used_javascript_libs = 'underscore,backbone'
@@ -991,7 +968,6 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
 
 " zencoding {{{
 "---------------------------------------------------------
-"zencoding
 "https://github.com/mattn/zencoding-vim
 "http://mattn.github.com/zencoding-vim/
 "http://coding.smashingmagazine.com/2009/11/21/zen-coding-a-new-way-to-write-html-code/
@@ -1006,7 +982,6 @@ let g:use_zen_complete_tag = 1
 
 " badwolf {{{
 "---------------------------------------------------------
-"badwolf
 "https://github.com/sjl/badwolf
 "---------------------------------------------------------
 " Make the gutters darker than the background.
@@ -1030,9 +1005,10 @@ let g:badwolf_css_props_highlight = 1
 "---------------------------------------------------------
 "https://github.com/tomtom/tskeleton_vim
 "---------------------------------------------------------
+"my skeletons
 let g:tskelDir=$HOME . '/vimfiles/skeletons/'
-let g:tskelUserName='BSD->Primitivo R. Montero'
-let g:tskelUserEmail='primitivo.roman@marsh.com.mx'
+let g:tskelUserName='ISC. Primitivo R. Montero'
+let g:tskelUserEmail='cibercafe_montero@hotmail.com'
 "autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
 autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
 autocmd BufNewFile *.py TSkeletonSetup skeleton.py
@@ -1061,11 +1037,12 @@ autocmd BufNewFile *.php TSkeletonSetup skeleton.php
 
 " MRU {{{
 "---------------------------------------------------------
-"mru
+let MRU_File = $HOME . '/_vim_mru_files'
 "---------------------------------------------------------
-let MRU_File = $HOME . '/vimfiles/_vim_mru_files'
+" }}}
+
+" MatchTagAlways {{{
 "---------------------------------------------------------
-"MatchTagAlways
 "https://github.com/Valloric/MatchTagAlways
 "---------------------------------------------------------
 let g:mta_use_matchparen_group=0
@@ -1087,7 +1064,6 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 
 " Omn"isharp {{{
 ""---------------------------------------------------------
-""Omnisharp
 ""https://github.com/nosami/Omnisharp
 ""---------------------------------------------------------
 ""This is the default value, setting it isn't actually necessary
@@ -1099,7 +1075,6 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 
 " neocomplcache {{{
 "---------------------------------------------------------
-"neocomplcache
 "https://github.com/Shougo/neocomplcache
 "---------------------------------------------------------
 " let g:neocomplcache_enable_at_startup = 1
@@ -1124,7 +1099,6 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 
 " Minimap {{{
 "---------------------------------------------------------
-"Minimap
 "https://github.com/koron/minimap-vim
 "---------------------------------------------------------
  let g:session_autoload = 'no'
@@ -1133,7 +1107,6 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 
 " CodeOverview {{{
 "---------------------------------------------------------
-" CodeOverview
 "http://www.vim.org/scripts/script.php?script_id=2888
 "https://github.com/Twinside/vim-codeoverview
 "---------------------------------------------------------
@@ -1145,7 +1118,6 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 
 " HardMode {{{
 "---------------------------------------------------------
-"HardMode
 "https://github.com/wikitopian/hardmode
 "---------------------------------------------------------
  "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
@@ -1154,7 +1126,6 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 
 " vimtlib {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vimtlib
 "https://github.com/tomtom/vimtlib/blob/master/INSTALL.TXT
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "for template generator add
@@ -1166,7 +1137,6 @@ set runtimepath+=~/vimfiles/bundle/vimtlib
 
 " vim template {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-template
 "https://github.com/aperezdc/vim-template
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:templates_plugin_loaded = 1 "to skip loading of this plugin.
@@ -1176,11 +1146,33 @@ let g:templates_no_autocmd = 1 "to disable automatic insertion of template in ne
 
 " templator {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"templator_vim
 "https://github.com/tomtom/templator_vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "\vimfiles\bundle\vimtlib\templator
 let b:templator_root_dir='~/vimfiles/templator/'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+" OmniCppComplete {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"https://github.com/vim-scripts/OmniCppComplete
+"http://aufather.wordpress.com/2010/08/26/omni-completion-in-vim/
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
+let OmniCpp_GlobalScopeSearch   = 1
+let OmniCpp_DisplayMode         = 1
+let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
+let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
+let OmniCpp_ShowAccess          = 1 "show access in pop-up
+let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
+set completeopt=menuone,menu,longest
+
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"highlight   clear
+"highlight   Pmenu         ctermfg=0 ctermbg=2
+"highlight   PmenuSel      ctermfg=0 ctermbg=7
+"highlight   PmenuSbar     ctermfg=7 ctermbg=0
+"highlight   PmenuThumb    ctermfg=0 ctermbg=7
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
@@ -1196,7 +1188,6 @@ let b:templator_root_dir='~/vimfiles/templator/'
 
 "" Taglist {{{
 ""---------------------------------------------------------
-"""taglist
 ""http://www.vim.org/scripts/script.php?script_id=273
 ""http://ctags.sourceforge.net/
 ""http://vim.sourceforge.net/scripts/script.php?script_id=273
@@ -1224,7 +1215,6 @@ let b:templator_root_dir='~/vimfiles/templator/'
 
 "" Easytag {{{
 ""---------------------------------------------------------
-""easytags
 ""https://github.com/xolox/vim-easytags
 ""---------------------------------------------------------
 "let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
@@ -1242,10 +1232,22 @@ let b:templator_root_dir='~/vimfiles/templator/'
 "" }}}
 
 "" indentLine {{{
+""---------------------------------------------------------
 ""https://github.com/Yggdroot/indentLine
+""---------------------------------------------------------
 "let g:indentLine_color_term = 239
 "let g:indentLine_char = '│'
 "let g:indentLine_first_char = '│'
 "let g:indentLine_showFirstIndentLevel = 1
 "let g:indentLine_color_gui = '#303030'
+""---------------------------------------------------------
 "" }}}
+
+" table {{{
+"---------------------------------------------------------
+"http://www.vim.org/scripts/script.php?script_id=769
+"---------------------------------------------------------
+"source $HOME/vimfiles/macros/table.vim
+"---------------------------------------------------------
+" }}}
+

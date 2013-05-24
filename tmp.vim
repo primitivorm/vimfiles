@@ -1,3 +1,11 @@
+four essential freedoms:
+ (0) to run the program,
+ (1) to study and change the program in source code form,
+ (2) to redistribute exact copies, and
+ (3) to distribute modified versions.
+
+"autocmd VimEnter * tab all
+	"autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
 
 " opens a file in a new tab
 " KeepWindowOpen - dont close the window even if NERDTreeQuitOnOpen is set

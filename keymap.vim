@@ -26,13 +26,16 @@ nnoremap <silent>vv <C-w>v
 nnoremap <silent>ss <C-w>s
 " }}}
 
-" Adjust viewports to the same size {{{
+" Adjust viewports {{{
+"Same size
 nnoremap <Leader>= <C-w>=
+"Maximize Up to Down
 nnoremap <Leader>_ <C-w>_
+"Maximize Left to Right
 nnoremap <Leader><Bar> <C-w><Bar>
 "}}}
 
-" resize window {{{
+" Resize window {{{
 "http://vim.usrsb.in/117060445
 "can resize your windows using Alt plus an arrow key.
 nnoremap <C-A-Right> :vertical res +1<cr>
@@ -42,6 +45,7 @@ nnoremap <C-A-Left> :vertical res -1<cr>
 " }}}
 
 " Tab maps {{{
+"Tab navigation like Firefox
 nnoremap <silent><C-Tab> :tabnext<cr>
 nnoremap <silent><S-Tab> :tabprev<cr>
 nnoremap <silent><C-F4> :tabclose<cr>
@@ -50,18 +54,19 @@ inoremap <silent><S-Tab> :tabprev<cr>
 inoremap <silent><C-F4> :tabclose<cr>
 
 "http://vim.wikia.com/wiki/Alternative_tab_navigation
-nnoremap <A-F1> 1gt
-nnoremap <A-F2> 2gt
-nnoremap <A-F3> 3gt
-nnoremap <A-F4> 4gt
-nnoremap <A-F5> 5gt
-nnoremap <A-F6> 6gt
-nnoremap <A-F7> 7gt
-nnoremap <A-F8> 8gt
-nnoremap <A-F9> 9gt
-nnoremap <A-F0> 10gt
+"nnoremap <A-F1> 1gt
+"nnoremap <A-F2> 2gt
+"nnoremap <A-F3> 3gt
+"nnoremap <A-F4> 4gt
+"nnoremap <A-F5> 5gt
+"nnoremap <A-F6> 6gt
+"nnoremap <A-F7> 7gt
+"nnoremap <A-F8> 8gt
+"nnoremap <A-F9> 9gt
+"nnoremap <A-F0> 10gt
 
 "http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
+"Move tab to Left
 function TabLeft()
    let tab_number = tabpagenr() - 1
    if tab_number == 0
@@ -71,6 +76,7 @@ function TabLeft()
    endif
 endfunction
 
+"Move tab to Right
 function TabRight()
    let tab_number = tabpagenr() - 1
    let last_tab_number = tabpagenr('$') - 1
@@ -85,7 +91,7 @@ nnoremap <silent><A-Left> :call TabLeft()<CR>
 nnoremap <silent><A-Right> :call TabRight()<CR>
 " }}}
 
-" Easy Vim {{{
+" Easy Vim Mapping like others editors{{{
 
 "Sift-Home, Shift-End
 inoremap <silent><S-Home> <Esc>v^
@@ -126,6 +132,9 @@ inoremap <C-S>      <C-O>:update<CR>
 " CTRL-Z is Undo; not in cmdline though
 noremap <C-Z> u
 inoremap <C-Z> <C-O>u
+" CTRL-Y is redo
+noremap <C-Y> :redo <cr>
+inoremap <C-Y> <C-O><C-R>
 
 " CTRL-A is Select all
 noremap <C-A> gggH<C-O>G
@@ -135,12 +144,14 @@ onoremap <C-A> <C-C>gggH<C-O>G
 snoremap <C-A> <C-C>gggH<C-O>G
 xnoremap <C-A> <C-C>ggVG
 
-"Find and Replace
+"Find
 map <C-f> /<C-r><C-w>
-map <C-r> %s<C-r><C-w>/new_word
+"Replace
+nnoremap <C-H> :%s/<C-r><C-w>/NEW_WORD
 
 "Change minus - MAYUS
 vnoremap <C-u> ~
+
 "insert automatically } and insert above {
 inoremap {<CR> {<CR>}<Esc>O
 
@@ -159,9 +170,6 @@ nnoremap <leader>if mqHmwgg=G`wzt`q
 nnoremap <silent><leader>cf :let @* = expand("%:~")<CR>
 nnoremap <silent><leader>cn :let @* = expand("%:t")<CR>
 
-"Clear current search highlight by double tapping //
-nnoremap <silent> // :nohlsearch<CR>
-
 " Type <leader>hl to toggle highlighting on/off, and show current value.
 noremap <leader>hl :set hlsearch! hlsearch?<CR>
 
@@ -175,16 +183,13 @@ map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 "list
-nmap <leader>lc :set list!<CR>
+nmap <leader>l :set list!<CR>
 
 " Edit the vimrc file
 nnoremap <silent><leader>edv :e $MYVIMRC<CR>
 nnoremap <silent><leader>sv :so $MYVIMRC<CR>
 " nmap <leader>v :tabedit $MYVIMRC<CR>
 " source $MYVIMRC
-
-" Clears the search register
-nnoremap <silent> <leader>/ :nohlsearch<CR>
 
 " Pull word under cursor into LHS of a substitute (for quick search and
 " replace)
@@ -397,7 +402,7 @@ function! RotateColorTheme()
    let y = -1
    while y == -1
       "let colorstring = "inkpot#ron#blue#elflord#evening#koehler#murphy#pablo#desert#torte#"
-      let colorstring = "solarized#proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#railscasts#bandit#blackboard#Sunburst#default"
+      let colorstring = "solarized#proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#railscasts#bandit#blackboard#Sunburst#default#galaxy"
 
       let x = match( colorstring, "#", g:themeindex )
       let y = match( colorstring, "#", x + 1 )
@@ -418,28 +423,6 @@ nnoremap <silent><F12> :execute RotateColorTheme()<CR>
 "--------------------------------------------
 "PLUGINS
 "--------------------------------------------
-
-" Ack {{{
-"if has('win32') || has('win64')
-    "" Define <C-F> to a dummy value to see if it would set <C-f> as well.
-    "map <C-F> :dummy
-    "if maparg("<C-f>") == ":dummy"
-    "" <leader>f on systems where <C-f> == <C-F>
-        "map <leader-f> :Ack<space>
-    "else
-    "" <C-F> if we can still map <C-f> to <S-Down>
-        "map <C-F> :Ack<space>
-    "endif
-    "map <C-f> <S-Down>
-    "" CMD-Enter to enter new line, doesn't work in terminal
-    "inoremap <C-Enter> <C-o>o
-    "inoremap <C-S-Enter> <C-o>O
-"endif
-
-"" Ack for the word under cursor
-""nnoremap <leader>a :Ack<Space>
-"nnoremap <leader>a :Ack<Space><c-r><c-W>
-" }}}
 
 " GUndo {{{
 nnoremap <silent><S-U> :GundoToggle<CR>
@@ -486,6 +469,10 @@ vmap <leader>} c{ <C-R>" }<ESC>
 vmap <leader>{ c{<C-R>"}<ESC>
 " }}}
 
+" msbuild {{{
+autocmd vimenter *.csproj, *.vbproj nnoremap <F5> :make /t:rebuild<cr>
+" }}}
+
 " Tabular {{{
  if exists(":Tabularize")
     vnoremap <Leader>t= :Tabularize /=<CR>
@@ -505,11 +492,15 @@ vmap <leader>{ c{<C-R>"}<ESC>
 endif
 " }}}
 
+" Pandoc {{{
+" convert text to Table
+"https://github.com/vim-pandoc/vim-pandoc
+"http://connermcd.wordpress.com/2012/05/20/pandoc-table-editing-in-vim/
+command! -range=% Rst :'<,'>!pandoc -f markdown -t rst
+" }}}
+
 " nerdtree {{{
 ""I make sure the working directory is set correctly.
-"map <Leader>n <plug>NERDTreeMirror<CR>
-"map <F2> <plug>NERDTreeTabsToggle<CR>
-map <F2> :NERDTreeTabsToggle<CR>
 "map <F2> :NERDTreeToggle<CR>
 
 "Funtion to open and close NERDTreeAndTagbar
@@ -550,6 +541,10 @@ map <F2> :NERDTreeTabsToggle<CR>
 
 " }}}
 
+" vim-nerdtree-tabs {{{
+map <F2> :NERDTreeTabsToggle<CR>
+" }}}
+
 " Tagbar {{{
 map <F3> :TagbarToggle<CR>
 nnoremap <C-]> :tabnew %<CR>g<C-]>
@@ -558,6 +553,7 @@ vnoremap <C-]> <Esc>:tabnew %<CR>gvg<C-]>
 
 " ctags {{{
 "Search and destroy using tags
+"ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q ./
 map <C-F3> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
 " }}}
 
@@ -571,8 +567,8 @@ nmap <silent> <leader>gp :Git push<CR>
 "}}}
 
 " SingleCompile {{{
-nmap <F9> :SCCompile<cr>
-nmap <F10> :SCCompileRun<cr>
+"nmap <F9> :SCCompile<cr>
+"nmap <F10> :SCCompileRun<cr>
 "end SingleCompile
 " }}}
 
@@ -593,9 +589,23 @@ nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
 nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
 " }}}
 
+"dbext {{{
+"mappings for sql files
+"execute statement
+autocmd FileType sql nnoremap <F5> :DBExecRangeSQL <cr>
+autocmd FileType sql nnoremap <A-F1> :DBDescribeTable <cr>
+
+"remap <leader>sl+ to <leader>l+
+autocmd FileType sql nnoremap <leader>lt :DBListTable <cr>
+autocmd FileType sql nnoremap <leader>lp :DBListProcedure <cr>
+autocmd FileType sql nnoremap <leader>lv :DBListView <cr>
+autocmd FileType sql nnoremap <leader>lv :DBListView <cr>
+autocmd FileType sql nnoremap <leader>lc :DBListColumn <cr>
+" }}}
+
 " sidewise {{{
-nnoremap <c-h> :SidewaysLeft<cr>
-nnoremap <c-l> :SidewaysRight<cr>
+nnoremap <leader>sl :SidewaysLeft<cr>
+nnoremap <leader>sr :SidewaysRight<cr>
 "}}}
 
 " Syntastic {{{
@@ -675,5 +685,27 @@ nmap <silent> <leader>y :SyntasticCheck<cr>
 "" 3. jump to next and previous window
 "nmap <silent> <C-N>  <Plug>GoldenViewNext
 "nmap <silent> <C-P>  <Plug>GoldenViewPrevious
+" }}}
+
+" Ack {{{
+"if has('win32') || has('win64')
+    "" Define <C-F> to a dummy value to see if it would set <C-f> as well.
+    "map <C-F> :dummy
+    "if maparg("<C-f>") == ":dummy"
+    "" <leader>f on systems where <C-f> == <C-F>
+        "map <leader-f> :Ack<space>
+    "else
+    "" <C-F> if we can still map <C-f> to <S-Down>
+        "map <C-F> :Ack<space>
+    "endif
+    "map <C-f> <S-Down>
+    "" CMD-Enter to enter new line, doesn't work in terminal
+    "inoremap <C-Enter> <C-o>o
+    "inoremap <C-S-Enter> <C-o>O
+"endif
+
+"" Ack for the word under cursor
+""nnoremap <leader>a :Ack<Space>
+"nnoremap <leader>a :Ack<Space><c-r><c-W>
 " }}}
 

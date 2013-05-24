@@ -89,6 +89,71 @@ At any time, you can press <Esc> to exit back to regular Vim.
 :silent! argdo %s/\a/*/g	-> avoid message errors
 <C-r>{register}				-> On the command line, you can paste the contents of a register by pressing
 Press crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case (crs), and UPPER_CASE (cru)
+<C-c>	->start SQLComplete
+<leader>if		->reindent file
+<leader>ft		->create folding for html
+<leader>qf		->call quickfix
+<leader>fc		->call FoldColumnToggle
+<leader>fx		->:FormatXML
+<C-o>		-> in insert mode allow to ejecute a normal command
+
+-----------------------------------------------
+vim completion
+-----------------------------------------------
+<C-n> Generic keywords
+<C-x><C-n> Current buffer keywords
+<C-x><C-i> Included file keywords
+<C-x><C-]> tags file keywords
+<C-x><C-k> Dictionary lookup
+<C-x><C-l> Whole line completion
+<C-x><C-f> Filename completion
+<C-x><C-t> Thesaurus File
+<C-x><C-o> Omni-completion
+-----------------------------------------------
+
+-----------------------------------------------
+multiple-cursor
+-----------------------------------------------
+Example 1: next word occurrence
+
+    jump to p with fp
+    select the word under cursor with <C-n>
+    do that two more times for the other two occurrences in the function
+    press c to change
+    type the replacement
+    press <Esc> to quit back to regular Vim
+
+Example 2: line to column
+
+    select the line with V
+    go to the end of the file with G
+    press <C-n> to add a cursor at the beginning of every line and move to normal mode
+    press I to insert at the beginning of the line
+    type ", move to end of line with <C-e>, type another " followed by ,
+    move every cursor down one line with <C-j>(this is a custom mapping of mine in Insert mode)
+    hit <BS>, now all the words are on the same line
+    the rest is just normal Vim
+
+Example 3: column to line
+
+    press dt" to delete everything until the first quote
+    press L to go to end of line (my custom mapping, default $)
+    pree r, to replace the ] with ,
+    go back to the beginning of the line with H (custom, default ^), press f, to find the first comma
+    press v to select , in visual mode, and mash on <C-n> until the last occurrence
+    press c followed by <CR> to break the line into multiple lines
+    move every cursor up one line with <C-k> (again my custom mapping)
+    delete the left quote with C-g<BS> (custom mapping to move cursor in insert mode)
+    go to end of line and delete right quote with C-e<BS>
+
+Example 4: regular expression
+
+    press jV to visually select the second line
+    press Gk to select all but the last line
+    type : followed by the MultipleCursorsFind command
+    press o to toggle the cursor for each visual selection
+    press p to paste the content of the + register (I have clipboard=unnamedplus in my vimrc) to each virtual cursor
+-----------------------------------------------
 
 -----------------------------------------------
 spell
@@ -101,6 +166,16 @@ zg		-> add word from the spelling dictionary
 zw		-> remove word from the spelling dictionary
 zug     -> revert change add
 zuw		-> revert change remove
+-----------------------------------------------
+
+-----------------------------------------------
+SQLComplete
+-----------------------------------------------
+	<C-C>t		-> Table List		   -
+	<C-X><C-O>	-> (the default map assumes tables)
+	<C-C>p		-> Stored Procedure List -
+	<C-C>v		-> View List		   -
+	<C-C>c		-> Column List	   -
 -----------------------------------------------
 
 -----------------------------------------------
@@ -1182,6 +1257,17 @@ Design Schemes
 And More
     You can even use it under 8/256 color terminal.
 Get latest and Post issues at https://github.com/Rykka/colorv.vim
+-----------------------------------------------
+
+-----------------------------------------------
+XtermColorTable
+-----------------------------------------------
+    Provides command :XtermColorTable, as well as variants for different splits
+    Xterm numbers on the left, equivalent RGB values on the right
+    Press # to yank current color (shortcut for yiw)
+    Press t to toggle RGB text visibility
+    Press f to set RGB text to current color
+    Buffer behavior similar to Scratch.vim
 -----------------------------------------------
 
 -----------------------------------------------
