@@ -4,6 +4,8 @@ four essential freedoms:
  (2) to redistribute exact copies, and
  (3) to distribute modified versions.
 
+InEnglish -> 55 56 87 32 12
+
 "autocmd VimEnter * tab all
 	"autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
 

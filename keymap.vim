@@ -3,6 +3,10 @@
 "mapea leader a coma
 let mapleader=","
 
+" Personal macros {{{
+"source ~/vimfiles/macros/macos_cs.vim
+" }}}
+
 " Opening files located in the same directory as the current file {{{
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>ew :e %%
@@ -93,28 +97,60 @@ nnoremap <silent><A-Right> :call TabRight()<CR>
 
 " Easy Vim Mapping like others editors{{{
 
-"Sift-Home, Shift-End
+"disable paste when MiddleMouse press
+"http://vim.wikia.com/wiki/Mouse_wheel_for_scroll_only_-_disable_middle_button_paste
+noremap <MiddleMouse> <LeftMouse>
+
+"Shift-Home, Shift-End
 inoremap <silent><S-Home> <Esc>v^
 inoremap <silent><S-End> <Esc>lv$
 nnoremap <silent><S-Home> <Esc>v^
 nnoremap <silent><S-End> <Esc>v$
 
-"Ctrl-Shift-Left, Ctrl-Shift-Right
-inoremap <silent><C-S-Left> <Esc>v<Left>
-inoremap <silent><C-S-Right> <Esc>lv<Right>
-nnoremap <silent><C-S-Left> <Esc>v<Left>
-nnoremap <silent><C-S-Right> <Esc>v<Right>
+"Ctrl-Shift-Home, Ctrl-Shift-End
+nnoremap <silent><C-S-Home> <Esc>v^gg
+nnoremap <silent><C-S-End> <Esc>v$G
 
-"Sift-Up, Shift-Down
+"Ctrl-Shift-Left, Ctrl-Shift-Right
+inoremap <silent><C-S-Left> <Esc>vb
+inoremap <silent><C-S-Right> <Esc>lw
+nnoremap <silent><C-S-Left> <Esc>vb
+nnoremap <silent><C-S-Right> <Esc>vw
+
+"Shift-Up, Shift-Down
 nnoremap <silent><S-Up> <Esc>vk
 nnoremap <silent><S-Down> <Esc>vj
 inoremap <silent><S-Up> <Esc>vk
 inoremap <silent><S-Down> <Esc>vj
 vnoremap <silent><S-Up> k
 vnoremap <silent><S-Down> j
+"Change to Normal mode
+vnoremap <silent><Up> <Esc>k
+vnoremap <silent><Down> <Esc>j
+
+"Sift-left, Shift-Right
+nnoremap <silent><S-Left> vh
+nnoremap <silent><S-Right> vl
+inoremap <silent><S-Left> <Esc>vh
+inoremap <silent><S-Right> <Esc>vl
+vnoremap <silent><S-Left> <Left>
+vnoremap <silent><S-Right> <Right>
+
+"in Insert mode Left goto last initial Visual selection and Change to Insert mode
+vnoremap <silent><Left> <Esc>`<i
+"in Insert mode Right goto last final Visual selection and Change to Insert mode
+vnoremap <silent><Right> <Esc>`>i
 
 " Backspace in Visual mode deletes selection
-vnoremap <BS> d
+vnoremap <silent><BS> di
+" Backspace in Normal mode goto back word
+nnoremap <silent><BS> b
+" Ctrl-Backspace erase a word
+nnoremap <silent><C-BS> diw
+"Tab in Normal mode goto next word
+nnoremap <silent><Tab> w
+" Del switch to Insert mode
+vnoremap <silent><Del> <Del>i
 
 " to the clipboard with ,y and ,p
 map <leader>Y "+yy
@@ -150,9 +186,10 @@ map <C-f> /<C-r><C-w>
 nnoremap <C-H> :%s/<C-r><C-w>/NEW_WORD
 
 "Change minus - MAYUS
-vnoremap <C-u> ~
+vnoremap <C-u> U
+vnoremap <C-l> u
 
-"insert automatically } and insert above {
+"insert automatically } after insert {
 inoremap {<CR> {<CR>}<Esc>O
 
 " }}}
@@ -186,7 +223,7 @@ map! <S-Insert> <MiddleMouse>
 nmap <leader>l :set list!<CR>
 
 " Edit the vimrc file
-nnoremap <silent><leader>edv :e $MYVIMRC<CR>
+nnoremap <silent><leader>ed :e $MYVIMRC<CR>
 nnoremap <silent><leader>sv :so $MYVIMRC<CR>
 " nmap <leader>v :tabedit $MYVIMRC<CR>
 " source $MYVIMRC
@@ -213,8 +250,8 @@ nnoremap <leader>ac :center<CR>
 cnoremap w!! w !sudo tee % >/dev/null
 
 " Jump to matching pairs easily, with Tab
-nnoremap <Tab> %
-vnoremap <Tab> %
+"nnoremap <Tab> %
+"vnoremap <Tab> %
 
 " Folding
 nnoremap <Space> za
@@ -401,8 +438,7 @@ let themeindex=0
 function! RotateColorTheme()
    let y = -1
    while y == -1
-      "let colorstring = "inkpot#ron#blue#elflord#evening#koehler#murphy#pablo#desert#torte#"
-      let colorstring = "solarized#proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#railscasts#bandit#blackboard#Sunburst#default#galaxy"
+      let colorstring = "solarized#proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#railscasts#bandit#blackboard#Sunburst#default#galaxy#amy#twilight256#candy"
 
       let x = match( colorstring, "#", g:themeindex )
       let y = match( colorstring, "#", x + 1 )
@@ -418,8 +454,8 @@ endfunction
 
 " Rotate Color Scheme <F12>
 nnoremap <silent><F12> :execute RotateColorTheme()<CR>
-
 " }}}
+
 "--------------------------------------------
 "PLUGINS
 "--------------------------------------------
@@ -437,8 +473,6 @@ nnoremap <C-l> :CtrlPMRUFiles<CR>
 inoremap <C-l> <esc>:CtrlPMRUFiles<CR>
 nnoremap <C-t> :CtrlPBufTag<CR>
 inoremap <C-t> <esc>:CtrlPBufTag<CR>
-"nmap <leader>b :CtrlPBuffer<CR>
-"nmap <leader>m :CtrlPMRUFiles<CR>
 " }}}
 
 " Surround {{{

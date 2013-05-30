@@ -123,10 +123,13 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'mkitt/tabline.vim'
 Bundle 'bronson/vim-visual-star-search'
-Bundle 'vim-pandoc/vim-pandoc'
+"Bundle 'vim-pandoc/vim-pandoc'
+Bundle 'jpalardy/vim-slime'
+Bundle 'sukima/xmledit'
 "Bundle 'bryanthankins/vim-aspnetide'
 
 "colors
+"Bundle 'daviddavis/vim-colorpack'
 Bundle 'primitivorm/vim-proman-theme'
 Bundle 'sjl/badwolf'
 Bundle 'sickill/vim-monokai'
@@ -228,6 +231,7 @@ Bundle 'ftpsync'
 Bundle 'grep.vim'
 Bundle 'Decho'
 Bundle 'OmniCppComplete'
+Bundle 'refactor'
 
 "Bundle 'YankRing.vim'
 "Bundle 'QuickBuf'
@@ -260,7 +264,7 @@ Bundle 'git://git.wincent.com/command-t.git'
 "http://vim.wikia.com/wiki/VimTip30
 set nrformats+=alpha
 set fileformats="unix,dos,mac"
-set formatoptions=tcq	"fo
+set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 " }}}
 
@@ -273,7 +277,7 @@ set noswapfile
 "guarda el archivo en cuanto se deja el buffer
 set autowrite
 set autoread
-set directory=~/vimfiles/tmp,~/tmp,/tmp
+set directory=~/tmp,/tmp
 " store swap files in one of these directories
 " (in case swapfile is ever turned on)
 set viminfo='20,\"80 " read/write a .viminfo file, don't store more
@@ -283,7 +287,7 @@ set wildmode=list:full " show a list when pressing tab and complete
 " first full match
 set visualbell " don't beep
 set noerrorbells " don't beep
-set cmdheight=5		"especify the height of cmd
+"set cmdheight=5    "especify the height of cmd
 set noshowmode
 set showcmd " show (partial) command in the last line of the screen
 " this also shows visual selection info
@@ -307,21 +311,21 @@ syntax enable
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 if has('gui_running')
-	"show tabs always = 2
-	set showtabline=2
-	"max num of tabs
-	set tabpagemax=15
-	hi CursorLine guibg=#e6e6fa
-	hi CursorColumn guibg=#e6e6fa
-	"set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
-	"set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
-	set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
-	"set guifont=Monaco:h9:cANSI
-	" switch syntax highlighting on, when the terminal has colors
-	syntax on
+  "show tabs always = 2
+  set showtabline=1
+  "max num of tabs
+  set tabpagemax=15
+  hi CursorLine guibg=#e6e6fa
+  hi CursorColumn guibg=#e6e6fa
+  "set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
+  "set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
+  set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
+  "set guifont=Monaco:h9:cANSI
+  " switch syntax highlighting on, when the terminal has colors
+  syntax on
 else
-	hi CursorLine guibg=Gray40
-	hi CursorColumn guibg=Gray40
+  hi CursorLine guibg=Gray40
+  hi CursorColumn guibg=Gray40
 endif
 
 "set colorscheme
@@ -334,10 +338,10 @@ filetype plugin on
 set nu
 "set rnu "relativenumber
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
-set wrap
-set linebreak	"lbr
+set nowrap
+set linebreak "lbr
 "if has('linebreak')
-	"let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
+  "let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
 "endif
 set showbreak=...
 "set textwidth=79
@@ -369,8 +373,12 @@ set ignorecase
 "case-sensitive if search contains an uppercase character
 set smartcase
 set gdefault " search/replace "globally" (on a line) by default
+"Resalta la { o ) que estamos cerrando (sm)
 set showmatch
-set mat=5
+"Mostrar la posicion del cursor en todo momento
+set ruler
+"mat
+set matchtime=5
 "estable el modo de pliegue (folding)
 "set foldmethod=indent "fold based on indent
 set foldmethod=syntax "fold based on indent
@@ -387,10 +395,10 @@ set foldlevel=1 "this is just what i Use
 "else
   "" This is console Vim.
   "if exists("+lines")
-	"set lines=50
+  "set lines=50
   "endif
   "if exists("+columns")
-	"set columns=100
+  "set columns=100
   "endif
 "endif
 
@@ -409,31 +417,31 @@ set foldtext=MyFoldText()
 function! MyFoldText()
   let line = getline(v:foldstart)
   if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-	let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-	let linenum = v:foldstart + 1
-	while linenum < v:foldend
-	  let line = getline( linenum )
-	  let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-	  if comment_content != ''
-		break
-	  endif
-	  let linenum = linenum + 1
-	endwhile
-	let sub = initial . ' ' . comment_content
+  let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+  let linenum = v:foldstart + 1
+  while linenum < v:foldend
+    let line = getline( linenum )
+    let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+    if comment_content != ''
+    break
+    endif
+    let linenum = linenum + 1
+  endwhile
+  let sub = initial . ' ' . comment_content
   else
-	let sub = line
-	let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-	if startbrace == '{'
-	  let line = getline(v:foldend)
-	  let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-	  if endbrace == '}'
-		let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-	  endif
-	endif
+  let sub = line
+  let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+  if startbrace == '{'
+    let line = getline(v:foldend)
+    let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+    if endbrace == '}'
+    let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+    endif
+  endif
   endif
   let n = v:foldend - v:foldstart + 1
   let info = " " . n . " lines"
-  let sub = sub . "																													 "
+  let sub = sub . "                                                          "
   let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
   let fold_w = getwinvar( 0, '&foldcolumn' )
   let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
@@ -461,8 +469,8 @@ set switchbuf=useopen " reveal already opened files from the
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 if v:version >= 730
-	set undofile " keep a persistent backup file
-	set undodir=~/vimfiles/tmp,~/tmp,/tmp
+  set undofile " keep a persistent backup file
+  set undodir=~/tmp,/tmp
 endif
 
 "au
@@ -472,13 +480,19 @@ autocmd FileType cs set foldtext=substitute(getline(v:foldstart),'{.*','{...}',)
 autocmd FileType cs set foldlevelstart=2
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType c,cpp,h set omnifunc=ccomplete#Complete
 autocmd FileType java set omnifunc=javacomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+
+" xmledit plugin {{{
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
+" }}}
+
 "For the most accurate but slowest result, set the syntax synchronization method to fromstart
 autocmd BufEnter * :syntax sync fromstart
 "suffixes added to command gf
@@ -504,7 +518,7 @@ autocmd BufReadPost * if &modifiable | retab | endif
 "autocmd! bufwritepost * set noexpandtab | retab!
 
 set mouse=a " enable using the mouse if terminal emulator
-"set guioptions-=m	"remove menu bar
+"set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 " set guioptions-=r  "remove right-hand scroll bar
 set guioptions+=b  "remove right-hand scroll bar
@@ -519,10 +533,10 @@ hi Title ctermfg=LightBlue ctermbg=Magenta
 
 " Spell {{{
 "habilita corrector ortografico
-set nospell	"active spell check
+set nospell "active spell check
 set spelllang=es "Carga el diccionario en o los lenguajes que necesitemos
-	"set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
-	"will add dictionary scanning
+  "set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
+  "will add dictionary scanning
 set complete+=k
 set dictionary+=~/vimfiles/spell/en.ascii.spl
 set dictionary+=~/vimfiles/spell/en.ascii.sug
@@ -586,9 +600,9 @@ let g:snippets_dir+='~/vimfiles/snippets/'
 let g:UltiSnips = {}
 
 let g:UltiSnips.snipmate_ft_filter = {
-			\ 'default' : {'filetypes': ["FILETYPE"] },
-			\ 'ruby'	: {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
-			\ }
+      \ 'default' : {'filetypes': ["FILETYPE"] },
+      \ 'ruby'  : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
+      \ }
 "------------------------------------------------------
 " }}}
 
@@ -598,21 +612,21 @@ let g:UltiSnips.snipmate_ft_filter = {
 "------------------------------------------------------
 "open the plugin NERDTree at startup Vim
 if (&diff==0)
-	autocmd vimenter * NERDTree
-	autocmd vimenter * if !argc() | NERDTree | endif
+  autocmd vimenter * NERDTree
+  autocmd vimenter * if !argc() | NERDTree | endif
 endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "custom settings
-let g:NERDTreeBookmarksFile		= expand($HOME.'/_NERDTreeBookmarks')
-let g:NERDTreeShowBookmarks		= 1
-let g:NERDTreeWinSize			= 30
-let g:NERDTreeChristmasTree		= 1
+let g:NERDTreeBookmarksFile   = expand($HOME.'/_NERDTreeBookmarks')
+let g:NERDTreeShowBookmarks   = 1
+let g:NERDTreeWinSize     = 30
+let g:NERDTreeChristmasTree   = 1
 let g:NERDTreeCaseSensitiveSort = 0
-let g:NERDTreeQuitOnOpen		= 0
-let g:NERDTreeMouseMode			= 2
-"let g:NERDTreeMapOpenInTab		= 't'
-"let g:NERDTreeMapOpenInTab		= '<2-LeftMouse>'
+let g:NERDTreeQuitOnOpen    = 0
+let g:NERDTreeMouseMode     = 2
+"let g:NERDTreeMapOpenInTab   = 't'
+"let g:NERDTreeMapOpenInTab   = '<2-LeftMouse>'
 "let g:NERDTreeMapOpenInTab='<2-LeftMouse>'
 "let g:NERDTreeMapOpenInTabSilent = 'T'
 "the working directory is always the one where the active buffer is located.
@@ -622,12 +636,12 @@ set autochdir
 let g:NERDTreeChDirMode=2
 "ignore some file types
 let g:NERDTreeIgnore=[
-	  \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-	  \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$',
-	  \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
-	  \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
-	  \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
-	  \'tags', 'bin', 'obj','\.suo$','\.vspscc$']
+    \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+    \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$',
+    \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
+    \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
+    \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
+    \'tags', 'bin', 'obj','\.suo$','\.vspscc$']
 "------------------------------------------------------
 " }}}
 
@@ -635,17 +649,17 @@ let g:NERDTreeIgnore=[
 "------------------------------------------------------
 "https://github.com/jistr/vim-nerdtree-tabs
 "------------------------------------------------------
-"let g:nerdtree_tabs_open_on_gui_startup	 = 1	"default 1
+"let g:nerdtree_tabs_open_on_gui_startup    = 1 "default 1
 let g:nerdtree_tabs_open_on_console_startup = 1 "default 0
-"let g:nerdtree_tabs_no_startup_for_diff	 = 1	"default 1
-let g:nerdtree_tabs_smart_startup_focus	 = 2	 "default 1
-"let g:nerdtree_tabs_open_on_new_tab			= 1		"default 1
-"let g:nerdtree_tabs_meaningful_tab_names	 = 1	"default 1
-"let g:nerdtree_tabs_autoclose				 = 1	"default 1
-let g:nerdtree_tabs_synchronize_view		= 0			"default 1
-"let g:nerdtree_tabs_synchronize_focus		 = 1		"default 1
-let g:nerdtree_tabs_focus_on_files			= 1		   "default 0
-"let g:nerdtree_tabs_startup_cd				 = 1		"default 1
+"let g:nerdtree_tabs_no_startup_for_diff    = 1 "default 1
+let g:nerdtree_tabs_smart_startup_focus     = 2  "default 1
+"let g:nerdtree_tabs_open_on_new_tab        = 1   "default 1
+"let g:nerdtree_tabs_meaningful_tab_names   = 1 "default 1
+"let g:nerdtree_tabs_autoclose              = 1 "default 1
+let g:nerdtree_tabs_synchronize_view        = 0     "default 1
+"let g:nerdtree_tabs_synchronize_focus      = 1   "default 1
+let g:nerdtree_tabs_focus_on_files          = 1      "default 0
+"let g:nerdtree_tabs_startup_cd             = 1   "default 1
 "------------------------------------------------------
 " }}}
 
@@ -656,83 +670,109 @@ let g:nerdtree_tabs_focus_on_files			= 1		   "default 0
 "---------------------------------------------------------
 "file to find tags
 set tags=tags,./tags
-let g:tagbar_width			 = 25	   "default 40
-let g:tagbar_compact		 = 1	   "default 0
-let g:tagbar_foldlevel		 = 2		"default 99
+let g:tagbar_width       = 25    "default 40
+let g:tagbar_compact     = 1     "default 0
+let g:tagbar_foldlevel     = 2    "default 99
 "especify ctags path
-let g:tagbar_ctags_bin		 = '~\vimfiles\ctags58\ctags.exe'
+let g:tagbar_ctags_bin     = '~\vimfiles\ctags58\ctags.exe'
 
-"let g:tagbar_expand		 = 1		"default 0
-"let g:tagbar_sort			  = 0	 "default 1
+"let g:tagbar_expand          = 1   "default 0
+"let g:tagbar_sort            = 0  "default 1
 "let g:tagbar_show_visibility = 1
-"let g:tagbar_autoshowtag	 = 1		"default 0
-"let g:tagbar_autoclose		 = 1		"default 0
-"let g:tagbar_iconchars		 = ['+', '-']		"default ['+', '-']
-"let g:tagbar_singleclick	 = 1		"default 0
-"let g:tagbar_indent		 = 1		"default 2
-let g:tagbar_autofocus		 = 1		"default 0
+"let g:tagbar_autoshowtag     = 1   "default 0
+"let g:tagbar_autoclose       = 1   "default 0
+"let g:tagbar_iconchars       = ['+', '-']    "default ['+', '-']
+"let g:tagbar_singleclick     = 1   "default 0
+"let g:tagbar_indent          = 1   "default 2
+let g:tagbar_autofocus        = 1   "default 0
 
-"If you use multiple tabs and want Tagbar to also open in the current tab when
-"you switch to an already loaded, supported buffer
-"autocmd BufEnter * nested :call tagbar#autoopen(0)
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-" uncomment this section for open new buffers in a tab always
-if (&diff==0)
-	"Open files always in new tabs
-	autocmd BufReadPost * OpenInTab
-endif
-function! DoOpenInTab()
-	if (&modifiable)
-		tab ball
-		tabn
-	endif
-endfunction
-command! -nargs=0 OpenInTab call DoOpenInTab()
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+""If you use multiple tabs and want Tagbar to also open in the current tab when
+""you switch to an already loaded, supported buffer
+""autocmd BufEnter * nested :call tagbar#autoopen(0)
+""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"" uncomment this section for open new buffers in a tab always
+""always show tabs
+"set showtabline=2
+"if (&diff==0)
+  ""Open files always in new tabs
+  "autocmd BufReadPost * OpenInTab
+"endif
+"function! DoOpenInTab()
+  "if (&modifiable)
+    "tab ball
+    "tabn
+  "endif
+"endfunction
+"command! -nargs=0 OpenInTab call DoOpenInTab()
+""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ""---------------------------------------------------------
 "" }}}
 
-" CoffeScript {{{
-let g:tagbar_type_coffee = {
-	\ 'ctagstype' : 'coffee',
-	\ 'kinds'	  : [
-		\ 'c:classes',
-		\ 'm:methods',
-		\ 'f:functions',
-		\ 'v:variables',
-		\ 'f:fields',
-	\ ]
-\ }
-
-" Posix regular expressions for matching interesting items. Since this will
-" be passed as an environment variable, no whitespace can exist in the options
-" so [:space:] is used instead of normal whitespaces.
-" Adapted from: https://gist.github.com/2901844
-let s:ctags_opts = '
-\ --langdef=coffee
-\ --langmap=coffee:.coffee
-\ --regex-coffee=/(^|=[[:space:]])*class[[:space:]]([A-Za-z]+\.)*([A-Za-z]+)([[:space:]]extends[[:space:]][A-Za-z.]+)?$/\3/c,class/
-\ --regex-coffee=/^[[:space:]]*(module\.)?(exports\.)?@?([A-Za-z.]+):.*[-=]>.*$/\3/m,method/
-\ --regex-coffee=/^[[:space:]]*(module\.)?(exports\.)?([A-Za-z.]+)[[:space:]]+=.*[-=]>.*$/\3/f,function/
-\ --regex-coffee=/^[[:space:]]*([A-Za-z.]+)[[:space:]]+=[^->\n]*$/\1/v,variable/
-\ --regex-coffee=/^[[:space:]]*@([A-Za-z.]+)[[:space:]]+=[^->\n]*$/\1/f,field/
-\ --regex-coffee=/^[[:space:]]*@([A-Za-z.]+):[^->\n]*$/\1/f,staticField/
-\ --regex-coffee=/^[[:space:]]*([A-Za-z.]+):[^->\n]*$/\1/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@([A-Za-z.]+)/\2/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){0}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){1}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){2}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){3}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){4}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){5}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){6}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){7}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){8}/\3/f,field/
-\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){9}/\3/f,field/'
-
-let $CTAGS = substitute(s:ctags_opts, '\v\([nst]\)', '\\', 'g')
+"MiniBufExpl {{{
+"------------------------------------------------------
+"https://github.com/fholgado/minibufexpl.vim
+"------------------------------------------------------
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+" MiniBufExpl Colors
+hi MBEVisibleActive guifg=#ff4500 guibg=fg
+hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+hi MBEVisibleChanged guifg=#F1266F guibg=fg
+hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+hi MBEChanged guifg=#CD5907 guibg=fg
+hi MBENormal guifg=#808080 guibg=fg
+"------------------------------------------------------
 " }}}
+
+"" CoffeScript {{{
+""---------------------------------------------------------
+""https://gist.github.com/2901844
+""---------------------------------------------------------
+
+"let g:tagbar_type_coffee = {
+  "\ 'ctagstype' : 'coffee',
+  "\ 'kinds'    : [
+    "\ 'c:classes',
+    "\ 'm:methods',
+    "\ 'f:functions',
+    "\ 'v:variables',
+    "\ 'f:fields',
+  "\ ]
+"\ }
+
+"" Posix regular expressions for matching interesting items. Since this will
+"" be passed as an environment variable, no whitespace can exist in the options
+"" so [:space:] is used instead of normal whitespaces.
+"" Adapted from: https://gist.github.com/2901844
+"let s:ctags_opts = '
+"\ --langdef=coffee
+"\ --langmap=coffee:.coffee
+"\ --regex-coffee=/(^|=[[:space:]])*class[[:space:]]([A-Za-z]+\.)*([A-Za-z]+)([[:space:]]extends[[:space:]][A-Za-z.]+)?$/\3/c,class/
+"\ --regex-coffee=/^[[:space:]]*(module\.)?(exports\.)?@?([A-Za-z.]+):.*[-=]>.*$/\3/m,method/
+"\ --regex-coffee=/^[[:space:]]*(module\.)?(exports\.)?([A-Za-z.]+)[[:space:]]+=.*[-=]>.*$/\3/f,function/
+"\ --regex-coffee=/^[[:space:]]*([A-Za-z.]+)[[:space:]]+=[^->\n]*$/\1/v,variable/
+"\ --regex-coffee=/^[[:space:]]*@([A-Za-z.]+)[[:space:]]+=[^->\n]*$/\1/f,field/
+"\ --regex-coffee=/^[[:space:]]*@([A-Za-z.]+):[^->\n]*$/\1/f,staticField/
+"\ --regex-coffee=/^[[:space:]]*([A-Za-z.]+):[^->\n]*$/\1/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@([A-Za-z.]+)/\2/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){0}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){1}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){2}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){3}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){4}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){5}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){6}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){7}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){8}/\3/f,field/
+"\ --regex-coffee=/(constructor:[[:space:]]\()@[A-Za-z.]+(,[[:space:]]@([A-Za-z.]+)){9}/\3/f,field/'
+
+"let $CTAGS = substitute(s:ctags_opts, '\v\([nst]\)', '\\', 'g')
+
+""---------------------------------------------------------
+"" }}}
 
 " CtrlP {{{
 "---------------------------------------------------------
@@ -748,73 +788,16 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window_bottom = 0
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_custom_ignore = {
-	  \ 'dir': '\.git$\|\.hg$\|\.svn$',
-	  \ 'file': '\.exe$\|\.so$\|\.dll$',
-	  \ 'link': 'some_bad_symbolic_links',
-	  \ }
+    \ 'dir': '\.git$\|\.hg$\|\.svn$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$',
+    \ 'link': 'some_bad_symbolic_links',
+    \ }
 if has('win32') || has('win64')
-	let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+  let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
 else
-	let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
+  let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
 endif
 "---------------------------------------------------------
-" }}}
-
-" NERDcommenter {{{
-"------------------------------------------------------
-" https://github.com/scrooloose/nerdcommenter
-"------------------------------------------------------
-" let NERDSpaceDelims=1
-" map <Leader>/ <Plug>NERDCommenterToggle<CR>
-" vmap <Leader>/ <Plug>NERDCommenterToggle<CR>
-"------------------------------------------------------
-" }}}
-
-" MiniBufExpl {{{
-"------------------------------------------------------
-"https://github.com/fholgado/minibufexpl.vim
-"------------------------------------------------------
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
-"" MiniBufExpl Colors
-"hi MBEVisibleActive guifg=#ff4500 guibg=fg
-"hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-"hi MBEVisibleChanged guifg=#F1266F guibg=fg
-"hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-"hi MBEChanged guifg=#CD5907 guibg=fg
-"hi MBENormal guifg=#808080 guibg=fg
-"------------------------------------------------------
-" }}}
-
-" EasyMotion {{{
-"---------------------------------------------------------
-"https://github.com/Lokaltog/vim-easymotion
-"---------------------------------------------------------
-"let g:EasyMotion_leader_key = '<Leader>e'
-"hi link EasyMotionTarget ErrorMsg
-"hi link EasyMotionShade Comment
-"---------------------------------------------------------
-" }}}
-
-" Fugitive {{{
-"--------------------------------------------------------
-" http://www.vim.org/scripts/script.php?script_id=2975
-" https://github.com/tpope/vim-fugitive
-"--------------------------------------------------------
-" }}}
-
-" RainbowParentheses {{{
-"--------------------------------------------------------
-" https://github.com/vim-scripts/Rainbow-Parenthesis
-"--------------------------------------------------------
-"autocmd VimEnter * RainbowParenthesesToggle
-"autocmd Syntax * RainbowParenthesesLoadRound
-"autocmd Syntax * RainbowParenthesesLoadSquare
-"autocmd Syntax * RainbowParenthesesLoadBraces
-"
-"--------------------------------------------------------
 " }}}
 
 " Syntastic {{{
@@ -837,7 +820,7 @@ let g:syntastic_style_warning_symbol='S'
 let g:syntastic_always_populate_loc_list=1
 
 if ! &diff
-	let g:syntastic_check_on_open=1
+  let g:syntastic_check_on_open=1
 endif
 
 "--------------------------------------------------------
@@ -851,13 +834,6 @@ endif
 "--------------------------------------------------------
 " }}}
 
-" Tabular {{{
-"--------------------------------------------------------
-" https://github.com/godlygeek/tabular
-"--------------------------------------------------------
-"--------------------------------------------------------
-" }}}
-
 " Dbext {{{
 "---------------------------------------------------------
 "http://www.vim.org/scripts/script.php?script_id=356
@@ -866,13 +842,6 @@ endif
 "connect to sql server instance
 let g:dbext_default_profile_sql_qa = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
-"---------------------------------------------------------
-" }}}
-
-" SQLUtilities {{{
-"---------------------------------------------------------
-"http://www.vim.org/scripts/script.php?script_id=492
-"https://github.com/vim-scripts/SQLUtilities
 "---------------------------------------------------------
 " }}}
 
@@ -892,9 +861,9 @@ let g:ftplugin_sql_omni_key = '<C-C>'
 "---------------------------------------------------------
 "source ~/.vim/bundle/powerline/powerline/ext/vim/source_plugin.vim
 if has("gui_running")
-	let g:Powerline_symbols = 'fancy'
+  let g:Powerline_symbols = 'fancy'
 else
-	let g:Powerline_symbols = 'compatible'
+  let g:Powerline_symbols = 'compatible'
 endif
 "for testing version
 "set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
@@ -904,16 +873,13 @@ endif
 "---------------------------------------------------------
 " }}}
 
-""Vim intellisence {{{
-""---------------------------------------------------------
-"http://insenvim.sourceforge.net/
-"https://github.com/tomtom/checksyntax_vim.git
+" vim-session {{{
 "---------------------------------------------------------
-"let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
-"let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense"
-"let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
+"https://github.com/xolox/vim-session
 "---------------------------------------------------------
-"" }}}
+let g:session_command_aliases = 1
+"---------------------------------------------------------
+" }}}
 
 " Showmarks {{{
 "---------------------------------------------------------
@@ -941,15 +907,7 @@ let g:indent_guides_auto_colors=1
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=darkgrey
 " Treat files ending in .thpl as Perl:
 "au BufRead,BufNewFile *.thpl set filetype=perl
-"<Leader>ig		->show guides
-"---------------------------------------------------------
-" }}}
-
-" vim-session {{{
-"---------------------------------------------------------
-"https://github.com/xolox/vim-session
-"---------------------------------------------------------
-let g:session_command_aliases = 1
+"<Leader>ig   ->show guides
 "---------------------------------------------------------
 " }}}
 
@@ -1016,25 +974,6 @@ autocmd BufNewFile *.php TSkeletonSetup skeleton.php
 "---------------------------------------------------------
 " }}}
 
-" skeletons {{{
-"---------------------------------------------------------
-"https://github.com/tobyS/skeletons.vim
-"---------------------------------------------------------
-"let g:skeletons_dir=$HOME . '/vimfiles/bundle/skeletons.vim/skeletons/'
-"autocmd BufNewFile * silent! 0r ~/vimfiles/bundle/skeletons.vim/skeletons/skeleton.%:e
-"---------------------------------------------------------
-"pdv
-"https://github.com/tobyS/pdv
-"---------------------------------------------------------
-" }}}
-
-" Pdv {{{
-"---------------------------------------------------------
-"let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
-"nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
-"---------------------------------------------------------
-" }}}
-
 " MRU {{{
 "---------------------------------------------------------
 let MRU_File = $HOME . '/_vim_mru_files'
@@ -1050,50 +989,15 @@ let g:mta_set_default_matchtag_color=0
 highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
 "highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=#1E90FF
 let g:mta_filetypes = {
-	\ 'html' : 1,
-	\ 'xhtml' : 1,
-	\ 'xml' : 1,
-	\ 'jinja' : 1,
-	\ 'cs' : 1,
-	\}
+  \ 'html' : 1,
+  \ 'xhtml' : 1,
+  \ 'xml' : 1,
+  \ 'jinja' : 1,
+  \ 'cs' : 1,
+  \}
 "Highlighting braces parentheses
 hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
 "hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#1E90FF
-"---------------------------------------------------------
-" }}}
-
-" Omn"isharp {{{
-""---------------------------------------------------------
-""https://github.com/nosami/Omnisharp
-""---------------------------------------------------------
-""This is the default value, setting it isn't actually necessary
-"let g:OmniSharp_host = "http://localhost:80"
-""Set the type lookup function to use the preview window instead of the status line
-"let g:OmniSharp_typeLookupInPreview = 1
-""---------------------------------------------------------
-"" }}}
-
-" neocomplcache {{{
-"---------------------------------------------------------
-"https://github.com/Shougo/neocomplcache
-"---------------------------------------------------------
-" let g:neocomplcache_enable_at_startup = 1
-" " Use smartcase.
-" let g:neocomplcache_enable_smart_case = 1
-" " Use camel case completion.
-" let g:neocomplcache_enable_camel_case_completion = 1
-" " Use underscore completion.
-" let g:neocomplcache_enable_underbar_completion = 1
-" " Sets minimum char length of syntax keyword.
-" let g:neocomplcache_min_syntax_length = 0
-" " buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder
-" "let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" let g:neocomplcache_enable_auto_close_preview = 0
-" " Define keyword, for minor languages
-" if !exists('g:neocomplcache_keyword_patterns')
-  " let g:neocomplcache_keyword_patterns = {}
-" endif
-" let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 "---------------------------------------------------------
 " }}}
 
@@ -1101,26 +1005,8 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 "---------------------------------------------------------
 "https://github.com/koron/minimap-vim
 "---------------------------------------------------------
- let g:session_autoload = 'no'
-"---------------------------------------------------------
-" }}}
-
-" CodeOverview {{{
-"---------------------------------------------------------
-"http://www.vim.org/scripts/script.php?script_id=2888
-"https://github.com/Twinside/vim-codeoverview
-"---------------------------------------------------------
-"let g:code_overview_autostart = 1
-"let g:codeoverview_autoupdate = 1
-"let g:codeOverviewMaxLineCount = 10000
-"---------------------------------------------------------
-" }}}
-
-" HardMode {{{
-"---------------------------------------------------------
-"https://github.com/wikitopian/hardmode
-"---------------------------------------------------------
- "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+ "let g:session_autoload = 'no'
+ let g:session_autoload = 'yes'
 "---------------------------------------------------------
 " }}}
 
@@ -1165,7 +1051,7 @@ let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
 let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
 let OmniCpp_ShowAccess          = 1 "show access in pop-up
 let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
-set completeopt=menuone,menu,longest
+set completeopt=menuone,menu,longest,preview
 
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 "highlight   clear
@@ -1176,13 +1062,25 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
+" guifont++ {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"http://www.vim.org/scripts/script.php?script_id=593
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"source $HOME/vimfiles/plugin/guifont++.vim
+"let guifontpp_size_increment=1     "default 1
+let guifontpp_smaller_font_map="<M-Down>"
+let guifontpp_larger_font_map="<M-Up>"
+let guifontpp_original_font_map="<M-=>"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
 " Tab line {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "https://github.com/mkitt/tabline.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"hi TabLine		ctermfg=Black  ctermbg=Green	 cterm=NONE
-"hi TabLineFill ctermfg=Black  ctermbg=Green	 cterm=NONE
-"hi TabLineSel	ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+"hi TabLine   ctermfg=Black  ctermbg=Green   cterm=NONE
+"hi TabLineFill ctermfg=Black  ctermbg=Green   cterm=NONE
+"hi TabLineSel  ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
@@ -1251,3 +1149,139 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 "---------------------------------------------------------
 " }}}
 
+" NERDcommenter {{{
+"------------------------------------------------------
+" https://github.com/scrooloose/nerdcommenter
+"------------------------------------------------------
+" let NERDSpaceDelims=1
+" map <Leader>/ <Plug>NERDCommenterToggle<CR>
+" vmap <Leader>/ <Plug>NERDCommenterToggle<CR>
+"------------------------------------------------------
+" }}}
+
+" EasyMotion {{{
+"---------------------------------------------------------
+"https://github.com/Lokaltog/vim-easymotion
+"---------------------------------------------------------
+"let g:EasyMotion_leader_key = '<Leader>e'
+"hi link EasyMotionTarget ErrorMsg
+"hi link EasyMotionShade Comment
+"---------------------------------------------------------
+" }}}
+
+" Fugitive {{{
+"--------------------------------------------------------
+" http://www.vim.org/scripts/script.php?script_id=2975
+" https://github.com/tpope/vim-fugitive
+"--------------------------------------------------------
+" }}}
+
+" RainbowParentheses {{{
+"--------------------------------------------------------
+" https://github.com/vim-scripts/Rainbow-Parenthesis
+"--------------------------------------------------------
+"autocmd VimEnter * RainbowParenthesesToggle
+"autocmd Syntax * RainbowParenthesesLoadRound
+"autocmd Syntax * RainbowParenthesesLoadSquare
+"autocmd Syntax * RainbowParenthesesLoadBraces
+"
+"--------------------------------------------------------
+" }}}
+
+" Tabular {{{
+"--------------------------------------------------------
+" https://github.com/godlygeek/tabular
+"--------------------------------------------------------
+"--------------------------------------------------------
+" }}}
+
+" SQLUtilities {{{
+"---------------------------------------------------------
+"http://www.vim.org/scripts/script.php?script_id=492
+"https://github.com/vim-scripts/SQLUtilities
+"---------------------------------------------------------
+" }}}
+
+""Vim intellisence {{{
+""---------------------------------------------------------
+"http://insenvim.sourceforge.net/
+"https://github.com/tomtom/checksyntax_vim.git
+"---------------------------------------------------------
+"let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
+"let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense"
+"let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
+"---------------------------------------------------------
+"" }}}
+
+" Pdv {{{
+"---------------------------------------------------------
+"let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
+"nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
+"---------------------------------------------------------
+" }}}
+
+" skeletons {{{
+"---------------------------------------------------------
+"https://github.com/tobyS/skeletons.vim
+"---------------------------------------------------------
+"let g:skeletons_dir=$HOME . '/vimfiles/bundle/skeletons.vim/skeletons/'
+"autocmd BufNewFile * silent! 0r ~/vimfiles/bundle/skeletons.vim/skeletons/skeleton.%:e
+"---------------------------------------------------------
+"pdv
+"https://github.com/tobyS/pdv
+"---------------------------------------------------------
+" }}}
+
+" Omn"isharp {{{
+""---------------------------------------------------------
+""https://github.com/nosami/Omnisharp
+""---------------------------------------------------------
+""This is the default value, setting it isn't actually necessary
+"let g:OmniSharp_host = "http://localhost:80"
+""Set the type lookup function to use the preview window instead of the status line
+"let g:OmniSharp_typeLookupInPreview = 1
+""---------------------------------------------------------
+"" }}}
+
+" neocomplcache {{{
+"---------------------------------------------------------
+"https://github.com/Shougo/neocomplcache
+"---------------------------------------------------------
+" let g:neocomplcache_enable_at_startup = 1
+" " Use smartcase.
+" let g:neocomplcache_enable_smart_case = 1
+" " Use camel case completion.
+" let g:neocomplcache_enable_camel_case_completion = 1
+" " Use underscore completion.
+" let g:neocomplcache_enable_underbar_completion = 1
+" " Sets minimum char length of syntax keyword.
+" let g:neocomplcache_min_syntax_length = 0
+" " buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder
+" "let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" let g:neocomplcache_enable_auto_close_preview = 0
+" " Define keyword, for minor languages
+" if !exists('g:neocomplcache_keyword_patterns')
+  " let g:neocomplcache_keyword_patterns = {}
+" endif
+" let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+"---------------------------------------------------------
+" }}}
+
+" CodeOverview {{{
+"---------------------------------------------------------
+"http://www.vim.org/scripts/script.php?script_id=2888
+"https://github.com/Twinside/vim-codeoverview
+"---------------------------------------------------------
+"let g:code_overview_autostart = 1
+"let g:codeoverview_autoupdate = 1
+"let g:codeOverviewMaxLineCount = 10000
+"---------------------------------------------------------
+" }}}
+
+" HardMode {{{
+"---------------------------------------------------------
+"https://github.com/wikitopian/hardmode
+"---------------------------------------------------------
+ "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"---------------------------------------------------------
+" }}}

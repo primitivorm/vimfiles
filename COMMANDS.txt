@@ -96,6 +96,13 @@ Press crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case (
 <leader>fc		->call FoldColumnToggle
 <leader>fx		->:FormatXML
 <C-o>		-> in insert mode allow to ejecute a normal command
+:%!xxd	-> ver archivo en hexadecimal
+
+-----------------------------------------------
+my Refactor
+-----------------------------------------------
+<leader>rp 		-> 	Create a Property based on a word with CamelCase format
+-----------------------------------------------
 
 -----------------------------------------------
 vim completion
@@ -584,6 +591,8 @@ CTRL-R %        : pull file name (also #)
 <c-r>/          :Retrieving last Search Command for copy & pasting into text
 <C-X><C-F>      :insert name of a file in current directory
 -----------------------------------------------
+
+-----------------------------------------------
 VimDiff
 -----------------------------------------------
 do -> Get changes from other window into the current window.
@@ -595,6 +604,7 @@ Ctrl W + Ctrl W -> Switch to the other split window
 :syntax off -- syntax off
 zo -- open folded text
 zc -- close folded text
+-----------------------------------------------
 
 -----------------------------------------------
 NERDTree
@@ -617,6 +627,7 @@ Control+l moves to the next tab
 Control+h moves to the previous tab
 :edit somefile.     -> edita arhivo en ruta actual
 -----------------------------------------------
+
 -----------------------------------------------
 NerdCommenter
 -----------------------------------------------
@@ -646,6 +657,7 @@ Switches to the alternative set of delimiters.
 [count]<leader>cb |NERDComAlignedComment|
 [count]<leader>cu |NERDComUncommentLine|
 Uncomments the selected line(s).
+-----------------------------------------------
 
 -----------------------------------------------
 "buffer-explorer
@@ -653,6 +665,19 @@ Uncomments the selected line(s).
 <Leader>be -> Opens BE.
 <Leader>bs -> Opens horizontally window BE.
 <Leader>bv -> Opens vertically window BE.
+-----------------------------------------------
+
+-----------------------------------------------
+refactor
+https://github.com/vim-scripts/refactor
+-----------------------------------------------
+The refactor commands and their default key map currently are:
+	1. <A-r>e	Extract method
+	2. <A-r>p	local variable to Parameter
+	3. <A-r>r	 Rename local variable
+	4. <A-r>d	Delete parameter
+	5. <A-r>o	reOrder parameters
+	6. <A-r>c	introduce Constant
 -----------------------------------------------
 
 -----------------------------------------------
@@ -761,6 +786,7 @@ SQLUGetColumnDataType
 SQLUCreateProcedure  : Creates a stored procedure to perform standard
                        operations against the table that the cursor
                        is currently under.
+-----------------------------------------------
 
 -----------------------------------------------
 --surround
@@ -921,6 +947,7 @@ Usage:
     List gists from your starred gists.
     :Gist -ls
 -----------------------------------------------
+
 -----------------------------------------------
 yank ring
 -----------------------------------------------
@@ -1372,6 +1399,8 @@ Get output from shell commands
 :.!sh                : execute contents of current line in buffer and capture the output
 
 -----------------------------------------------
+
+-----------------------------------------------
 Sorting with external sort
 -----------------------------------------------
 :%!sort -u           : contents of the current file is sorted and only unique lines are kept
@@ -1478,6 +1507,7 @@ https://github.com/jeetsukumaran/vim-buffergator
 <Leader>T Invokes ":BuffergatorTabsClose": close the tab page
                     catalog.
 -----------------------------------------------
+
 -----------------------------------------------
 vim-complete
 https://github.com/mattsacks/vim-complete
