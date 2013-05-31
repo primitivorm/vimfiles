@@ -16,8 +16,8 @@
 " This file should contain the source-safe path
 " eg:
 " $/MyProj/
-" Version 1.6 has improved support for multiple databases. 
-" A sourcesafe path (or inifile) can precede this, inclosed with '@' symbols : 
+" Version 1.6 has improved support for multiple databases.
+" A sourcesafe path (or inifile) can precede this, inclosed with '@' symbols :
 " eg:
 " @\\file\srcsafe@$/MyProj/
 " This works by setting (& restoring) $SSDIR before calling the
@@ -27,7 +27,7 @@
 " this by always answering 'no', then parsing the response, and asking the
 " user 'yes/no', and then re-executing the command always answering 'yes'.
 " It is possible that there are some special cases that need handling.
-" 
+"
 " g:ssExecutable     ($SS)       : May NOT have spaces - use short-filenames.
 " g:ssDeployFile     (0)         : Allow deploying of files.
 "
@@ -74,7 +74,7 @@ endfun
 "    :overwrite:           Overwrite the file
 "    :locks:               Show locks on status
 "    :extras:              Show extras on status
-" a:file1               The original filename specification 
+" a:file1               The original filename specification
 " a:repositoryfile1     The repository filename specification
 " a:comment             Comment for operation.  '@' prefix specified filename
 "
@@ -97,7 +97,7 @@ fun! SourceControlDo_vss(cmd, opts, count, file1, repositoryfile1, comment)
       if a:comment =~ '^@'
         if a:comment =~ '\s'
           let comment=' "-C@'.substitute(a:comment,'^@','','').'"'
-        end 
+        end
       else
         let comment=' "-C'.a:comment.'"'
       endif
@@ -117,12 +117,14 @@ fun! SourceControlDo_vss(cmd, opts, count, file1, repositoryfile1, comment)
       let opts=opts.'af'
     endif
     if a:opts =~ ':lock:'
-      call s:SSCmd('Checkout -GWA'.comment, a:file1, a:repositoryfile1, a:count,  opts)
+      "call s:SSCmd('Checkout -GWA'.comment, a:file1, a:repositoryfile1, a:count,  opts)
+      "proman
+      call s:SSCmd('Checkout -Y'.g:scUserName.' -GWA'.comment, a:file1, a:repositoryfile1, a:count,  opts)
     else
       let cmdopts = 'Get '
       let ow = (a:opts =~ ':overwrite:')
       if ow | let cmdopts=cmdopts.'-GWM ' | endif
-      if a:opts =~ ':recurse:' 
+      if a:opts =~ ':recurse:'
         let cmdopts=cmdopts.'-R '
       elseif !ow
           let cmdopts=cmdopts.' -GWA'
@@ -133,10 +135,14 @@ fun! SourceControlDo_vss(cmd, opts, count, file1, repositoryfile1, comment)
     endif
     return 1
   elseif a:cmd==? 'Lock'
-    call s:SSCmd('Checkout -G-'.comment, a:file1, a:repositoryfile1, a:count,  'o')
+    "call s:SSCmd('Checkout -G-'.comment, a:file1, a:repositoryfile1, a:count,  'o')
+    "proman
+    call s:SSCmd('Checkout -Y'.g:scUserName.' -G-'.comment, a:file1, a:repositoryfile1, a:count,  'o')
     return 1
   elseif a:cmd==? 'Unlock'
-    call s:SSCmd('UnCheckout ', a:file1, a:repositoryfile1, a:count,  'o')
+    "call s:SSCmd('UnCheckout ', a:file1, a:repositoryfile1, a:count,  'o')
+    "proman
+    call s:SSCmd('UnCheckout -Y'.g:scUserName, a:file1, a:repositoryfile1, a:count,  'o')
     return 1
   elseif a:cmd==?'Checkin'
     let cmdopts = 'Update'
@@ -147,14 +153,18 @@ fun! SourceControlDo_vss(cmd, opts, count, file1, repositoryfile1, comment)
     if a:opts =~ ':return:'
       return s:SSGetStatus( a:file1, a:repositoryfile1, 1, a:opts =~ ':extras:', a:opts =~ ':locks:')
     elseif a:opts =~ ':text:'
-      call s:SSCmd( 'Status', a:file1, a:repositoryfile1, 0, '')
+      "call s:SSCmd( 'Status', a:file1, a:repositoryfile1, 0, '')
+      "proman
+      call s:SSCmd( 'Status -Y'.g:scUserName, a:file1, a:repositoryfile1, 0, '')
     else
       call confirm( s:SSGetStatus(a:file1, a:repositoryfile1, 0, 1, 1))
     endif
     return 0
   elseif a:cmd==?'History'
     if a:opts =~ ':text:'
-      call s:SSCmd( 'History -#'.((a:count)?(a:count):3), a:file1, a:repositoryfile1, 0, '')
+      "call s:SSCmd( 'History -#'.((a:count)?(a:count):3), a:file1, a:repositoryfile1, 0, '')
+      "proman
+      call s:SSCmd( 'History -Y'.g:scUserName.' -#'.((a:count)?(a:count):3), a:file1, a:repositoryfile1, 0, '')
     else
       call s:DoHistoryWithSyntax( a:file1, a:repositoryfile1)
     endif
@@ -215,7 +225,7 @@ fun! s:SSCmdAdd( filename, repositoryfile )
     " Answer the questions
     if confirm(res, "&Yes\n&No", 1) != 1
         " Don't continue!
-        return 
+        return
     endif
   endif
 
@@ -321,7 +331,7 @@ fun! s:SSCmd(cmd, filename, repositoryfile, ssVer, opts)
             return 0
         endif
       endif
-  endif 
+  endif
   " Try again / force 'yes' to questions.
   setlocal autoread
   "call input( 'SS '.a:cmd.' -I-Y '.cmdargs)
@@ -380,7 +390,8 @@ fun! SourceControlCheckedOutFiles_vss( project, repositoryfile, user, recursive)
   if ssproj.'' == ''
      echoerr 'Invalid project'
   endif
-  let res=s:system( g:ssExecutable,' Status -I-N -NS -O'.tempfile.' '.(a:recursive?'-R ': '').((a:user=='*')?'':'-U'.a:user.' ').s:SSShortName(ssproj))
+  "let res=s:system( g:ssExecutable,' Status -I-N -NS -O'.tempfile.' '.(a:recursive?'-R ': '').((a:user=='*')?'':'-U'.a:user.' ').s:SSShortName(ssproj))
+  let res=s:system( g:ssExecutable,' Status -Y'.g:scUserName.' -I-N -NS -O'.tempfile.' '.(a:recursive?'-R ': '').((a:user=='*')?'':'-U'.a:user.' ').s:SSShortName(ssproj))
 
   if !filereadable(tempfile)
     echoerr res
@@ -435,7 +446,7 @@ fun! SourceControlCheckedOutFiles_vss( project, repositoryfile, user, recursive)
     endif
     let bufname='srcsafe'.idx.':'.ssprojn
     let idx=idx+1
-    if idx >10 
+    if idx >10
         let bufname='??'.winbufnr(winnr())
     endif
   endwhile
@@ -477,22 +488,22 @@ function! s:SSHistorySyntax()
  syntax region SSHistoryHeader start="^---" skip="^history" end="^" contains=SSHistoryFile
  syntax region SSHistoryFile matchgroup=SSHistoryFileLeader start="^history " matchgroup=NULL end="$"  contained
  syntax match SSHistoryVersion /\<[0-9]*\>/ contained
- syntax match SSHistoryField /\<[a-zA-Z]\+:/  
+ syntax match SSHistoryField /\<[a-zA-Z]\+:/
  syntax region SSHistoryVersionLine start="^\*\+" end="$" contains=SSHistoryVersion
 " syntax match SSHistoryCommentLeader "Comment:" contained
 " syntax match SSHistoryCommentTrailer "Comment:" contained
  syntax region SSHistoryComment matchgroup=SSHistoryCommentLeader start="^\(Label \)\=[cC]omment:" matchgroup=SSHistoryCommentTrailer end="^\*"he=s-1 contains=SSHistoryCommentLeader
  syntax region SSHistoryAction matchgroup=SSHistoryActionHead start="^\(Checked in\)\|\(Labeled\)" end="$"
-endfunction 
+endfunction
 
 highlight default SSHistoryVersionLine guifg=Maroon
 highlight default SSHistoryVersion gui=bold guifg=Maroon
 highlight default SSHistoryField gui=bold
-highlight default SSHistoryActionHead gui=bold guifg=Blue 
-highlight default link SSHistoryComment Comment 
+highlight default SSHistoryActionHead gui=bold guifg=Blue
+highlight default link SSHistoryComment Comment
 highlight default link SSHistoryCommentLeader SSHistoryField
 highlight default link SSHistoryCommentTrailer SSHistoryVersionLine
-highlight default link SSHistoryAction String 
+highlight default link SSHistoryAction String
 highlight default link SSHistoryHeader SSHistoryVersionLine
 highlight default link SSHistoryFile String
 highlight default link SSHistoryFileLeader SSHistoryActionHead
@@ -502,19 +513,21 @@ function! s:SSGetStatus(filename, repositoryfile, include_brief, ShowExtra, Show
 
   let ssname = s:SSGetRepFile(a:repositoryfile)
 
-  if ssname.'' == '' 
+  if ssname.'' == ''
     return "Not in VSS!".((a:include_brief)?"\n": '')
   endif
 
   let sBrief=''
 
-  let sCmd = 'Status -I-N "'.ssname.'"'
+  "let sCmd = 'Status -I-N "'.ssname.'"'
+  "proman
+  let sCmd = 'Status -Y'.g:scUserName.' -I-N "'.ssname.'"'
 
   let sFull = s:system(g:ssExecutable, sCmd)
   let sLine = sFull
   if (match(sFull,"No checked out files found.") == 0)
     return "Not Locked".((a:include_brief)?"\n@":'')
-  elseif (match(sFull,"is not valid SourceSafe syntax") != -1 || 
+  elseif (match(sFull,"is not valid SourceSafe syntax") != -1 ||
 \          match(sFull,"is not an existing filename or project") != -1 ||
 \          match(sFull,"has been deleted") != -1)
     return "Not in VSS".((a:include_brief)?"\n":'')
@@ -537,8 +550,8 @@ function! s:SSGetStatus(filename, repositoryfile, include_brief, ShowExtra, Show
       if match(sMatch,'\c^srcsafe:')!=-1 || match(sMatch, '^\s') != -1 || match(sMatch,'^\$') != -1
         "
       elseif is_dir || match(sMatch,'\c^'.file) == 0
-        if is_dir 
-          let file = substitute(matchstr(sMatch, '^.\{18}'),'\s*$','','') 
+        if is_dir
+          let file = substitute(matchstr(sMatch, '^.\{18}'),'\s*$','','')
         endif
         let sUser = matchstr(sMatch, ' \@<=\w\+')
         let bExclusive = match(sMatch,'\w\+\s\+\w\+\s\+Exc') > -1

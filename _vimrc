@@ -344,8 +344,8 @@ set linebreak "lbr
   "let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
 "endif
 set showbreak=...
-"set textwidth=79
-set textwidth=85
+set textwidth=69
+"set textwidth=85
 set colorcolumn=150
 "habilita sangrado inteligente
 set smartindent
@@ -1081,6 +1081,24 @@ let guifontpp_original_font_map="<M-=>"
 "hi TabLine   ctermfg=Black  ctermbg=Green   cterm=NONE
 "hi TabLineFill ctermfg=Black  ctermbg=Green   cterm=NONE
 "hi TabLineSel  ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+" csctrl {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"http://vim.sourceforge.net/scripts/script.php?script_id=770
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"ss path
+let g:ssExecutable = 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
+let g:scMenuPath       ='SourceSafe'   "menu name
+let g:scUserName       = 'proman,12345678'
+"let g:scMenuPlace      =40
+"let g:scDiffVertical   =1
+"let g:scHistVertical   =1
+"let g:scSetRuler       =1
+"let g:scMaintainStatus =1
+"let g:scShowAllLocks   =1
+"let g:scShowExtra      =1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
