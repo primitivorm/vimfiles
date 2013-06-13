@@ -48,8 +48,8 @@ nnoremap <C-A-Down> :res -1<cr>
 nnoremap <C-A-Left> :vertical res -1<cr>
 " }}}
 
-" Tab maps {{{
-"Tab navigation like Firefox
+" Tab maps {{{0
+" Tab navigation like Firefox
 nnoremap <silent><C-Tab> :tabnext<cr>
 nnoremap <silent><S-Tab> :tabprev<cr>
 nnoremap <silent><C-F4> :tabclose<cr>
@@ -89,13 +89,13 @@ function TabRight()
    else
       execute "tabm" tab_number + 1
    endif
-endfunction
+ endfunction0
 
 nnoremap <silent><A-Left> :call TabLeft()<CR>
 nnoremap <silent><A-Right> :call TabRight()<CR>
 " }}}
 
-" Easy Vim Mapping like others editors{{{
+" Easy Vim Mapping like others editors {{{
 
 "disable paste when MiddleMouse press
 "http://vim.wikia.com/wiki/Mouse_wheel_for_scroll_only_-_disable_middle_button_paste
@@ -124,6 +124,7 @@ inoremap <silent><S-Up> <Esc>vk
 inoremap <silent><S-Down> <Esc>vj
 vnoremap <silent><S-Up> k
 vnoremap <silent><S-Down> j
+
 "Change to Normal mode
 vnoremap <silent><Up> <Esc>k
 vnoremap <silent><Down> <Esc>j
@@ -191,6 +192,48 @@ vnoremap <C-l> u
 
 "insert automatically } after insert {
 inoremap {<CR> {<CR>}<Esc>O
+
+" }}}
+
+" Highlight all words when press <CR> {{{
+let g:highlighting = 0
+function! Highlighting()
+  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+    let g:highlighting = 0
+    return ":silent nohlsearch\<CR>"
+  endif
+  let @/ = '\<'.expand('<cword>').'\>'
+  let g:highlighting = 1
+  return ":silent set hlsearch\<CR>"
+endfunction
+nnoremap <silent> <expr> <CR> Highlighting()
+"nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
+"nnoremap <silent><2-LeftMouse> viw
+
+""http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle
+"" Highlight all instances of word under cursor, when idle.
+"" Useful when studying strange source code.
+"" Type z/ to toggle highlighting on/off.
+"nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+"function! AutoHighlightToggle()
+  "let @/ = ''
+  "if exists('#auto_highlight')
+    "au! auto_highlight
+    "augroup! auto_highlight
+    "setl updatetime=4000
+    ""echo 'Highlight current word: off'
+    "return 0
+  "else
+    "augroup auto_highlight
+      "au!
+      "au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    "augroup end
+    "setl updatetime=4000
+    ""echo 'Highlight current word: ON'
+    "return 1
+  "endif
+"endfunction
+"call AutoHighlightToggle()
 
 " }}}
 
@@ -359,24 +402,6 @@ function! FoldColumnToggle()
 endfunction
 " }}}
 
-" Highlight all words when press <CR> {{{
-let g:highlighting = 0
-function! Highlighting()
-  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
-    let g:highlighting = 0
-    return ":silent nohlsearch\<CR>"
-  endif
-  let @/ = '\<'.expand('<cword>').'\>'
-  let g:highlighting = 1
-  return ":silent set hlsearch\<CR>"
-endfunction
-
-nnoremap <silent> <expr> <CR> Highlighting()
-"nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
-"nnoremap <silent><2-LeftMouse> viw
-
-" }}}
-
 " XML formatter {{{
 function! DoFormatXML() range
     " Save the file type
@@ -438,7 +463,8 @@ let themeindex=0
 function! RotateColorTheme()
    let y = -1
    while y == -1
-      let colorstring = "solarized#proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#railscasts#bandit#blackboard#Sunburst#default#galaxy#amy#twilight256#candy"
+      "railscasts#amy#
+      let colorstring = "proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#bandit#blackboard#Sunburst#galaxy#default#candy#hybrid#hybrid-light#mac_classic#mickeysoft#solarized"
 
       let x = match( colorstring, "#", g:themeindex )
       let y = match( colorstring, "#", x + 1 )
@@ -623,9 +649,9 @@ nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
 nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
 " }}}
 
-"dbext {{{
-"mappings for sql files
-"execute statement
+" dbext {{{
+" mappings for sql files
+" execute statement
 autocmd FileType sql nnoremap <F5> :DBExecRangeSQL <cr>
 autocmd FileType sql nnoremap <A-F1> :DBDescribeTable <cr>
 
@@ -638,35 +664,48 @@ autocmd FileType sql nnoremap <leader>lc :DBListColumn <cr>
 " }}}
 
 " sidewise {{{
-nnoremap <leader>sl :SidewaysLeft<cr>
-nnoremap <leader>sr :SidewaysRight<cr>
+"nnoremap <leader>sl :SidewaysLeft<cr>
+"nnoremap <leader>sr :SidewaysRight<cr>
 "}}}
 
 " Syntastic {{{
 nmap <silent> <leader>y :SyntasticCheck<cr>
 " }}}
 
-" Command-t {{{
+" multiple-cursor {{{
+"https://github.com/terryma/vim-multiple-cursors
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-d>'   "like SublimeText 2
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+"go to end of word in insert mode
+inoremap <c-e> <esc>ea
+
+" }}}
+
+"" Command-t {{{
 "nnoremap <silent> <Leader>t :CommandT<CR>
 "nnoremap <silent> <Leader>b :CommandTBuffer<CR>
-" }}}
+"" }}}
 
-" HardMode {{{
- "nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-" }}}
+"" HardMode {{{
+"nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+"" }}}
 
-"  YankRing stuff {{{
+"" YankRing stuff {{{
 " let g:yankring_history_dir = $HOME.'/vimfiles/tmp'
 " nnoremap <leader>r :YRShow<CR>
-" }}}
+"" }}}
 
-" Numbers {{{
+"" Numbers {{{
 "https://github.com/myusuf3/numbers.vim
 "nnoremap <leader>n :NumbersToggle<CR>
 "nnoremap <leader>no :NumbersOnOff<CR>
-" }}}
+"" }}}
 
-""Lusty Explorer {{{
+"" Lusty Explorer {{{
 "map <Leader>lf :LustyFilesystemExplorer<cr>
 "map <Leader>lr :LustyFilesystemExplorerFromHere<cr>
 "map <Leader>lb :LustyBufferExplorer<cr>

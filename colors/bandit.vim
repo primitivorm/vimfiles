@@ -1,7 +1,7 @@
 " vim: tw=0 ts=4 sw=4 noet ft=colours_bandit foldmethod=diff
 " Vim colour file
-" Maintainer:	A. S. Budden
-
+" Maintainer: A. S. Budden
+set background=light
 hi clear
 if exists("syntax_on")
   syntax reset
@@ -143,62 +143,62 @@ let g:rainbow_delimiter_colours_defined = 1
 " ========================================================================
 
 function! s:MakeDarker(rgb)
-	let rgbSplitter = '^#\(\x\{2}\)\(\x\{2}\)\(\x\{2}\)$'
-	let matches = matchlist(a:rgb, rgbSplitter)
-	if empty(matches)
-		return a:rgb
-	endif
-	let Red = matches[1]
-	let Green = matches[2]
-	let Blue = matches[3]
-	let percentage = 70
-	let darken_above_here = 0x7f*3
+  let rgbSplitter = '^#\(\x\{2}\)\(\x\{2}\)\(\x\{2}\)$'
+  let matches = matchlist(a:rgb, rgbSplitter)
+  if empty(matches)
+    return a:rgb
+  endif
+  let Red = matches[1]
+  let Green = matches[2]
+  let Blue = matches[3]
+  let percentage = 70
+  let darken_above_here = 0x7f*3
 
-	let Red = str2nr(Red, 16)
-	let Green = str2nr(Green, 16)
-	let Blue = str2nr(Blue, 16)
-	if (Red+Green+Blue) < darken_above_here
-		return a:rgb
-	endif
+  let Red = str2nr(Red, 16)
+  let Green = str2nr(Green, 16)
+  let Blue = str2nr(Blue, 16)
+  if (Red+Green+Blue) < darken_above_here
+    return a:rgb
+  endif
 
-	let Red = Red*percentage/100
-	let Green = Green*percentage/100
-	let Blue = Blue*percentage/100
+  let Red = Red*percentage/100
+  let Green = Green*percentage/100
+  let Blue = Blue*percentage/100
 
-	let result = printf("#%02x%02x%02x", Red, Green, Blue)
+  let result = printf("#%02x%02x%02x", Red, Green, Blue)
 
-	return result
-	
+  return result
+
 endfunction
 
 
 " Now change those that are different for the light background
 if &background == 'light'
-	" Automatically change any LightXxxxx Colours to DarkXxxxx
-	for s:group in keys(ColourAssignment)
-		for s:Component in keys(ColourAssignment[s:group])
-			if match(ColourAssignment[s:group][s:Component], 'Light') == 0
-				let ColourAssignment[s:group][s:Component] = 'Dark'.ColourAssignment[s:group][s:Component][5:]
-			elseif match(ColourAssignment[s:group][s:Component], '^#\x\{6}$') != -1
-				let ColourAssignment[s:group][s:Component] = s:MakeDarker(ColourAssignment[s:group][s:Component])
-			endif
-		endfor
-	endfor
+  " Automatically change any LightXxxxx Colours to DarkXxxxx
+  for s:group in keys(ColourAssignment)
+    for s:Component in keys(ColourAssignment[s:group])
+      if match(ColourAssignment[s:group][s:Component], 'Light') == 0
+        let ColourAssignment[s:group][s:Component] = 'Dark'.ColourAssignment[s:group][s:Component][5:]
+      elseif match(ColourAssignment[s:group][s:Component], '^#\x\{6}$') != -1
+        let ColourAssignment[s:group][s:Component] = s:MakeDarker(ColourAssignment[s:group][s:Component])
+      endif
+    endfor
+  endfor
 
-	" Now add manual alterations
-	let ColourAssignment['Normal']              = {"GUIFG": 'Black',     "GUIBG": 'White'}
-	let ColourAssignment['Comment']["GUIFG"]    = 'DarkGreen'
-	let ColourAssignment['String']["GUIFG"]     = '#663300'
-	let ColourAssignment['String']["CTERMFG"]   = 'DarkYellow'
-	let ColourAssignment['Union']["GUIFG"]      = 'DarkGrey'
-	let ColourAssignment['Identifier']["GUIFG"] = 'Blue'
-	let ColourAssignment['Operator']["GUIFG"]   = '#222288'
-	let ColourAssignment['LineNr']["GUIBG"]     = 'Grey'
-	let ColourAssignment['StatusLine']["GUIBG"] = 'Black'
-	let ColourAssignment['StatusLine']["GUIFG"] = 'White'
-	let ColourAssignment['SignColumn']["GUIBG"] = "LightGrey"
-	let ColourAssignment['SpecialKey']["GUIFG"] = '#AAAAAA'
-	let ColourAssignment['NonText']["GUIFG"]    = '#AAAAAA'
+  " Now add manual alterations
+  let ColourAssignment['Normal']              = {"GUIFG": 'Black',     "GUIBG": 'White'}
+  let ColourAssignment['Comment']["GUIFG"]    = 'DarkGreen'
+  let ColourAssignment['String']["GUIFG"]     = '#663300'
+  let ColourAssignment['String']["CTERMFG"]   = 'DarkYellow'
+  let ColourAssignment['Union']["GUIFG"]      = 'DarkGrey'
+  let ColourAssignment['Identifier']["GUIFG"] = 'Blue'
+  let ColourAssignment['Operator']["GUIFG"]   = '#222288'
+  let ColourAssignment['LineNr']["GUIBG"]     = 'Grey'
+  let ColourAssignment['StatusLine']["GUIBG"] = 'Black'
+  let ColourAssignment['StatusLine']["GUIFG"] = 'White'
+  let ColourAssignment['SignColumn']["GUIBG"] = "LightGrey"
+  let ColourAssignment['SpecialKey']["GUIFG"] = '#AAAAAA'
+  let ColourAssignment['NonText']["GUIFG"]    = '#AAAAAA'
 endif
 
 hi Ignore ctermfg=DarkGrey guifg=grey20
@@ -206,70 +206,70 @@ hi Ignore ctermfg=DarkGrey guifg=grey20
 " Unless there is a need to change the links at the bottom, don't change anything below this line
 
 let s:colours = {}
-let valid_cterm_colours = 
-			\ [
-			\     'Black', 'DarkBlue', 'DarkGreen', 'DarkCyan',
-			\     'DarkRed', 'DarkMagenta', 'Brown', 'DarkYellow',
-			\     'LightGray', 'LightGrey', 'Gray', 'Grey',
-			\     'DarkGray', 'DarkGrey', 'Blue', 'LightBlue',
-			\     'Green', 'LightGreen', 'Cyan', 'LightCyan',
-			\     'Red', 'LightRed', 'Magenta', 'LightMagenta',
-			\     'Yellow', 'LightYellow', 'White',
-			\ ]
+let valid_cterm_colours =
+      \ [
+      \     'Black', 'DarkBlue', 'DarkGreen', 'DarkCyan',
+      \     'DarkRed', 'DarkMagenta', 'Brown', 'DarkYellow',
+      \     'LightGray', 'LightGrey', 'Gray', 'Grey',
+      \     'DarkGray', 'DarkGrey', 'Blue', 'LightBlue',
+      \     'Green', 'LightGreen', 'Cyan', 'LightCyan',
+      \     'Red', 'LightRed', 'Magenta', 'LightMagenta',
+      \     'Yellow', 'LightYellow', 'White',
+      \ ]
 for key in keys(ColourAssignment)
-	let s:colours = ColourAssignment[key]
-	if has_key(s:colours, 'TERM')
-		let term = s:colours['TERM']
-	else
-		let term = 'NONE'
-	endif
-	if has_key(s:colours, 'GUI')
-		let gui = s:colours['GUI']
-	else
-		let gui='NONE'
-	endif
-	if has_key(s:colours, 'GUIFG')
-		let guifg = s:colours['GUIFG']
-	else
-		let guifg='NONE'
-	endif
-	if has_key(s:colours, 'GUIBG')
-		let guibg = s:colours['GUIBG']
-	else
-		let guibg='NONE'
-	endif
-	if has_key(s:colours, 'CTERM')
-		let cterm = s:colours['CTERM']
-	else
-		let cterm=gui
-	endif
-	if has_key(s:colours, 'CTERMFG')
-		let ctermfg = s:colours['CTERMFG']
-	else
-		if index(valid_cterm_colours, guifg) != -1
-			let ctermfg=guifg
-		else
-			let ctermfg='Blue'
-		endif
-	endif
-	if has_key(s:colours, 'CTERMBG')
-		let ctermbg = s:colours['CTERMBG']
-	else
-		if index(valid_cterm_colours, guibg) != -1
-			let ctermbg=guibg
-		else
-			let ctermbg='NONE'
-		endif
-	endif
-	if has_key(s:colours, 'GUISP')
-		let guisp = s:colours['GUISP']
-	else
-		let guisp='NONE'
-	endif
+  let s:colours = ColourAssignment[key]
+  if has_key(s:colours, 'TERM')
+    let term = s:colours['TERM']
+  else
+    let term = 'NONE'
+  endif
+  if has_key(s:colours, 'GUI')
+    let gui = s:colours['GUI']
+  else
+    let gui='NONE'
+  endif
+  if has_key(s:colours, 'GUIFG')
+    let guifg = s:colours['GUIFG']
+  else
+    let guifg='NONE'
+  endif
+  if has_key(s:colours, 'GUIBG')
+    let guibg = s:colours['GUIBG']
+  else
+    let guibg='NONE'
+  endif
+  if has_key(s:colours, 'CTERM')
+    let cterm = s:colours['CTERM']
+  else
+    let cterm=gui
+  endif
+  if has_key(s:colours, 'CTERMFG')
+    let ctermfg = s:colours['CTERMFG']
+  else
+    if index(valid_cterm_colours, guifg) != -1
+      let ctermfg=guifg
+    else
+      let ctermfg='Blue'
+    endif
+  endif
+  if has_key(s:colours, 'CTERMBG')
+    let ctermbg = s:colours['CTERMBG']
+  else
+    if index(valid_cterm_colours, guibg) != -1
+      let ctermbg=guibg
+    else
+      let ctermbg='NONE'
+    endif
+  endif
+  if has_key(s:colours, 'GUISP')
+    let guisp = s:colours['GUISP']
+  else
+    let guisp='NONE'
+  endif
 
-	if key =~ '^\k*$'
-		execute "hi ".key." term=".term." cterm=".cterm." gui=".gui." ctermfg=".ctermfg." guifg=".guifg." ctermbg=".ctermbg." guibg=".guibg." guisp=".guisp
-	endif
+  if key =~ '^\k*$'
+    execute "hi ".key." term=".term." cterm=".cterm." gui=".gui." ctermfg=".ctermfg." guifg=".guifg." ctermbg=".ctermbg." guibg=".guibg." guisp=".guisp
+  endif
 endfor
 
 hi! link MoreMsg        Comment

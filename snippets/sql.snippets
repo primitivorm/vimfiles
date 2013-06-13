@@ -1,0 +1,63 @@
+#############################################################
+# my snippets for csharp code
+#############################################################
+#select
+snippet sel
+    SELECT ${1:column_name}
+    FROM [dbo].[${2:table_name}]
+    WHERE ${3:conditional}
+# proc
+snippet proc
+   IF EXISTS (
+      SELECT 1
+      FROM dbo.sysobjects
+      WHERE id = object_id(N'[dbo].[${1:procedure_name}]')
+        AND objectproperty(id, N'IsProcedure') = 1
+      )
+  BEGIN
+    DROP PROCEDURE [dbo].[$1]
+    PRINT 'Eliminando [dbo].[$1]'
+  END
+  GO
+  -- =============================================
+  -- Author:  ${6:BSD->Primitivo R. Montero}
+  -- Create date: ${2:dd}-${3:mmm}-${4:yyyy}
+  -- Description: ${5}
+  -- Parameters:
+      <parameter_list - description>
+  -- =============================================
+  -- Usage:
+  --  1) exec [dbo].[$1] <parameter_list>
+  -- =============================================
+  PRINT 'Creando [dbo].[$1]'
+  GO
+  SET ANSI_NULLS ON
+  GO
+  SET QUOTED_IDENTIFIER ON
+  GO
+  CREATE PROCEDURE [dbo].[$1]
+  ${7:parameter_list}
+  AS
+  BEGIN
+    SET NOCOUNT ON
+    --select statement here
+  END
+  GO
+# parameters
+snippet paramv
+  @p${1:parameter_name} varchar(${2:length})${3}
+snippet parami
+  @p${1:parameter_name} int${2}
+snippet paramn
+  @p${1:parameter_name} numeric(${2:length},
+  ${3:precision})${4}
+# joins
+snippet join
+    INNER JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
+        ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}
+snippet ljoin
+    LEFT JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
+        ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}
+snippet rjoin
+    RIGHT JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
+        ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}

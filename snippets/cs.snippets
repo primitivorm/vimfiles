@@ -3,100 +3,111 @@
 #############################################################
 # header
 snippet header
-	/*
-	*********************************************************
-	*  Nombre: ${1:`Filename()`}.cs
-	*********************************************************
-	*  Autor: ${6:BSD->Primitivo R. Montero}
-	*  Fecha de creación: ${2}-${3}-${4}
-	*  Descripción: ${5}
-	*++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	*  Modificaciones:
-	*  Persona              Fecha            Motivo
-	*
-	*********************************************************
-	*/
-	${7}
+  /*
+  *********************************************************
+  *  Nombre: ${1:`Filename()`}.cs
+  *********************************************************
+  *  Autor: ${6:BSD->Primitivo R. Montero}
+  *  Fecha de creación: ${2:dd}-${3:mmm}-${4:yyyy}
+  *  Descripción: ${5}
+  *********************************************************
+  *  Modificaciones:
+  *  Persona              Fecha            Motivo
+  *
+  *********************************************************
+  */
+  ${7}
 # if else
 snippet ifel
-	if (${1}) {
-		${2}
-	}else {
-		${3}
-	}
+  if (${1}) {
+    ${2}
+  }else {
+    ${3}
+  }
+# try catch finally
 snippet try
-	try{
-		${1}
-	}catch(Exception){
-		throw;
-	}
+  try{
+    ${1}
+  }catch(Exception){
+    throw;
+  }
 snippet tryf
-	try{
-		${1}
-	}finally{
-		${2}
-	}
+  try{
+    ${1}
+  }finally{
+    ${2}
+  }
 snippet trycf
-	try{
-		${1}
-	}catch(Exception){
-		throw;
-	}finally{
-		${2}
-	}
+  try{
+    ${1}
+  }catch(Exception){
+    throw;
+  }finally{
+    ${2}
+  }
+# namespace
 snippet name
-	namespace ${1}{
-		${2}
-	}
-snippet using
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
+  namespace ${1}{
+    ${2}
+  }
+# import (using)
+snippet import
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+  using System.Text;
+# properties
 snippet props
-	private ${2:string} _${1:property_name};
-	/// <summary>
-	/// Obtiene o Establece $1
-	/// </summary>
-	public $2 ${3:$1} {
-		get { return _$1; }
-		set { _$1 = value; }
-	}${4}
+  private ${2:string} _${1:property_name};
+  /// <summary>
+  /// Obtiene o Establece $1
+  /// </summary>
+  public $2 ${3:$1} {
+    get { return _$1; }
+    set { _$1 = value; }
+  }${4}
 snippet propg
-	public ${2:string} ${1:property_name} {
-		get;
-		private set;
-	}${3}
+  public ${2:string} ${1:property_name} {
+    get;
+    private set;
+  }${3}
 snippet privs
-	private string _${1:property_name} = string.Empty;
+  private string _${1:property_name} = string.Empty;
 snippet get
-	get { return ${1:private_param}; }
+  get { return _${1:private_param}; }
 snippet set
-	set { ${1:private_param;} = value; }
+  set { _${1:private_param} = value; }
+# region
 snippet region
-	#region ${1:region_name}
-		${2}
-	#endregion
+  #region ${1:region_name}
+    ${2}
+  #endregion
+# using
+snippet using
+  using (${1:resource}){
+  }
+# function
 snippet fun
-	${0:public} ${1:return_type} ${2:function_name} (${3:param_type} ${4:param_name}) {
-		return $1;
-	}
+  ${0:public} ${1:return_type} ${2:function_name} (${3:param_type} ${4:param_name}) {
+    return $1;
+  }
+# database layer
 snippet funds
-	private DataSet ${1:function_name} ( ${2:string} ${3:param_name} ){
-		DataSet dsDatos = new DataSet();
-		IDBManager oMan = null;
-		try{
-			oMan = new DBManager(DataProvider.SqlServer);
-			oMan.ConnectionString = Conexion;
-			oMan.ClearParameters();
-			oMan.AddParameters(0, "@p$3", $3);
-			oMan.Open();
-			dsDatos = oMan.ExecuteDataSet(CommandType.StoredProcedure, "${4:sp_name}");
-		}catch (Exception){
-			throw;
-		}finally{
-			oMan.Close();
-			oMan = null;
-		}
-		return dsDatos;
-	}
+  private DataSet ${1:function_name} ( ${2:string} ${3:param_name} ){
+    DataSet dsDatos = new DataSet();
+    IDBManager oMan = null;
+    try{
+      oMan = new DBManager(DataProvider.SqlServer);
+      oMan.ConnectionString = Conexion;
+      oMan.ClearParameters();
+      oMan.AddParameters(0, "@p$3", $3);
+      oMan.Open();
+      dsDatos = oMan.ExecuteDataSet(CommandType.StoredProcedure, "${4:sp_name}");
+    }catch (Exception){
+      throw;
+    }finally{
+      oMan.Close();
+      oMan = null;
+    }
+    return dsDatos;
+  }

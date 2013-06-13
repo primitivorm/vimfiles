@@ -43,65 +43,70 @@ perl -MCPAN -e "CPAN::Shell->force(qw(install App::Ack));"      ->install ack de
 <Leader>nr  -> narrow code
 :Scratch    -> open a temporal file
 :Sscratch   -> To open the scratch buffer in a new split window
-ggvG=		-> autoindent entire file
-ctrl-w _	maximise height of current window
-ctrl-w |	maximise width of current window
-:sp[lit] filename	split the current window horizontally, loading filename in the new window
-:vsp[lit] filename	split the current window vertically, loading filename in the new window
-g; | g,		-> moving around changelist
-:changes	-> view changelist
-ctrl-O |	ctrl-I	-> moving around jumps
-:jumps	-> view jumps
-ctrl-]		-> moving around documentation files
+ggvG=   -> autoindent entire file
+ctrl-w _  maximise height of current window
+ctrl-w |  maximise width of current window
+:sp[lit] filename split the current window horizontally, loading filename in the new window
+:vsp[lit] filename  split the current window vertically, loading filename in the new window
+g; | g,   -> moving around changelist
+:changes  -> view changelist
+ctrl-O |  ctrl-I  -> moving around jumps
+:jumps  -> view jumps
+ctrl-]    -> moving around documentation files
 The gq{motion} command will format a section of text. The ip motion selects the current paragraph, so gqip applies formatting to the current paragraph.
-:h highlighting-group	-> show highlighting groups for colorschema
-:MRU	-> open most recent files
-/\v		-> very magic search
-ctrl-p	Show previous historical command/search
-ctrl-n	Show next historical command/search
-ctrl-f	Switch from commandline mode to the commandline window
-q/	Open the commandline window with history of searches
-q:	Open the commandline window with history of commands
-ctrl-f	Switch from commandline mode to the commandline window
-:MinimapSync	-> open minimap as sublime text 2
-<leader>'	-> open minimap state
-<leader>cf	->copy namefile into clipboard
-<leader>cf	->copy namefile into clipboard
-<leader><F2>	->call HexHighlight
-<F1>	->Help
-<F2>	->Taglist
-<C-F2>	->Tagbar
-<F3>	->NERDTreeToggle
-<F4>	->QuickBuf
+:h highlighting-group -> show highlighting groups for colorschema
+:MRU  -> open most recent files
+/\v   -> very magic search
+ctrl-p  Show previous historical command/search
+ctrl-n  Show next historical command/search
+ctrl-f  Switch from commandline mode to the commandline window
+q/  Open the commandline window with history of searches
+q:  Open the commandline window with history of commands
+ctrl-f  Switch from commandline mode to the commandline window
+:MinimapSync  -> open minimap as sublime text 2
+<leader>' -> open minimap state
+<leader>cf  ->copy namefile into clipboard
+<leader>cf  ->copy namefile into clipboard
+<leader><F2>  ->call HexHighlight
+<F1>  ->Help
+<F2>  ->Taglist
+<C-F2>  ->Tagbar
+<F3>  ->NERDTreeToggle
+<F4>  ->QuickBuf
 {range}copy{address} | {range}t{address}
 {range}put{address}
 {range}yank{address}
-<leader>xm		-> Formatting xml files
-"https://github.com/terryma/vim-multiple-cursors
-"multiple-cursor-selection
-After you've marked all your locations with Ctrl-n, you can change the visual selection with normal Vim motion commands in Visual mode.
-You could go to Normal mode by pressing v and wield your motion commands there.
-Single key command to switch to Insert mode such as c or s from Visual mode or i, a, I, A in Normal mode should work without any issues.
-At any time, you can press <Esc> to exit back to regular Vim.
+<leader>xm    -> Formatting xml files
 :argdo edit! -> revert last change command
-:argdo %s/\a/*/ge	-> avoid message errors
-:silent argdo %s/\a/*/ge	-> avoid message errors
-:silent! argdo %s/\a/*/g	-> avoid message errors
-<C-r>{register}				-> On the command line, you can paste the contents of a register by pressing
+:argdo %s/\a/*/ge -> avoid message errors
+:silent argdo %s/\a/*/ge  -> avoid message errors
+:silent! argdo %s/\a/*/g  -> avoid message errors
+<C-r>{register}       -> On the command line, you can paste the contents of a register by pressing
 Press crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case (crs), and UPPER_CASE (cru)
-<C-c>	->start SQLComplete
-<leader>if		->reindent file
-<leader>ft		->create folding for html
-<leader>qf		->call quickfix
-<leader>fc		->call FoldColumnToggle
-<leader>fx		->:FormatXML
-<C-o>		-> in insert mode allow to ejecute a normal command
-:%!xxd	-> ver archivo en hexadecimal
+<C-c> ->start SQLComplete
+<leader>if    ->reindent file
+<leader>ft    ->create folding for html
+<leader>qf    ->call quickfix
+<leader>fc    ->call FoldColumnToggle
+<leader>fx    ->:FormatXML
+<C-o>   -> in insert mode allow to ejecute a normal command
+:%!xxd  -> ver archivo en hexadecimal
+:g/vim/ normal @a   -> ejecute a macro in a search specific pattern
+"add support for vim SourceSafe
+vss:@\\10.48.68.8\biam_incidencias\DevAutomarshv3_1@$/AUTOMARSH_SitiosEsp/Framework35/MMC.AutoMarsh.Core.root/MMC.AutoMarsh.Core/MMC.AutoMarsh.Core.Entities
+
+
+-----------------------------------------------
+macros
+-----------------------------------------------
+let @a = 'must have ^M literal chars'
+let @a = "can have \<cr> escaped markup"
+-----------------------------------------------
 
 -----------------------------------------------
 my Refactor
 -----------------------------------------------
-<leader>rp 		-> 	Create a Property based on a word with CamelCase format
+<leader>rp    ->  Create a Property based on a word with CamelCase format
 -----------------------------------------------
 
 -----------------------------------------------
@@ -120,7 +125,10 @@ vim completion
 
 -----------------------------------------------
 multiple-cursor
+"https://github.com/terryma/vim-multiple-cursors
 -----------------------------------------------
+After you've marked all your locations with Ctrl-n, you can change the visual selection with normal Vim motion commands in Visual mode. You could go to Normal mode by pressing v and wield your motion commands there. Single key command to switch to Insert mode such as c or s from Visual mode or i, a, I, A in Normal mode should work without any issues.
+
 Example 1: next word occurrence
 
     jump to p with fp
@@ -165,24 +173,24 @@ Example 4: regular expression
 -----------------------------------------------
 spell
 -----------------------------------------------
-]s	-> go to next spell check
-[s	-> go to previous spell check
-z=	-> show correct list options
-1z=		-> change to 1 coincidence
-zg		-> add word from the spelling dictionary
-zw		-> remove word from the spelling dictionary
+]s  -> go to next spell check
+[s  -> go to previous spell check
+z=  -> show correct list options
+1z=   -> change to 1 coincidence
+zg    -> add word from the spelling dictionary
+zw    -> remove word from the spelling dictionary
 zug     -> revert change add
-zuw		-> revert change remove
+zuw   -> revert change remove
 -----------------------------------------------
 
 -----------------------------------------------
 SQLComplete
 -----------------------------------------------
-	<C-C>t		-> Table List		   -
-	<C-X><C-O>	-> (the default map assumes tables)
-	<C-C>p		-> Stored Procedure List -
-	<C-C>v		-> View List		   -
-	<C-C>c		-> Column List	   -
+  <C-C>t    -> Table List      -
+  <C-X><C-O>  -> (the default map assumes tables)
+  <C-C>p    -> Stored Procedure List -
+  <C-C>v    -> View List       -
+  <C-C>c    -> Column List     -
 -----------------------------------------------
 
 -----------------------------------------------
@@ -278,8 +286,9 @@ yy@"     : same
 -----------------------------------------------
 Substitution
 -----------------------------------------------
-:%s/\s\+$//e		-> delete space at end file
-:g/^$/d				-> delete blank lines
+:s/\d\+/\=submatch(0) + 1/
+:%s/\s\+$//e    -> delete space at end file
+:g/^$/d       -> delete blank lines
 :%s/fred/joe/igc           : general substitute command
 :%s/\r//g                  : delete DOS Carriage Returns (^M)
 :'a,'bg/fred/s/dick/joe/gc : VERY USEFUL
@@ -350,18 +359,18 @@ o   cursor de selección al principio/fin del marcado
 gv  empezar a marcar utilizando última zona marcada
 aw as ap    seleccionar una palabra, oración, párrafo
 ab aB   seleccionar un bloque ( ), un bloque { }
-Vip		-> selecciona el parrafo actual
-vit		-> selecciona entre tag html
-v^h		-> select hidden characters
+Vip   -> selecciona el parrafo actual
+vit   -> selecciona entre tag html
+v^h   -> select hidden characters
 -----------------------------------------------
 visual block selection
 -----------------------------------------------
-c	change selection (delete and switch to insert mode)
-I	insert in front of cursor
-A	append after cursor
-r	replace every character in selection
-d	delete selection
-o	toggle cursor to opposite corner
+c change selection (delete and switch to insert mode)
+I insert in front of cursor
+A append after cursor
+r replace every character in selection
+d delete selection
+o toggle cursor to opposite corner
 -----------------------------------------------
 Deshacer, repetir & registros
 -----------------------------------------------
@@ -456,7 +465,7 @@ s+n s-n n caract. der., izq. del final del matcheo
 Marcas y movimiento
 -----------------------------------------------
 mc  marcar posición actual con marca c ∈[a..Z]
-d'a		deletes mark a
+d'a   deletes mark a
 `c `C   ir a marca c en archivo actual, cualquier archivo
 `0..9   ir a última posición de salida
 `` `"   ir a posición antes del salto, de última edición
@@ -547,15 +556,15 @@ zd zE   borrar pliegue activo, todos los de la ventana
 zo zc zO zC abrir, cerrar un pliegue; recursivamente
 [z ]z   ir al comienzo, fin del pliegue actual
 zj zk   ir abajo, arriba del comienzo, fin de sig. pliegue
-zi	switch folding on or off
-za	toggle current fold open/closed
-zc	close current fold
-zR	open all folds
-zM	close all folds
-zv	expand folds to reveal cursor
-zA	recursively open/close current fold
-zm	reduce `foldlevel` by one
-zr	increase `foldlevel` by one
+zi  switch folding on or off
+za  toggle current fold open/closed
+zc  close current fold
+zR  open all folds
+zM  close all folds
+zv  expand folds to reveal cursor
+zA  recursively open/close current fold
+zm  reduce `foldlevel` by one
+zr  increase `foldlevel` by one
 -----------------------------------------------
 
 -----------------------------------------------
@@ -672,12 +681,12 @@ refactor
 https://github.com/vim-scripts/refactor
 -----------------------------------------------
 The refactor commands and their default key map currently are:
-	1. <A-r>e	Extract method
-	2. <A-r>p	local variable to Parameter
-	3. <A-r>r	 Rename local variable
-	4. <A-r>d	Delete parameter
-	5. <A-r>o	reOrder parameters
-	6. <A-r>c	introduce Constant
+  1. <A-r>e Extract method
+  2. <A-r>p local variable to Parameter
+  3. <A-r>r  Rename local variable
+  4. <A-r>d Delete parameter
+  5. <A-r>o reOrder parameters
+  6. <A-r>c introduce Constant
 -----------------------------------------------
 
 -----------------------------------------------
@@ -1097,11 +1106,11 @@ http://ctags.sourceforge.net/ctags.html#FILES
 -----------------------------------------------
 git-fugitive
 -----------------------------------------------
-git		fugitive	action
-:Git add %	:Gwrite		Stage the current file to the index
-:Git checkout %		:Gread	Revert current file to last checked in version
-:Git rm %	:Gremove	Delete the current file and the corresponding Vim buffer
-:Git mv %	:Gmove	Rename the current file and the corresponding Vim buffer
+git   fugitive  action
+:Git add %  :Gwrite   Stage the current file to the index
+:Git checkout %   :Gread  Revert current file to last checked in version
+:Git rm % :Gremove  Delete the current file and the corresponding Vim buffer
+:Git mv % :Gmove  Rename the current file and the corresponding Vim buffer
 -----------------------------------------------
 
 -----------------------------------------------
@@ -1155,36 +1164,48 @@ Gist
 QuickBuf
 -----------------------------------------------
 Press the assigned hotkey to activate QuickBuf (default <F4>). It brings out a list of buffers that you can browse and give commands on! Some indicators in the list:
-	- * : the buffer being opened in the active window
-	- = : a buffer being opened in a window, but not active
-	- [+] : modifed buffer
+  - * : the buffer being opened in the active window
+  - = : a buffer being opened in a window, but not active
+  - [+] : modifed buffer
 + Use k/j or <Up>/<Down> keys to select the buffer.
 + Press a key to give a command to the currently selected buffer
-	- d : delete buffer
-	- w : wipe out buffer
-	- s : open buffer in a new horizontally split window
-	- u : open buffer
-	- <enter> : open buffer and leave QuickBuf; if the	buffer is already opened in a window, switch to that window.
+  - d : delete buffer
+  - w : wipe out buffer
+  - s : open buffer in a new horizontally split window
+  - u : open buffer
+  - <enter> : open buffer and leave QuickBuf; if the  buffer is already opened in a window, switch to that window.
+-----------------------------------------------
+
+-----------------------------------------------
+VimPdb
+https://code.google.com/p/vimpdb/
+-----------------------------------------------
+F5 - Run/continue running.
+F2 - Toggle breakpoint at current line
+Ctrl-F2 / Shift-F2 - Toggle conditional/temporary breakpoint.
+F7 / F8 - Step into/over
+F12 - Print stack trace
+F3 / Ctrl-F3 - Eval/Exec a given statement (in the current debugging context)
 -----------------------------------------------
 
 -----------------------------------------------
 vimpdb commands
 https://github.com/gotcha/vimpdb
 -----------------------------------------------
-Ex Command	Key binding		Details
-:PDBNext	n	pdb (n)ext
-:PDBStep	s	pdb (s)tep
-:PDBArgs	a	pdb (a)rgs
-:PDBUp	u	pdb (u)p
-:PDBDown	d	pdb (d)own
-:PDBReturn	r	pdb (r)eturn
-:PDBContinue	c	pdb (c)ontinue
-:PDBBreak	b	Sets a breakpoint at the line on which the cursor is sitting; similar to pdb b(reak)
-:PDBClear	B	Clears a breakpoint at the line on which the cursor is sitting; similar to pdb cl(ear)
-:PDBWord	w	Evaluates the value of the identifier on which the cursor is sitting.
-:PDBEval	?	Evaluates a Python expression after having asked for it.
-:PDBReset	x	Switch back to normal debugging in shell with standard pdb.
-N/A		v(im)	Switch back to vimpdb; only in plain pdb.
+Ex Command  Key binding   Details
+:PDBNext  n pdb (n)ext
+:PDBStep  s pdb (s)tep
+:PDBArgs  a pdb (a)rgs
+:PDBUp  u pdb (u)p
+:PDBDown  d pdb (d)own
+:PDBReturn  r pdb (r)eturn
+:PDBContinue  c pdb (c)ontinue
+:PDBBreak b Sets a breakpoint at the line on which the cursor is sitting; similar to pdb b(reak)
+:PDBClear B Clears a breakpoint at the line on which the cursor is sitting; similar to pdb cl(ear)
+:PDBWord  w Evaluates the value of the identifier on which the cursor is sitting.
+:PDBEval  ? Evaluates a Python expression after having asked for it.
+:PDBReset x Switch back to normal debugging in shell with standard pdb.
+N/A   v(im) Switch back to vimpdb; only in plain pdb.
 -----------------------------------------------
 
 -----------------------------------------------
@@ -1198,9 +1219,9 @@ git submodule add git://github.com/tpope/vim-fugitive.git bundle/vim-fugitive
 git submodule update
 git commit -m 'Added vim-fugitive'
 git push
-git remote add origin https://github.com/primitivorm/emacs.git		-> add origin
-git push origin master		-> push in the master branch
-git pull origin master		-> get lastest version from master and resolve conflicts
+git remote add origin https://github.com/primitivorm/emacs.git    -> add origin
+git push origin master    -> push in the master branch
+git pull origin master    -> get lastest version from master and resolve conflicts
 git pull -s recursive -X theirs
 
 -> to resolve merge conflicts
@@ -1518,3 +1539,12 @@ https://github.com/mattsacks/vim-complete
 <Leader>kf :call Complete('F')<CR>
 <Leader>kj :call Complete('F app/javascripts*')<CR>
 -----------------------------------------------
+
+
+Vim commands can also be specified in a file which is executed using the -s option:
+    vim -s commands.txt file
+Example:
+    echo 'gg=G' > indent.txt
+    echo ':wq' >> indent.txt
+    vim -s indent.txt file
+This will use Vim to indent the contents of file, save and exit.

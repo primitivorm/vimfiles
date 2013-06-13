@@ -34,4 +34,5 @@ bufkill         http://www.vim.org/scripts/script.php?script_id=1147
 +command-t       https://github.com/wincent/Command-T
 SQLUtilities    http://www.vim.org/scripts/script.php?script_id=492
 refactor        http://www.vim.org/scripts/script.php?script_id=2087
-+srcctl 		http://vim.sourceforge.net/scripts/script.php?script_id=770
++srcctl			http://vim.sourceforge.net/scripts/script.php?script_id=770
++https://github.com/OrangeT/vim-csharp

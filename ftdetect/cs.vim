@@ -16,3 +16,34 @@ au BufRead,BufNewFile *.cs vnoremap <A-r>st <esc>gv"zdOtry {<cr>} catch (Excepti
 au BufRead,BufNewFile *.cs vnoremap <A-r>sf <esc>gv"zdOforeach (var item in collection) {<cr>}<esc>"zP?collection<cr>viw
 au BufRead,BufNewFile *.cs vnoremap <A-r>sw <esc>gv"zdOwhile (true) {<cr>}<esc>"zP?true<cr>viw
 au BufRead,BufNewFile *.cs vnoremap <A-r>su <esc>gv"zdOusing (resource) {<cr>}<esc>"zP?resource<cr>viw
+
+"Create a field in a xsd file
+au BufRead,BufNewFile *.xsd nnoremap <A-r>xs :call XsdAddColumn()<cr>
+au BufRead,BufNewFile *.xsd vnoremap <A-r>xs :call XsdAddColumn()<cr>
+
+"format statement like visual studio
+function! FormatStatement()
+  let line = getline('.')
+  let pattern = '\v([\+|\-|\*|\/|\%|\=|!|<|>]+)'
+  let line = substitute(line, pattern, ' \1 ',  'g')
+  let pattern = '\v([\{|\}|\(|\)|\[|\]|;|,])'
+  let line = substitute(line, pattern, ' \1 ',  'g')
+  let pattern = '\v([A-z])\s+([+-]{2})'
+  let line = substitute(line, pattern, '\1\2', 'g')
+  let pattern = '\v([+-]{2})\s+([A-z])'
+  let line = substitute(line, pattern, '\1\2', 'g')
+  let line = substitute(line, '\v\s+([;,])', '\1',  'g')
+  let line = substitute(line, '\s\+', ' ',  'g')
+  let line = substitute(line, '\s\+$', '',  'g')
+  call setline('.', line)
+  exec 'normal! V=$l'
+  startinsert
+  return
+endfunction
+
+au BufRead,BufNewFile *.cs nnoremap <leader>fs :call FormatStatement()<cr>
+au BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
+
+function! XsdAddColumn()
+  normal "zywI<xs:element name="wea" msprop:Generator_UserColumnName=""zpa" msprop:Generator_ColumnPropNameInRow=""zpa" msprop:Generator_ColumnVarNameInTable="column"zpa" msprop:Generator_ColumnPropNameInTable=""zpaColumn" type="xs:string" minOccurs="0" />j0
+endfunction

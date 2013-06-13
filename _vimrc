@@ -46,10 +46,8 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-abolish'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -78,25 +76,20 @@ Bundle 'powerman/vim-plugin-viewdoc'
 Bundle 'xolox/vim-shell'
 Bundle 'Shougo/vimshell'
 Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'Shougo/vimproc'
 Bundle 'xolox/vim-session'
-"Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/powerline-fonts'
+"Bundle 'fromonesrc/monaco-powerline-vim'
 Bundle 'wavded/vim-stylus'
 Bundle 'heaths/vim-msbuild'
 Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'Rykka/colorv.vim'
 Bundle 'guns/xterm-color-table.vim'
-Bundle 'AndrewRadev/sideways.vim'
-Bundle 'AndrewRadev/switch.vim'
 Bundle 'leshill/vim-json'
 Bundle 'rking/ag.vim'
 Bundle 'mutewinter/vim-css3-syntax'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tomtom/tlib_vim'
-Bundle 'tomtom/tcomment_vim'
 Bundle 'tomtom/tplugin_vim'
 Bundle 'tomtom/stakeholders_vim'
 Bundle 'tomtom/templator_vim'
@@ -108,28 +101,22 @@ Bundle 'shemerey/vim-project'
 Bundle 'ghewgill/vim-scmdiff'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
-Bundle 'SirVer/ultisnips'
-Bundle 'kana/vim-textobj-user'
 Bundle 'Raimondi/delimitMate'
 Bundle 'biruh/vim-aspnet'
 Bundle 'mklabs/vim-backbone'
 Bundle 'oranget/vim-csharp.git'
 Bundle 'sickill/coloration'
-Bundle 'wikitopian/hardmode'
 Bundle 'koron/minimap-vim'
 Bundle 'sjl/splice.vim'
 Bundle 'hokaccha/vim-html5validator'
-Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'mkitt/tabline.vim'
 Bundle 'bronson/vim-visual-star-search'
-"Bundle 'vim-pandoc/vim-pandoc'
-Bundle 'jpalardy/vim-slime'
+"Bundle 'jpalardy/vim-slime'
 Bundle 'sukima/xmledit'
-"Bundle 'bryanthankins/vim-aspnetide'
+"Bundle 'maksimr/vim-jsbeautify'
+"Bundle 'gotcha/vimpdb'
 
 "colors
-"Bundle 'daviddavis/vim-colorpack'
 Bundle 'primitivorm/vim-proman-theme'
 Bundle 'sjl/badwolf'
 Bundle 'sickill/vim-monokai'
@@ -137,12 +124,12 @@ Bundle 'sickill/vim-sunburst'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/tomorrow-theme'
 Bundle 'nanotech/jellybeans.vim'
-"Bundle 'xuhdev/SingleCompile'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'Rykka/galaxy.vim'
-
+"Bundle 'xuhdev/SingleCompile'
+"Bundle 'daviddavis/vim-colorpack'
+"Bundle 'chriskempson/tomorrow-theme'
 "Bundle 'icsharpcode/NRefactory'
 "Bundle 'tomtom/quickfixsigns_vim'
 "Bundle 'jeetsukumaran/vim-buffergator'
@@ -174,7 +161,6 @@ Bundle 'Rykka/galaxy.vim'
 "Bundle 'xolox/vim-lua-ftplugin'
 "Bundle 'mutewinter/tomdoc.vim'
 "Bundle 'hynek/vim-python-pep8-indent'
-"Bundle 'gotcha/vimpdb'
 "Bundle 'mattsacks/vim-complete'
 "Bundle 'vim-perl/vim-perl'
 "Bundle 'jc00ke/vim-tomdoc'
@@ -198,6 +184,21 @@ Bundle 'Rykka/galaxy.vim'
 "Bundle 'vim-scripts/tSkeleton'
 "Bundle 'jwu/exvim'
 "Bundle 'Shougo/neosnippet'
+"Bundle 'tomtom/tcomment_vim'
+"Bundle 'kana/vim-textobj-user'
+"Bundle 'AndrewRadev/sideways.vim'
+"Bundle 'Shougo/vimproc'
+"Bundle 'tpope/vim-dispatch'
+"Bundle 'tpope/vim-unimpaired'
+"Bundle 'AndrewRadev/switch.vim'
+"Bundle 'SirVer/ultisnips'
+"Bundle 'michaeljsmith/vim-indent-object'
+"Bundle 'mkitt/tabline.vim'
+"Bundle 'wikitopian/hardmode'
+"Bundle 'vim-pandoc/vim-pandoc'
+"Bundle 'bryanthankins/vim-aspnetide'
+"Bundle 'Rykka/colorv.vim'
+"Bundle 'Lokaltog/powerline'
 
 " vim-scripts repos
 Bundle 'c.vim'
@@ -208,38 +209,37 @@ Bundle 'FuzzyFinder'
 Bundle 'AutoComplPop'
 Bundle 'dbext.vim'
 Bundle 'DrawIt'
-Bundle 'IComplete'
 Bundle 'DfrankUtil'
 Bundle 'ShowMarks'
 Bundle 'ZoomWin'
 Bundle 'IndexedSearch'
-Bundle 'Rainbow-Parenthesis'
-"Bundle 'keepcase.vim'
-Bundle 'scratch.vim'
 Bundle 'indenthtml.vim'
 Bundle 'bash-support.vim'
-"Bundle 'taglist.vim'
 Bundle 'SQLUtilities'
 Bundle 'SQLComplete.vim'
 Bundle 'quickfixsigns'
-Bundle 'vcscommand.vim'
 Bundle 'SearchComplete'
 Bundle 'hexHighlight.vim'
-Bundle 'multiselect'
-Bundle 'netrw.vim'
 Bundle 'ftpsync'
 Bundle 'grep.vim'
 Bundle 'Decho'
 Bundle 'OmniCppComplete'
 Bundle 'refactor'
-
+Bundle 'visual_studio.vim'
+"Bundle 'vcscommand.vim'
+"Bundle 'multiselect'
+"Bundle 'netrw.vim'
+"Bundle 'IComplete'
+"Bundle 'Rainbow-Parenthesis'
+"Bundle 'keepcase.vim'
+"Bundle 'scratch.vim'
+"Bundle 'taglist.vim'
 "Bundle 'YankRing.vim'
 "Bundle 'QuickBuf'
 "Bundle 'VB.NET-Syntax'
 "Bundle 'VimClojure'
 "Bundle 'pydoc.vim'
 "Bundle 'AutoTag'
-"Bundle 'visual_studio.vim'
 
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
@@ -307,7 +307,6 @@ set fileencodings=utf-8,iso-8859-15,ucs-bom
 
 " Gui {{{
 
-syntax enable
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 if has('gui_running')
@@ -317,12 +316,14 @@ if has('gui_running')
   set tabpagemax=15
   hi CursorLine guibg=#e6e6fa
   hi CursorColumn guibg=#e6e6fa
-  "set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
-  "set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
   set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
+  "set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
+  "set guifont=Menlo_for_Powerline:h10:cANSI
   "set guifont=Monaco:h9:cANSI
+  "set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
   " switch syntax highlighting on, when the terminal has colors
   syntax on
+  "syntax enable
 else
   hi CursorLine guibg=Gray40
   hi CursorColumn guibg=Gray40
@@ -338,7 +339,7 @@ filetype plugin on
 set nu
 "set rnu "relativenumber
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
-set nowrap
+set wrap
 set linebreak "lbr
 "if has('linebreak')
   "let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
@@ -358,7 +359,8 @@ set shiftwidth=4
 set scrolloff=4 " keep 4 lines off the edges of the screen when scrolling
 set noexpandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
-set virtualedit=all " allow the cursor to go in to "invalid" places
+"set virtualedit=all "allow the cursor to go in to "invalid" places
+set virtualedit=onemore "go to end of line on insert mode at press <up> <down> key
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
@@ -379,74 +381,54 @@ set showmatch
 set ruler
 "mat
 set matchtime=5
-"estable el modo de pliegue (folding)
-"set foldmethod=indent "fold based on indent
-set foldmethod=syntax "fold based on indent
-set foldnestmax=10 "deepest fold is 10 levels
-"set nofoldenable "dont fold by default
-set foldlevel=1 "this is just what i Use
-" Folding : http://vim.wikia.com/wiki/Syntax-based_folding, see comment by Ostrygen
-" autocmd FileType cs set omnifunc=syntaxcomplete#Complete
-
-"if has("gui_running")
-  "" GUI is running or is about to start.
-  "" Maximize gvim window.
-  "set lines=999 columns=999
-"else
-  "" This is console Vim.
-  "if exists("+lines")
-  "set lines=50
-  "endif
-  "if exists("+columns")
-  "set columns=100
-  "endif
-"endif
 
 " }}}
 
 " Folding rules {{{
 set foldenable " enable folding
 set foldcolumn=2 " add a fold column
-set foldmethod=marker " detect triple-{ style fold markers
+"set foldmethod=marker " detect triple-{ style fold markers
+set foldmethod=syntax
+set foldnestmax=5
 set foldlevelstart=99 " start out with everything folded
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 " which commands trigger auto-unfold
-"http://vim.wikia.com/wiki/Customize_text_for_closed_folds
-" Set a nicer foldtext function
-set foldtext=MyFoldText()
-function! MyFoldText()
-  let line = getline(v:foldstart)
-  if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-  let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-  let linenum = v:foldstart + 1
-  while linenum < v:foldend
-    let line = getline( linenum )
-    let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-    if comment_content != ''
-    break
-    endif
-    let linenum = linenum + 1
-  endwhile
-  let sub = initial . ' ' . comment_content
-  else
-  let sub = line
-  let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-  if startbrace == '{'
-    let line = getline(v:foldend)
-    let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-    if endbrace == '}'
-    let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-    endif
-  endif
-  endif
-  let n = v:foldend - v:foldstart + 1
-  let info = " " . n . " lines"
-  let sub = sub . "                                                          "
-  let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-  let fold_w = getwinvar( 0, '&foldcolumn' )
-  let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-  return sub . info
-endfunction
+""http://vim.wikia.com/wiki/Customize_text_for_closed_folds
+"" Set a nicer foldtext function
+"set foldtext=MyFoldText()
+"function! MyFoldText()
+  "let line = getline(v:foldstart)
+  "if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+  "let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+  "let linenum = v:foldstart + 1
+  "while linenum < v:foldend
+    "let line = getline( linenum )
+    "let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+    "if comment_content != ''
+    "break
+    "endif
+    "let linenum = linenum + 1
+  "endwhile
+  "let sub = initial . ' ' . comment_content
+  "else
+  "let sub = line
+  "let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+  "if startbrace == '{'
+    "let line = getline(v:foldend)
+    "let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+    "if endbrace == '}'
+    "let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+    "endif
+  "endif
+  "endif
+  "let n = v:foldend - v:foldstart + 1
+  "let info = " " . n . " lines"
+  "let sub = sub . "                                                          "
+  "let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+  "let fold_w = getwinvar( 0, '&foldcolumn' )
+  "let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+  "return sub . info
+"endfunction
 " }}}
 
 " Editor layout {{{
@@ -474,10 +456,6 @@ if v:version >= 730
 endif
 
 "au
-autocmd FileType cs set foldmethod=marker
-autocmd FileType cs set foldmarker={,}
-autocmd FileType cs set foldtext=substitute(getline(v:foldstart),'{.*','{...}',)
-autocmd FileType cs set foldlevelstart=2
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -588,23 +566,23 @@ let g:snipMate.scope_aliases['cs'] = 'cs'
 "especifica la ruta en donde se encuentran los snippets para el plugin snipMate
 "let g:snippets_dir="$HOME\\vimfiles\\bundle\\snipmate\\snippets\\"
 let g:snippets_dir='~/vimfiles/bundle/vim-snippets/snippets/'
-"my snippets
+"my personal snippets
 let g:snippets_dir+='~/vimfiles/snippets/'
 "------------------------------------------------------
 " }}}
 
-" Ultisnip {{{
-"------------------------------------------------------
-"https://github.com/vim-scripts/UltiSnips
-"------------------------------------------------------
-let g:UltiSnips = {}
+"" Ultisnip {{{
+""------------------------------------------------------
+""https://github.com/vim-scripts/UltiSnips
+""------------------------------------------------------
+"let g:UltiSnips = {}
 
-let g:UltiSnips.snipmate_ft_filter = {
-      \ 'default' : {'filetypes': ["FILETYPE"] },
-      \ 'ruby'  : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
-      \ }
-"------------------------------------------------------
-" }}}
+"let g:UltiSnips.snipmate_ft_filter = {
+      "\ 'default' : {'filetypes': ["FILETYPE"] },
+      "\ 'ruby'  : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
+      "\ }
+""------------------------------------------------------
+"" }}}
 
 " NERDTree {{{
 "------------------------------------------------------
@@ -1099,6 +1077,18 @@ let g:scUserName       = 'proman,12345678'
 "let g:scMaintainStatus =1
 "let g:scShowAllLocks   =1
 "let g:scShowExtra      =1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+" multiple-cursors {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"https://github.com/terryma/vim-multiple-cursors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let  g:multi_cursor_exit_from_visual_mode=0   "default 1
+let  g:multi_cursor_exit_from_insert_mode=0   "default 1
+" Default highlighting (see help :highlight and help :highlight-link)
+highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+highlight link multiple_cursors_visual Visual
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
