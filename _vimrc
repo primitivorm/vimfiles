@@ -22,8 +22,11 @@ let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 "https://github.com/tpope/vim-pathogen
 "------------------------------------------------------
 "call pathogen#infect()
+filetype off " required!
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+filetype on
+
 "------------------------------------------------------
 " }}}
 
@@ -32,7 +35,6 @@ call pathogen#helptags()
 "https://github.com/gmarik/vundle
 "------------------------------------------------------
 set nocompatible " be iMproved
-"filetype off " required!
 "rtp
 set runtimepath+=~/vimfiles/bundle/vundle/
 call vundle#rc()
@@ -79,8 +81,8 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'xolox/vim-session'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/powerline-fonts'
-"Bundle 'fromonesrc/monaco-powerline-vim'
 Bundle 'wavded/vim-stylus'
+"Bundle 'fromonesrc/monaco-powerline-vim'
 Bundle 'heaths/vim-msbuild'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'guns/xterm-color-table.vim'
@@ -111,8 +113,11 @@ Bundle 'sjl/splice.vim'
 Bundle 'hokaccha/vim-html5validator'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'bronson/vim-visual-star-search'
-"Bundle 'jpalardy/vim-slime'
 Bundle 'sukima/xmledit'
+Bundle 'davidhalter/jedi-vim'
+"Bundle 'Shougo/neosnippet'
+"Bundle 'Shougo/neocomplcache'
+"Bundle 'jpalardy/vim-slime'
 "Bundle 'maksimr/vim-jsbeautify'
 "Bundle 'gotcha/vimpdb'
 
@@ -127,6 +132,9 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'Rykka/galaxy.vim'
+Bundle 'tpope/vim-dispatch'
+Bundle 'nosami/Omnisharp'
+"Bundle 'Valloric/YouCompleteMe'
 "Bundle 'xuhdev/SingleCompile'
 "Bundle 'daviddavis/vim-colorpack'
 "Bundle 'chriskempson/tomorrow-theme'
@@ -136,7 +144,6 @@ Bundle 'Rykka/galaxy.vim'
 "Bundle 'spf13/PIV'
 "Bundle 'me-vlad/python-syntax.vim'
 "Bundle 'chrisbra/SaveSigns.vim'
-"Bundle 'Shougo/neocomplcache'
 "Bundle 'c9s/perlomni.vim'
 "Bundle 'Rip-Rip/clang_complete'
 "Bundle 'esukram/autocomplpop.vim'
@@ -156,7 +163,6 @@ Bundle 'Rykka/galaxy.vim'
 "Bundle 'greyblake/vim-preview'
 "Bundle 'jeetsukumaran/vim-buffergator'
 "Bundle 'benizi/perl-support.vim'
-"Bundle 'nosami/Omnisharp'
 "Bundle 'alfredodeza/pytest.vim'
 "Bundle 'xolox/vim-lua-ftplugin'
 "Bundle 'mutewinter/tomdoc.vim'
@@ -183,12 +189,10 @@ Bundle 'Rykka/galaxy.vim'
 "Bundle 'sjbach/lusty'
 "Bundle 'vim-scripts/tSkeleton'
 "Bundle 'jwu/exvim'
-"Bundle 'Shougo/neosnippet'
 "Bundle 'tomtom/tcomment_vim'
 "Bundle 'kana/vim-textobj-user'
 "Bundle 'AndrewRadev/sideways.vim'
 "Bundle 'Shougo/vimproc'
-"Bundle 'tpope/vim-dispatch'
 "Bundle 'tpope/vim-unimpaired'
 "Bundle 'AndrewRadev/switch.vim'
 "Bundle 'SirVer/ultisnips'
@@ -217,15 +221,17 @@ Bundle 'indenthtml.vim'
 Bundle 'bash-support.vim'
 Bundle 'SQLUtilities'
 Bundle 'SQLComplete.vim'
+Bundle 'sqlserver.vim'
 Bundle 'quickfixsigns'
 Bundle 'SearchComplete'
 Bundle 'hexHighlight.vim'
 Bundle 'ftpsync'
 Bundle 'grep.vim'
 Bundle 'Decho'
-Bundle 'OmniCppComplete'
+"Bundle 'OmniCppComplete'
 Bundle 'refactor'
 Bundle 'visual_studio.vim'
+Bundle 'Word-Fuzzy-Completion'
 "Bundle 'vcscommand.vim'
 "Bundle 'multiselect'
 "Bundle 'netrw.vim'
@@ -376,7 +382,7 @@ set ignorecase
 set smartcase
 set gdefault " search/replace "globally" (on a line) by default
 "Resalta la { o ) que estamos cerrando (sm)
-set showmatch
+"set showmatch
 "Mostrar la posicion del cursor en todo momento
 set ruler
 "mat
@@ -389,8 +395,8 @@ set foldenable " enable folding
 set foldcolumn=2 " add a fold column
 "set foldmethod=marker " detect triple-{ style fold markers
 set foldmethod=syntax
-set foldnestmax=5
-set foldlevelstart=99 " start out with everything folded
+set foldnestmax=3
+set foldlevelstart=3 " start out with everything folded
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 " which commands trigger auto-unfold
 ""http://vim.wikia.com/wiki/Customize_text_for_closed_folds
@@ -462,6 +468,9 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType c,cpp,h set omnifunc=ccomplete#Complete
+"added in Omnisharp
+"autocmd FileType cs set omnifunc=syntaxcomplete#Complete
+autocmd FileType cs set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
 autocmd FileType java set omnifunc=javacomplete#Complete
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -512,7 +521,7 @@ hi Title ctermfg=LightBlue ctermbg=Magenta
 " Spell {{{
 "habilita corrector ortografico
 set nospell "active spell check
-set spelllang=es "Carga el diccionario en o los lenguajes que necesitemos
+set spelllang=en "Carga el diccionario en o los lenguajes que necesitemos
   "set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
   "will add dictionary scanning
 set complete+=k
@@ -564,7 +573,6 @@ let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['cs'] = 'cs'
 "especifica la ruta en donde se encuentran los snippets para el plugin snipMate
-"let g:snippets_dir="$HOME\\vimfiles\\bundle\\snipmate\\snippets\\"
 let g:snippets_dir='~/vimfiles/bundle/vim-snippets/snippets/'
 "my personal snippets
 let g:snippets_dir+='~/vimfiles/snippets/'
@@ -596,13 +604,13 @@ endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "custom settings
-let g:NERDTreeBookmarksFile   = expand($HOME.'/_NERDTreeBookmarks')
-let g:NERDTreeShowBookmarks   = 1
-let g:NERDTreeWinSize     = 30
-let g:NERDTreeChristmasTree   = 1
+let g:NERDTreeBookmarksFile     = expand($HOME.'/_NERDTreeBookmarks')
+let g:NERDTreeShowBookmarks     = 1
+let g:NERDTreeWinSize           = 35
+let g:NERDTreeChristmasTree     = 1
 let g:NERDTreeCaseSensitiveSort = 0
-let g:NERDTreeQuitOnOpen    = 0
-let g:NERDTreeMouseMode     = 2
+let g:NERDTreeQuitOnOpen        = 0
+let g:NERDTreeMouseMode         = 2
 "let g:NERDTreeMapOpenInTab   = 't'
 "let g:NERDTreeMapOpenInTab   = '<2-LeftMouse>'
 "let g:NERDTreeMapOpenInTab='<2-LeftMouse>'
@@ -620,6 +628,9 @@ let g:NERDTreeIgnore=[
     \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
     \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
     \'tags', 'bin', 'obj','\.suo$','\.vspscc$']
+"highlighting for flags of file
+hi NERDTreeFlag guifg=#ff0000 ctermfg=160 guibg=#e3d2d2 ctermbg=7
+
 "------------------------------------------------------
 " }}}
 
@@ -648,11 +659,19 @@ let g:nerdtree_tabs_focus_on_files          = 1      "default 0
 "---------------------------------------------------------
 "file to find tags
 set tags=tags,./tags
-let g:tagbar_width       = 25    "default 40
-let g:tagbar_compact     = 1     "default 0
-let g:tagbar_foldlevel     = 2    "default 99
+"to specify one or more file extensions, which Vim will attempt to use when looking up a filename with the gf
+set suffixesadd+=.cs
+"set suffixesadd+=.aspx
+"set suffixesadd+=.aspx.cs
+"set suffixesadd+=.js
+"set suffixesadd+=.htm
+"set suffixesadd+=.sql
+
+let g:tagbar_width     = 25    "default 40
+let g:tagbar_compact   = 1     "default 0
+let g:tagbar_foldlevel = 2    "default 99
 "especify ctags path
-let g:tagbar_ctags_bin     = '~\vimfiles\ctags58\ctags.exe'
+let g:tagbar_ctags_bin = '~\vimfiles\ctags58\ctags.exe'
 
 "let g:tagbar_expand          = 1   "default 0
 "let g:tagbar_sort            = 0  "default 1
@@ -696,12 +715,12 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 " MiniBufExpl Colors
-hi MBEVisibleActive guifg=#ff4500 guibg=fg
+hi MBEVisibleActive guifg=#000080 guibg=fg gui=bold cterm=bold
+hi MBEVisibleNormal guifg=#009999 guibg=fg gui=bold cterm=bold
 hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
 hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
+hi MBEChanged guifg=#ff0000 guibg=fg
+hi MBENormal guifg=#696969 guibg=fg
 "------------------------------------------------------
 " }}}
 
@@ -1017,28 +1036,29 @@ let b:templator_root_dir='~/vimfiles/templator/'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
-" OmniCppComplete {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"https://github.com/vim-scripts/OmniCppComplete
-"http://aufather.wordpress.com/2010/08/26/omni-completion-in-vim/
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
-let OmniCpp_GlobalScopeSearch   = 1
-let OmniCpp_DisplayMode         = 1
-let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
-let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
-let OmniCpp_ShowAccess          = 1 "show access in pop-up
-let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
-set completeopt=menuone,menu,longest,preview
-
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-"highlight   clear
-"highlight   Pmenu         ctermfg=0 ctermbg=2
-"highlight   PmenuSel      ctermfg=0 ctermbg=7
-"highlight   PmenuSbar     ctermfg=7 ctermbg=0
-"highlight   PmenuThumb    ctermfg=0 ctermbg=7
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }}}
+"" OmniCppComplete {{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""https://github.com/vim-scripts/OmniCppComplete
+""http://aufather.wordpress.com/2010/08/26/omni-completion-in-vim/
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
+"let OmniCpp_GlobalScopeSearch   = 1
+"let OmniCpp_DisplayMode         = 1
+"let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
+"let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
+"let OmniCpp_ShowAccess          = 1 "show access in pop-up
+"let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
+"set completeopt=menuone,menu,longest,preview
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+""let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+""highlight   clear
+""highlight   Pmenu         ctermfg=0 ctermbg=2
+""highlight   PmenuSel      ctermfg=0 ctermbg=7
+""highlight   PmenuSbar     ctermfg=7 ctermbg=0
+""highlight   PmenuThumb    ctermfg=0 ctermbg=7
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" }}}
 
 " guifont++ {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1240,40 +1260,148 @@ highlight link multiple_cursors_visual Visual
 "---------------------------------------------------------
 " }}}
 
-" Omn"isharp {{{
+" Omnisharp {{{
+"---------------------------------------------------------
+"https://github.com/nosami/Omnisharp
+"---------------------------------------------------------
+"start Omnisharp when open a file .cs
+let g:Omnisharp_start_server = 1
+"end Omnisharp when close a file .cs
+let g:Omnisharp_stop_server = 1
+"This is the default value, setting it isn't actually necessary
+let g:OmniSharp_host = "http://localhost:2000"
+"Set the type lookup function to use the preview window instead of the status line
+let g:OmniSharp_typeLookupInPreview = 1
+"Showmatch significantly slows down omnicomplete
+"when the first match contains parentheses.
+set noshowmatch
+"don't autoselect first item in omnicomplete, show if only one item (for preview)
+"set completeopt=longest,menuone,preview
+set completeopt=menuone,menu,longest,preview
+let g:Omnisharp_highlight_user_types=1
+"Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+"setlocal omnifunc=OmniSharp#Complete
+autocmd FileType cs set omnifunc=OmniSharp#Complete
+"---------------------------------------------------------
+" }}}
+
+" SuperTab {{{
+"---------------------------------------------------------
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+let g:SuperTabClosePreviewOnPopupClose = 1
+"---------------------------------------------------------
+" }}}
+
+"" neocomplcache {{{
 ""---------------------------------------------------------
-""https://github.com/nosami/Omnisharp
+""https://github.com/Shougo/neocomplcache
 ""---------------------------------------------------------
-""This is the default value, setting it isn't actually necessary
-"let g:OmniSharp_host = "http://localhost:80"
-""Set the type lookup function to use the preview window instead of the status line
-"let g:OmniSharp_typeLookupInPreview = 1
+""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+"" Disable AutoComplPop.
+"let g:acp_enableAtStartup = 0
+"" Use neocomplcache.
+"let g:neocomplcache_enable_at_startup = 1
+"" Use smartcase.
+"let g:neocomplcache_enable_smart_case = 1
+"" Set minimum syntax keyword length.
+"let g:neocomplcache_min_syntax_length = 3
+"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+"" Enable heavy features.
+"" Use camel case completion.
+""let g:neocomplcache_enable_camel_case_completion = 1
+"" Use underbar completion.
+""let g:neocomplcache_enable_underbar_completion = 1
+"" Define dictionary.
+"let g:neocomplcache_dictionary_filetype_lists = {
+	"\ 'default' : '',
+	"\ 'vimshell' : $HOME.'/.vimshell_hist',
+	"\ 'scheme' : $HOME.'/.gosh_completions'
+		"\ }
+"" Define keyword.
+"if !exists('g:neocomplcache_keyword_patterns')
+	"let g:neocomplcache_keyword_patterns = {}
+"endif
+"let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+"" Plugin key-mappings.
+"inoremap <expr><C-g>     neocomplcache#undo_completion()
+"inoremap <expr><C-l>     neocomplcache#complete_common_string()
+"" Recommended key-mappings.
+"" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+  "return neocomplcache#smart_close_popup() . "\<CR>"
+  "" For no inserting <CR> key.
+  ""return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+"endfunction
+"" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y>  neocomplcache#close_popup()
+"inoremap <expr><C-e>  neocomplcache#cancel_popup()
+"" Close popup by <Space>.
+""inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+"" For cursor moving in insert mode(Not recommended)
+""inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+""inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+""inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+""inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+"" Or set this.
+""let g:neocomplcache_enable_cursor_hold_i = 1
+"" Or set this.
+""let g:neocomplcache_enable_insert_char_pre = 1
+"" AutoComplPop like behavior.
+""let g:neocomplcache_enable_auto_select = 1
+"" Shell like behavior(not recommended).
+""set completeopt+=longest
+""let g:neocomplcache_enable_auto_select = 1
+""let g:neocomplcache_disable_auto_complete = 1
+""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+"" Enable omni completion.
+""autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+""autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+""autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+""autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+""autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"" Enable heavy omni completion.
+"if !exists('g:neocomplcache_omni_patterns')
+  "let g:neocomplcache_omni_patterns = {}
+"endif
+"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplcache_omni_patterns.cs = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"" For perlomni.vim setting.
+"" https://github.com/c9s/perlomni.vim
+"let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 ""---------------------------------------------------------
 "" }}}
 
-" neocomplcache {{{
-"---------------------------------------------------------
-"https://github.com/Shougo/neocomplcache
-"---------------------------------------------------------
-" let g:neocomplcache_enable_at_startup = 1
-" " Use smartcase.
-" let g:neocomplcache_enable_smart_case = 1
-" " Use camel case completion.
-" let g:neocomplcache_enable_camel_case_completion = 1
-" " Use underscore completion.
-" let g:neocomplcache_enable_underbar_completion = 1
-" " Sets minimum char length of syntax keyword.
-" let g:neocomplcache_min_syntax_length = 0
-" " buffer file name pattern that locks neocomplcache. e.g. ku.vim or fuzzyfinder
-" "let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-" let g:neocomplcache_enable_auto_close_preview = 0
-" " Define keyword, for minor languages
-" if !exists('g:neocomplcache_keyword_patterns')
-  " let g:neocomplcache_keyword_patterns = {}
-" endif
-" let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-"---------------------------------------------------------
-" }}}
+"" neosnippet {{{
+"" Plugin key-mappings.
+"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+"xmap <C-k>     <Plug>(neosnippet_expand_target)
+"" SuperTab like snippets behavior.
+"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"\ "\<Plug>(neosnippet_expand_or_jump)"
+"\: pumvisible() ? "\<C-n>" : "\<TAB>"
+"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"\ "\<Plug>(neosnippet_expand_or_jump)"
+"\: "\<TAB>"
+"" For snippet_complete marker.
+"if has('conceal')
+  "set conceallevel=2 concealcursor=i
+"endif
+"" Enable snipMate compatibility feature.
+"let g:neosnippet#enable_snipmate_compatibility = 1
+"" Tell Neosnippet about the other snippets
+"let g:neosnippet#snippets_directory='~/vimfiles/bundle/vim-snippets/snippets/'
+"let g:neosnippet#snippets_directory+='~/vimfiles/snippets/'
+"" }}}
 
 " CodeOverview {{{
 "---------------------------------------------------------

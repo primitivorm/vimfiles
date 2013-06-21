@@ -31,3 +31,13 @@ Mod + l : Make tile 5% smaller
 
 Other useful things:
 Mod + RETURN: Start a terminal
+
+
+Apps
+===
+-rxvt-unicode : Terminal ligera con soporte de transparencia
+-moc : Music on console un reproductor de musica desde terminal
+-alsamixer: para manejar el volumen
+-htop: Para medir la actividad del sistema
+-pcmanfm: Gestor de archivos
+-rox-filler: Otro gestor de archivos mas pequeño que pcmanfm

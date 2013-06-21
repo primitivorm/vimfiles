@@ -15,6 +15,28 @@ map <leader>ev :vsp %%
 map <leader>et :tabe %%
 " }}}
 
+" Split new window/buffer {{{
+" http://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/
+" window
+nmap <leader>sw<left>  :topleft  vnew<CR>
+nmap <leader>sw<right> :botright vnew<CR>
+nmap <leader>sw<up>    :topleft  new<CR>
+nmap <leader>sw<down>  :botright new<CR>
+nmap <leader>swh :topleft  vnew<CR>
+nmap <leader>swl<right> :botright vnew<CR>
+nmap <leader>swk<up>    :topleft  new<CR>
+nmap <leader>swj<down>  :botright new<CR>
+" buffer
+nmap <leader>s<left>   :leftabove  vnew<CR>
+nmap <leader>s<right>  :rightbelow vnew<CR>
+nmap <leader>s<up>     :leftabove  new<CR>
+nmap <leader>s<down>   :rightbelow new<CR>
+nmap <leader>sh   :leftabove  vnew<CR>
+nmap <leader>sl  :rightbelow vnew<CR>
+nmap <leader>sk     :leftabove  new<CR>
+nmap <leader>sj   :rightbelow new<CR>
+" }}}
+
 " Window navigation {{{
 noremap <C-w> <C-w>w " cycle between the open windows
 noremap <C-Left> <C-w>h " focus the window to the left
@@ -207,32 +229,31 @@ function! Highlighting()
   return ":silent set hlsearch\<CR>"
 endfunction
 nnoremap <silent> <expr> <CR> Highlighting()
-"nnoremap <silent> <expr> <2-LeftMouse> Highlighting()
-"nnoremap <silent><2-LeftMouse> viw
 
-""http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle
-"" Highlight all instances of word under cursor, when idle.
-"" Useful when studying strange source code.
-"" Type z/ to toggle highlighting on/off.
-"nnoremap z/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
-"function! AutoHighlightToggle()
-  "let @/ = ''
-  "if exists('#auto_highlight')
-    "au! auto_highlight
-    "augroup! auto_highlight
-    "setl updatetime=4000
-    ""echo 'Highlight current word: off'
-    "return 0
-  "else
-    "augroup auto_highlight
-      "au!
-      "au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    "augroup end
-    "setl updatetime=4000
-    ""echo 'Highlight current word: ON'
-    "return 1
-  "endif
-"endfunction
+"http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle
+" Highlight all instances of word under cursor, when idle.
+" Useful when studying strange source code.
+" Type <leader>/ to toggle highlighting on/off.
+nnoremap <leader>/ :if AutoHighlightToggle()<Bar>set hls<Bar>endif<CR>
+function! AutoHighlightToggle()
+  let @/ = ''
+  if exists('#auto_highlight')
+    au! auto_highlight
+    augroup! auto_highlight
+    setl updatetime=1000
+    echo 'Highlight current word: off'
+    return 0
+  else
+    augroup auto_highlight
+      au!
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+    augroup end
+    setl updatetime=1000
+    echo 'Highlight current word: ON'
+    return 1
+  endif
+endfunction
+""call at startup
 "call AutoHighlightToggle()
 
 " }}}
@@ -615,6 +636,7 @@ vnoremap <C-]> <Esc>:tabnew %<CR>gvg<C-]>
 "Search and destroy using tags
 "ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q ./
 map <C-F3> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
+
 " }}}
 
 " Fugitive {{{
@@ -720,32 +742,29 @@ inoremap <c-e> <esc>ea
 ""nnoremap <leader>l :TlistSessionLoad tlist<CR>
 "" }}}
 
-"" Omnisharp {{{
+" Omnisharp {{{
+map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
+map gd :call OmniSharp#GotoDefinition()<cr>
+nmap fi :call OmniSharp#FindImplementations()<cr>
+nmap fu :call OmniSharp#FindUsages()<cr>
+nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
+"I find contextual code actions so useful that I have it mapped to the spacebar
+nmap <leader><space> :call OmniSharp#GetCodeActions()<cr>
+" rename with dialog
+nmap nm :call OmniSharp#Rename()<cr>
+nmap <silent><S-F2> :call OmniSharp#Rename()<cr>
+" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
+command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+" Force OmniSharp to reload the solution. Useful when switching branches etc.
+nmap <leader>rl :call OmniSharp#ReloadSolution()<cr>
+nmap <leader>cf :call OmniSharp#CodeFormat()<cr>
+" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
+nnoremap <leader>ss :OmniSharpStartServer<cr>
+nnoremap <leader>sp :OmniSharpStopServer<cr>
+nnoremap <leader>th :OmniSharpHighlightTypes<cr>
+"Don't ask to save when changing buffers (i.e. when jumping to a type definition)
+set hidden
 
-"map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
-"map gd :call OmniSharp#GotoDefinition()<cr>
-"nmap fi :call OmniSharp#FindImplementations()<cr>
-"nmap fu :call OmniSharp#FindUsages()<cr>
-"nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
-""I find contextual code actions so useful that I have it mapped to the spacebar
-"nmap <leader><space> :call OmniSharp#GetCodeActions()<cr>
-
-"" rename with dialog
-"nmap nm :call OmniSharp#Rename()<cr>
-"nmap <silent><S-F2> :call OmniSharp#Rename()<cr>
-"" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
-"command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
-"" Force OmniSharp to reload the solution. Useful when switching branches etc.
-"nmap <leader>rl :call OmniSharp#ReloadSolution()<cr>
-"nmap <leader>cf :call OmniSharp#CodeFormat()<cr>
-
-"" }}}
-
-" neocomplcache {{{
-"inoremap <expr><c-space> pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>"
-"inoremap <expr><c-CR> neocomplcache#smart_close_popup() . "\<CR>"
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 " }}}
 
 " GoldenView {{{

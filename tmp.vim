@@ -1,3 +1,4 @@
+https://en.wikipedia.org/wiki/Elastic_tabstops
 four essential freedoms:
  (0) to run the program,
  (1) to study and change the program in source code form,
@@ -7,7 +8,7 @@ four essential freedoms:
 InEnglish -> 55 56 87 32 12
 
 "autocmd VimEnter * tab all
-	"autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
+  "autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
 
 " opens a file in a new tab
 " KeepWindowOpen - dont close the window even if NERDTreeQuitOnOpen is set
@@ -25,19 +26,19 @@ function! s:openInTabAndCurrent(keepWindowOpen, stayCurrentTab)
         if currentNode.path.isDirectory
             call currentNode.activate(a:keepWindowOpen)
             return
-		else
+    else
             call s:openInNewTab(a:stayCurrentTab)
             return
-		endif
+    endif
     endif
 endfunction
 
 ""autocmd tabenter * QuitIfOnlyTab
 function! DoQuitIfOnlyTab()
-	if (&modifiable)
-		tab ball
-		tabn
-	endif
+  if (&modifiable)
+    tab ball
+    tabn
+  endif
 endfunction
 command! -nargs=0 QuitIfOnlyTab call DoQuitIfOnlyTab()
 
@@ -80,11 +81,11 @@ endfunction
 
 "let tagbar_open = bufwinnr('__Tagbar__') != -1
 "if (&diff==0)
-	":autocmd BufReadPost * tab ball
-	":autocmd BufReadPost * tab ball | QuitIfOnlyTab
-	"
-	":autocmd BufReadPost * tab sball | tabclose 1
-"	:autocmd BufReadPost * tab sb
+  ":autocmd BufReadPost * tab ball
+  ":autocmd BufReadPost * tab ball | QuitIfOnlyTab
+  "
+  ":autocmd BufReadPost * tab sball | tabclose 1
+" :autocmd BufReadPost * tab sb
 "endif
 
 "augroup HelpInTabs
@@ -101,46 +102,108 @@ endfunction
 "autocmd tabenter tagbar TagbarClose
 "autocmd tabenter * TagbarClose
 "autocmd FileType tagbar :QuitIfOnlyWindow
-"autocmd BufEnter	__Tagbar__ nested call s:QuitIfOnlyWindow()
+"autocmd BufEnter __Tagbar__ nested call s:QuitIfOnlyWindow()
 " s:QuitIfOnlyWindow() {{{2
 "function! DoQuitIfOnlyTab()
-	"for i in range(1, winnr('$'))
-		"echo "tab" . i
-		"let buf = winbufnr(i)
+  "for i in range(1, winnr('$'))
+    "echo "tab" . i
+    "let buf = winbufnr(i)
 
-		"echo "buf" . buf
-		"let num_buf = len(filter(range(1, bufnr(buf)), 'buflisted(v:val)'))
+    "echo "buf" . buf
+    "let num_buf = len(filter(range(1, bufnr(buf)), 'buflisted(v:val)'))
 
-		"echo "num_buf" . num_buf
-		"let buf_name = bufname(winbufnr(buf))
-		"echo "buf_name" . buf_name
-		"if (num_buf == 1)
-			"if(buf_name == '__Tagbar__')
-				"echo "Closing __Tagbar__" . i
-				"":tabclose
-				"":BufClose buf_name
-			   "":q
-""			   :tabclose i
-""			   execute "tabclose" i
-			   "continue
-			"endif
-			""if getbufvar(buf, '&buftype') == 'tagbar'
-				""tabclose buf
-				""echo "closing tab..."				  "
-				""continue
-			""else
-				""echo "No find tagbar"
-			""endif
-		"endif
-	"endfor
+    "echo "num_buf" . num_buf
+    "let buf_name = bufname(winbufnr(buf))
+    "echo "buf_name" . buf_name
+    "if (num_buf == 1)
+      "if(buf_name == '__Tagbar__')
+        "echo "Closing __Tagbar__" . i
+        "":tabclose
+        "":BufClose buf_name
+         "":q
+""         :tabclose i
+""         execute "tabclose" i
+         "continue
+      "endif
+      ""if getbufvar(buf, '&buftype') == 'tagbar'
+        ""tabclose buf
+        ""echo "closing tab..."         "
+        ""continue
+      ""else
+        ""echo "No find tagbar"
+      ""endif
+    "endif
+  "endfor
 "endfunction
 "command! -nargs=0 QuitIfOnlyTab call DoQuitIfOnlyTab()
 
 "autocmd BufReadPost tagbar | tabclose | endif
 "if(&filetype=='tagbar')
-"	:call TagbarClose
+" :call TagbarClose
 "endif
 "autocmd BufReadPost tagbar if winbufnr(2) == 1 | q | endif
 "autocmd vimenter * nested :TagbarOpen
 
-
+#############################################################
+# my snippets for csharp code
+#############################################################
+#select
+snippet sel
+    SELECT ${1:column_name}
+    FROM [dbo].[${2:table_name}]
+    WHERE ${3:conditional}
+# proc
+snippet proc
+   IF EXISTS (
+      SELECT 1
+      FROM dbo.sysobjects
+      WHERE id = object_id(N'[dbo].[${1:procedure_name}]')
+        AND objectproperty(id, N'IsProcedure') = 1
+      )
+  BEGIN
+    DROP PROCEDURE [dbo].[$1]
+    PRINT 'Eliminando [dbo].[$1]'
+  END
+  GO
+  -- =============================================
+  -- Author:  ${6:BSD->Primitivo R. Montero}
+  -- Create date: ${2:dd}-${3:mmm}-${4:yyyy}
+  -- Description: ${5}
+  -- Parameters:
+      <parameter_list - description>
+  -- =============================================
+  -- Usage:
+  --  1) exec [dbo].[$1] <parameter_list>
+  -- =============================================
+  PRINT 'Creando [dbo].[$1]'
+  GO
+  SET ANSI_NULLS ON
+  GO
+  SET QUOTED_IDENTIFIER ON
+  GO
+  CREATE PROCEDURE [dbo].[$1]
+  ${7:parameter_list}
+  AS
+  BEGIN
+    SET NOCOUNT ON
+    --select statement here
+  END
+  GO
+# parameters
+snippet paramv
+  @p${1:parameter_name} varchar(${2:length})${3}
+snippet parami
+  @p${1:parameter_name} int${2}
+snippet paramn
+  @p${1:parameter_name} numeric(${2:length},
+  ${3:precision})${4}
+# joins
+snippet join
+    INNER JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
+        ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}
+snippet ljoin
+    LEFT JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
+        ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}
+snippet rjoin
+    RIGHT JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
+        ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}

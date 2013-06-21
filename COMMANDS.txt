@@ -16,7 +16,6 @@ zR -> untoggle all lines
 :verbose setlocal foldmethod? -> view foldmethod used
 :1,10SQLUFormatter -> formatea codigo T-SQL 1,10 son las lineas de inicio y fin del formateo
 :echo has('perl') -> devuelve true si soporta perl
-ctags -R -> genera las Etiquetas ctags -> execute under command linea
 :help help-writing -> help to write helps
 vim --version | grep +python    -> ver si vim soporta python
 vim --version | grep +signs     -> ver si vim soporta signs
@@ -83,7 +82,6 @@ ctrl-f  Switch from commandline mode to the commandline window
 :silent! argdo %s/\a/*/g  -> avoid message errors
 <C-r>{register}       -> On the command line, you can paste the contents of a register by pressing
 Press crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case (crs), and UPPER_CASE (cru)
-<C-c> ->start SQLComplete
 <leader>if    ->reindent file
 <leader>ft    ->create folding for html
 <leader>qf    ->call quickfix
@@ -121,6 +119,28 @@ vim completion
 <C-x><C-f> Filename completion
 <C-x><C-t> Thesaurus File
 <C-x><C-o> Omni-completion
+
+-----------------------------------------------
+SqlComplete
+<C-c> ->start SQLComplete
+    imap <buffer> <C-C>a <C-\><C-O>:call sqlcomplete#Map('syntax')<CR><C-X><C-O>
+    imap <buffer> <C-C>k <C-\><C-O>:call sqlcomplete#Map('sqlKeyword')<CR><C-X><C-O>
+    imap <buffer> <C-C>f <C-\><C-O>:call sqlcomplete#Map('sqlFunction')<CR><C-X><C-O>
+    imap <buffer> <C-C>o <C-\><C-O>:call sqlcomplete#Map('sqlOption')<CR><C-X><C-O>
+    imap <buffer> <C-C>T <C-\><C-O>:call sqlcomplete#Map('sqlType')<CR><C-X><C-O>
+    imap <buffer> <C-C>s <C-\><C-O>:call sqlcomplete#Map('sqlStatement')<CR><C-X><C-O>
+
+     Table List      - <C-C>t
+         - <C-X><C-O> (the default map assumes tables)
+     Stored Procedure List - <C-C>p
+     View List       - <C-C>v
+     Column List     - <C-C>c
+
+    "change omni key
+    let g:ftplugin_sql_omni_key = '<C-C>'
+
+    imap <buffer> <C-C>R <C-\><C-O>:call sqlcomplete#Map('ResetCache')<CR><C-X><C-O>
+
 -----------------------------------------------
 
 -----------------------------------------------
@@ -893,6 +913,13 @@ If your project contains macros you may also use the -I option.
 Please read the ctags help or ctags man page for more details.
 
 -----------------------------------------------
+Ctrl-]  -> go to definition
+g]      -> to see a list of matching locations for a particular identifier
+Ctrl-x Ctrl-]   -> Tags based completion
+Ctrl-x Ctrl-i   -> Current and included files
+Ctrl-x Ctrl-o   -> Omni completion
+Ctrl-o          -> go to previous definition
+-----------------------------------------------
 
 -----------------------------------------------
 vim-scmdiff
@@ -1548,3 +1575,4 @@ Example:
     echo ':wq' >> indent.txt
     vim -s indent.txt file
 This will use Vim to indent the contents of file, save and exit.
+

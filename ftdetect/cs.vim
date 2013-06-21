@@ -26,7 +26,7 @@ function! FormatStatement()
   let line = getline('.')
   let pattern = '\v([\+|\-|\*|\/|\%|\=|!|<|>]+)'
   let line = substitute(line, pattern, ' \1 ',  'g')
-  let pattern = '\v([\{|\}|\(|\)|\[|\]|;|,])'
+  let pattern = '\v([\{|\}|;|,])'
   let line = substitute(line, pattern, ' \1 ',  'g')
   let pattern = '\v([A-z])\s+([+-]{2})'
   let line = substitute(line, pattern, '\1\2', 'g')
