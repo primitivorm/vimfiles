@@ -371,6 +371,8 @@ endfun
 nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 "auto-strip trailing white space for ruby files
 "autocmd BufWritePre *.rb :call <SID>StripTrailingWhitespaces()
+" for al File Types
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " }}}
 
 " Align {{{

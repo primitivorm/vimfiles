@@ -1,4 +1,4 @@
- "http://learnvimscriptthehardway.stevelosh.com/
+"http://learnvimscriptthehardway.stevelosh.com/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM CONFIGURATION
@@ -13,7 +13,7 @@ source $HOME/vimfiles/keymap.vim
 " Source the vimrc file after saving it
 let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 "if has("autocmd")
-  "autocmd bufwritepost _vimrc source $MYVIMC
+"autocmd bufwritepost _vimrc source $MYVIMC
 "endif
 " }}}
 
@@ -43,7 +43,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles set here:
- "
+"
 " original repos on github
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
@@ -115,6 +115,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'bronson/vim-visual-star-search'
 Bundle 'sukima/xmledit'
 Bundle 'davidhalter/jedi-vim'
+Bundle "Chiel92/vim-autoformat"
 "Bundle 'Shougo/neosnippet'
 "Bundle 'Shougo/neocomplcache'
 "Bundle 'jpalardy/vim-slime'
@@ -252,15 +253,15 @@ Bundle 'git://git.wincent.com/command-t.git'
 " ...
 "------------------------------------------------
 
- filetype plugin indent on " required!
+filetype plugin indent on " required!
 "
- " Brief help
+" Brief help
 " :BundleList - list configured bundles
- " :BundleInstall(!) - install(update) bundles
+" :BundleInstall(!) - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!) - confirm(or auto-approve) removal of unused bundles
+" :BundleClean(!) - confirm(or auto-approve) removal of unused bundles
 "
- " see :h vundle for more details or wiki for FAQ
+" see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 
 "------------------------------------------------------
@@ -316,23 +317,23 @@ set fileencodings=utf-8,iso-8859-15,ucs-bom
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 if has('gui_running')
-  "show tabs always = 2
-  set showtabline=1
-  "max num of tabs
-  set tabpagemax=15
-  hi CursorLine guibg=#e6e6fa
-  hi CursorColumn guibg=#e6e6fa
-  set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
-  "set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
-  "set guifont=Menlo_for_Powerline:h10:cANSI
-  "set guifont=Monaco:h9:cANSI
-  "set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
-  " switch syntax highlighting on, when the terminal has colors
-  syntax on
-  "syntax enable
+    "show tabs always = 2
+    set showtabline=1
+    "max num of tabs
+    set tabpagemax=15
+    hi CursorLine guibg=#e6e6fa
+    hi CursorColumn guibg=#e6e6fa
+    set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
+    "set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
+    "set guifont=Menlo_for_Powerline:h10:cANSI
+    "set guifont=Monaco:h9:cANSI
+    "set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
+    " switch syntax highlighting on, when the terminal has colors
+    syntax on
+    "syntax enable
 else
-  hi CursorLine guibg=Gray40
-  hi CursorColumn guibg=Gray40
+    hi CursorLine guibg=Gray40
+    hi CursorColumn guibg=Gray40
 endif
 
 "set colorscheme
@@ -348,7 +349,7 @@ set nu
 set wrap
 set linebreak "lbr
 "if has('linebreak')
-  "let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
+"let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
 "endif
 set showbreak=...
 set textwidth=69
@@ -403,37 +404,37 @@ set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 "" Set a nicer foldtext function
 "set foldtext=MyFoldText()
 "function! MyFoldText()
-  "let line = getline(v:foldstart)
-  "if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-  "let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-  "let linenum = v:foldstart + 1
-  "while linenum < v:foldend
-    "let line = getline( linenum )
-    "let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-    "if comment_content != ''
-    "break
-    "endif
-    "let linenum = linenum + 1
-  "endwhile
-  "let sub = initial . ' ' . comment_content
-  "else
-  "let sub = line
-  "let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-  "if startbrace == '{'
-    "let line = getline(v:foldend)
-    "let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-    "if endbrace == '}'
-    "let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-    "endif
-  "endif
-  "endif
-  "let n = v:foldend - v:foldstart + 1
-  "let info = " " . n . " lines"
-  "let sub = sub . "                                                          "
-  "let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-  "let fold_w = getwinvar( 0, '&foldcolumn' )
-  "let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-  "return sub . info
+"let line = getline(v:foldstart)
+"if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+"let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+"let linenum = v:foldstart + 1
+"while linenum < v:foldend
+"let line = getline( linenum )
+"let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+"if comment_content != ''
+"break
+"endif
+"let linenum = linenum + 1
+"endwhile
+"let sub = initial . ' ' . comment_content
+"else
+"let sub = line
+"let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+"if startbrace == '{'
+"let line = getline(v:foldend)
+"let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+"if endbrace == '}'
+"let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+"endif
+"endif
+"endif
+"let n = v:foldend - v:foldstart + 1
+"let info = " " . n . " lines"
+"let sub = sub . "                                                          "
+"let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+"let fold_w = getwinvar( 0, '&foldcolumn' )
+"let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+"return sub . info
 "endfunction
 " }}}
 
@@ -457,8 +458,8 @@ set switchbuf=useopen " reveal already opened files from the
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 if v:version >= 730
-  set undofile " keep a persistent backup file
-  set undodir=~/tmp,/tmp
+    set undofile " keep a persistent backup file
+    set undodir=~/tmp,/tmp
 endif
 
 "au
@@ -494,16 +495,6 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-"set listchars=tab:\|-,trail:-,eol:¬,extends:→,precedes:←,nbsp:×
-" Automatic re-tab
-autocmd BufReadPost * if &modifiable | retab | endif
-" convert spaces to tabs when reading file
-"autocmd! bufreadpost * set noexpandtab | retab!
-" convert tabs to spaces before writing file
-"autocmd! bufwritepre * set expandtab | retab!
-" convert spaces to tabs after writing file (to show guides again)
-"autocmd! bufwritepost * set noexpandtab | retab!
-
 set mouse=a " enable using the mouse if terminal emulator
 "set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
@@ -522,8 +513,8 @@ hi Title ctermfg=LightBlue ctermbg=Magenta
 "habilita corrector ortografico
 set nospell "active spell check
 set spelllang=en "Carga el diccionario en o los lenguajes que necesitemos
-  "set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
-  "will add dictionary scanning
+"set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
+"will add dictionary scanning
 set complete+=k
 set dictionary+=~/vimfiles/spell/en.ascii.spl
 set dictionary+=~/vimfiles/spell/en.ascii.sug
@@ -556,7 +547,7 @@ set thesaurus+=~/vimfiles/bundle/mthes10/roget13a.txt
 "https://github.com/tpope/vim-ragtag
 "http://www.vim.org/scripts/script.php?script_id=1896
 "------------------------------------------------------
- let g:ragtag_global_maps = 1
+let g:ragtag_global_maps = 1
 "------------------------------------------------------
 " }}}
 
@@ -586,9 +577,9 @@ let g:snippets_dir+='~/vimfiles/snippets/'
 "let g:UltiSnips = {}
 
 "let g:UltiSnips.snipmate_ft_filter = {
-      "\ 'default' : {'filetypes': ["FILETYPE"] },
-      "\ 'ruby'  : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
-      "\ }
+"\ 'default' : {'filetypes': ["FILETYPE"] },
+"\ 'ruby'  : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
+"\ }
 ""------------------------------------------------------
 "" }}}
 
@@ -598,8 +589,8 @@ let g:snippets_dir+='~/vimfiles/snippets/'
 "------------------------------------------------------
 "open the plugin NERDTree at startup Vim
 if (&diff==0)
-  autocmd vimenter * NERDTree
-  autocmd vimenter * if !argc() | NERDTree | endif
+    autocmd vimenter * NERDTree
+    autocmd vimenter * if !argc() | NERDTree | endif
 endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -622,12 +613,12 @@ set autochdir
 let g:NERDTreeChDirMode=2
 "ignore some file types
 let g:NERDTreeIgnore=[
-    \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-    \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$',
-    \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
-    \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
-    \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
-    \'tags', 'bin', 'obj','\.suo$','\.vspscc$']
+            \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+            \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$',
+            \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
+            \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
+            \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
+            \'tags', 'bin', 'obj','\.suo$','\.vspscc$']
 "highlighting for flags of file
 hi NERDTreeFlag guifg=#ff0000 ctermfg=160 guibg=#e3d2d2 ctermbg=7
 
@@ -691,14 +682,14 @@ let g:tagbar_autofocus        = 1   "default 0
 ""always show tabs
 "set showtabline=2
 "if (&diff==0)
-  ""Open files always in new tabs
-  "autocmd BufReadPost * OpenInTab
+""Open files always in new tabs
+"autocmd BufReadPost * OpenInTab
 "endif
 "function! DoOpenInTab()
-  "if (&modifiable)
-    "tab ball
-    "tabn
-  "endif
+"if (&modifiable)
+"tab ball
+"tabn
+"endif
 "endfunction
 "command! -nargs=0 OpenInTab call DoOpenInTab()
 ""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -730,14 +721,14 @@ hi MBENormal guifg=#696969 guibg=fg
 ""---------------------------------------------------------
 
 "let g:tagbar_type_coffee = {
-  "\ 'ctagstype' : 'coffee',
-  "\ 'kinds'    : [
-    "\ 'c:classes',
-    "\ 'm:methods',
-    "\ 'f:functions',
-    "\ 'v:variables',
-    "\ 'f:fields',
-  "\ ]
+"\ 'ctagstype' : 'coffee',
+"\ 'kinds'    : [
+"\ 'c:classes',
+"\ 'm:methods',
+"\ 'f:functions',
+"\ 'v:variables',
+"\ 'f:fields',
+"\ ]
 "\ }
 
 "" Posix regular expressions for matching interesting items. Since this will
@@ -785,14 +776,14 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window_bottom = 0
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\.git$\|\.hg$\|\.svn$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$',
-    \ 'link': 'some_bad_symbolic_links',
-    \ }
+            \ 'dir': '\.git$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$\|\.dll$',
+            \ 'link': 'some_bad_symbolic_links',
+            \ }
 if has('win32') || has('win64')
-  let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
 else
-  let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
+    let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
 endif
 "---------------------------------------------------------
 " }}}
@@ -806,8 +797,8 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=0
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
-\ 'active_filetypes': ['ruby', 'php'],
-\ 'passive_filetypes': ['puppet'] }
+            \ 'active_filetypes': ['ruby', 'php'],
+            \ 'passive_filetypes': ['puppet'] }
 
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_error_symbol='E'
@@ -817,7 +808,7 @@ let g:syntastic_style_warning_symbol='S'
 let g:syntastic_always_populate_loc_list=1
 
 if ! &diff
-  let g:syntastic_check_on_open=1
+    let g:syntastic_check_on_open=1
 endif
 
 "--------------------------------------------------------
@@ -858,9 +849,9 @@ let g:ftplugin_sql_omni_key = '<C-C>'
 "---------------------------------------------------------
 "source ~/.vim/bundle/powerline/powerline/ext/vim/source_plugin.vim
 if has("gui_running")
-  let g:Powerline_symbols = 'fancy'
+    let g:Powerline_symbols = 'fancy'
 else
-  let g:Powerline_symbols = 'compatible'
+    let g:Powerline_symbols = 'compatible'
 endif
 "for testing version
 "set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
@@ -986,12 +977,12 @@ let g:mta_set_default_matchtag_color=0
 highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
 "highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=#1E90FF
 let g:mta_filetypes = {
-  \ 'html' : 1,
-  \ 'xhtml' : 1,
-  \ 'xml' : 1,
-  \ 'jinja' : 1,
-  \ 'cs' : 1,
-  \}
+            \ 'html' : 1,
+            \ 'xhtml' : 1,
+            \ 'xml' : 1,
+            \ 'jinja' : 1,
+            \ 'cs' : 1,
+            \}
 "Highlighting braces parentheses
 hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
 "hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#1E90FF
@@ -1002,8 +993,8 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 "---------------------------------------------------------
 "https://github.com/koron/minimap-vim
 "---------------------------------------------------------
- "let g:session_autoload = 'no'
- let g:session_autoload = 'yes'
+"let g:session_autoload = 'no'
+let g:session_autoload = 'yes'
 "---------------------------------------------------------
 " }}}
 
@@ -1294,6 +1285,20 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 "---------------------------------------------------------
 " }}}
 
+" vim-autoformat {{{
+" https://github.com/Chiel92/vim-autoformat
+"---------------------------------------------------------
+let g:formatprg_cs = "astyle"
+let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
+autocmd BufWritePre *.cs :Autoformat
+"---------------------------------------------------------
+" }}}
+
+" jsbeautify {{{
+" http://www.vim.org/scripts/script.php?script_id=2727
+"<Leader>ff
+" }}}
+
 "" neocomplcache {{{
 ""---------------------------------------------------------
 ""https://github.com/Shougo/neocomplcache
@@ -1315,13 +1320,13 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 ""let g:neocomplcache_enable_underbar_completion = 1
 "" Define dictionary.
 "let g:neocomplcache_dictionary_filetype_lists = {
-	"\ 'default' : '',
-	"\ 'vimshell' : $HOME.'/.vimshell_hist',
-	"\ 'scheme' : $HOME.'/.gosh_completions'
-		"\ }
+"\ 'default' : '',
+"\ 'vimshell' : $HOME.'/.vimshell_hist',
+"\ 'scheme' : $HOME.'/.gosh_completions'
+"\ }
 "" Define keyword.
 "if !exists('g:neocomplcache_keyword_patterns')
-	"let g:neocomplcache_keyword_patterns = {}
+"let g:neocomplcache_keyword_patterns = {}
 "endif
 "let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 "" Plugin key-mappings.
@@ -1331,9 +1336,9 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 "" <CR>: close popup and save indent.
 "inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 "function! s:my_cr_function()
-  "return neocomplcache#smart_close_popup() . "\<CR>"
-  "" For no inserting <CR> key.
-  ""return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+"return neocomplcache#smart_close_popup() . "\<CR>"
+"" For no inserting <CR> key.
+""return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 "endfunction
 "" <TAB>: completion.
 "inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -1368,7 +1373,7 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 ""autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "" Enable heavy omni completion.
 "if !exists('g:neocomplcache_omni_patterns')
-  "let g:neocomplcache_omni_patterns = {}
+"let g:neocomplcache_omni_patterns = {}
 "endif
 "let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
@@ -1394,7 +1399,7 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 "\: "\<TAB>"
 "" For snippet_complete marker.
 "if has('conceal')
-  "set conceallevel=2 concealcursor=i
+"set conceallevel=2 concealcursor=i
 "endif
 "" Enable snipMate compatibility feature.
 "let g:neosnippet#enable_snipmate_compatibility = 1
@@ -1418,6 +1423,6 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 "---------------------------------------------------------
 "https://github.com/wikitopian/hardmode
 "---------------------------------------------------------
- "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 "---------------------------------------------------------
 " }}}
