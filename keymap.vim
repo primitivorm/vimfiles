@@ -709,6 +709,10 @@ inoremap <c-e> <esc>ea
 
 " }}}
 
+" argumentrewrap {{{
+"https://github.com/jakobwesthoff/argumentrewrap
+nnoremap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
+" }}}
 "" Command-t {{{
 "nnoremap <silent> <Leader>t :CommandT<CR>
 "nnoremap <silent> <Leader>b :CommandTBuffer<CR>
