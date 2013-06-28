@@ -212,6 +212,40 @@ nnoremap <C-H> :%s/<C-r><C-w>/NEW_WORD
 vnoremap <C-u> U
 vnoremap <C-l> u
 
+" Tab completion {{{
+"inoremap <Tab> <C-x><C-n>
+"inoremap <Tab> <C-x><C-i>
+"inoremap <Tab> <C-x><C-]>
+"inoremap <Tab> <C-x><C-k>
+"inoremap <Tab> <C-x><C-l>
+"inoremap <Tab> <C-x><C-f>
+"inoremap <Tab> <C-x><C-t>
+"inoremap <Tab> <C-x><C-o>
+
+"http://stackoverflow.com/questions/15870365/why-is-tab-completion-wildmenu-not-working
+function! Smart_TabComplete()
+  let line = getline('.')                         " current line
+
+  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
+                                                  " line to one character right
+                                                  " of the cursor
+  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+  if (strlen(substr)==0)                          " nothing to match on empty string
+    return "\<tab>"
+  endif
+  let has_period = match(substr, '\.') != -1      " position of period, if any
+  let has_slash = match(substr, '\/') != -1       " position of slash, if any
+  if (!has_period && !has_slash)
+    return "\<C-X>\<C-P>"                         " existing text matching
+  elseif ( has_slash )
+    return "\<C-X>\<C-F>"                         " file matching
+  else
+    return "\<C-X>\<C-O>"                         " plugin matching
+  endif
+endfunction
+inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+" }}}
+
 "insert automatically } after insert {
 inoremap {<CR> {<CR>}<Esc>O
 
@@ -749,7 +783,7 @@ nnoremap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 "" }}}
 
 " Omnisharp {{{
-map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
+autocmd FileType *.cs map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
 map gd :call OmniSharp#GotoDefinition()<cr>
 nmap fi :call OmniSharp#FindImplementations()<cr>
 nmap fu :call OmniSharp#FindUsages()<cr>
@@ -758,7 +792,7 @@ nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
 nmap <leader><space> :call OmniSharp#GetCodeActions()<cr>
 " rename with dialog
 nmap nm :call OmniSharp#Rename()<cr>
-nmap <silent><S-F2> :call OmniSharp#Rename()<cr>
+autocmd FileType *.cs nmap <silent><S-F2> :call OmniSharp#Rename()<cr>
 " rename without dialog - with cursor on the symbol to rename... ':Rename newname'
 command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
 " Force OmniSharp to reload the solution. Useful when switching branches etc.
@@ -770,7 +804,6 @@ nnoremap <leader>sp :OmniSharpStopServer<cr>
 nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
-
 " }}}
 
 " GoldenView {{{

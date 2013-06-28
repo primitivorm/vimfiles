@@ -292,7 +292,25 @@ set directory=~/tmp,/tmp
 set viminfo='20,\"80 " read/write a .viminfo file, don't store more
 " than 80 lines of registers
 set wildmenu " make tab completion for files/buffers act like bash
-set wildmode=list:full " show a list when pressing tab and complete
+"http://blog.sanctum.geek.nz/lazier-tab-completion/
+set wildmode=list:longest,full " show a list when pressing tab and complete
+set wildignore+=.cache,.gem,.ivy2,.extras.bash,.themes
+set wildignore+=.subversion,.subversion_IDEA
+set wildignore+=.Trash
+set wildignore+=Desktop,Documents,Downloads
+set wildignore+=Library,Movies,Pictures
+set wildignore+=spf13vim2
+set wildignore+=.CFUserTextEncoding,.DS_Store
+set wildignore+=.bash_history,.extra.bash,.irb-history
+set wildignore+=.lesshst,.mysql_history,.pry_history
+set wildignore+=.reviewboard-cache,.rnd,.sbt.cache.lock
+set wildignore+=.scala_history,.sqlite_history,.viminfo
+set wildignore+=*.o,*.obj,.git,vendor/rails/**,vendor/gems/**
+set wildignore+=*.swp
+if exists("&wildignorecase")
+    set wildignorecase
+endif
+
 " first full match
 set visualbell " don't beep
 set noerrorbells " don't beep
@@ -518,6 +536,10 @@ set spelllang=en "Carga el diccionario en o los lenguajes que necesitemos
 "set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
 "will add dictionary scanning
 set complete+=k
+"complete include file
+"set complete+=i
+"tag complete
+"set complete+=t
 set dictionary+=~/vimfiles/spell/en.ascii.spl
 set dictionary+=~/vimfiles/spell/en.ascii.sug
 set dictionary+=~/vimfiles/spell/en.latin1.spl
@@ -958,8 +980,15 @@ let g:tskelDir=$HOME . '/vimfiles/skeletons/'
 let g:tskelUserName='ISC. Primitivo R. Montero'
 let g:tskelUserEmail='cibercafe_montero@hotmail.com'
 "autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
-autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
 autocmd BufNewFile *.py TSkeletonSetup skeleton.py
+autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
+autocmd BufNewFile *.htm TSkeletonSetup skeleton.htm
+autocmd BufNewFile *.html TSkeletonSetup skeleton.htm
+autocmd BufNewFile *.project TSkeletonSetup skeleton.project
+autocmd BufNewFile *.sln TSkeletonSetup skeleton.sln
+autocmd BufNewFile *.config TSkeletonSetup skeleton.config
+autocmd BufNewFile *.css TSkeletonSetup skeleton.css
+autocmd BufNewFile *.xml TSkeletonSetup skeleton.xml
 autocmd BufNewFile *.php TSkeletonSetup skeleton.php
 "---------------------------------------------------------
 " }}}
@@ -1281,7 +1310,7 @@ autocmd FileType cs set omnifunc=OmniSharp#Complete
 " SuperTab {{{
 "---------------------------------------------------------
 let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
 let g:SuperTabClosePreviewOnPopupClose = 1
 "---------------------------------------------------------
@@ -1294,6 +1323,19 @@ let g:formatprg_cs = "astyle"
 let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
 autocmd BufWritePre *.cs :Autoformat
 "---------------------------------------------------------
+" }}}
+
+" Conque {{{
+"http://code.google.com/p/conque/
+"http://code.google.com/p/conque/wiki/Usage
+let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
+let g:ConqueTerm_FastMode = 1
+let g:ConqueTerm_ToggleKey = '<F8>'
+let g:ConqueTerm_PyExe = 'C:/Python27/python.exe'
+let g:ConqueTerm_CodePage = 0
+let g:ConqueTerm_ColorMode = 'conceal'
+let g:ConqueTerm_SessionSupport = 0
+let g:ConqueTerm_CloseOnEnd = 1
 " }}}
 
 " jsbeautify {{{
