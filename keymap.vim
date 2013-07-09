@@ -710,8 +710,9 @@ nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
 " dbext {{{
 " mappings for sql files
 " execute statement
-autocmd FileType sql nnoremap <F5> :DBExecRangeSQL <cr>
-autocmd FileType sql nnoremap <A-F1> :DBDescribeTable <cr>
+autocmd FileType sql nnoremap <F5> :DBExecVisualSQL <cr>
+autocmd FileType sql vnoremap <F5> :DBExecVisualSQL <cr>
+autocmd FileType sql map <A-F1> :DBDescribeTable <cr>
 
 "remap <leader>sl+ to <leader>l+
 autocmd FileType sql nnoremap <leader>lt :DBListTable <cr>

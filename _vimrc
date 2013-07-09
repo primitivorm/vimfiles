@@ -34,9 +34,11 @@ filetype on
 "------------------------------------------------------
 "https://github.com/gmarik/vundle
 "------------------------------------------------------
+let g:bundle_dir=expand($HOME.'/vimfiles/bundle/vundle')
 set nocompatible " be iMproved
 "rtp
 set runtimepath+=~/vimfiles/bundle/vundle/
+set runtimepath+=~/vimfiles/ctags/
 call vundle#rc()
 "" let Vundle manage Vundle
 "" required!
@@ -115,8 +117,14 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'bronson/vim-visual-star-search'
 Bundle 'sukima/xmledit'
 Bundle 'davidhalter/jedi-vim'
-Bundle "Chiel92/vim-autoformat"
-Bundle "jakobwesthoff/argumentrewrap"
+Bundle 'Chiel92/vim-autoformat'
+Bundle 'jakobwesthoff/argumentrewrap'
+Bundle 'xolox/vim-misc'
+Bundle 'nosami/Omnisharp'
+Bundle 'mileszs/ack.vim'
+Bundle 'Rykka/colorv.vim'
+Bundle 'spiiph/vim-space'
+"Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'Shougo/neosnippet'
 "Bundle 'Shougo/neocomplcache'
 "Bundle 'jpalardy/vim-slime'
@@ -135,7 +143,7 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'Rykka/galaxy.vim'
 Bundle 'tpope/vim-dispatch'
-Bundle 'nosami/Omnisharp'
+Bundle 'Lokaltog/vim-distinguished'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'xuhdev/SingleCompile'
 "Bundle 'daviddavis/vim-colorpack'
@@ -150,7 +158,6 @@ Bundle 'nosami/Omnisharp'
 "Bundle 'Rip-Rip/clang_complete'
 "Bundle 'esukram/autocomplpop.vim'
 "Bundle 'tobyS/pdv'
-"Bundle 'mileszs/ack.vim'
 "Bundle 'drmingdrmer/xptemplate'
 "Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'tpope/vim-commentary'
@@ -181,7 +188,6 @@ Bundle 'nosami/Omnisharp'
 "Bundle 'goldfeld/vim-seek'
 "Bundle 'tek/vim-quickbuf'
 "Bundle 'Yggdroot/indentLine'
-"Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'Twinside/vim-codeoverview'
 "Bundle 'myusuf3/numbers.vim'
 "Bundle 'zhaocai/GoldenView.Vim'
@@ -203,7 +209,6 @@ Bundle 'nosami/Omnisharp'
 "Bundle 'wikitopian/hardmode'
 "Bundle 'vim-pandoc/vim-pandoc'
 "Bundle 'bryanthankins/vim-aspnetide'
-"Bundle 'Rykka/colorv.vim'
 "Bundle 'Lokaltog/powerline'
 
 " vim-scripts repos
@@ -286,7 +291,6 @@ set noswapfile
 "guarda el archivo en cuanto se deja el buffer
 set autowrite
 set autoread
-set directory=~/tmp,/tmp
 " store swap files in one of these directories
 " (in case swapfile is ever turned on)
 set viminfo='20,\"80 " read/write a .viminfo file, don't store more
@@ -338,12 +342,12 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 if has('gui_running')
     "show tabs always = 2
-    set showtabline=1
+    "set showtabline=1
     "max num of tabs
     set tabpagemax=15
     hi CursorLine guibg=#e6e6fa
     hi CursorColumn guibg=#e6e6fa
-    set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
+    set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
     "set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
     "set guifont=Menlo_for_Powerline:h10:cANSI
     "set guifont=Monaco:h9:cANSI
@@ -359,6 +363,8 @@ endif
 "set colorscheme
 "https://github.com/primitivorm/vim-proman-theme
 colorscheme proman
+"colorscheme distinguished
+"colorscheme solarized
 
 "habilita soporte para plugins
 filetype plugin on
@@ -366,7 +372,7 @@ filetype plugin on
 set nu
 "set rnu "relativenumber
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
-set wrap
+set nowrap
 set linebreak "lbr
 "if has('linebreak')
 "let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
@@ -621,7 +627,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 "custom settings
 let g:NERDTreeBookmarksFile     = expand($HOME.'/_NERDTreeBookmarks')
 let g:NERDTreeShowBookmarks     = 1
-let g:NERDTreeWinSize           = 35
+let g:NERDTreeWinSize           = 40
 let g:NERDTreeChristmasTree     = 1
 let g:NERDTreeCaseSensitiveSort = 0
 let g:NERDTreeQuitOnOpen        = 0
@@ -698,25 +704,25 @@ let g:tagbar_ctags_bin = '~\vimfiles\ctags58\ctags.exe'
 "let g:tagbar_indent          = 1   "default 2
 let g:tagbar_autofocus        = 1   "default 0
 
-""If you use multiple tabs and want Tagbar to also open in the current tab when
-""you switch to an already loaded, supported buffer
-""autocmd BufEnter * nested :call tagbar#autoopen(0)
-""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"" uncomment this section for open new buffers in a tab always
-""always show tabs
-"set showtabline=2
-"if (&diff==0)
-""Open files always in new tabs
-"autocmd BufReadPost * OpenInTab
-"endif
-"function! DoOpenInTab()
-"if (&modifiable)
-"tab ball
-"tabn
-"endif
-"endfunction
-"command! -nargs=0 OpenInTab call DoOpenInTab()
-""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"If you use multiple tabs and want Tagbar to also open in the current tab when
+"you switch to an already loaded, supported buffer
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+" uncomment this section for open new buffers in a tab always
+"always show tabs
+set showtabline=2
+if (&diff==0)
+"Open files always in new tabs
+autocmd BufReadPost * OpenInTab
+endif
+function! DoOpenInTab()
+if (&modifiable)
+tab ball
+tabn
+endif
+endfunction
+command! -nargs=0 OpenInTab call DoOpenInTab()
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ""---------------------------------------------------------
 "" }}}
@@ -729,13 +735,13 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
-" MiniBufExpl Colors
-hi MBEVisibleActive guifg=#000080 guibg=fg gui=bold cterm=bold
-hi MBEVisibleNormal guifg=#009999 guibg=fg gui=bold cterm=bold
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEChanged guifg=#ff0000 guibg=fg
-hi MBENormal guifg=#696969 guibg=fg
+"" MiniBufExpl Colors
+"hi MBEVisibleActive guifg=#000080 guibg=fg gui=bold cterm=bold
+"hi MBEVisibleNormal guifg=#009999 guibg=fg gui=bold cterm=bold
+"hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+"hi MBEVisibleChanged guifg=#F1266F guibg=fg
+"hi MBEChanged guifg=#ff0000 guibg=fg
+"hi MBENormal guifg=#696969 guibg=fg
 "------------------------------------------------------
 " }}}
 
@@ -805,9 +811,12 @@ let g:ctrlp_custom_ignore = {
             \ 'link': 'some_bad_symbolic_links',
             \ }
 if has('win32') || has('win64')
-    let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+  let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+  "http://vim.wikia.com/wiki/Fix_errors_that_relate_to_reading_or_creating_files_in_the_temp_or_tmp_environment_on_an_MS_Windows_PC
+  set directory=.,$TMP,$TEMP
 else
-    let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
+  set directory=~/tmp,/tmp
+  let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
 endif
 "---------------------------------------------------------
 " }}}
@@ -854,6 +863,7 @@ endif
 "connect to sql server instance
 let g:dbext_default_profile_sql_qa = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
+let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
 "---------------------------------------------------------
 " }}}
 
@@ -911,7 +921,8 @@ let g:indent_guides_start_level=1
 let g:indent_guides_guide_size=1
 "setting custom indent colors
 let g:indent_guides_auto_colors=1
-
+"run at startup
+let g:indent_guides_enable_on_vim_startup=1
 " Indentation style color guides
 "hi IndentGuidesOdd ctermbg=black
 "hi IndentGuidesEven ctermbg=darkgrey
@@ -1119,6 +1130,9 @@ let g:scUserName       = 'proman,12345678'
 "let g:scMaintainStatus =1
 "let g:scShowAllLocks   =1
 "let g:scShowExtra      =1
+"ADD environment variables
+"SSUSER
+"SSPWD
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
@@ -1257,9 +1271,9 @@ highlight link multiple_cursors_visual Visual
 "http://insenvim.sourceforge.net/
 "https://github.com/tomtom/checksyntax_vim.git
 "---------------------------------------------------------
-"let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
-"let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense"
-"let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
+let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
+let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense"
+let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
 "---------------------------------------------------------
 "" }}}
 
