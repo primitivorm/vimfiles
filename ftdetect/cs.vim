@@ -2,14 +2,14 @@
 "(my personal macros) mapping like refactor
 "http://www.vim.org/scripts/script.php?script_id=2087
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Automatic re-tab
-autocmd BufReadPost *.cs if &modifiable | retab | endif
-" convert spaces to tabs when reading file
-autocmd! BufReadPost *.cs set noexpandtab | retab!
-" convert tabs to spaces before writing file
-autocmd! BufWritePre *.cs set expandtab | retab!
-" convert spaces to tabs after writing file (to show guides again)
-autocmd! BufWritePost *.cs set noexpandtab | retab!
+"" Automatic re-tab
+"autocmd BufReadPost *.cs if &modifiable | retab | endif
+"" convert spaces to tabs when reading file
+"autocmd! BufReadPost *.cs set noexpandtab | retab!
+"" convert tabs to spaces before writing file
+"autocmd! BufWritePre *.cs set expandtab | retab!
+"" convert spaces to tabs after writing file (to show guides again)
+"autocmd! BufWritePost *.cs set noexpandtab | retab!
 " establece file format
 autocmd! BufReadPost *.cs set ft=cs
 

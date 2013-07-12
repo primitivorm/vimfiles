@@ -25,7 +25,27 @@ function! s:swap_down()
     exec n + 1
 endfunction
 
-noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
-noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
+function! s:swap_visual_up()
+  let b = line("'<") - 1
+  if (b + 1) == 1
+    return
+  endif
+  let e = line("'>")
+  exec b . "m" . e
+  exec "normal! gv"
+endfunction
 
+function! s:swap_visual_down()
+  let b = line("'>") + 1
+  let e = line("'<") - 1
+  if (b - 1) == line('$')
+    return
+  endif
+  exec b . "m" . e
+  exec "normal! gv"
+endfunction
 
+nnoremap <silent> <c-s-up> :call <SID>swap_up()<CR>
+nnoremap <silent> <c-s-down> :call <SID>swap_down()<CR>
+vnoremap <silent> <c-s-up> <esc>:call <SID>swap_visual_up()<CR>
+vnoremap <silent> <c-s-down> <esc>:call <SID>swap_visual_down()<CR>

@@ -64,10 +64,10 @@ nnoremap <Leader><Bar> <C-w><Bar>
 " Resize window {{{
 "http://vim.usrsb.in/117060445
 "can resize your windows using Alt plus an arrow key.
-nnoremap <C-A-Right> :vertical res +1<cr>
-nnoremap <C-A-Up> :res +1<cr>
-nnoremap <C-A-Down> :res -1<cr>
-nnoremap <C-A-Left> :vertical res -1<cr>
+nnoremap <C-A-Left> :vertical res +1<cr>
+nnoremap <C-A-Right> :vertical res -1<cr>
+nnoremap <C-A-Down> :res +1<cr>
+nnoremap <C-A-Up> :res -1<cr>
 " }}}
 
 " Tab maps {{{0
@@ -124,9 +124,9 @@ nnoremap <silent><A-Right> :call TabRight()<CR>
 noremap <MiddleMouse> <LeftMouse>
 
 "Shift-Home, Shift-End
-inoremap <silent><S-Home> <Esc>v^
+inoremap <silent><S-Home> <Esc>lv^
 inoremap <silent><S-End> <Esc>lv$
-nnoremap <silent><S-Home> <Esc>v^
+nnoremap <silent><S-Home> <Esc>lv^
 nnoremap <silent><S-End> <Esc>v$
 
 "Ctrl-Shift-Home, Ctrl-Shift-End
