@@ -124,6 +124,7 @@ Bundle 'nosami/Omnisharp'
 Bundle 'mileszs/ack.vim'
 Bundle 'Rykka/colorv.vim'
 Bundle 'spiiph/vim-space'
+Bundle 'gcmt/taboo.vim'
 "Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'Shougo/neosnippet'
 "Bundle 'Shougo/neocomplcache'
@@ -526,6 +527,8 @@ set mouse=a " enable using the mouse if terminal emulator
 set guioptions-=T  "remove toolbar
 " set guioptions-=r  "remove right-hand scroll bar
 set guioptions+=b  "remove right-hand scroll bar
+"tab style like terminal
+"set guioptions-=e
 "let g:gui_fonts = ['Monospace 10', 'Lucida Console 10', 'Courier New 10']
 "let g:gui_colors = ['ego', 'corporation', 'github', 'satori', 'sienna']
 "customize tab color
@@ -716,9 +719,9 @@ if (&diff==0)
 autocmd BufReadPost * OpenInTab
 endif
 function! DoOpenInTab()
-if (&modifiable)
-tab ball
-tabn
+if (&modifiable && !&readonly)
+  tab ball
+  tabn
 endif
 endfunction
 command! -nargs=0 OpenInTab call DoOpenInTab()

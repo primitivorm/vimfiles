@@ -18,23 +18,23 @@ map <leader>et :tabe %%
 " Split new window/buffer {{{
 " http://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/
 " window
-nmap <leader>sw<left>  :topleft  vnew<CR>
-nmap <leader>sw<right> :botright vnew<CR>
-nmap <leader>sw<up>    :topleft  new<CR>
-nmap <leader>sw<down>  :botright new<CR>
-nmap <leader>swh :topleft  vnew<CR>
-nmap <leader>swl<right> :botright vnew<CR>
-nmap <leader>swk<up>    :topleft  new<CR>
-nmap <leader>swj<down>  :botright new<CR>
+nmap <leader>sw<left>   : topleft  vnew<CR>
+nmap <leader>sw<right>  : botright vnew<CR>
+nmap <leader>sw<up>     : topleft  new<CR>
+nmap <leader>sw<down>   : botright new<CR>
+nmap <leader>swh        : topleft  vnew<CR>
+nmap <leader>swl<right> : botright vnew<CR>
+nmap <leader>swk<up>    : topleft  new<CR>
+nmap <leader>swj<down>  : botright new<CR>
 " buffer
-nmap <leader>s<left>   :leftabove  vnew<CR>
-nmap <leader>s<right>  :rightbelow vnew<CR>
-nmap <leader>s<up>     :leftabove  new<CR>
-nmap <leader>s<down>   :rightbelow new<CR>
-nmap <leader>sh   :leftabove  vnew<CR>
-nmap <leader>sl  :rightbelow vnew<CR>
-nmap <leader>sk     :leftabove  new<CR>
-nmap <leader>sj   :rightbelow new<CR>
+nmap <leader>s<left>    : leftabove  vnew<CR>
+nmap <leader>s<right>   : rightbelow vnew<CR>
+nmap <leader>s<up>      : leftabove  new<CR>
+nmap <leader>s<down>    : rightbelow new<CR>
+nmap <leader>sh         : leftabove  vnew<CR>
+nmap <leader>sl         : rightbelow vnew<CR>
+nmap <leader>sk         : leftabove  new<CR>
+nmap <leader>sj         : rightbelow new<CR>
 " }}}
 
 " Window navigation {{{
@@ -64,20 +64,20 @@ nnoremap <Leader><Bar> <C-w><Bar>
 " Resize window {{{
 "http://vim.usrsb.in/117060445
 "can resize your windows using Alt plus an arrow key.
-nnoremap <C-A-Left> :vertical res +1<cr>
-nnoremap <C-A-Right> :vertical res -1<cr>
-nnoremap <C-A-Down> :res +1<cr>
-nnoremap <C-A-Up> :res -1<cr>
+nnoremap <C-A-Left>  : vertical res +1<cr>
+nnoremap <C-A-Right> : vertical res -1<cr>
+nnoremap <C-A-Down>  : res +1<cr>
+nnoremap <C-A-Up>    : res -1<cr>
 " }}}
 
 " Tab maps {{{0
 " Tab navigation like Firefox
-nnoremap <silent><C-Tab> :tabnext<cr>
-nnoremap <silent><S-Tab> :tabprev<cr>
-nnoremap <silent><C-F4> :tabclose<cr>
-inoremap <silent><C-Tab> :tabnext<cr>
-inoremap <silent><S-Tab> :tabprev<cr>
-inoremap <silent><C-F4> :tabclose<cr>
+nnoremap <silent><C-Tab> : tabnext<cr>
+nnoremap <silent><S-Tab> : tabprev<cr>
+nnoremap <silent><C-F4>  : tabclose<cr>
+inoremap <silent><C-Tab> : tabnext<cr>
+inoremap <silent><S-Tab> : tabprev<cr>
+inoremap <silent><C-F4>  : tabclose<cr>
 
 "http://vim.wikia.com/wiki/Alternative_tab_navigation
 "nnoremap <A-F1> 1gt
@@ -113,8 +113,8 @@ function TabRight()
    endif
  endfunction0
 
-nnoremap <silent><A-Left> :call TabLeft()<CR>
-nnoremap <silent><A-Right> :call TabRight()<CR>
+nnoremap <silent><A-Left>  : call TabLeft()<CR>
+nnoremap <silent><A-Right> : call TabRight()<CR>
 " }}}
 
 " Easy Vim Mapping like others editors {{{
@@ -124,9 +124,9 @@ nnoremap <silent><A-Right> :call TabRight()<CR>
 noremap <MiddleMouse> <LeftMouse>
 
 "Shift-Home, Shift-End
-inoremap <silent><S-Home> <Esc>lv^
-inoremap <silent><S-End> <Esc>lv$
-nnoremap <silent><S-Home> <Esc>lv^
+inoremap <silent><S-Home> <Esc>v^
+inoremap <silent><S-End> <Esc>v$
+nnoremap <silent><S-Home> <Esc>v^
 nnoremap <silent><S-End> <Esc>v$
 
 "Ctrl-Shift-Home, Ctrl-Shift-End
@@ -156,8 +156,8 @@ nnoremap <silent><S-Left> vh
 nnoremap <silent><S-Right> vl
 inoremap <silent><S-Left> <Esc>vh
 inoremap <silent><S-Right> <Esc>vl
-vnoremap <silent><S-Left> <Left>
-vnoremap <silent><S-Right> <Right>
+vnoremap <silent><S-Left> h
+vnoremap <silent><S-Right> l
 
 "in Insert mode Left goto last initial Visual selection and Change to Insert mode
 vnoremap <silent><Left> <Esc>`<i
