@@ -12,6 +12,8 @@
 "autocmd! BufWritePost *.cs set noexpandtab | retab!
 " establece file format
 autocmd! BufReadPost *.cs set ft=cs
+"for each line in buffer rewrap on write
+autocmd BufWritePre *.cs :1,$call argumentrewrap#RewrapArguments()
 
 "Create a Property based on a word with CamelCase format
 au BufRead,BufNewFile *.cs nnoremap <A-r>cp Ipublic string <esc>w"zywA {<cr>}<esc>Oget { return <esc>"zpbi_<esc>l~b"xywea; }<esc>oset { <esc>"xpa = value; }<esc>kkOprivate string <esc>"xpa = string.Empty;<cr>/// <summary><cr> Obtiene o establece <esc>"zpo</summary><esc>4jV7k=
@@ -32,13 +34,33 @@ au BufRead,BufNewFile *.cs vnoremap <A-r>su <esc>gv"zdOusing (resource) {<cr>}<e
 function! FormatStatement()
   let line = getline('.')
   let pattern = '\v([\+|\-|\*|\/|\%|\=|!|<|>]+)'
-  let line = substitute(line, pattern, ' \1 ',  'g')
+  let line = substitute(
+    line,
+    pattern,
+    ' \1 ',
+    'g'
+  )
   let pattern = '\v([\{|\}|;|,])'
-  let line = substitute(line, pattern, ' \1 ',  'g')
+  let line = substitute(
+    line,
+    pattern,
+    ' \1 ',
+    'g'
+  )
   let pattern = '\v([A-z])\s+([+-]{2})'
-  let line = substitute(line, pattern, '\1\2', 'g')
+  let line = substitute(
+    line,
+    pattern,
+    '\1\2',
+    'g'
+  )
   let pattern = '\v([+-]{2})\s+([A-z])'
-  let line = substitute(line, pattern, '\1\2', 'g')
+  let line = substitute(
+    line,
+    pattern,
+    '\1\2',
+    'g'
+  )
   let line = substitute(line, '\v\s+([;,])', '\1',  'g')
   let line = substitute(line, '\s\+', ' ',  'g')
   let line = substitute(line, '\s\+$', '',  'g')

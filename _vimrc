@@ -38,7 +38,7 @@ let g:bundle_dir=expand($HOME.'/vimfiles/bundle/vundle')
 set nocompatible " be iMproved
 "rtp
 set runtimepath+=~/vimfiles/bundle/vundle/
-set runtimepath+=~/vimfiles/ctags/
+set runtimepath+=~/vimfiles/bin/
 call vundle#rc()
 "" let Vundle manage Vundle
 "" required!
@@ -66,7 +66,6 @@ Bundle 'shemerey/vim-indexer'
 Bundle 'sjl/gundo.vim'
 Bundle 'ervandew/supertab'
 Bundle 'mattn/webapi-vim'
-Bundle 'Townk/vim-autoclose'
 Bundle 'mattn/lisper-vim.git'
 Bundle 'scrooloose/syntastic'
 Bundle 'valloric/MatchTagAlways'
@@ -89,7 +88,6 @@ Bundle 'heaths/vim-msbuild'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'guns/xterm-color-table.vim'
 Bundle 'leshill/vim-json'
-Bundle 'rking/ag.vim'
 Bundle 'mutewinter/vim-css3-syntax'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'tsaleh/vim-matchit'
@@ -110,8 +108,6 @@ Bundle 'biruh/vim-aspnet'
 Bundle 'mklabs/vim-backbone'
 Bundle 'oranget/vim-csharp.git'
 Bundle 'sickill/coloration'
-Bundle 'koron/minimap-vim'
-Bundle 'sjl/splice.vim'
 Bundle 'hokaccha/vim-html5validator'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'bronson/vim-visual-star-search'
@@ -123,7 +119,6 @@ Bundle 'xolox/vim-misc'
 Bundle 'nosami/Omnisharp'
 Bundle 'mileszs/ack.vim'
 Bundle 'Rykka/colorv.vim'
-Bundle 'spiiph/vim-space'
 Bundle 'gcmt/taboo.vim'
 "Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'Shougo/neosnippet'
@@ -131,6 +126,11 @@ Bundle 'gcmt/taboo.vim'
 "Bundle 'jpalardy/vim-slime'
 "Bundle 'maksimr/vim-jsbeautify'
 "Bundle 'gotcha/vimpdb'
+"Bundle 'rking/ag.vim'
+"Bundle 'koron/minimap-vim'
+"Bundle 'Townk/vim-autoclose'
+"Bundle 'sjl/splice.vim'
+"Bundle 'spiiph/vim-space'
 
 "colors
 Bundle 'primitivorm/vim-proman-theme'
@@ -694,8 +694,8 @@ set suffixesadd+=.cs
 let g:tagbar_width     = 25    "default 40
 let g:tagbar_compact   = 1     "default 0
 let g:tagbar_foldlevel = 2    "default 99
-"especify ctags path
-let g:tagbar_ctags_bin = '~\vimfiles\ctags58\ctags.exe'
+
+let g:tagbar_ctags_bin = '~/vimfiles/bin/ctags.exe'
 
 "let g:tagbar_expand          = 1   "default 0
 "let g:tagbar_sort            = 0  "default 1
@@ -817,6 +817,7 @@ if has('win32') || has('win64')
   let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
   "http://vim.wikia.com/wiki/Fix_errors_that_relate_to_reading_or_creating_files_in_the_temp_or_tmp_environment_on_an_MS_Windows_PC
   set directory=.,$TMP,$TEMP
+  "set shell=bash.exe
 else
   set directory=~/tmp,/tmp
   let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
@@ -875,6 +876,15 @@ let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
 "https://github.com/vim-scripts/SQLComplete.vim
 "---------------------------------------------------------
 let g:ftplugin_sql_omni_key = '<C-C>'
+autocmd FileType sql set omnifunc=sqlcomplete#Complete
+"---------------------------------------------------------
+" }}}
+
+" sqlserver {{{
+"---------------------------------------------------------
+"https://github.com/vim-scripts/sqlserver.vim
+"---------------------------------------------------------
+let g:sql_type_default = "sqlserver"
 "---------------------------------------------------------
 " }}}
 
@@ -893,8 +903,9 @@ endif
 "for testing version
 "set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
 " set laststatus=2
-" let g:Powerline_theme='short'
-" let g:Powerline_colorscheme='solarized256'
+let g:Powerline_theme='long'
+let g:Powerline_colorscheme='solarized256_dark'
+"let g:Powerline_colorscheme='solarized256_light'
 "---------------------------------------------------------
 " }}}
 
@@ -1148,6 +1159,15 @@ let  g:multi_cursor_exit_from_insert_mode=0   "default 1
 " Default highlighting (see help :highlight and help :highlight-link)
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 highlight link multiple_cursors_visual Visual
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+" vim-space {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"https://github.com/spiiph/vim-space
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set this variable to disable space.vim
+"let g:space_loaded = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 

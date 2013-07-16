@@ -212,6 +212,10 @@ nnoremap <C-H> :%s/<C-r><C-w>/NEW_WORD
 vnoremap <C-u> U
 vnoremap <C-l> u
 
+"insert automatically } after insert {
+inoremap {<CR> {<CR>}<Esc>O
+" }}}
+
 " Tab completion {{{
 "inoremap <Tab> <C-x><C-n>
 "inoremap <Tab> <C-x><C-i>
@@ -226,14 +230,14 @@ vnoremap <C-l> u
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
 
-  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
+  let substr = strpart(line,-1,col('.')+1)      " from the start of the current
                                                   " line to one character right
                                                   " of the cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+    )
   if (strlen(substr)==0)                          " nothing to match on empty string
     return "\<tab>"
   endif
-  let has_period = match(substr, '\.') != -1      " position of period, if any
+  let has_period = match(substr,'\.') != -1      " position of period, if any
   let has_slash = match(substr, '\/') != -1       " position of slash, if any
   if (!has_period && !has_slash)
     return "\<C-X>\<C-P>"                         " existing text matching
@@ -244,11 +248,6 @@ function! Smart_TabComplete()
   endif
 endfunction
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-" }}}
-
-"insert automatically } after insert {
-inoremap {<CR> {<CR>}<Esc>O
-
 " }}}
 
 " Highlight all words when press <CR> {{{
@@ -280,7 +279,7 @@ function! AutoHighlightToggle()
   else
     augroup auto_highlight
       au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
+      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'),'\').'\>'
     augroup end
     setl updatetime=1000
     echo 'Highlight current word: ON'
@@ -352,13 +351,13 @@ cnoremap w!! w !sudo tee % >/dev/null
 "vnoremap <Tab> %
 
 " Folding
-nnoremap <Space> za
-vnoremap <Space> za
+"nnoremap <Space> za
+"vnoremap <Space> za
 
 " This command will execute the file, for example, if this is an
 " HTML file, it will run:
 " start c:\absolute\filename.html
-" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
+" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"),  "/",  "\\",  "g")<CR>:silent!!cmd /cstart <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
 """ command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
 
 " Use Q for formatting the current paragraph (or visual selection)
@@ -399,7 +398,7 @@ fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
     %s/\s\+$//e
-    call cursor(l, c)
+    call cursor(l,c)
 endfun
 " command to strip white space from any file
 nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
@@ -523,13 +522,13 @@ function! RotateColorTheme()
       "railscasts#amy#
       let colorstring = "proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#bandit#blackboard#Sunburst#galaxy#default#candy#hybrid#hybrid-light#mac_classic#mickeysoft#solarized"
 
-      let x = match( colorstring, "#", g:themeindex )
-      let y = match( colorstring, "#", x + 1 )
+      let x = match(colorstring,"#",g:themeindex)
+      let y = match(colorstring,"#",x + 1)
       let g:themeindex = x + 1
       if y == -1
          let g:themeindex = 0
       else
-         let themestring = strpart(colorstring, x + 1, y - x - 1)
+         let themestring = strpart(colorstring,x + 1,y - x - 1)
          return ":colorscheme ".themestring
       endif
    endwhile
@@ -646,8 +645,7 @@ command! -range=% Rst :'<,'>!pandoc -f markdown -t rst
     "endif
 
     "" Jump back to the original window
-    "for window in range(1, winnr('$'))
-        "execute window . 'wincmd w'
+    "for window in range(1,winnr('$')) "execute window . 'wincmd w'
         "if exists('w:jumpbacktohere')
             "unlet w:jumpbacktohere
             "break
@@ -659,7 +657,7 @@ command! -range=% Rst :'<,'>!pandoc -f markdown -t rst
 " }}}
 
 " vim-nerdtree-tabs {{{
-map <F2> :NERDTreeTabsToggle<CR>
+noremap <F2> :NERDTreeTabsToggle<CR>
 " }}}
 
 " Tagbar {{{
@@ -790,7 +788,7 @@ nmap fi :call OmniSharp#FindImplementations()<cr>
 nmap fu :call OmniSharp#FindUsages()<cr>
 nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
 "I find contextual code actions so useful that I have it mapped to the spacebar
-nmap <leader><space> :call OmniSharp#GetCodeActions()<cr>
+nmap <c-space> :call OmniSharp#GetCodeActions()<cr>
 " rename with dialog
 nmap nm :call OmniSharp#Rename()<cr>
 autocmd FileType *.cs nmap <silent><S-F2> :call OmniSharp#Rename()<cr>
