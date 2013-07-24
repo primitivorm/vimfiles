@@ -80,16 +80,16 @@ inoremap <silent><S-Tab> : tabprev<cr>
 inoremap <silent><C-F4>  : tabclose<cr>
 
 "http://vim.wikia.com/wiki/Alternative_tab_navigation
-"nnoremap <A-F1> 1gt
-"nnoremap <A-F2> 2gt
-"nnoremap <A-F3> 3gt
-"nnoremap <A-F4> 4gt
-"nnoremap <A-F5> 5gt
-"nnoremap <A-F6> 6gt
-"nnoremap <A-F7> 7gt
-"nnoremap <A-F8> 8gt
-"nnoremap <A-F9> 9gt
-"nnoremap <A-F0> 10gt
+nnoremap <A-F1> 1gt
+nnoremap <A-F2> 2gt
+nnoremap <A-F3> 3gt
+nnoremap <A-F4> 4gt
+nnoremap <A-F5> 5gt
+nnoremap <A-F6> 6gt
+nnoremap <A-F7> 7gt
+nnoremap <A-F8> 8gt
+nnoremap <A-F9> 9gt
+nnoremap <A-F0> 10gt
 
 "http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
 "Move tab to Left
@@ -124,7 +124,7 @@ nnoremap <silent><A-Right> : call TabRight()<CR>
 noremap <MiddleMouse> <LeftMouse>
 
 "Shift-Home, Shift-End
-inoremap <silent><S-Home> <Esc>v^
+inoremap <silent><S-Home> <Esc>lv^
 inoremap <silent><S-End> <Esc>v$
 nnoremap <silent><S-Home> <Esc>v^
 nnoremap <silent><S-End> <Esc>v$
@@ -143,7 +143,7 @@ nnoremap <silent><C-S-Right> <Esc>vw
 nnoremap <silent><S-Up> <Esc>vk
 nnoremap <silent><S-Down> <Esc>vj
 inoremap <silent><S-Up> <Esc>vk
-inoremap <silent><S-Down> <Esc>vj
+inoremap <silent><S-Down> <Esc>lvj
 vnoremap <silent><S-Up> k
 vnoremap <silent><S-Down> j
 
@@ -203,6 +203,10 @@ onoremap <C-A> <C-C>gggH<C-O>G
 snoremap <C-A> <C-C>gggH<C-O>G
 xnoremap <C-A> <C-C>ggVG
 
+"tab alignment selection
+vnoremap <silent><Tab> >
+vnoremap <silent><S-Tab> <
+
 "Find
 map <C-f> /<C-r><C-w>
 "Replace
@@ -211,6 +215,12 @@ nnoremap <C-H> :%s/<C-r><C-w>/NEW_WORD
 "Change minus - MAYUS
 vnoremap <C-u> U
 vnoremap <C-l> u
+
+"spelling
+nnoremap <c-f7> :set spell!<cr>
+nnoremap <f7> ]s
+nnoremap <s-f7> [s
+
 
 "insert automatically } after insert {
 inoremap {<CR> {<CR>}<Esc>O
@@ -225,19 +235,32 @@ inoremap {<CR> {<CR>}<Esc>O
 "inoremap <Tab> <C-x><C-f>
 "inoremap <Tab> <C-x><C-t>
 "inoremap <Tab> <C-x><C-o>
+"for file completion
+inoremap <c-f> <c-x><c-f>
+"for line completion
+inoremap <c-l> <c-x><c-l>
+"for thesaurus file
+inoremap <c-t> <c-x><c-t>
+"for dictionary completion
+inoremap <c-k> <c-x><c-k>
+"for words in current file
+inoremap <c-i> <c-x><c-i>
+"for tag completion
+inoremap <c-]> <c->
 
 "http://stackoverflow.com/questions/15870365/why-is-tab-completion-wildmenu-not-working
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
 
-  let substr = strpart(line,-1,col('.')+1)      " from the start of the current
+  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
                                                   " line to one character right
                                                   " of the cursor
-    )
+  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+  echo substr
   if (strlen(substr)==0)                          " nothing to match on empty string
     return "\<tab>"
   endif
-  let has_period = match(substr,'\.') != -1      " position of period, if any
+  let has_period = match(substr, '\.') != -1      " position of period, if any
   let has_slash = match(substr, '\/') != -1       " position of slash, if any
   if (!has_period && !has_slash)
     return "\<C-X>\<C-P>"                         " existing text matching
@@ -248,6 +271,7 @@ function! Smart_TabComplete()
   endif
 endfunction
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+
 " }}}
 
 " Highlight all words when press <CR> {{{
@@ -351,8 +375,8 @@ cnoremap w!! w !sudo tee % >/dev/null
 "vnoremap <Tab> %
 
 " Folding
-"nnoremap <Space> za
-"vnoremap <Space> za
+nnoremap <Space> za
+vnoremap <Space> za
 
 " This command will execute the file, for example, if this is an
 " HTML file, it will run:
@@ -546,15 +570,19 @@ nnoremap <silent><F12> :execute RotateColorTheme()<CR>
 nnoremap <silent><S-U> :GundoToggle<CR>
 " }}}
 
+"" undotree {{{
+"nnoremap <silent><S-U> :UndotreeToggle<CR>
+"" }}}
+
 " Ctrlp {{{
 nnoremap <C-p> :CtrlP<CR>
 inoremap <C-p> <esc>:CtrlP<CR>
 nnoremap <C-b> :CtrlPBuffer<CR>
 inoremap <C-b> <esc>:CtrlPBuffer<CR>
-nnoremap <C-l> :CtrlPMRUFiles<CR>
-inoremap <C-l> <esc>:CtrlPMRUFiles<CR>
-nnoremap <C-t> :CtrlPBufTag<CR>
-inoremap <C-t> <esc>:CtrlPBufTag<CR>
+"nnoremap <C-l> :CtrlPMRUFiles<CR>
+"inoremap <C-l> <esc>:CtrlPMRUFiles<CR>
+"nnoremap <C-t> :CtrlPBufTag<CR>
+"inoremap <C-t> <esc>:CtrlPBufTag<CR>
 " }}}
 
 " Surround {{{
@@ -668,8 +696,8 @@ vnoremap <C-]> <Esc>:tabnew %<CR>gvg<C-]>
 
 " ctags {{{
 "Search and destroy using tags
-"ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q ./
-map <C-F3> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
+"map <C-F3> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
+map <C-F3> :!ctags -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
 
 " }}}
 
@@ -715,7 +743,6 @@ autocmd FileType sql map <A-F1> :DBDescribeTable <cr>
 "remap <leader>sl+ to <leader>l+
 autocmd FileType sql nnoremap <leader>lt :DBListTable <cr>
 autocmd FileType sql nnoremap <leader>lp :DBListProcedure <cr>
-autocmd FileType sql nnoremap <leader>lv :DBListView <cr>
 autocmd FileType sql nnoremap <leader>lv :DBListView <cr>
 autocmd FileType sql nnoremap <leader>lc :DBListColumn <cr>
 " }}}

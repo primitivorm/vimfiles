@@ -64,6 +64,7 @@ Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'shemerey/vim-indexer'
 Bundle 'sjl/gundo.vim'
+"Bundle 'mbbill/undotree'
 Bundle 'ervandew/supertab'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/lisper-vim.git'
@@ -80,10 +81,15 @@ Bundle 'xolox/vim-shell'
 Bundle 'Shougo/vimshell'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'xolox/vim-session'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'Lokaltog/powerline-fonts'
+Bundle 'bling/vim-airline'
+" {{{ powerline
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/powerline-fonts'
+"Bundle 'stephenmckinney/vim-solarized-powerline'
+""Bundle 'fromonesrc/monaco-powerline-vim'
+""Bundle 'Lokaltog/powerline'
+" }}}
 Bundle 'wavded/vim-stylus'
-"Bundle 'fromonesrc/monaco-powerline-vim'
 Bundle 'heaths/vim-msbuild'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'guns/xterm-color-table.vim'
@@ -100,7 +106,6 @@ Bundle 'tomtom/tskeletons'
 Bundle 'aperezdc/vim-template'
 Bundle 'motemen/git-vim'
 Bundle 'shemerey/vim-project'
-Bundle 'ghewgill/vim-scmdiff'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
 Bundle 'Raimondi/delimitMate'
@@ -120,6 +125,9 @@ Bundle 'nosami/Omnisharp'
 Bundle 'mileszs/ack.vim'
 Bundle 'Rykka/colorv.vim'
 Bundle 'gcmt/taboo.vim'
+Bundle 'nelstrom/vim-americanize'
+Bundle 'rkulla/pydiction'
+"Bundle 'bling/vim-bufferline'
 "Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'Shougo/neosnippet'
 "Bundle 'Shougo/neocomplcache'
@@ -131,6 +139,7 @@ Bundle 'gcmt/taboo.vim'
 "Bundle 'Townk/vim-autoclose'
 "Bundle 'sjl/splice.vim'
 "Bundle 'spiiph/vim-space'
+"Bundle 'ghewgill/vim-scmdiff'
 
 "colors
 Bundle 'primitivorm/vim-proman-theme'
@@ -138,7 +147,6 @@ Bundle 'sjl/badwolf'
 Bundle 'sickill/vim-monokai'
 Bundle 'sickill/vim-sunburst'
 Bundle 'w0ng/vim-hybrid'
-Bundle 'stephenmckinney/vim-solarized-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'nelstrom/vim-mac-classic-theme'
@@ -210,7 +218,6 @@ Bundle 'Lokaltog/vim-distinguished'
 "Bundle 'wikitopian/hardmode'
 "Bundle 'vim-pandoc/vim-pandoc'
 "Bundle 'bryanthankins/vim-aspnetide'
-"Bundle 'Lokaltog/powerline'
 
 " vim-scripts repos
 Bundle 'c.vim'
@@ -233,16 +240,18 @@ Bundle 'sqlserver.vim'
 Bundle 'quickfixsigns'
 Bundle 'SearchComplete'
 Bundle 'hexHighlight.vim'
-Bundle 'ftpsync'
 Bundle 'grep.vim'
 Bundle 'Decho'
-"Bundle 'OmniCppComplete'
 Bundle 'refactor'
 Bundle 'visual_studio.vim'
 Bundle 'Word-Fuzzy-Completion'
 Bundle 'AutoAlign'
+Bundle 'multiselect'
+Bundle 'Thesaurus'
+"Bundle 'buftabs'
+"Bundle 'ftpsync'
+"Bundle 'OmniCppComplete'
 "Bundle 'vcscommand.vim'
-"Bundle 'multiselect'
 "Bundle 'netrw.vim'
 "Bundle 'IComplete'
 "Bundle 'Rainbow-Parenthesis'
@@ -348,10 +357,10 @@ if has('gui_running')
     set tabpagemax=15
     hi CursorLine guibg=#e6e6fa
     hi CursorColumn guibg=#e6e6fa
-    set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+    "set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+    set guifont=Monaco:h9:cANSI
     "set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
     "set guifont=Menlo_for_Powerline:h10:cANSI
-    "set guifont=Monaco:h9:cANSI
     "set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
     " switch syntax highlighting on, when the terminal has colors
     syntax on
@@ -379,9 +388,9 @@ set linebreak "lbr
 "let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
 "endif
 set showbreak=...
-set textwidth=69
-"set textwidth=85
-set colorcolumn=150
+"set textwidth=69
+set textwidth=125
+set colorcolumn=125
 "habilita sangrado inteligente
 set smartindent
 "sangrado automatico
@@ -431,37 +440,37 @@ set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 "" Set a nicer foldtext function
 "set foldtext=MyFoldText()
 "function! MyFoldText()
-"let line = getline(v:foldstart)
-"if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-"let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-"let linenum = v:foldstart + 1
-"while linenum < v:foldend
-"let line = getline( linenum )
-"let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-"if comment_content != ''
-"break
-"endif
-"let linenum = linenum + 1
-"endwhile
-"let sub = initial . ' ' . comment_content
-"else
-"let sub = line
-"let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-"if startbrace == '{'
-"let line = getline(v:foldend)
-"let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-"if endbrace == '}'
-"let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-"endif
-"endif
-"endif
-"let n = v:foldend - v:foldstart + 1
-"let info = " " . n . " lines"
-"let sub = sub . "                                                          "
-"let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-"let fold_w = getwinvar( 0, '&foldcolumn' )
-"let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-"return sub . info
+    "let line = getline(v:foldstart)
+    "if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
+        "let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
+        "let linenum = v:foldstart + 1
+        "while linenum < v:foldend
+            "let line = getline( linenum )
+            "let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
+            "if comment_content != ''
+                "break
+            "endif
+            "let linenum = linenum + 1
+        "endwhile
+        "let sub = initial . ' ' . comment_content
+    "else
+        "let sub = line
+        "let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
+        "if startbrace == '{'
+            "let line = getline(v:foldend)
+            "let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
+            "if endbrace == '}'
+                "let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
+            "endif
+        "endif
+    "endif
+    "let n = v:foldend - v:foldstart + 1
+    "let info = " " . n . " lines"
+    "let sub = sub . "                                                          "
+    "let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
+    "let fold_w = getwinvar( 0, '&foldcolumn' )
+    "let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
+    "return sub . info
 "endfunction
 " }}}
 
@@ -484,10 +493,7 @@ set switchbuf=useopen " reveal already opened files from the
 " buffers
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
-if v:version >= 730
-    set undofile " keep a persistent backup file
-    set undodir=~/tmp,/tmp
-endif
+set undofile " keep a persistent backup file
 
 "au
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
@@ -545,16 +551,13 @@ set spelllang=en "Carga el diccionario en o los lenguajes que necesitemos
 "set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
 "will add dictionary scanning
 set complete+=k
-"complete include file
-"set complete+=i
-"tag complete
-"set complete+=t
-set dictionary+=~/vimfiles/spell/en.ascii.spl
-set dictionary+=~/vimfiles/spell/en.ascii.sug
-set dictionary+=~/vimfiles/spell/en.latin1.spl
-set dictionary+=~/vimfiles/spell/en.latin1.sug
-set dictionary+=~/vimfiles/spell/en.utf-8.spl
-set dictionary+=~/vimfiles/spell/en.utf-8.sug
+"set dictionary+=~/vimfiles/spell/en.ascii.spl
+"set dictionary+=~/vimfiles/spell/en.ascii.sug
+"set dictionary+=~/vimfiles/spell/en.latin1.spl
+"set dictionary+=~/vimfiles/spell/en.latin1.sug
+"set dictionary+=~/vimfiles/spell/en.utf-8.spl
+"set dictionary+=~/vimfiles/spell/en.utf-8.sug
+set dictionary+=~/vimfiles/spell/*
 "set file for new words
 set spellfile=~/vimfiles/spell/dict.add
 "enable matchit plugin
@@ -570,8 +573,8 @@ set spellfile=~/vimfiles/spell/dict.add
 "http://www.vim.org/scripts/script.php?script_id=2528
 "https://github.com/vim-scripts/Thesaurus
 "------------------------------------------------------
-set thesaurus+=~/vimfiles/bundle/mthes10/mthesaur.txt
-set thesaurus+=~/vimfiles/bundle/mthes10/roget13a.txt
+set thesaurus+=~/vimfiles/thesaurus/mthes10/mthesaur.txt
+set thesaurus+=~/vimfiles/thesaurus/mthes10/roget13a.txt
 "------------------------------------------------------
 " }}}
 
@@ -695,7 +698,8 @@ let g:tagbar_width     = 25    "default 40
 let g:tagbar_compact   = 1     "default 0
 let g:tagbar_foldlevel = 2    "default 99
 
-let g:tagbar_ctags_bin = '~/vimfiles/bin/ctags.exe'
+"let g:tagbar_ctags_bin = $HOME . '\vimfiles\bin\ctags.exe'
+let g:tagbar_ctags_bin = 'ctags'
 
 "let g:tagbar_expand          = 1   "default 0
 "let g:tagbar_sort            = 0  "default 1
@@ -817,9 +821,13 @@ if has('win32') || has('win64')
   let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
   "http://vim.wikia.com/wiki/Fix_errors_that_relate_to_reading_or_creating_files_in_the_temp_or_tmp_environment_on_an_MS_Windows_PC
   set directory=.,$TMP,$TEMP
-  "set shell=bash.exe
+  set undodir=.,$TMP,$TEMP
+  if &diff
+    set shell=bash
+  endif
 else
   set directory=~/tmp,/tmp
+  set undodir=~/tmp,/tmp
   let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
 endif
 "---------------------------------------------------------
@@ -844,7 +852,7 @@ let g:syntastic_warning_symbol='W'
 let g:syntastic_style_warning_symbol='S'
 let g:syntastic_always_populate_loc_list=1
 
-if ! &diff
+if !&diff
     let g:syntastic_check_on_open=1
 endif
 
@@ -888,26 +896,31 @@ let g:sql_type_default = "sqlserver"
 "---------------------------------------------------------
 " }}}
 
-" Powerline {{{
-"---------------------------------------------------------
-"https://github.com/Lokaltog/vim-powerline.git
-"https://github.com/Lokaltog/powerline
-"https://powerline.readthedocs.org/en/latest/
-"---------------------------------------------------------
-"source ~/.vim/bundle/powerline/powerline/ext/vim/source_plugin.vim
-if has("gui_running")
-    let g:Powerline_symbols = 'fancy'
-else
-    let g:Powerline_symbols = 'compatible'
-endif
-"for testing version
-"set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
-" set laststatus=2
-let g:Powerline_theme='long'
-let g:Powerline_colorscheme='solarized256_dark'
+"" Powerline {{{
+""---------------------------------------------------------
+""https://github.com/Lokaltog/vim-powerline.git
+""https://github.com/Lokaltog/powerline
+""https://powerline.readthedocs.org/en/latest/
+""---------------------------------------------------------
+""source ~/.vim/bundle/powerline/powerline/ext/vim/source_plugin.vim
+"if has("gui_running")
+    "let g:Powerline_symbols = 'fancy'
+"else
+    "let g:Powerline_symbols = 'compatible'
+"endif
+""for testing version
+""set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
+"" set laststatus=2
+"let g:Powerline_theme='long'
 "let g:Powerline_colorscheme='solarized256_light'
-"---------------------------------------------------------
-" }}}
+""let g:Powerline_colorscheme='solarized256_dark'
+""---------------------------------------------------------
+"" }}}
+
+" airline {{{
+"https://github.com/bling/vim-airline
+"let g:airline_powerline_fonts = 1
+"}}}
 
 " vim-session {{{
 "---------------------------------------------------------
@@ -1147,6 +1160,7 @@ let g:scUserName       = 'proman,12345678'
 "ADD environment variables
 "SSUSER
 "SSPWD
+"Add to path: 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 

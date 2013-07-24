@@ -94,6 +94,7 @@ Press crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case (
 vss:@\\10.48.68.8\biam_incidencias\DevAutomarshv3_1@$/AUTOMARSH_SitiosEsp/Framework35/MMC.AutoMarsh.Core.root/MMC.AutoMarsh.Core/MMC.AutoMarsh.Core.Entities
 <Leader>ff ->format javascript code
 :AA ->toggle AutoAlign
+:mkspell es es_US -> genera los archivos de dictionary
 
 -----------------------------------------------
 macros
@@ -121,7 +122,11 @@ vim completion
 <C-x><C-f> Filename completion
 <C-x><C-t> Thesaurus File
 <C-x><C-o> Omni-completion
-
+<C-x><C-d> definitions of macros
+<C-x><C-v> Vim command-line
+<C-x><C-u> User defined completion
+<C-x><S> Spelling suggestion
+c-k>     Word fuzzy completion
 -----------------------------------------------
 SqlComplete
 <C-c> ->start SQLComplete
