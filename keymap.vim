@@ -18,14 +18,14 @@ map <leader>et :tabe %%
 " Split new window/buffer {{{
 " http://technotales.wordpress.com/2010/04/29/vim-splits-a-guide-to-doing-exactly-what-you-want/
 " window
-nmap <leader>sw<left>   : topleft  vnew<CR>
-nmap <leader>sw<right>  : botright vnew<CR>
-nmap <leader>sw<up>     : topleft  new<CR>
-nmap <leader>sw<down>   : botright new<CR>
-nmap <leader>swh        : topleft  vnew<CR>
-nmap <leader>swl<right> : botright vnew<CR>
-nmap <leader>swk<up>    : topleft  new<CR>
-nmap <leader>swj<down>  : botright new<CR>
+nmap <leader>w<left>   : topleft  vnew<CR>
+nmap <leader>w<right>  : botright vnew<CR>
+nmap <leader>w<up>     : topleft  new<CR>
+nmap <leader>w<down>   : botright new<CR>
+nmap <leader>wh        : topleft  vnew<CR>
+nmap <leader>wl<right> : botright vnew<CR>
+nmap <leader>wk<up>    : topleft  new<CR>
+nmap <leader>wj<down>  : botright new<CR>
 " buffer
 nmap <leader>s<left>    : leftabove  vnew<CR>
 nmap <leader>s<right>   : rightbelow vnew<CR>
@@ -79,17 +79,17 @@ inoremap <silent><C-Tab> : tabnext<cr>
 inoremap <silent><S-Tab> : tabprev<cr>
 inoremap <silent><C-F4>  : tabclose<cr>
 
-"http://vim.wikia.com/wiki/Alternative_tab_navigation
-nnoremap <A-F1> 1gt
-nnoremap <A-F2> 2gt
-nnoremap <A-F3> 3gt
-nnoremap <A-F4> 4gt
-nnoremap <A-F5> 5gt
-nnoremap <A-F6> 6gt
-nnoremap <A-F7> 7gt
-nnoremap <A-F8> 8gt
-nnoremap <A-F9> 9gt
-nnoremap <A-F0> 10gt
+""http://vim.wikia.com/wiki/Alternative_tab_navigation
+"nnoremap <A-F1> 1gt
+"nnoremap <A-F2> 2gt
+"nnoremap <A-F3> 3gt
+"nnoremap <A-F4> 4gt
+"nnoremap <A-F5> 5gt
+"nnoremap <A-F6> 6gt
+"nnoremap <A-F7> 7gt
+"nnoremap <A-F8> 8gt
+"nnoremap <A-F9> 9gt
+"nnoremap <A-F0> 10gt
 
 "http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
 "Move tab to Left
@@ -124,28 +124,30 @@ nnoremap <silent><A-Right> : call TabRight()<CR>
 noremap <MiddleMouse> <LeftMouse>
 
 "Shift-Home, Shift-End
-inoremap <silent><S-Home> <Esc>lv^
-inoremap <silent><S-End> <Esc>v$
 nnoremap <silent><S-Home> <Esc>v^
 nnoremap <silent><S-End> <Esc>v$
+inoremap <silent><S-Home> <Esc>v^
+inoremap <silent><S-End> <Right><Esc>v$
 
 "Ctrl-Shift-Home, Ctrl-Shift-End
 nnoremap <silent><C-S-Home> <Esc>v^gg
-nnoremap <silent><C-S-End> <Esc>v$G
+nnoremap <silent><C-S-End> <Esc>v$G$
+inoremap <silent><C-S-Home> <Esc>v^gg
+inoremap <silent><C-S-End> <Right><Esc>v$G$
 
 "Ctrl-Shift-Left, Ctrl-Shift-Right
-inoremap <silent><C-S-Left> <Esc>vb
-inoremap <silent><C-S-Right> <Esc>lw
 nnoremap <silent><C-S-Left> <Esc>vb
 nnoremap <silent><C-S-Right> <Esc>vw
+inoremap <silent><C-S-Left> <Esc>vb
+inoremap <silent><C-S-Right> <Right><Esc>vw
 
 "Shift-Up, Shift-Down
 nnoremap <silent><S-Up> <Esc>vk
 nnoremap <silent><S-Down> <Esc>vj
-inoremap <silent><S-Up> <Esc>vk
-inoremap <silent><S-Down> <Esc>lvj
 vnoremap <silent><S-Up> k
 vnoremap <silent><S-Down> j
+inoremap <silent><S-Up> <Esc>vk
+inoremap <silent><S-Down> <Right><Esc>vj
 
 "Change to Normal mode
 vnoremap <silent><Up> <Esc>k
@@ -154,15 +156,15 @@ vnoremap <silent><Down> <Esc>j
 "Sift-left, Shift-Right
 nnoremap <silent><S-Left> vh
 nnoremap <silent><S-Right> vl
-inoremap <silent><S-Left> <Esc>vh
-inoremap <silent><S-Right> <Esc>vl
 vnoremap <silent><S-Left> h
 vnoremap <silent><S-Right> l
+inoremap <silent><S-Left> <Esc>vh
+inoremap <silent><S-Right> <Right><Esc>vl
 
 "in Insert mode Left goto last initial Visual selection and Change to Insert mode
 vnoremap <silent><Left> <Esc>`<i
 "in Insert mode Right goto last final Visual selection and Change to Insert mode
-vnoremap <silent><Right> <Esc>`>i
+vnoremap <silent><Right> <Esc>`>a
 
 " Backspace in Visual mode deletes selection
 vnoremap <silent><BS> di
@@ -210,7 +212,7 @@ vnoremap <silent><S-Tab> <
 "Find
 map <C-f> /<C-r><C-w>
 "Replace
-nnoremap <C-H> :%s/<C-r><C-w>/NEW_WORD
+nnoremap <C-h> :%s/<C-r><C-w>/NEW_WORD
 
 "Change minus - MAYUS
 vnoremap <C-u> U
@@ -220,7 +222,6 @@ vnoremap <C-l> u
 nnoremap <c-f7> :set spell!<cr>
 nnoremap <f7> ]s
 nnoremap <s-f7> [s
-
 
 "insert automatically } after insert {
 inoremap {<CR> {<CR>}<Esc>O
@@ -445,12 +446,12 @@ function! s:Align()
   endif
 endfunction
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>Align()<CR>a
+inoremap <silent><Bar> <Bar><Esc>:call <SID>Align()<CR>a
 " }}}
 
 " Toggle the quickfix window {{{
 " From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
-nnoremap <leader>qf :call <SID>QuickfixToggle()<cr>
+nnoremap <c-q> :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
 
@@ -467,20 +468,18 @@ function! s:QuickfixToggle()
 endfunction
 " }}}
 
-" Toggle the foldcolumn {{{
-nnoremap <leader>fc :call FoldColumnToggle()<cr>
-
-let g:last_fold_column_width = 4 " Pick a sane default for the foldcolumn
-
-function! FoldColumnToggle()
-    if &foldcolumn
-        let g:last_fold_column_width = &foldcolumn
-        setlocal foldcolumn=0
-    else
-        let &l:foldcolumn = g:last_fold_column_width
-    endif
-endfunction
-" }}}
+"" Toggle the foldcolumn {{{
+"nnoremap <leader>fc :call FoldColumnToggle()<cr>
+"let g:last_fold_column_width = 4 " Pick a sane default for the foldcolumn
+"function! FoldColumnToggle()
+    "if &foldcolumn
+        "let g:last_fold_column_width = &foldcolumn
+        "setlocal foldcolumn=0
+    "else
+        "let &l:foldcolumn = g:last_fold_column_width
+    "endif
+"endfunction
+"" }}}
 
 " XML formatter {{{
 function! DoFormatXML() range

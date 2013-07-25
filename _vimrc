@@ -81,14 +81,14 @@ Bundle 'xolox/vim-shell'
 Bundle 'Shougo/vimshell'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'xolox/vim-session'
-Bundle 'bling/vim-airline'
-" {{{ powerline
-"Bundle 'Lokaltog/vim-powerline'
-"Bundle 'Lokaltog/powerline-fonts'
-"Bundle 'stephenmckinney/vim-solarized-powerline'
-""Bundle 'fromonesrc/monaco-powerline-vim'
-""Bundle 'Lokaltog/powerline'
-" }}}
+"Bundle 'bling/vim-airline'
+ "{{{ powerline
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline-fonts'
+Bundle 'stephenmckinney/vim-solarized-powerline'
+"Bundle 'fromonesrc/monaco-powerline-vim'
+"Bundle 'Lokaltog/powerline'
+ "}}}
 Bundle 'wavded/vim-stylus'
 Bundle 'heaths/vim-msbuild'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -357,8 +357,8 @@ if has('gui_running')
     set tabpagemax=15
     hi CursorLine guibg=#e6e6fa
     hi CursorColumn guibg=#e6e6fa
-    "set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
-    set guifont=Monaco:h9:cANSI
+    set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+    "set guifont=Monaco:h9:cANSI
     "set guifont=Ubuntu_Mono_for_VimPowerline:h11:cANSI
     "set guifont=Menlo_for_Powerline:h10:cANSI
     "set guifont=Ubuntu_Mono_for_Powerline:h11:cANSI
@@ -400,7 +400,8 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set scrolloff=4 " keep 4 lines off the edges of the screen when scrolling
-set noexpandtab
+"change tabs to spaces
+set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 "set virtualedit=all "allow the cursor to go in to "invalid" places
 set virtualedit=onemore "go to end of line on insert mode at press <up> <down> key
@@ -493,7 +494,7 @@ set switchbuf=useopen " reveal already opened files from the
 " buffers
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
-set undofile " keep a persistent backup file
+"set undofile " keep a persistent backup file
 
 "au
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
@@ -600,9 +601,9 @@ let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['cs'] = 'cs'
 "especifica la ruta en donde se encuentran los snippets para el plugin snipMate
-let g:snippets_dir='~/vimfiles/bundle/vim-snippets/snippets/'
+let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets/'
 "my personal snippets
-let g:snippets_dir+='~/vimfiles/snippets/'
+let g:snippets_dir+='~/.vim/snippets/'
 "------------------------------------------------------
 " }}}
 
@@ -896,26 +897,26 @@ let g:sql_type_default = "sqlserver"
 "---------------------------------------------------------
 " }}}
 
-"" Powerline {{{
-""---------------------------------------------------------
-""https://github.com/Lokaltog/vim-powerline.git
-""https://github.com/Lokaltog/powerline
-""https://powerline.readthedocs.org/en/latest/
-""---------------------------------------------------------
-""source ~/.vim/bundle/powerline/powerline/ext/vim/source_plugin.vim
-"if has("gui_running")
-    "let g:Powerline_symbols = 'fancy'
-"else
-    "let g:Powerline_symbols = 'compatible'
-"endif
-""for testing version
-""set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
-"" set laststatus=2
-"let g:Powerline_theme='long'
-"let g:Powerline_colorscheme='solarized256_light'
-""let g:Powerline_colorscheme='solarized256_dark'
-""---------------------------------------------------------
-"" }}}
+" Powerline {{{
+"---------------------------------------------------------
+"https://github.com/Lokaltog/vim-powerline.git
+"https://github.com/Lokaltog/powerline
+"https://powerline.readthedocs.org/en/latest/
+"---------------------------------------------------------
+"source ~/.vim/bundle/powerline/powerline/ext/vim/source_plugin.vim
+if has("gui_running")
+    let g:Powerline_symbols = 'fancy'
+else
+    let g:Powerline_symbols = 'compatible'
+endif
+"for testing version
+"set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
+" set laststatus=2
+let g:Powerline_theme='long'
+let g:Powerline_colorscheme='solarized256_light'
+"let g:Powerline_colorscheme='solarized256_dark'
+"---------------------------------------------------------
+" }}}
 
 " airline {{{
 "https://github.com/bling/vim-airline
@@ -1074,7 +1075,8 @@ let g:session_autoload = 'yes'
 "for template generator add
 "runtime bundle/tplugin_vim/macros/tplugin.vim
 "run :TPluginScan!
-set runtimepath+=~/vimfiles/bundle/vimtlib
+"set runtimepath+=~/vimfiles/bundle/vimtlib
+set runtimepath+=~/.vim/bundle/vimtlib
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
@@ -1303,16 +1305,16 @@ highlight link multiple_cursors_visual Visual
 "---------------------------------------------------------
 " }}}
 
-""Vim intellisence {{{
+"""Vim intellisence {{{
+"""---------------------------------------------------------
+""http://insenvim.sourceforge.net/
+""https://github.com/tomtom/checksyntax_vim.git
 ""---------------------------------------------------------
-"http://insenvim.sourceforge.net/
-"https://github.com/tomtom/checksyntax_vim.git
-"---------------------------------------------------------
-let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
-let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense"
-let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
-"---------------------------------------------------------
-"" }}}
+"let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
+"let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense"
+"let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
+""---------------------------------------------------------
+""" }}}
 
 " Pdv {{{
 "---------------------------------------------------------
