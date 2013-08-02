@@ -26,7 +26,6 @@ filetype off " required!
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype on
-
 "------------------------------------------------------
 " }}}
 
@@ -53,6 +52,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-dispatch'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
@@ -127,12 +127,19 @@ Bundle 'Rykka/colorv.vim'
 Bundle 'gcmt/taboo.vim'
 Bundle 'nelstrom/vim-americanize'
 Bundle 'rkulla/pydiction'
+Bundle 'quentindecock/vim-cucumber-align-pipes'
+Bundle '907th/vim-auto-save'
+Bundle 'michalliu/jsoncodecs.vim'
+Bundle 'michalliu/jsruntime.vim'
+Bundle 'einars/js-beautify'
+"Bundle 'vim-scripts/_jsbeautify'
+"Bundle 'maksimr/vim-jsbeautify'
+"Bundle 'dhruvasagar/vim-table-mode'
 "Bundle 'bling/vim-bufferline'
 "Bundle 'fholgado/minibufexpl.vim'
 "Bundle 'Shougo/neosnippet'
 "Bundle 'Shougo/neocomplcache'
 "Bundle 'jpalardy/vim-slime'
-"Bundle 'maksimr/vim-jsbeautify'
 "Bundle 'gotcha/vimpdb'
 "Bundle 'rking/ag.vim'
 "Bundle 'koron/minimap-vim'
@@ -151,8 +158,10 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'Rykka/galaxy.vim'
-Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
+Bundle 'vim-scripts/Liquid-Carbon'
+Bundle 'vim-scripts/PyChimp'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'xuhdev/SingleCompile'
 "Bundle 'daviddavis/vim-colorpack'
@@ -230,7 +239,6 @@ Bundle 'dbext.vim'
 Bundle 'DrawIt'
 Bundle 'DfrankUtil'
 Bundle 'ShowMarks'
-Bundle 'ZoomWin'
 Bundle 'IndexedSearch'
 Bundle 'indenthtml.vim'
 Bundle 'bash-support.vim'
@@ -248,6 +256,7 @@ Bundle 'Word-Fuzzy-Completion'
 Bundle 'AutoAlign'
 Bundle 'multiselect'
 Bundle 'Thesaurus'
+"Bundle 'ZoomWin'
 "Bundle 'buftabs'
 "Bundle 'ftpsync'
 "Bundle 'OmniCppComplete'
@@ -300,6 +309,7 @@ set nowritebackup
 set noswapfile
 "guarda el archivo en cuanto se deja el buffer
 set autowrite
+autocmd focuslost * :wa
 set autoread
 " store swap files in one of these directories
 " (in case swapfile is ever turned on)
@@ -548,10 +558,13 @@ hi Title ctermfg=LightBlue ctermbg=Magenta
 " Spell {{{
 "habilita corrector ortografico
 set nospell "active spell check
-set spelllang=en "Carga el diccionario en o los lenguajes que necesitemos
+set spelllang=es_MX "Carga el diccionario en o los lenguajes que necesitemos
 "set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
 "will add dictionary scanning
 set complete+=k
+"limit the number of suggested words
+set spellsuggest=best,10
+"set spellsuggest=fast,20
 "set dictionary+=~/vimfiles/spell/en.ascii.spl
 "set dictionary+=~/vimfiles/spell/en.ascii.sug
 "set dictionary+=~/vimfiles/spell/en.latin1.spl
@@ -913,8 +926,8 @@ endif
 "set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
 " set laststatus=2
 let g:Powerline_theme='long'
-let g:Powerline_colorscheme='solarized256_light'
-"let g:Powerline_colorscheme='solarized256_dark'
+let g:Powerline_colorscheme='solarized256_dark'
+"let g:Powerline_colorscheme='solarized256_light'
 "---------------------------------------------------------
 " }}}
 
@@ -1098,30 +1111,6 @@ let b:templator_root_dir='~/vimfiles/templator/'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
-"" OmniCppComplete {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""https://github.com/vim-scripts/OmniCppComplete
-""http://aufather.wordpress.com/2010/08/26/omni-completion-in-vim/
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
-"let OmniCpp_GlobalScopeSearch   = 1
-"let OmniCpp_DisplayMode         = 1
-"let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
-"let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
-"let OmniCpp_ShowAccess          = 1 "show access in pop-up
-"let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
-"set completeopt=menuone,menu,longest,preview
-"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-""let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-""highlight   clear
-""highlight   Pmenu         ctermfg=0 ctermbg=2
-""highlight   PmenuSel      ctermfg=0 ctermbg=7
-""highlight   PmenuSbar     ctermfg=7 ctermbg=0
-""highlight   PmenuThumb    ctermfg=0 ctermbg=7
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" }}}
-
 " guifont++ {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "http://www.vim.org/scripts/script.php?script_id=593
@@ -1178,59 +1167,74 @@ highlight link multiple_cursors_visual Visual
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
-" vim-space {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"https://github.com/spiiph/vim-space
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set this variable to disable space.vim
-"let g:space_loaded = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-auto-save {{{
+"https://github.com/907th/vim-auto-save
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 " }}}
 
-"" Taglist {{{
-""---------------------------------------------------------
-""http://www.vim.org/scripts/script.php?script_id=273
-""http://ctags.sourceforge.net/
-""http://vim.sourceforge.net/scripts/script.php?script_id=273
-""http://sourceforge.net/projects/vim-taglist/files/
-""http://ctags.sourceforge.net/ctags.html
-""---------------------------------------------------------
-"" Taglist variables
-"" Display function name in status bar:
-"let g:ctags_statusline=1
-"" Automatically start script
-"let generate_tags=1
-"" Displays taglist results in a vertical window:
-"let Tlist_Use_Horiz_Window=0
-"":!which ctags -> tofindctalocation
-"" Various Taglist diplay config:
-"let Tlist_Use_Right_Window = 1
-"let Tlist_Compact_Format = 1
-"let Tlist_Exit_OnlyWindow = 1
-"let Tlist_GainFocus_On_ToggleOpen = 1
-"let Tlist_File_Fold_Auto_Close = 0
-"let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
-"let Tlist_Auto_Open = 1
-""---------------------------------------------------------
-"" }}}
+" Omnisharp {{{
+"---------------------------------------------------------
+"https://github.com/nosami/Omnisharp
+"---------------------------------------------------------
+"start Omnisharp when open a file .cs
+let g:Omnisharp_start_server = 1
+"end Omnisharp when close a file .cs
+let g:Omnisharp_stop_server = 1
+"This is the default value, setting it isn't actually necessary
+let g:OmniSharp_host = "http://localhost:2000"
+"Set the type lookup function to use the preview window instead of the status line
+let g:OmniSharp_typeLookupInPreview = 1
+"Showmatch significantly slows down omnicomplete
+"when the first match contains parentheses.
+set noshowmatch
+"don't autoselect first item in omnicomplete, show if only one item (for preview)
+"set completeopt=longest,menuone,preview
+set completeopt=menuone,menu,longest,preview
+let g:Omnisharp_highlight_user_types=1
+"Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+"setlocal omnifunc=OmniSharp#Complete
+autocmd FileType cs set omnifunc=OmniSharp#Complete
+"---------------------------------------------------------
+" }}}
 
-"" Easytag {{{
-""---------------------------------------------------------
-""https://github.com/xolox/vim-easytags
-""---------------------------------------------------------
-"let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
-""let g:easytags_file = '"C:\Users\Proman02\vimfiles\tags"'
-"let g:easytags_file = $HOME . '/vimfiles/tags'
+" SuperTab {{{
+"---------------------------------------------------------
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
+let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+let g:SuperTabClosePreviewOnPopupClose = 1
+"---------------------------------------------------------
+" }}}
 
-"" let g:easytags_file = $HOME . '/tags'
-""" search first in current directory then file directory for tag file
-"set tags=tags,./tags
-"let g:easytags_dynamic_files=1
-"let g:easytags_always_enabled=0
-"let g:easytags_on_cursorhold=0
-"let g:easytags_auto_highlight=0
-""---------------------------------------------------------
-"" }}}
+" vim-autoformat {{{
+" https://github.com/Chiel92/vim-autoformat
+"---------------------------------------------------------
+let g:formatprg_cs = "astyle"
+let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
+autocmd BufWritePre *.cs :Autoformat
+"---------------------------------------------------------
+" }}}
+
+" Conque {{{
+"http://code.google.com/p/conque/
+"http://code.google.com/p/conque/wiki/Usage
+let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
+let g:ConqueTerm_FastMode = 1
+let g:ConqueTerm_ToggleKey = '<F8>'
+let g:ConqueTerm_PyExe = 'C:/Python27/python.exe'
+let g:ConqueTerm_CodePage = 1
+let g:ConqueTerm_ColorMode = 'conceal'
+let g:ConqueTerm_SessionSupport = 1
+let g:ConqueTerm_CloseOnEnd = 1
+" }}}
+
+" AutoComplPop {{{
+let g:acp_behaviorKeywordLength = 3
+let g:acp_completeOption        = '.,w,b,k,t,i'
+"let g:acp_behaviorKeywordCommand = '\<C-x>\<C-o>'
+"let g:acp_ignorecaseOption      = 1
+" }}}
 
 "" indentLine {{{
 ""---------------------------------------------------------
@@ -1335,61 +1339,9 @@ highlight link multiple_cursors_visual Visual
 "---------------------------------------------------------
 " }}}
 
-" Omnisharp {{{
-"---------------------------------------------------------
-"https://github.com/nosami/Omnisharp
-"---------------------------------------------------------
-"start Omnisharp when open a file .cs
-let g:Omnisharp_start_server = 1
-"end Omnisharp when close a file .cs
-let g:Omnisharp_stop_server = 1
-"This is the default value, setting it isn't actually necessary
-let g:OmniSharp_host = "http://localhost:2000"
-"Set the type lookup function to use the preview window instead of the status line
-let g:OmniSharp_typeLookupInPreview = 1
-"Showmatch significantly slows down omnicomplete
-"when the first match contains parentheses.
-set noshowmatch
-"don't autoselect first item in omnicomplete, show if only one item (for preview)
-"set completeopt=longest,menuone,preview
-set completeopt=menuone,menu,longest,preview
-let g:Omnisharp_highlight_user_types=1
-"Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
-"setlocal omnifunc=OmniSharp#Complete
-autocmd FileType cs set omnifunc=OmniSharp#Complete
-"---------------------------------------------------------
-" }}}
-
-" SuperTab {{{
-"---------------------------------------------------------
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
-let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-let g:SuperTabClosePreviewOnPopupClose = 1
-"---------------------------------------------------------
-" }}}
-
-" vim-autoformat {{{
-" https://github.com/Chiel92/vim-autoformat
-"---------------------------------------------------------
-let g:formatprg_cs = "astyle"
-let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
-autocmd BufWritePre *.cs :Autoformat
-"---------------------------------------------------------
-" }}}
-
-" Conque {{{
-"http://code.google.com/p/conque/
-"http://code.google.com/p/conque/wiki/Usage
-let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
-let g:ConqueTerm_FastMode = 1
-let g:ConqueTerm_ToggleKey = '<F8>'
-let g:ConqueTerm_PyExe = 'C:/Python27/python.exe'
-let g:ConqueTerm_CodePage = 0
-let g:ConqueTerm_ColorMode = 'conceal'
-let g:ConqueTerm_SessionSupport = 0
-let g:ConqueTerm_CloseOnEnd = 1
-" }}}
+"" vim-table-mode {{{
+"let g:table_mode_tableize_map='\t'
+"" }}}
 
 " jsbeautify {{{
 " http://www.vim.org/scripts/script.php?script_id=2727
@@ -1523,3 +1475,81 @@ let g:ConqueTerm_CloseOnEnd = 1
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 "---------------------------------------------------------
 " }}}
+" vim-space {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"https://github.com/spiiph/vim-space
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set this variable to disable space.vim
+"let g:space_loaded = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+
+"" Taglist {{{
+""---------------------------------------------------------
+""http://www.vim.org/scripts/script.php?script_id=273
+""http://ctags.sourceforge.net/
+""http://vim.sourceforge.net/scripts/script.php?script_id=273
+""http://sourceforge.net/projects/vim-taglist/files/
+""http://ctags.sourceforge.net/ctags.html
+""---------------------------------------------------------
+"" Taglist variables
+"" Display function name in status bar:
+"let g:ctags_statusline=1
+"" Automatically start script
+"let generate_tags=1
+"" Displays taglist results in a vertical window:
+"let Tlist_Use_Horiz_Window=0
+"":!which ctags -> tofindctalocation
+"" Various Taglist diplay config:
+"let Tlist_Use_Right_Window = 1
+"let Tlist_Compact_Format = 1
+"let Tlist_Exit_OnlyWindow = 1
+"let Tlist_GainFocus_On_ToggleOpen = 1
+"let Tlist_File_Fold_Auto_Close = 0
+"let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
+"let Tlist_Auto_Open = 1
+""---------------------------------------------------------
+"" }}}
+
+"" Easytag {{{
+""---------------------------------------------------------
+""https://github.com/xolox/vim-easytags
+""---------------------------------------------------------
+"let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
+""let g:easytags_file = '"C:\Users\Proman02\vimfiles\tags"'
+"let g:easytags_file = $HOME . '/vimfiles/tags'
+
+"" let g:easytags_file = $HOME . '/tags'
+""" search first in current directory then file directory for tag file
+"set tags=tags,./tags
+"let g:easytags_dynamic_files=1
+"let g:easytags_always_enabled=0
+"let g:easytags_on_cursorhold=0
+"let g:easytags_auto_highlight=0
+""---------------------------------------------------------
+"" }}}
+
+"" OmniCppComplete {{{
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""https://github.com/vim-scripts/OmniCppComplete
+""http://aufather.wordpress.com/2010/08/26/omni-completion-in-vim/
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
+"let OmniCpp_GlobalScopeSearch   = 1
+"let OmniCpp_DisplayMode         = 1
+"let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
+"let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
+"let OmniCpp_ShowAccess          = 1 "show access in pop-up
+"let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
+"set completeopt=menuone,menu,longest,preview
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+""let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+""highlight   clear
+""highlight   Pmenu         ctermfg=0 ctermbg=2
+""highlight   PmenuSel      ctermfg=0 ctermbg=7
+""highlight   PmenuSbar     ctermfg=7 ctermbg=0
+""highlight   PmenuThumb    ctermfg=0 ctermbg=7
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" }}}
+

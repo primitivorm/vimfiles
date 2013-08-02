@@ -75,6 +75,7 @@ nnoremap <C-A-Up>    : res -1<cr>
 nnoremap <silent><C-Tab> : tabnext<cr>
 nnoremap <silent><S-Tab> : tabprev<cr>
 nnoremap <silent><C-F4>  : tabclose<cr>
+nnoremap <silent><C-T>  : tabnew<cr>
 inoremap <silent><C-Tab> : tabnext<cr>
 inoremap <silent><S-Tab> : tabprev<cr>
 inoremap <silent><C-F4>  : tabclose<cr>
@@ -247,7 +248,7 @@ inoremap <c-k> <c-x><c-k>
 "for words in current file
 inoremap <c-i> <c-x><c-i>
 "for tag completion
-inoremap <c-]> <c->
+inoremap <c-]> <c-x><c-]>
 
 "http://stackoverflow.com/questions/15870365/why-is-tab-completion-wildmenu-not-working
 function! Smart_TabComplete()
@@ -271,7 +272,8 @@ function! Smart_TabComplete()
     return "\<C-X>\<C-O>"                         " plugin matching
   endif
 endfunction
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+inoremap <tab> <expr>=Smart_TabComplete()<CR>
 
 " }}}
 
@@ -356,8 +358,7 @@ nnoremap <leader>z :%s#\<<C-r>=expand("<cword>")<CR>\>#
 
 " Keep search matches in the middle of the window and pulse the line when moving
 " to them.
-nnoremap n n:call PulseCursorLine()<cr>
-nnoremap N N:call PulseCursorLine()<cr>
+"https://github.com/LStinson/Vim/blob/master/plugin/pulse.vim
 
 " Quickly get out of insert mode without your fingers having to leave the
 " home row (either use 'jj' or 'jk')
@@ -385,12 +386,12 @@ vnoremap <Space> za
 " nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"),  "/",  "\\",  "g")<CR>:silent!!cmd /cstart <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
 """ command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
 
-" Use Q for formatting the current paragraph (or visual selection)
-vnoremap Q gq
-nnoremap Q gqap
+"" Use Q for formatting the current paragraph (or visual selection)
+"vnoremap Q gq
+"nnoremap Q gqap
 
-" Shortcut to make
-nnoremap mk :make<CR>
+"" Shortcut to make
+"nnoremap mk :make<CR>
 
 " Quick yanking to the end of the line
 "nnoremap Y y$
@@ -433,21 +434,20 @@ nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " }}}
 
-" Align {{{
-"http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-function! s:Align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
-
-inoremap <silent><Bar> <Bar><Esc>:call <SID>Align()<CR>a
-" }}}
+"" Align {{{
+""http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+"function! s:Align()
+  "let p = '^\s*|\s.*\s|\s*$'
+  "if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    "let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    "let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    "Tabularize/|/l1
+    "normal! 0
+    "call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  "endif
+"endfunction
+"inoremap <silent><Bar> <Bar><Esc>:call <SID>Align()<CR>a
+"" }}}
 
 " Toggle the quickfix window {{{
 " From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
@@ -564,6 +564,10 @@ nnoremap <silent><F12> :execute RotateColorTheme()<CR>
 "--------------------------------------------
 "PLUGINS
 "--------------------------------------------
+
+" Bundle {{{
+nmap <leader>bi :BundleInstall<cr>
+" }}}
 
 " GUndo {{{
 nnoremap <silent><S-U> :GundoToggle<CR>
@@ -697,7 +701,6 @@ vnoremap <C-]> <Esc>:tabnew %<CR>gvg<C-]>
 "Search and destroy using tags
 "map <C-F3> :!C:\cygwin\bin\ctags.exe -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
 map <C-F3> :!ctags -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
-
 " }}}
 
 " Fugitive {{{
@@ -715,9 +718,9 @@ nmap <silent> <leader>gp :Git push<CR>
 "end SingleCompile
 " }}}
 
-" ZoomWin {{{
-nnoremap <silent> <leader>z :ZoomWin<CR>
-" }}}
+"" ZoomWin {{{
+"nnoremap <silent> <leader>z :ZoomWin<CR>
+"" }}}
 
 " minimap {{{
 "https://github.com/koron/minimap-vim
@@ -746,10 +749,29 @@ autocmd FileType sql nnoremap <leader>lv :DBListView <cr>
 autocmd FileType sql nnoremap <leader>lc :DBListColumn <cr>
 " }}}
 
-" sidewise {{{
-"nnoremap <leader>sl :SidewaysLeft<cr>
-"nnoremap <leader>sr :SidewaysRight<cr>
-"}}}
+" Omnisharp {{{
+autocmd FileType *.cs map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
+autocmd FileType *.cs map gd :call OmniSharp#GotoDefinition()<cr>
+autocmd FileType *.cs nmap fi :call OmniSharp#FindImplementations()<cr>
+autocmd FileType *.cs nmap fu :call OmniSharp#FindUsages()<cr>
+autocmd FileType *.cs nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
+"I find contextual code actions so useful that I have it mapped to the spacebar
+autocmd FileType *.cs nmap <c-space> :call OmniSharp#GetCodeActions()<cr>
+" rename with dialog
+autocmd FileType *.cs nmap nm :call OmniSharp#Rename()<cr>
+autocmd FileType *.cs nmap <silent><S-F2> :call OmniSharp#Rename()<cr>
+" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
+autocmd FileType *.cs command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+" Force OmniSharp to reload the solution. Useful when switching branches etc.
+autocmd FileType *.cs nmap <leader>rl :call OmniSharp#ReloadSolution()<cr>
+autocmd FileType *.cs nmap <leader>cf :call OmniSharp#CodeFormat()<cr>
+" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
+autocmd FileType *.cs nnoremap <leader>ss :OmniSharpStartServer<cr>
+autocmd FileType *.cs nnoremap <leader>sp :OmniSharpStopServer<cr>
+autocmd FileType *.cs nnoremap <leader>th :OmniSharpHighlightTypes<cr>
+"Don't ask to save when changing buffers (i.e. when jumping to a type definition)
+set hidden
+" }}}
 
 " Syntastic {{{
 nmap <silent> <leader>y :SyntasticCheck<cr>
@@ -765,13 +787,18 @@ let g:multi_cursor_quit_key='<Esc>'
 
 "go to end of word in insert mode
 inoremap <c-e> <esc>ea
-
 " }}}
 
 " argumentrewrap {{{
 "https://github.com/jakobwesthoff/argumentrewrap
 nnoremap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 " }}}
+
+" sidewise {{{
+"nnoremap <leader>sl :SidewaysLeft<cr>
+"nnoremap <leader>sr :SidewaysRight<cr>
+"}}}
+
 "" Command-t {{{
 "nnoremap <silent> <Leader>t :CommandT<CR>
 "nnoremap <silent> <Leader>b :CommandTBuffer<CR>
@@ -806,30 +833,6 @@ nnoremap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 ""nnoremap <leader>s :TlistSessionSave tlist<CR>
 ""nnoremap <leader>l :TlistSessionLoad tlist<CR>
 "" }}}
-
-" Omnisharp {{{
-autocmd FileType *.cs map <F5> :wa!<cr>:call OmniSharp#Build()<cr>
-map gd :call OmniSharp#GotoDefinition()<cr>
-nmap fi :call OmniSharp#FindImplementations()<cr>
-nmap fu :call OmniSharp#FindUsages()<cr>
-nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
-"I find contextual code actions so useful that I have it mapped to the spacebar
-nmap <c-space> :call OmniSharp#GetCodeActions()<cr>
-" rename with dialog
-nmap nm :call OmniSharp#Rename()<cr>
-autocmd FileType *.cs nmap <silent><S-F2> :call OmniSharp#Rename()<cr>
-" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
-command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
-" Force OmniSharp to reload the solution. Useful when switching branches etc.
-nmap <leader>rl :call OmniSharp#ReloadSolution()<cr>
-nmap <leader>cf :call OmniSharp#CodeFormat()<cr>
-" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
-nnoremap <leader>ss :OmniSharpStartServer<cr>
-nnoremap <leader>sp :OmniSharpStopServer<cr>
-nnoremap <leader>th :OmniSharpHighlightTypes<cr>
-"Don't ask to save when changing buffers (i.e. when jumping to a type definition)
-set hidden
-" }}}
 
 " GoldenView {{{
 "" 1. split to tiled windows

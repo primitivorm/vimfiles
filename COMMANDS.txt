@@ -96,6 +96,26 @@ vss:@\\10.48.68.8\biam_incidencias\devautomarshv3_1@$/automarsh_sitiosesp/framew
 :aa ->toggle autoalign
 :mkspell es es_us -> genera los archivos de dictionary
 :%sort u -> remove duplicate lines
+:help expr4 -> view expression comparison
+
+-----------------------------------------------
+align -> drchip
+http://www.vim.org/scripts/script.php?script_id=294
+http://www.drchip.org/astronaut/vim/align.html#examples
+-----------------------------------------------
+<leader>t= : align assignments (don't count logic, like == or !=)
+<leader>t, : align on commas
+<leader>t| : align on vertical bars (|)
+<leader>tsp : align on whitespace
+<leader>tt : align latex tabular tables
+-----------------------------------------------
+<leader>acom : align comments
+<leader>adec : align c declarations (one variable per line)
+<leader>afnc : align ansi-style c function input arguments
+<leader>htd : align html tables
+
+for autoalign set mark "a". to start autoalign region
+-----------------------------------------------
 
 -----------------------------------------------
 macros
@@ -1062,23 +1082,6 @@ http://www.vim.org/scripts/script.php?script_id=152
 \mh : hides an individual mark.
 \ma : hides all marks in the current buffer.
 \mm : places the next available mark.
------------------------------------------------
-
------------------------------------------------
-align -> drchip
-http://www.vim.org/scripts/script.php?script_id=294
-http://www.drchip.org/astronaut/vim/align.html#examples
------------------------------------------------
-\t= : align assignments (don't count logic, like == or !=)
-\t, : align on commas
-\t| : align on vertical bars (|)
-\tsp : align on whitespace
-\tt : align latex tabular tables
------------------------------------------------
-\acom : align comments
-\adec : align c declarations (one variable per line)
-\afnc : align ansi-style c function input arguments
-\htd : align html tables
 -----------------------------------------------
 
 -----------------------------------------------
