@@ -162,6 +162,7 @@ Bundle 'tpope/vim-vividchalk'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'vim-scripts/Liquid-Carbon'
 Bundle 'vim-scripts/PyChimp'
+Bundle 'greyblake/vim-preview'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'xuhdev/SingleCompile'
 "Bundle 'daviddavis/vim-colorpack'
@@ -187,7 +188,6 @@ Bundle 'vim-scripts/PyChimp'
 "Bundle 'skalnik/vim-vroom'
 "Bundle 'mattsacks/vim-symbols'
 "Bundle 'vim-ruby/vim-ruby'
-"Bundle 'greyblake/vim-preview'
 "Bundle 'jeetsukumaran/vim-buffergator'
 "Bundle 'benizi/perl-support.vim'
 "Bundle 'alfredodeza/pytest.vim'
@@ -519,6 +519,8 @@ autocmd FileType cs set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
 autocmd FileType java set omnifunc=javacomplete#Complete
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" convert tabs to spaces before writing file
+autocmd! BufWritePre * set expandtab | retab!
 
 " xmledit plugin {{{
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
@@ -889,6 +891,9 @@ endif
 "connect to sql server instance
 let g:dbext_default_profile_sql_qa = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile = 'sql_qavw'
+"add this comment at begin of file script
+"// dbext:profile=sql_qavw
 let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
 "---------------------------------------------------------
 " }}}

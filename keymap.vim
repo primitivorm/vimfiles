@@ -543,8 +543,7 @@ function! RotateColorTheme()
    let y = -1
    while y == -1
       "railscasts#amy#
-      let colorstring = "proman#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#bandit#blackboard#Sunburst#galaxy#default#candy#hybrid#hybrid-light#mac_classic#mickeysoft#solarized"
-
+      let colorstring = "default#Monokai#eclipse#badwolf#mustang#wombat#github#smyck#bandit#blackboard#Sunburst#galaxy#candy#hybrid#hybrid-light#mac_classic#mickeysoft#solarized#proman"
       let x = match(colorstring,"#",g:themeindex)
       let y = match(colorstring,"#",x + 1)
       let g:themeindex = x + 1
