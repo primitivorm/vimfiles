@@ -95,8 +95,15 @@ vss:@\\10.48.68.8\biam_incidencias\devautomarshv3_1@$/automarsh_sitiosesp/framew
 <leader>ff ->format javascript code
 :aa ->toggle autoalign
 :mkspell es es_us -> genera los archivos de dictionary
+:mkspell! %
 :%sort u -> remove duplicate lines
 :help expr4 -> view expression comparison
+" Default key map
+if !hasmapto('<Plug>TaskList')
+    map <unique> <Leader>t <Plug>TaskList
+endif
+:iabbrev teh the
+:syntax keyword WordError teh
 
 -----------------------------------------------
 align -> drchip
@@ -555,6 +562,8 @@ etiquetas
 ^w} :pt t↵ vista previa etiqueta sobre cursor, etiq. t
 ^w] separar ventana y mostrar etiqueta sobre el cursor
 ^wz or :pc↵ cerrar vista previa de etiquetas
+[I -> to find the word under the cursor in include files
+[<Tab> -> to jump there
 
 -----------------------------------------------
 scrolleo & ventanas

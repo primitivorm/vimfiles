@@ -1,0 +1,31 @@
+Clases de variables
+===
+$           Variable global
+@           Variable instancia
+[a-z] ó _   Variable local
+[A-Z]       Constante
+
+Variables de sistema
+===
+$! Último mensaje de error
+$@ Posición del error
+$_ Última cadena leída con gets
+$. Último número de línea leído por el interprete
+$& Última cadena que ha coincidido con una expresión regular
+$~ Última cadena que ha coincidido con una expresión regular como array de subexpresiones
+$n La n-ésima subexpresión regular de la última coincidencia (igual que $~[n])
+$= flag para tratar igual las mayúsculas y minúsculas
+$/ Separador de registros de entrada
+$\ Separador de registros de salida
+$0 El nombre del fichero del guión Ruby
+$* El comando de la línea de argumentos
+$$ El número de identificación del proceso del intérprete Ruby
+$? Estado de retorno del último proceso hijo ejecutado
+
+Accesores
+===
+Abreviatura Efecto
+attr_reader :v def v; @v; end
+attr_writer :v def v=(value); @v=value; end
+attr_accesor :v attr_reader :v; attr_writer :v
+attr_accesor :v, :w attr_accesor :v; attr_accessor :w

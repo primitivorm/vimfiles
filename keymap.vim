@@ -316,6 +316,9 @@ endfunction
 ""call at startup
 "call AutoHighlightToggle()
 
+"http://vim.wikia.com/wiki/Open_Windows_Explorer_showing_directory_of_current_buffer
+nmap <leader>f :!start explorer "%:p:h"<CR>
+
 " }}}
 
 " General {{{
@@ -616,7 +619,7 @@ vmap <leader>{ c{<C-R>"}<ESC>
 " }}}
 
 " msbuild {{{
-autocmd vimenter *.csproj, *.vbproj nnoremap <F5> :make /t:rebuild<cr>
+autocmd BufRead *.csproj,*.vbproj,*.cs,*.vb nnoremap <F5> :make /t:rebuild<cr>
 " }}}
 
 " Tabular {{{

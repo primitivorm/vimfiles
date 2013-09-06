@@ -53,6 +53,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-capslock'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
@@ -132,6 +133,8 @@ Bundle '907th/vim-auto-save'
 Bundle 'michalliu/jsoncodecs.vim'
 Bundle 'michalliu/jsruntime.vim'
 Bundle 'einars/js-beautify'
+Bundle 'elzr/vim-json'
+Bundle 'vim-scripts/ScrollColors'
 "Bundle 'vim-scripts/_jsbeautify'
 "Bundle 'maksimr/vim-jsbeautify'
 "Bundle 'dhruvasagar/vim-table-mode'
@@ -163,6 +166,12 @@ Bundle 'Lokaltog/vim-distinguished'
 Bundle 'vim-scripts/Liquid-Carbon'
 Bundle 'vim-scripts/PyChimp'
 Bundle 'greyblake/vim-preview'
+Bundle 'vim-scripts/pep8'
+Bundle 'alfredodeza/pytest.vim'
+Bundle 'sontek/rope-vim'
+Bundle 'mitechie/pyflakes-pathogen'
+Bundle 'fs111/pydoc.vim.git'
+Bundle 'vim-scripts/TaskList.vim'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'xuhdev/SingleCompile'
 "Bundle 'daviddavis/vim-colorpack'
@@ -256,6 +265,7 @@ Bundle 'Word-Fuzzy-Completion'
 Bundle 'AutoAlign'
 Bundle 'multiselect'
 Bundle 'Thesaurus'
+Bundle 'slimv.vim'
 "Bundle 'ZoomWin'
 "Bundle 'buftabs'
 "Bundle 'ftpsync'
@@ -522,6 +532,15 @@ autocmd FileType java set omnifunc=javacomplete#Complete
 " convert tabs to spaces before writing file
 autocmd! BufWritePre * set expandtab | retab!
 
+" ruby {{{
+"http://www.cuberick.com/2008/10/ruby-autocomplete-in-vim.html
+"http://www.vim.org/scripts/script.php?script_id=1662
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" }}}
+
 " xmledit plugin {{{
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
@@ -564,6 +583,16 @@ set spelllang=es_MX "Carga el diccionario en o los lenguajes que necesitemos
 "set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
 "will add dictionary scanning
 set complete+=k
+"use current spell file
+set complete+=kspell
+"scan the buffers that are not in the buffer list
+set complete+=U
+"scan current and included files
+set complete+=i
+"tag completion
+set complete+=]
+"scan current and included files for defined name or macro
+set complete+=d
 "limit the number of suggested words
 set spellsuggest=best,10
 "set spellsuggest=fast,20
@@ -670,7 +699,7 @@ let g:NERDTreeIgnore=[
             \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
             \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
             \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
-            \'tags', 'bin', 'obj','\.suo$','\.vspscc$']
+            \'tags', '\.suo$','\.vspscc$']
 "highlighting for flags of file
 hi NERDTreeFlag guifg=#ff0000 ctermfg=160 guibg=#e3d2d2 ctermbg=7
 
@@ -930,8 +959,8 @@ endif
 "for testing version
 "set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
 " set laststatus=2
-let g:Powerline_theme='long'
-let g:Powerline_colorscheme='solarized256_dark'
+"let g:Powerline_theme='long'
+"let g:Powerline_colorscheme='solarized256_dark'
 "let g:Powerline_colorscheme='solarized256_light'
 "---------------------------------------------------------
 " }}}
@@ -1240,6 +1269,13 @@ let g:acp_completeOption        = '.,w,b,k,t,i'
 "let g:acp_behaviorKeywordCommand = '\<C-x>\<C-o>'
 "let g:acp_ignorecaseOption      = 1
 " }}}
+
+"slimv {{{
+"https://github.com/vim-scripts/slimv.vim
+"let g:slimv_lisp='C:\Program Files (x86)\clisp-2.49\clisp.exe'
+let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
+let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe" -l "C:\lispbox-0.7\slime-20110205.092829\start-swank.lisp"'
+"}}}
 
 "" indentLine {{{
 ""---------------------------------------------------------
