@@ -5,7 +5,7 @@
 " This script is used at your own risk.
 "
 " Please feel free to use and modify all or part of this script.
-" I would appreciate being acknowledged in any derived scripts, and would 
+" I would appreciate being acknowledged in any derived scripts, and would
 " appreciate any updates/modifications.
 "
 
@@ -56,9 +56,9 @@ let g:srcctl_name_p4='Perforce'
 
 " Note that in the following, you can specify a count for Get, Diff,  (checkout ??)
 " This does a get of/diff against the specified version.
-" 
+"
 " Here are the commands availble: (replace \ with <localleader>)
-" 
+"
 " Command       Map       Count      Description
 " --------------------------------------------------
 " SDiff         \sf       Version    Diff (Vim Diff)
@@ -249,7 +249,7 @@ fun! s:SCDoCommand(bang, count, cmd, ... )
     return
   endif
 
-  if a:bang.'' == '!' 
+  if a:bang.'' == '!'
     " Mark ! for recurse/bang if available
       let attrib=substitute(attrib, ':?\(recurse\|bang\):', ':\1:', '')
   endif
@@ -269,9 +269,9 @@ fun! s:SCDoCommand(bang, count, cmd, ... )
     let c=a:0
   endif
 
-  " Ignore any extra arguments for commands marked as single 
-  if attrib =~ ':single:' 
-    let c = 1 
+  " Ignore any extra arguments for commands marked as single
+  if attrib =~ ':single:'
+    let c = 1
   endif
   let command=matchstr(attrib,'^[^:]\+')
 
@@ -361,7 +361,6 @@ endfun
 
 " The file where the comment is stored!
 let s:commenttmp=$TEMP.'/ss/comment.@@@'
-
 " Get a comment
 fun! s:SCGetComment( prjname, useLast )
   let useLast=a:useLast
@@ -412,8 +411,8 @@ fun! s:SCGetComment( prjname, useLast )
 endfun
 
 fun! s:system(cmd,args)
-"  echo '+'.a:cmd.'+'.a:args.'+'
-  return system('""'.a:cmd.'" '.a:args.'"')
+  "echo '"'.a:cmd.'" '.a:args.''
+  return system('"'.a:cmd.'" '.a:args.'')
 endfun
 
 " fun! s:SSUpdate( filename, copyold, extras)
@@ -453,7 +452,7 @@ fun! s:GetProjectIdent(filename)
   endif
   let bufnr=bufnr(a:filename)
   " Speedup - make sure we aren't looking at a special buffer
-  if bufnr >= 0 
+  if bufnr >= 0
     let buftype= getbufvar(bufnr, '&buftype')
     if buftype != '' && buftype != 'nowrite' | return '' | endif
   endif
@@ -532,6 +531,7 @@ fun! s:SCDiff(sctype, filename, project, Ver1, Ver2)
 
   call s:CheckTemp()
   let ssorig=a:filename
+
   let ssfile=$TEMP."\\ss\\". fnamemodify(a:filename, ':t')
   if ! s:has_function( 'SourceControlDo_', a:sctype )
     echoerr 'Source Control not supported: "'.a:sctype.'"'
@@ -777,7 +777,7 @@ endfun
 "   item : Menu item description
 "   desc : Prefix for the key description (for {count}) in the menu.
 "   keys : Key mapping (prefixed by <localleader>.
-"   a{1} : Override for menu/key mapping. 
+"   a{1} : Override for menu/key mapping.
 "
 " You can also use <localleader> in the mappings.
 "
@@ -827,7 +827,7 @@ fun! s:DumpModules()
     let lm=g:srcctl_loaded_modules
     echo "Loaded modules for SourceControl version ".g:srcctl_version
     echo s:TabColumns( 5, 'Id', 'r5', 'Ver', 0,'Module Name')
-    while lm=~'^:.' 
+    while lm=~'^:.'
       let module=matchstr(lm,':\zs[^:]*')
       if module != '' && exists( 'g:srcctl_version_'.module) && exists( 'g:srcctl_name_'.module)
         echo s:TabColumns( 5, module,'r5', g:srcctl_version_{module}, 0, g:srcctl_name_{module})
@@ -903,7 +903,7 @@ fun! s:ReclearDiffMode()
   endif
 endfun
 
-" 
+"
 fun! s:ClearDiffMode()
   if exists('g:srcsafe_diffbuffnr')
     let diffbuffnr=g:srcsafe_diffbuffnr
@@ -993,7 +993,7 @@ function! s:CheckDirForFile(directory,file)
     let aborted=0
     let cur=substitute(a:directory,'\\\+','/','g')
     while !filereadable(cur.'/'.a:file) && (aborted==0)
-        if ( cur =~ '^\(.:\)\=//\=$') 
+        if ( cur =~ '^\(.:\)\=//\=$')
             let aborted=1
         elseif ( cur =~ '^//[^/]\+/[^/]\+$' )
             let aborted=2
@@ -1009,7 +1009,7 @@ function! s:CheckDirForFile(directory,file)
     endif
     if !(cur =~ '/$')
         let cur = cur.'/'
-    endif 
+    endif
     if aborted
       return ''
     else
@@ -1045,7 +1045,7 @@ fun! s:CheckWrite(bufname)
   if destbuf!=-1
     " make sure we're ok to overwrite a modified file!
     if getbufvar( a:bufname, '&modified' )
-      let res=confirm('File Modified:'. a:bufname."\nWrite?", "&Ok\n&Ignore\n&Cancel", 1) 
+      let res=confirm('File Modified:'. a:bufname."\nWrite?", "&Ok\n&Ignore\n&Cancel", 1)
       if res==3 || res==0
         return 0
       endif

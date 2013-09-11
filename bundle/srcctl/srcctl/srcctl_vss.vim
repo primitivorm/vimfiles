@@ -59,8 +59,8 @@ call SrcCtl_addMenuMapping('', '&Explore', '','',':call <SID>SSRun("ssexp.exe")<
 call SrcCtl_addMenuMapping('', 'Admin', '','',':call <SID>SSRun("ssadmin.exe")<CR>')
 
 fun! s:system(cmd,args)
-"  echo a:cmd.' '.a:args
-  return system('""'.a:cmd.'" '.a:args.'"')
+  "echo '"'.a:cmd.'" '.a:args.''
+  return system('"'.a:cmd.'" '.a:args.'')
 endfun
 
 
@@ -307,7 +307,6 @@ fun! s:SSCmd(cmd, filename, repositoryfile, ssVer, opts)
       " Autoread the file
       setlocal autoread
 
-      echo a:cmd
       " Perform the operation
       " call input('SS '.a:cmd.' -I-N '.cmdargs )
       let result=s:system(g:ssExecutable,' '.a:cmd.' -I-N '.cmdargs)

@@ -258,15 +258,17 @@ function! Smart_TabComplete()
                                                   " line to one character right
                                                   " of the cursor
   let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  echo substr
+  echo "substr" + substr
   if (strlen(substr)==0)                          " nothing to match on empty string
     return "\<tab>"
   endif
   let has_period = match(substr, '\.') != -1      " position of period, if any
   let has_slash = match(substr, '\/') != -1       " position of slash, if any
+  echo "has_period" + has_period
+  echo "has_slash" + has_slash
   if (!has_period && !has_slash)
     return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
+  elseif (has_slash)
     return "\<C-X>\<C-F>"                         " file matching
   else
     return "\<C-X>\<C-O>"                         " plugin matching
@@ -274,7 +276,6 @@ function! Smart_TabComplete()
 endfunction
 "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 inoremap <tab> <expr>=Smart_TabComplete()<CR>
-
 " }}}
 
 " Highlight all words when press <CR> {{{
@@ -794,6 +795,11 @@ inoremap <c-e> <esc>ea
 " argumentrewrap {{{
 "https://github.com/jakobwesthoff/argumentrewrap
 nnoremap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
+" }}}
+
+" autoformat {{{
+"https://github.com/Chiel92/vim-autoformat
+nnoremap <leader>af :Autoformat<cr>
 " }}}
 
 " sidewise {{{

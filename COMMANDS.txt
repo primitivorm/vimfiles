@@ -104,6 +104,9 @@ if !hasmapto('<Plug>TaskList')
 endif
 :iabbrev teh the
 :syntax keyword WordError teh
+:%!tidy -qicbn -asxhtml -> autoformat html
+:Autoformat | <leader>af -> format file
+:exec 'e '.tempname() | :execute "e ".fnameescape(tempname())  ->create temporal file
 
 -----------------------------------------------
 align -> drchip

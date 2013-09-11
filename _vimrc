@@ -372,7 +372,7 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 if has('gui_running')
     "show tabs always = 2
-    "set showtabline=1
+    set showtabline=1
     "max num of tabs
     set tabpagemax=15
     hi CursorLine guibg=#e6e6fa
@@ -521,10 +521,9 @@ set undolevels=1000 " use many muchos levels of undo
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=RopeCompleteFunc
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType c,cpp,h set omnifunc=ccomplete#Complete
-"added in Omnisharp
-"autocmd FileType cs set omnifunc=syntaxcomplete#Complete
 autocmd FileType cs set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
 autocmd FileType java set omnifunc=javacomplete#Complete
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -756,10 +755,11 @@ let g:tagbar_ctags_bin = 'ctags'
 "let g:tagbar_indent          = 1   "default 2
 let g:tagbar_autofocus        = 1   "default 0
 
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"multitabs
 "If you use multiple tabs and want Tagbar to also open in the current tab when
 "you switch to an already loaded, supported buffer
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " uncomment this section for open new buffers in a tab always
 "always show tabs
 set showtabline=2
@@ -1122,8 +1122,8 @@ let g:session_autoload = 'yes'
 "for template generator add
 "runtime bundle/tplugin_vim/macros/tplugin.vim
 "run :TPluginScan!
-"set runtimepath+=~/vimfiles/bundle/vimtlib
 set runtimepath+=~/.vim/bundle/vimtlib
+set runtimepath+=~/vimfiles/bundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
@@ -1176,12 +1176,12 @@ let g:ssExecutable = 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
 let g:scMenuPath       ='SourceSafe'   "menu name
 let g:scUserName       = 'proman,12345678'
 "let g:scMenuPlace      =40
-"let g:scDiffVertical   =1
-"let g:scHistVertical   =1
-"let g:scSetRuler       =1
-"let g:scMaintainStatus =1
-"let g:scShowAllLocks   =1
-"let g:scShowExtra      =1
+let g:scDiffVertical   =1
+let g:scHistVertical   =1
+let g:scSetRuler       =1
+let g:scMaintainStatus =1
+let g:scShowAllLocks   =1
+let g:scShowExtra      =1
 "ADD environment variables
 "SSUSER
 "SSPWD
@@ -1218,13 +1218,13 @@ let g:Omnisharp_stop_server = 1
 "This is the default value, setting it isn't actually necessary
 let g:OmniSharp_host = "http://localhost:2000"
 "Set the type lookup function to use the preview window instead of the status line
-let g:OmniSharp_typeLookupInPreview = 1
+let g:OmniSharp_typeLookupInPreview=0
 "Showmatch significantly slows down omnicomplete
 "when the first match contains parentheses.
 set noshowmatch
 "don't autoselect first item in omnicomplete, show if only one item (for preview)
 "set completeopt=longest,menuone,preview
-set completeopt=menuone,menu,longest,preview
+set completeopt=menuone,menu,longest
 let g:Omnisharp_highlight_user_types=1
 "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
 "setlocal omnifunc=OmniSharp#Complete
@@ -1247,6 +1247,7 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 let g:formatprg_cs = "astyle"
 let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
 autocmd BufWritePre *.cs :Autoformat
+set equalprg=astyle
 "---------------------------------------------------------
 " }}}
 
@@ -1593,4 +1594,3 @@ let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe"
 ""highlight   PmenuThumb    ctermfg=0 ctermbg=7
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" }}}
-

@@ -91,7 +91,7 @@ fun! SourceControlDo_st(cmd, opts, count, file1, repositoryfile1, comment)
     if a:opts =~ ':overwrite:' && a:opts !~ ':lock:' && a:opts !~ ':unlock:'
 "      let lock=lock.filereadable(a:file1)?(filewritable(a:file1)?' -rw':' -u -ro'):' -u -ro'
 "      if !filereadable(a:file1) || !filewritable(a:file1)
-        let lock=lock.' -u -ro'
+        let lock=lock.' -u -ret'
 "      endif
     endif
 
