@@ -38,6 +38,7 @@ set nocompatible " be iMproved
 "rtp
 set runtimepath+=~/vimfiles/bundle/vundle/
 set runtimepath+=~/vimfiles/bin/
+set runtimepath+=~/vimfiles/bundle/
 call vundle#rc()
 "" let Vundle manage Vundle
 "" required!
@@ -65,7 +66,6 @@ Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'shemerey/vim-indexer'
 Bundle 'sjl/gundo.vim'
-"Bundle 'mbbill/undotree'
 Bundle 'ervandew/supertab'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/lisper-vim.git'
@@ -129,12 +129,13 @@ Bundle 'gcmt/taboo.vim'
 Bundle 'nelstrom/vim-americanize'
 Bundle 'rkulla/pydiction'
 Bundle 'quentindecock/vim-cucumber-align-pipes'
-Bundle '907th/vim-auto-save'
 Bundle 'michalliu/jsoncodecs.vim'
 Bundle 'michalliu/jsruntime.vim'
 Bundle 'einars/js-beautify'
 Bundle 'elzr/vim-json'
 Bundle 'vim-scripts/ScrollColors'
+"Bundle 'mbbill/undotree'
+"Bundle '907th/vim-auto-save'
 "Bundle 'vim-scripts/_jsbeautify'
 "Bundle 'maksimr/vim-jsbeautify'
 "Bundle 'dhruvasagar/vim-table-mode'
@@ -326,6 +327,7 @@ set autoread
 set viminfo='20,\"80 " read/write a .viminfo file, don't store more
 " than 80 lines of registers
 set wildmenu " make tab completion for files/buffers act like bash
+"set wildoptions=auto
 "http://blog.sanctum.geek.nz/lazier-tab-completion/
 set wildmode=list:longest,full " show a list when pressing tab and complete
 set wildignore+=.cache,.gem,.ivy2,.extras.bash,.themes
@@ -454,6 +456,7 @@ set foldcolumn=2 " add a fold column
 "set foldmethod=marker " detect triple-{ style fold markers
 set foldmethod=syntax
 set foldnestmax=3
+set foldlevel=3
 set foldlevelstart=3 " start out with everything folded
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 " which commands trigger auto-unfold
@@ -595,12 +598,6 @@ set complete+=d
 "limit the number of suggested words
 set spellsuggest=best,10
 "set spellsuggest=fast,20
-"set dictionary+=~/vimfiles/spell/en.ascii.spl
-"set dictionary+=~/vimfiles/spell/en.ascii.sug
-"set dictionary+=~/vimfiles/spell/en.latin1.spl
-"set dictionary+=~/vimfiles/spell/en.latin1.sug
-"set dictionary+=~/vimfiles/spell/en.utf-8.spl
-"set dictionary+=~/vimfiles/spell/en.utf-8.sug
 set dictionary+=~/vimfiles/spell/*
 "set file for new words
 set spellfile=~/vimfiles/spell/dict.add
@@ -619,6 +616,7 @@ set spellfile=~/vimfiles/spell/dict.add
 "------------------------------------------------------
 set thesaurus+=~/vimfiles/thesaurus/mthes10/mthesaur.txt
 set thesaurus+=~/vimfiles/thesaurus/mthes10/roget13a.txt
+set thesaurus+=~/vimfiles/thesaurus/ruby.txt
 "------------------------------------------------------
 " }}}
 
@@ -764,11 +762,11 @@ let g:tagbar_autofocus        = 1   "default 0
 "always show tabs
 set showtabline=2
 if (&diff==0)
-"Open files always in new tabs
-autocmd BufReadPost * OpenInTab
+    "Open files always in new tabs
+    autocmd BufReadPost * OpenInTab
 endif
 function! DoOpenInTab()
-if (&modifiable && !&readonly)
+if(&modifiable && !&readonly)
   tab ball
   tabn
 endif
@@ -931,7 +929,8 @@ let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
 "---------------------------------------------------------
 "https://github.com/vim-scripts/SQLComplete.vim
 "---------------------------------------------------------
-let g:ftplugin_sql_omni_key = '<C-C>'
+"let g:ftplugin_sql_omni_key = '<C-C>'
+let g:ftplugin_sql_omni_key = '<C-X>'
 autocmd FileType sql set omnifunc=sqlcomplete#Complete
 "---------------------------------------------------------
 " }}}
@@ -1123,7 +1122,6 @@ let g:session_autoload = 'yes'
 "runtime bundle/tplugin_vim/macros/tplugin.vim
 "run :TPluginScan!
 set runtimepath+=~/.vim/bundle/vimtlib
-set runtimepath+=~/vimfiles/bundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
@@ -1201,11 +1199,11 @@ highlight link multiple_cursors_visual Visual
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
-" vim-auto-save {{{
-"https://github.com/907th/vim-auto-save
-let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
-" }}}
+"" vim-auto-save {{{
+""https://github.com/907th/vim-auto-save
+"let g:auto_save = 1  " enable AutoSave on Vim startup
+"let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+"" }}}
 
 " Omnisharp {{{
 "---------------------------------------------------------
@@ -1234,11 +1232,26 @@ autocmd FileType cs set omnifunc=OmniSharp#Complete
 
 " SuperTab {{{
 "---------------------------------------------------------
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
-let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabDefaultCompletionType='context'
+let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
+"let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-n>","&omnifunc:<c-x><c-o>"]
+let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-u>","&omnifunc:<c-x><c-o>"]
+let g:SuperTabClosePreviewOnPopupClose=1
+"let g:SuperTabLongestHighlight=1
+"defaults
+"let g:SuperTabMappingForward = '<tab>'
+"let g:SuperTabMappingBackward = '<s-tab>'
+let g:SuperTabMappingForward = '<C-x><C-n>'
+let g:SuperTabMappingBackward = '<C-x><C-p>'
+
 "---------------------------------------------------------
+" }}}
+
+" AutoComplPop {{{
+let g:acp_behaviorKeywordLength = 1
+let g:acp_completeOption        = '.,w,b,k,t,i'
+"let g:acp_behaviorKeywordCommand = '\<C-x>\<C-o>'
+"let g:acp_ignorecaseOption      = 1
 " }}}
 
 " vim-autoformat {{{
@@ -1262,13 +1275,6 @@ let g:ConqueTerm_CodePage = 1
 let g:ConqueTerm_ColorMode = 'conceal'
 let g:ConqueTerm_SessionSupport = 1
 let g:ConqueTerm_CloseOnEnd = 1
-" }}}
-
-" AutoComplPop {{{
-let g:acp_behaviorKeywordLength = 3
-let g:acp_completeOption        = '.,w,b,k,t,i'
-"let g:acp_behaviorKeywordCommand = '\<C-x>\<C-o>'
-"let g:acp_ignorecaseOption      = 1
 " }}}
 
 "slimv {{{

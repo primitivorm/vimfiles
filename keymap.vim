@@ -229,26 +229,23 @@ inoremap {<CR> {<CR>}<Esc>O
 " }}}
 
 " Tab completion {{{
-"inoremap <Tab> <C-x><C-n>
-"inoremap <Tab> <C-x><C-i>
-"inoremap <Tab> <C-x><C-]>
-"inoremap <Tab> <C-x><C-k>
-"inoremap <Tab> <C-x><C-l>
-"inoremap <Tab> <C-x><C-f>
-"inoremap <Tab> <C-x><C-t>
-"inoremap <Tab> <C-x><C-o>
 "for file completion
 inoremap <c-f> <c-x><c-f>
 "for line completion
-inoremap <c-l> <c-x><c-l>
+inoremap <C-l> <c-x><c-l>
 "for thesaurus file
 inoremap <c-t> <c-x><c-t>
-"for dictionary completion
-inoremap <c-k> <c-x><c-k>
 "for words in current file
 inoremap <c-i> <c-x><c-i>
 "for tag completion
 inoremap <c-]> <c-x><c-]>
+"current file all words
+inoremap <c-u> <c-x><c-u>
+"macro completion
+inoremap <c-d> <c-x><c-d>
+
+""for dictionary completion
+"inoremap <C-k> <c-x><c-k>
 
 "http://stackoverflow.com/questions/15870365/why-is-tab-completion-wildmenu-not-working
 function! Smart_TabComplete()
@@ -258,25 +255,34 @@ function! Smart_TabComplete()
                                                   " line to one character right
                                                   " of the cursor
   let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  echo "substr" + substr
   if (strlen(substr)==0)                          " nothing to match on empty string
     return "\<tab>"
   endif
   let has_period = match(substr, '\.') != -1      " position of period, if any
   let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  echo "has_period" + has_period
-  echo "has_slash" + has_slash
   if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
+    "check if autocomplpop is visible
+    let pop = pumvisible()
+    if (pop)
+      return "\<C-Y>"                             "select current word
+      "return "\<C-X>\<C-P>"                         " existing text matching
+    else
+      return "\<C-X>\<C-U>"                         " wordfuzzycompletion
+    endif
   elseif (has_slash)
     return "\<C-X>\<C-F>"                         " file matching
   else
     return "\<C-X>\<C-O>"                         " plugin matching
   endif
 endfunction
-"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-inoremap <tab> <expr>=Smart_TabComplete()<CR>
+inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+"inoremap <tab> <expr>=Smart_TabComplete()<CR>
 " }}}
+
+"wordfuzzycompletion{{{
+"http://hetland.org/coding/python/levenshtein.py
+"let g:fuzzywordcompletion_disable_keybinding=0
+"}}}
 
 " Highlight all words when press <CR> {{{
 let g:highlighting = 0

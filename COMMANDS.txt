@@ -84,7 +84,7 @@ ctrl-f switch from commandline mode to the commandline window
 press crs (coerce to snake_case). mixedcase (crm), camelcase (crc), snake_case (crs), and upper_case (cru)
 <leader>if ->reindent file
 <leader>ft ->create folding for html
-<leader>qf ->call quickfix
+<c-q> ->call quickfix
 <leader>fc ->call foldcolumntoggle
 <leader>fx ->:formatxml
 <c-o> -> in insert mode allow to ejecute a normal command
@@ -107,6 +107,9 @@ endif
 :%!tidy -qicbn -asxhtml -> autoformat html
 :Autoformat | <leader>af -> format file
 :exec 'e '.tempname() | :execute "e ".fnameescape(tempname())  ->create temporal file
+:<leader>f -> open windows explorer
+:vim[grep][!] /{pattern}/[g][j] {file} ->use vimgrep ej. :vimgrep /solve/j **/*.gms
+
 
 -----------------------------------------------
 align -> drchip
@@ -627,7 +630,7 @@ zi switch folding on or off
 za toggle current fold open/closed
 zc close current fold
 zr open all folds
-zm close all folds
+zM close all folds
 zv expand folds to reveal cursor
 za recursively open/close current fold
 zm reduce `foldlevel` by one
