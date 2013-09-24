@@ -33,13 +33,16 @@ filetype on
 "------------------------------------------------------
 "https://github.com/gmarik/vundle
 "------------------------------------------------------
-let g:bundle_dir=expand($HOME.'/vimfiles/bundle/vundle')
-set nocompatible " be iMproved
 "rtp
 set runtimepath+=~/vimfiles/bundle/vundle/
 set runtimepath+=~/vimfiles/bin/
 set runtimepath+=~/vimfiles/bundle/
-call vundle#rc()
+set runtimepath+=~/vimfiles/
+set nocompatible " be iMproved
+"https://github.com/gmarik/vundle/issues/211
+"let g:bundle_dir=expand($HOME.'/vimfiles/bundle/vundle')
+"call vundle#rc()
+call vundle#rc('~/vimfiles/bundle/vundle')
 "" let Vundle manage Vundle
 "" required!
 Bundle 'gmarik/vundle'
@@ -109,6 +112,7 @@ Bundle 'motemen/git-vim'
 Bundle 'shemerey/vim-project'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
+"Bundle 'ervandew/snipmate.vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'biruh/vim-aspnet'
 Bundle 'mklabs/vim-backbone'
@@ -267,6 +271,8 @@ Bundle 'AutoAlign'
 Bundle 'multiselect'
 Bundle 'Thesaurus'
 Bundle 'slimv.vim'
+Bundle 'ccimpl.vim'
+Bundle 'DirDiff.vim'
 "Bundle 'ZoomWin'
 "Bundle 'buftabs'
 "Bundle 'ftpsync'
@@ -551,7 +557,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
 "For the most accurate but slowest result, set the syntax synchronization method to fromstart
 autocmd BufEnter * :syntax sync fromstart
 "suffixes added to command gf
-set suffixesadd+=.c,.cpp,.cs,.js,.css,.html,.xml,.rb,.h,.aspx,.java,.py,.lisp,.perl
+set suffixesadd+=.c,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.java,.py,.lisp,.perl
 "vbnet highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "remarcado de lineas speciales
@@ -583,18 +589,18 @@ hi Title ctermfg=LightBlue ctermbg=Magenta
 set nospell "active spell check
 set spelllang=es_MX "Carga el diccionario en o los lenguajes que necesitemos
 "set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
-"will add dictionary scanning
-set complete+=k
-"use current spell file
-set complete+=kspell
-"scan the buffers that are not in the buffer list
-set complete+=U
-"scan current and included files
-set complete+=i
-"tag completion
-set complete+=]
-"scan current and included files for defined name or macro
-set complete+=d
+""will add dictionary scanning
+"set complete+=k
+""use current spell file
+"set complete+=kspell
+""scan the buffers that are not in the buffer list
+"set complete+=U
+""scan current and included files
+"set complete+=i
+""tag completion
+"set complete+=]
+""scan current and included files for defined name or macro
+"set complete+=d
 "limit the number of suggested words
 set spellsuggest=best,10
 "set spellsuggest=fast,20
@@ -629,38 +635,6 @@ let g:ragtag_global_maps = 1
 "------------------------------------------------------
 " }}}
 
-" SnipMate {{{
-"------------------------------------------------------
-"c compiler
-" autocmd FileType C set makeprg=gcc\ %
-" autocmd FileType Cpp set makeprg=g++\ %
-"------------------------------------------------------
-"snipMate plugin
-"https://github.com/msanders/snipmate.vim
-"------------------------------------------------------
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['cs'] = 'cs'
-"especifica la ruta en donde se encuentran los snippets para el plugin snipMate
-let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets/'
-"my personal snippets
-let g:snippets_dir+='~/.vim/snippets/'
-"------------------------------------------------------
-" }}}
-
-"" Ultisnip {{{
-""------------------------------------------------------
-""https://github.com/vim-scripts/UltiSnips
-""------------------------------------------------------
-"let g:UltiSnips = {}
-
-"let g:UltiSnips.snipmate_ft_filter = {
-"\ 'default' : {'filetypes': ["FILETYPE"] },
-"\ 'ruby'  : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
-"\ }
-""------------------------------------------------------
-"" }}}
-
 " NERDTree {{{
 "------------------------------------------------------
 "https://github.com/scrooloose/nerdtree"
@@ -680,6 +654,7 @@ let g:NERDTreeChristmasTree     = 1
 let g:NERDTreeCaseSensitiveSort = 0
 let g:NERDTreeQuitOnOpen        = 0
 let g:NERDTreeMouseMode         = 2
+let NERDTreeShowHidden=1
 "let g:NERDTreeMapOpenInTab   = 't'
 "let g:NERDTreeMapOpenInTab   = '<2-LeftMouse>'
 "let g:NERDTreeMapOpenInTab='<2-LeftMouse>'
@@ -916,9 +891,10 @@ endif
 "https://mutelight.org/dbext-the-last-sql-client-youll-ever-need
 "---------------------------------------------------------
 "connect to sql server instance
+let g:dbext_default_profile_sql_des = 'type=SQLSRV:srvname=10.48.68.8\SQL2K8:dbname=amdesvw:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qa = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
-let g:dbext_default_profile = 'sql_qavw'
+let g:dbext_default_profile = 'sql_des'
 "add this comment at begin of file script
 "// dbext:profile=sql_qavw
 let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
@@ -1233,19 +1209,56 @@ autocmd FileType cs set omnifunc=OmniSharp#Complete
 " SuperTab {{{
 "---------------------------------------------------------
 let g:SuperTabDefaultCompletionType='context'
+"let g:SuperTabDefaultCompletionType = '<c-n>'
 let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
 "let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-n>","&omnifunc:<c-x><c-o>"]
 let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-u>","&omnifunc:<c-x><c-o>"]
 let g:SuperTabClosePreviewOnPopupClose=1
+let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
 "let g:SuperTabLongestHighlight=1
 "defaults
-"let g:SuperTabMappingForward = '<tab>'
-"let g:SuperTabMappingBackward = '<s-tab>'
-let g:SuperTabMappingForward = '<C-x><C-n>'
-let g:SuperTabMappingBackward = '<C-x><C-p>'
+let g:SuperTabMappingForward = '<tab>'
+let g:SuperTabMappingBackward = '<s-tab>'
+"let g:SuperTabMappingForward = '<C-x><C-n>'
+"let g:SuperTabMappingBackward = '<C-x><C-p>'
 
 "---------------------------------------------------------
 " }}}
+
+" SnipMate {{{
+"------------------------------------------------------
+"c compiler
+" autocmd FileType C set makeprg=gcc\ %
+" autocmd FileType Cpp set makeprg=g++\ %
+"------------------------------------------------------
+"snipMate plugin
+"https://github.com/msanders/snipmate.vim
+"------------------------------------------------------
+let g:snipMate = {}
+"especifica la ruta en donde se encuentran los snippets para el plugin snipMate
+"let g:snipMate['snippet_dirs'] = funcref#Function('return ["~/vimfiles/snippets"]')
+"set runtimepath?
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['cs'] = 'cs'
+let g:snipMate.scope_aliases['sql'] = 'sql'
+"let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets/'
+"my personal snippets
+"let g:snippets_dir+='~/vimfiles/snippets/'
+"------------------------------------------------------
+" }}}
+
+"" Ultisnip {{{
+""------------------------------------------------------
+""https://github.com/vim-scripts/UltiSnips
+""------------------------------------------------------
+"let g:UltiSnips = {}
+
+"let g:UltiSnips.snipmate_ft_filter = {
+"\ 'default' : {'filetypes': ["FILETYPE"] },
+"\ 'ruby'  : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
+"\ }
+""------------------------------------------------------
+"" }}}
 
 " AutoComplPop {{{
 let g:acp_behaviorKeywordLength = 1
@@ -1258,9 +1271,15 @@ let g:acp_completeOption        = '.,w,b,k,t,i'
 " https://github.com/Chiel92/vim-autoformat
 "---------------------------------------------------------
 let g:formatprg_cs = "astyle"
+let g:formatprg_args_cs = "--mode=cs --style=ansi -pcHs4"
 let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
-autocmd BufWritePre *.cs :Autoformat
 set equalprg=astyle
+"autocmd BufWritePre *.cs :Autoformat
+"autocmd BufWritePre *.html :Autoformat
+"autocmd BufWritePre *.htm :Autoformat
+"autocmd BufWritePre *.aspx :Autoformat
+"autocmd BufWritePre *.xml :Autoformat
+"autocmd BufWritePre *.sql :Autoformat
 "---------------------------------------------------------
 " }}}
 
@@ -1282,6 +1301,11 @@ let g:ConqueTerm_CloseOnEnd = 1
 "let g:slimv_lisp='C:\Program Files (x86)\clisp-2.49\clisp.exe'
 let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
 let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe" -l "C:\lispbox-0.7\slime-20110205.092829\start-swank.lisp"'
+"}}}
+
+" pep8 {{{
+"https://github.com/vim-scripts/pep8
+let g:pep8_map='<F8>'
 "}}}
 
 "" indentLine {{{

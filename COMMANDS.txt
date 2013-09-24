@@ -21,7 +21,7 @@ vim --version | grep +python -> ver si vim soporta python
 vim --version | grep +signs -> ver si vim soporta signs
 :files -> open files from powerline
 :buffers -> open buffers from powerline
-verbose autocmd cursormoved -> ver las funciones definidas por un script
+:verbose autocmd cursormoved -> ver las funciones definidas por un script
 perl -mcpan -e "cpan::shell->force(qw(install app::ack));" ->install ack desde cmd windows
 :make /t:rebuild -> to build *.proj
 <leader>l -> show hidden characters
@@ -109,7 +109,7 @@ endif
 :exec 'e '.tempname() | :execute "e ".fnameescape(tempname())  ->create temporal file
 :<leader>f -> open windows explorer
 :vim[grep][!] /{pattern}/[g][j] {file} ->use vimgrep ej. :vimgrep /solve/j **/*.gms
-
+find -type d -exec rmdir {} \; -> delete empty directories recursively
 
 -----------------------------------------------
 align -> drchip
@@ -1331,6 +1331,12 @@ git add . -a -> remove file
 git commit -m "message here"
 git push -> check in
 git pull -> get latest version
+
+--delete recursively
+git add -A
+git commit -m "message here"
+git push -> check in
+
 -----------------------------------------------
 
 -----------------------------------------------

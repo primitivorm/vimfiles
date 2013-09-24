@@ -76,9 +76,6 @@ nnoremap <silent><C-Tab> : tabnext<cr>
 nnoremap <silent><S-Tab> : tabprev<cr>
 nnoremap <silent><C-F4>  : tabclose<cr>
 nnoremap <silent><C-T>  : tabnew<cr>
-inoremap <silent><C-Tab> : tabnext<cr>
-inoremap <silent><S-Tab> : tabprev<cr>
-inoremap <silent><C-F4>  : tabclose<cr>
 
 ""http://vim.wikia.com/wiki/Alternative_tab_navigation
 "nnoremap <A-F1> 1gt
@@ -206,9 +203,9 @@ onoremap <C-A> <C-C>gggH<C-O>G
 snoremap <C-A> <C-C>gggH<C-O>G
 xnoremap <C-A> <C-C>ggVG
 
-"tab alignment selection
-vnoremap <silent><Tab> >
-vnoremap <silent><S-Tab> <
+""tab alignment selection
+"vnoremap <silent><Tab> >
+"vnoremap <silent><S-Tab> <
 
 "Find
 map <C-f> /<C-r><C-w>
@@ -255,15 +252,17 @@ function! Smart_TabComplete()
                                                   " line to one character right
                                                   " of the cursor
   let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
+  echo substr
   if (strlen(substr)==0)                          " nothing to match on empty string
     return "\<tab>"
   endif
   let has_period = match(substr, '\.') != -1      " position of period, if any
   let has_slash = match(substr, '\/') != -1       " position of slash, if any
+  let pop = pumvisible()
   if (!has_period && !has_slash)
     "check if autocomplpop is visible
-    let pop = pumvisible()
     if (pop)
+      "return "\<tab>"                             "select current word
       return "\<C-Y>"                             "select current word
       "return "\<C-X>\<C-P>"                         " existing text matching
     else
@@ -275,8 +274,10 @@ function! Smart_TabComplete()
     return "\<C-X>\<C-O>"                         " plugin matching
   endif
 endfunction
+
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-"inoremap <tab> <expr>=Smart_TabComplete()<CR>
+"snipMate completion
+inoremap <C-space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
 " }}}
 
 "wordfuzzycompletion{{{
