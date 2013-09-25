@@ -258,13 +258,10 @@ function! Smart_TabComplete()
   endif
   let has_period = match(substr, '\.') != -1      " position of period, if any
   let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  let pop = pumvisible()
   if (!has_period && !has_slash)
     "check if autocomplpop is visible
-    if (pop)
-      "return "\<tab>"                             "select current word
+    if pumvisible()
       return "\<C-Y>"                             "select current word
-      "return "\<C-X>\<C-P>"                         " existing text matching
     else
       return "\<C-X>\<C-U>"                         " wordfuzzycompletion
     endif

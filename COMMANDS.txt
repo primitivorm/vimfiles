@@ -110,7 +110,11 @@ endif
 :<leader>f -> open windows explorer
 :vim[grep][!] /{pattern}/[g][j] {file} ->use vimgrep ej. :vimgrep /solve/j **/*.gms
 find -type d -exec rmdir {} \; -> delete empty directories recursively
-
+/* capturing commands to redirect to register
+:redir @a
+:set all
+:redir END
+*/
 -----------------------------------------------
 align -> drchip
 http://www.vim.org/scripts/script.php?script_id=294

@@ -37,7 +37,7 @@ filetype on
 set runtimepath+=~/vimfiles/bundle/vundle/
 set runtimepath+=~/vimfiles/bin/
 set runtimepath+=~/vimfiles/bundle/
-set runtimepath+=~/vimfiles/
+set runtimepath+=~/vimfiles
 set nocompatible " be iMproved
 "https://github.com/gmarik/vundle/issues/211
 "let g:bundle_dir=expand($HOME.'/vimfiles/bundle/vundle')
@@ -102,6 +102,7 @@ Bundle 'mutewinter/vim-css3-syntax'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tomtom/tlib_vim'
+Bundle 'tomtom/vimtlib'
 Bundle 'tomtom/tplugin_vim'
 Bundle 'tomtom/stakeholders_vim'
 Bundle 'tomtom/templator_vim'
@@ -112,7 +113,7 @@ Bundle 'motemen/git-vim'
 Bundle 'shemerey/vim-project'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
-"Bundle 'ervandew/snipmate.vim'
+"Bundle 'ervandew/snipmate.vim' "deprecated
 Bundle 'Raimondi/delimitMate'
 Bundle 'biruh/vim-aspnet'
 Bundle 'mklabs/vim-backbone'
@@ -273,6 +274,7 @@ Bundle 'Thesaurus'
 Bundle 'slimv.vim'
 Bundle 'ccimpl.vim'
 Bundle 'DirDiff.vim'
+Bundle 'QuickBuf'
 "Bundle 'ZoomWin'
 "Bundle 'buftabs'
 "Bundle 'ftpsync'
@@ -285,7 +287,6 @@ Bundle 'DirDiff.vim'
 "Bundle 'scratch.vim'
 "Bundle 'taglist.vim'
 "Bundle 'YankRing.vim'
-"Bundle 'QuickBuf'
 "Bundle 'VB.NET-Syntax'
 "Bundle 'VimClojure'
 "Bundle 'pydoc.vim'
@@ -538,7 +539,7 @@ autocmd FileType java set omnifunc=javacomplete#Complete
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 " convert tabs to spaces before writing file
-autocmd! BufWritePre * set expandtab | retab!
+autocmd! BufWritePre *.cs set expandtab | retab!
 
 " ruby {{{
 "http://www.cuberick.com/2008/10/ruby-autocomplete-in-vim.html
@@ -1067,17 +1068,17 @@ let MRU_File = $HOME . '/_vim_mru_files'
 let g:mta_use_matchparen_group=0
 let g:mta_set_default_matchtag_color=0
 highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
-"highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=#1E90FF
 let g:mta_filetypes = {
+            \ 'htm' : 1,
             \ 'html' : 1,
             \ 'xhtml' : 1,
             \ 'xml' : 1,
-            \ 'jinja' : 1,
             \ 'cs' : 1,
+            \ 'aspx' : 1,
+            \ 'sql' : 1,
             \}
 "Highlighting braces parentheses
 hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
-"hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#1E90FF
 "---------------------------------------------------------
 " }}}
 
@@ -1095,9 +1096,10 @@ let g:session_autoload = 'yes'
 "https://github.com/tomtom/vimtlib/blob/master/INSTALL.TXT
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "for template generator add
-"runtime bundle/tplugin_vim/macros/tplugin.vim
+"runtime ~/bundle/vundle/tplugin_vim/macros/tplugin.vim
 "run :TPluginScan!
-set runtimepath+=~/.vim/bundle/vimtlib
+set runtimepath+=~/vimfiles/bundle/vundle/vimtlib/
+let g:tplugin_autoload=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
@@ -1241,8 +1243,11 @@ let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['cs'] = 'cs'
 let g:snipMate.scope_aliases['sql'] = 'sql'
+"let g:snipMateSources = {}
+"let g:snipMateSources['default'] = funcref#Function('snipMate#DefaultPool')
 "let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets/'
 "my personal snippets
+"let g:snippets_dir+='~/vimfiles/snippets/'
 "let g:snippets_dir+='~/vimfiles/snippets/'
 "------------------------------------------------------
 " }}}
