@@ -368,11 +368,17 @@ set modeline
 
 " Encoding {{{
 " use utf8 encoding for vim files and for default file encoding
+scriptencoding utf-8
 set fenc=utf-8
-set encoding=utf-8
-setglobal fileencoding=utf-8
-"set fileencoding=utf-8
-set fileencodings=utf-8,iso-8859-15,ucs-bom
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  set fileencodings=ucs-bom,utf-8,latin1
+  au BufEnter * if &fileencoding == "" | set fileencoding=latin2 | endif
+endif
 " }}}
 
 " Gui {{{
@@ -892,7 +898,8 @@ endif
 "https://mutelight.org/dbext-the-last-sql-client-youll-ever-need
 "---------------------------------------------------------
 "connect to sql server instance
-let g:dbext_default_profile_sql_des = 'type=SQLSRV:srvname=10.48.68.8\SQL2K8:dbname=amdesvw:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_des = 'type=SQLSRV:srvname=10.48.68.8:dbname=amdes:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_desvw = 'type=SQLSRV:srvname=10.48.68.8\SQL2K8:dbname=amdesvw:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qa = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile = 'sql_des'
@@ -1239,16 +1246,17 @@ let g:SuperTabMappingBackward = '<s-tab>'
 let g:snipMate = {}
 "especifica la ruta en donde se encuentran los snippets para el plugin snipMate
 "let g:snipMate['snippet_dirs'] = funcref#Function('return ["~/vimfiles/snippets"]')
+"let g:snipMateSources = {}
+"let g:snipMateSources['default'] = funcref#Function('snipMate#DefaultPool')
 "set runtimepath?
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['cs'] = 'cs'
 let g:snipMate.scope_aliases['sql'] = 'sql'
-"let g:snipMateSources = {}
-"let g:snipMateSources['default'] = funcref#Function('snipMate#DefaultPool')
+"g:snippets_dir is deprecated
 "let g:snippets_dir='~/.vim/bundle/vim-snippets/snippets/'
+"let g:snippets_dir+='~/vimfiles/snippets/'
 "my personal snippets
-"let g:snippets_dir+='~/vimfiles/snippets/'
-"let g:snippets_dir+='~/vimfiles/snippets/'
+"set runtimepath+=~/vimfiles
 "------------------------------------------------------
 " }}}
 
