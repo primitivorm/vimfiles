@@ -368,7 +368,7 @@ set modeline
 
 " Encoding {{{
 " use utf8 encoding for vim files and for default file encoding
-scriptencoding utf-8
+"scriptencoding utf-8
 set fenc=utf-8
 if has("multi_byte")
   if &termencoding == ""
@@ -407,6 +407,7 @@ endif
 
 "set colorscheme
 "https://github.com/primitivorm/vim-proman-theme
+set background=dark
 colorscheme proman
 "colorscheme distinguished
 "colorscheme solarized
@@ -521,7 +522,7 @@ set cmdheight=2 " use a status bar that is 2 rows high
 " }}}
 
 " Vim behaviour {{{
-set hidden " hide buffers instead of closing them this
+set nohidden " hide buffers instead of closing them this
 " means that the current buffer can be put
 " to background without being written; and
 " that marks and undo history are preserved
@@ -867,19 +868,26 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=0
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': ['ruby', 'php'],
+            \ 'active_filetypes': ['ruby', 'php', 'cs', 'python', 'lisp', 'json', 'js', 'html', 'xhtml', 'xml'],
             \ 'passive_filetypes': ['puppet'] }
 
-let g:syntastic_enable_highlighting = 0
+"let g:syntastic_enable_highlighting = 0
+let g:syntastic_enable_highlighting = 1
 let g:syntastic_error_symbol='E'
 let g:syntastic_style_error_symbol='S'
 let g:syntastic_warning_symbol='W'
 let g:syntastic_style_warning_symbol='S'
 let g:syntastic_always_populate_loc_list=1
+"configuring for cs files
+let g:syntastic_cs_checkers=['mcs']
+"configuring for python files
+let g:syntastic_python_checkers=['pylint']
 
 if !&diff
     let g:syntastic_check_on_open=1
 endif
+"quickfix
+set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f-
 
 "--------------------------------------------------------
 "default signs
@@ -902,7 +910,23 @@ let g:dbext_default_profile_sql_des = 'type=SQLSRV:srvname=10.48.68.8:dbname=amd
 let g:dbext_default_profile_sql_desvw = 'type=SQLSRV:srvname=10.48.68.8\SQL2K8:dbname=amdesvw:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qa = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
-let g:dbext_default_profile = 'sql_des'
+let g:dbext_default_profile_sql_qa40 = 'type=SQLSRV:srvname=10.48.95.40:dbname=amqa:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_qavw40 = 'type=SQLSRV:srvname=10.48.95.40:dbname=amqavw:user=espejopruebas:passwd=12345678'
+
+let g:dbext_default_profile = 'sql_qa'
+
+"TODO: ChangeDB
+"command to change profile
+function! DoChangeDB(profile)
+    let db = 'sql_' . a:profile
+    "let g:dbext_default_profile = '"' . db  . '"'
+    execute "let g:dbext_default_profile = '" . db . "'"
+    echo "let g:dbext_default_profile = '" . db . "'"
+    echo g:dbext_default_profile
+endfunction
+
+command! -nargs=1 ChangeDB :call DoChangeDB(<f-args>)
+
 "add this comment at begin of file script
 "// dbext:profile=sql_qavw
 let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
@@ -1186,7 +1210,7 @@ highlight link multiple_cursors_visual Visual
 
 "" vim-auto-save {{{
 ""https://github.com/907th/vim-auto-save
-"let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 1  " Disable AutoSave on Vim startup
 "let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 "" }}}
 

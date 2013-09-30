@@ -781,7 +781,7 @@ set hidden
 " }}}
 
 " Syntastic {{{
-nmap <silent> <leader>y :SyntasticCheck<cr>
+nmap <silent> <leader>sc :SyntasticCheck<cr>
 " }}}
 
 " multiple-cursor {{{
