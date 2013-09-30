@@ -522,7 +522,7 @@ set cmdheight=2 " use a status bar that is 2 rows high
 " }}}
 
 " Vim behaviour {{{
-set nohidden " hide buffers instead of closing them this
+set hidden " hide buffers instead of closing them this
 " means that the current buffer can be put
 " to background without being written; and
 " that marks and undo history are preserved
@@ -913,19 +913,14 @@ let g:dbext_default_profile_sql_qavw = 'type=SQLSRV:srvname=10.48.68.8:dbname=am
 let g:dbext_default_profile_sql_qa40 = 'type=SQLSRV:srvname=10.48.95.40:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw40 = 'type=SQLSRV:srvname=10.48.95.40:dbname=amqavw:user=espejopruebas:passwd=12345678'
 
-let g:dbext_default_profile = 'sql_qa'
+"let g:dbext_default_profile = 'sql_qavw'
 
-"TODO: ChangeDB
-"command to change profile
-function! DoChangeDB(profile)
-    let db = 'sql_' . a:profile
-    "let g:dbext_default_profile = '"' . db  . '"'
-    execute "let g:dbext_default_profile = '" . db . "'"
-    echo "let g:dbext_default_profile = '" . db . "'"
-    echo g:dbext_default_profile
+"command to change Connection
+function! FnChangeDB()
+    :DBPromptForBufferParameters
 endfunction
 
-command! -nargs=1 ChangeDB :call DoChangeDB(<f-args>)
+command! -nargs=0 ChangeDB :call FnChangeDB()
 
 "add this comment at begin of file script
 "// dbext:profile=sql_qavw
@@ -967,8 +962,11 @@ endif
 "set rtp+=~/vimfiles/bundle/powerline/powerline/bindings/vim
 " set laststatus=2
 "let g:Powerline_theme='long'
-"let g:Powerline_colorscheme='solarized256_dark'
-"let g:Powerline_colorscheme='solarized256_light'
+if &background=="light"
+  let g:Powerline_colorscheme='solarized256_dark'
+else
+  let g:Powerline_colorscheme='solarized256_light'
+endif
 "---------------------------------------------------------
 " }}}
 

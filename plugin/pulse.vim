@@ -28,7 +28,7 @@ function! PulseCursorLine()
     endfor
     "execute 'hi CursorLine ' . g:PulseColorattr . '=NONE'
     if &background=="light"
-      execute 'hi CursorLine ' . g:PulseColorattr . '=#E6E6FA'
+      execute 'hi CursorLine ' . g:PulseColorattr . '=#E0E0FF'
     else
       execute 'hi CursorLine ' . g:PulseColorattr . '=#000000'
     endif
