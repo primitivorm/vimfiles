@@ -202,7 +202,7 @@ Bundle 'vim-scripts/TaskList.vim'
 "Bundle 'bryanthankins/vim-aspnetide'
 "Bundle 'skalnik/vim-vroom'
 "Bundle 'mattsacks/vim-symbols'
-"Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-ruby/vim-ruby'
 "Bundle 'jeetsukumaran/vim-buffergator'
 "Bundle 'benizi/perl-support.vim'
 "Bundle 'alfredodeza/pytest.vim'
@@ -293,7 +293,8 @@ Bundle 'QuickBuf'
 "Bundle 'AutoTag'
 
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+"Bundle 'git://git.wincent.com/command-t.git'
+"Bundle 'wincent/Command-T'
 " ...
 "------------------------------------------------
 
@@ -865,7 +866,7 @@ endif
 "--------------------------------------------------------
 let g:syntastic_enable_balloons = 1
 let g:syntastic_auto_loc_list=2
-let g:syntastic_auto_jump=0
+let g:syntastic_auto_jump=1
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'active_filetypes': ['ruby', 'php', 'cs', 'python', 'lisp', 'json', 'js', 'html', 'xhtml', 'xml'],
@@ -879,16 +880,17 @@ let g:syntastic_warning_symbol='W'
 let g:syntastic_style_warning_symbol='S'
 let g:syntastic_always_populate_loc_list=1
 "configuring for cs files
-let g:syntastic_cs_checkers=['mcs']
+"require mono mcs parser
+"let g:syntastic_cs_checkers=['mcs']
+"let g:syntastic_cs_exe="mcs.exe"
+"let g:syntastic_cs_args="--parse"
 "configuring for python files
 let g:syntastic_python_checkers=['pylint']
-
 if !&diff
     let g:syntastic_check_on_open=1
 endif
 "quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f-
-
 "--------------------------------------------------------
 "default signs
 " syntastic_error_symbol - For syntax errors, defaults to '>>'

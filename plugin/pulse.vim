@@ -8,10 +8,10 @@ nnoremap <silent>n nzv:call PulseCursorLine()<cr>
 nnoremap <silent>N Nzv:call PulseCursorLine()<cr>
 
 if has('gui_running')
-    let g:PulseColorList = ['#C0C0C0', '#A9A9A9' ]
+    let g:PulseColorList = ['#000000', '#E0E0FF' ]
     let g:PulseColorattr = 'guibg'
 else
-    let g:PulseColorList = [ 'DarkGrey', 'DarkGrey', 'DarkGrey' ]
+    let g:PulseColorList = [ 'White', 'DarkGrey', 'DarkGrey' ]
     let g:PulseColorattr = 'ctermbg'
 endif
 

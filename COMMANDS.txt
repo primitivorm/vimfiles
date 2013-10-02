@@ -115,6 +115,7 @@ find -type d -exec rmdir {} \; -> delete empty directories recursively
 :set all
 :redir END
 */
+
 -----------------------------------------------
 align -> drchip
 http://www.vim.org/scripts/script.php?script_id=294
