@@ -282,13 +282,14 @@ n| columna n de la línea actual
 % siguiente llave, paréntesis, comentario, #define
 nh nl línea n desde el principio, medio de la ventana
 m medio de la ventana
+gi -> go to las insert location
 
 -----------------------------------------------
 inserción & sustitución → modo insertar
 -----------------------------------------------
 i a insertar antes, después del cursor
 i a insertar al principio, fin de la línea
-gi insertar texto en la primera columna
+I insertar texto en la primera columna
 o o insertar nueva línea abajo, arriba de la actual
 rc sustituir caracter bajo el cursor por c
 grc como r, pero sin afectar el diseño
@@ -493,6 +494,20 @@ gd gd definición local, global de símbolo sobre cursor
 :rs/f/t/x↵ sustituir f por t en rango r
 x: g-todas las ocurrencias, c-confirmar cambios
 :rs x↵ repetir sustitución con nuevo r & x
+
+:%s/_params/params/ge   -> sustitute all document
+
+->for all documents in args
+:args app/controllers/*.rb
+:argdo :%s/_params/params/ge | update
+
+g/^ /-1j (for every matching line, go up one line and join them)
+:% g/foo/m$ ... and all the "foo" lines will have been moved to the end of the file
+:% g/foo/s/bar/zzz/g -- for every line containing "foo" substitute all "bar" with "zzz."
+:% s/\(.*foo.*\)bar\(.*\)/\1zzz\2/g would only work for the cases those instances of "bar" which were PRECEDED by "foo" on the same line
+:'a,'bg/foo/j to join any line containing the string foo to its subsequent line, if it lies between the lines between the 'a' and 'b' marks
+:r foo inserts the contents of the file named "foo" at the current line. 
+More powerful is the :r! command. This reads the results of a command. It's the same as suspending the vi session, running a command, redirecting its output to a temporary file, resuming your vi session, and reading in the contents from the temp. file.
 
 -----------------------------------------------
 caracteres especiales en patrones de busqueda
@@ -1519,6 +1534,8 @@ for example, after selecting multiple lines with visualmode:
 !sort : sort selected lines
 !grep word : keep only lines containing 'word' in the selected range.
 
+v% if the cursor is on the starting/ending parenthesis
+vib if the cursor is inside the parenthesis block
 
 -----------------------------------------------
 multiple files

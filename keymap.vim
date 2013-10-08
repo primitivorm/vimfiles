@@ -182,6 +182,7 @@ map <leader>P "+gP
 nnoremap <leader>x "+x
 vnoremap <leader>y "+y
 vnoremap <leader>x "+x
+nmap Y yy
 
 " Use CTRL-S for saving, also in Insert mode
 noremap <C-S>       :update<CR>
@@ -195,13 +196,14 @@ inoremap <C-Z> <C-O>u
 noremap <C-Y> :redo <cr>
 inoremap <C-Y> <C-O><C-R>
 
-" CTRL-A is Select all
-noremap <C-A> gggH<C-O>G
-inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
-cnoremap <C-A> <C-C>gggH<C-O>G
-onoremap <C-A> <C-C>gggH<C-O>G
-snoremap <C-A> <C-C>gggH<C-O>G
-xnoremap <C-A> <C-C>ggVG
+"ctrl-a is used for increment in one
+"" CTRL-A is Select all
+"noremap <C-A> gggH<C-O>G
+"inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+"cnoremap <C-A> <C-C>gggH<C-O>G
+"onoremap <C-A> <C-C>gggH<C-O>G
+"snoremap <C-A> <C-C>gggH<C-O>G
+"xnoremap <C-A> <C-C>ggVG
 
 ""tab alignment selection
 "vnoremap <silent><Tab> >

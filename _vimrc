@@ -139,6 +139,7 @@ Bundle 'michalliu/jsruntime.vim'
 Bundle 'einars/js-beautify'
 Bundle 'elzr/vim-json'
 Bundle 'vim-scripts/ScrollColors'
+Bundle 'junegunn/vim-easy-align'
 "Bundle 'mbbill/undotree'
 "Bundle '907th/vim-auto-save'
 "Bundle 'vim-scripts/_jsbeautify'
@@ -178,6 +179,8 @@ Bundle 'sontek/rope-vim'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'fs111/pydoc.vim.git'
 Bundle 'vim-scripts/TaskList.vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'ecomba/vim-ruby-refactoring'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'xuhdev/SingleCompile'
 "Bundle 'daviddavis/vim-colorpack'
@@ -202,7 +205,6 @@ Bundle 'vim-scripts/TaskList.vim'
 "Bundle 'bryanthankins/vim-aspnetide'
 "Bundle 'skalnik/vim-vroom'
 "Bundle 'mattsacks/vim-symbols'
-Bundle 'vim-ruby/vim-ruby'
 "Bundle 'jeetsukumaran/vim-buffergator'
 "Bundle 'benizi/perl-support.vim'
 "Bundle 'alfredodeza/pytest.vim'
@@ -266,6 +268,10 @@ Bundle 'hexHighlight.vim'
 Bundle 'grep.vim'
 Bundle 'Decho'
 Bundle 'refactor'
+"issue: install pywin32-214.win32-py2.7.exe
+"http://code.google.com/p/vim-visual-studio/issues/detail?id=2
+"copy C:\Python27\Lib\site-packages\pywin32_system32 to C:\Python27
+"http://sourceforge.net/projects/pywin32/files/pywin32/Build%20214/
 Bundle 'visual_studio.vim'
 Bundle 'Word-Fuzzy-Completion'
 Bundle 'AutoAlign'
@@ -273,8 +279,8 @@ Bundle 'multiselect'
 Bundle 'Thesaurus'
 Bundle 'slimv.vim'
 Bundle 'ccimpl.vim'
-Bundle 'DirDiff.vim'
-Bundle 'QuickBuf'
+"Bundle 'DirDiff.vim'
+"Bundle 'QuickBuf'
 "Bundle 'ZoomWin'
 "Bundle 'buftabs'
 "Bundle 'ftpsync'
@@ -291,6 +297,9 @@ Bundle 'QuickBuf'
 "Bundle 'VimClojure'
 "Bundle 'pydoc.vim'
 "Bundle 'AutoTag'
+
+"screen-saver
+"Bundle 'uguu-org/vim-matrix-screensaver'
 
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
@@ -359,7 +368,7 @@ endif
 set visualbell " don't beep
 set noerrorbells " don't beep
 "set cmdheight=5    "especify the height of cmd
-set noshowmode
+set noshowmode "show current mode
 set showcmd " show (partial) command in the last line of the screen
 " this also shows visual selection info
 " set nomodeline " disable mode lines (security measure)
@@ -461,7 +470,8 @@ set gdefault " search/replace "globally" (on a line) by default
 "Mostrar la posicion del cursor en todo momento
 set ruler
 "mat
-set matchtime=5
+set matchtime=3
+set matchpairs+=<:>     "specially for html
 
 " }}}
 
@@ -523,10 +533,6 @@ set cmdheight=2 " use a status bar that is 2 rows high
 " }}}
 
 " Vim behaviour {{{
-set hidden " hide buffers instead of closing them this
-" means that the current buffer can be put
-" to background without being written; and
-" that marks and undo history are preserved
 set switchbuf=useopen " reveal already opened files from the
 " quickfix window instead of opening new
 " buffers
@@ -540,9 +546,8 @@ autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType python setlocal omnifunc=RopeCompleteFunc
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType c,cpp,h set omnifunc=ccomplete#Complete
-autocmd FileType cs set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
 autocmd FileType java set omnifunc=javacomplete#Complete
 "autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -613,7 +618,9 @@ set spelllang=es_MX "Carga el diccionario en o los lenguajes que necesitemos
 "limit the number of suggested words
 set spellsuggest=best,10
 "set spellsuggest=fast,20
-set dictionary+=~/vimfiles/spell/*
+"set dictionary+=~/vimfiles/spell/*
+set dictionary+=~/vimfiles/spell/es_MX.dic
+set dictionary+=~/vimfiles/spell/en_US.dic
 "set file for new words
 set spellfile=~/vimfiles/spell/dict.add
 "enable matchit plugin
@@ -743,20 +750,30 @@ let g:tagbar_autofocus        = 1   "default 0
 "you switch to an already loaded, supported buffer
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 " uncomment this section for open new buffers in a tab always
+
 "always show tabs
 set showtabline=2
+
+if !&hidden
+  set hidden " hide buffers instead of closing them this
+  " means that the current buffer can be put
+  " to background without being written; and
+  " that marks and undo history are preserved
+endif
+
 if (&diff==0)
     "Open files always in new tabs
     autocmd BufReadPost * OpenInTab
 endif
 function! DoOpenInTab()
-if(&modifiable && !&readonly)
+if(&modifiable && !&readonly )
   tab ball
   tabn
 endif
 endfunction
 command! -nargs=0 OpenInTab call DoOpenInTab()
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ""---------------------------------------------------------
 "" }}}
@@ -864,6 +881,8 @@ endif
 "--------------------------------------------------------
 " https://github.com/scrooloose/syntastic
 "--------------------------------------------------------
+autocmd FileType cs, conf, xml set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
+autocmd FileType cs, conf, xml set makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
 let g:syntastic_enable_balloons = 1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=1
@@ -921,10 +940,9 @@ let g:dbext_default_profile_sql_qavw40 = 'type=SQLSRV:srvname=10.48.95.40:dbname
 function! FnChangeDB()
     :DBPromptForBufferParameters
 endfunction
-
 command! -nargs=0 ChangeDB :call FnChangeDB()
 
-"add this comment at begin of file script
+"add this comment at begin of file script to shebang
 "// dbext:profile=sql_qavw
 let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
 "---------------------------------------------------------
@@ -934,8 +952,9 @@ let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
 "---------------------------------------------------------
 "https://github.com/vim-scripts/SQLComplete.vim
 "---------------------------------------------------------
-"let g:ftplugin_sql_omni_key = '<C-C>'
-let g:ftplugin_sql_omni_key = '<C-X>'
+let g:ftplugin_sql_omni_key = '<C-C>'
+let g:ftplugin_sql_omni_key_right = '<c-right>'
+let g:ftplugin_sql_omni_key_left = '<c-left>'
 autocmd FileType sql set omnifunc=sqlcomplete#Complete
 "---------------------------------------------------------
 " }}}
@@ -982,6 +1001,7 @@ endif
 "https://github.com/xolox/vim-session
 "---------------------------------------------------------
 let g:session_command_aliases = 1
+"let g:session_autosave='no'
 "---------------------------------------------------------
 " }}}
 
