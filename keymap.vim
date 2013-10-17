@@ -3,10 +3,6 @@
 "mapea leader a coma
 let mapleader=","
 
-" Personal macros {{{
-"source ~/vimfiles/macros/macos_cs.vim
-" }}}
-
 " Opening files located in the same directory as the current file {{{
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>ew :e %%
@@ -76,18 +72,6 @@ nnoremap <silent><C-Tab> : tabnext<cr>
 nnoremap <silent><S-Tab> : tabprev<cr>
 nnoremap <silent><C-F4>  : tabclose<cr>
 nnoremap <silent><C-T>  : tabnew<cr>
-
-""http://vim.wikia.com/wiki/Alternative_tab_navigation
-"nnoremap <A-F1> 1gt
-"nnoremap <A-F2> 2gt
-"nnoremap <A-F3> 3gt
-"nnoremap <A-F4> 4gt
-"nnoremap <A-F5> 5gt
-"nnoremap <A-F6> 6gt
-"nnoremap <A-F7> 7gt
-"nnoremap <A-F8> 8gt
-"nnoremap <A-F9> 9gt
-"nnoremap <A-F0> 10gt
 
 "http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
 "Move tab to Left
@@ -195,19 +179,6 @@ inoremap <C-Z> <C-O>u
 " CTRL-Y is redo
 noremap <C-Y> :redo <cr>
 inoremap <C-Y> <C-O><C-R>
-
-"ctrl-a is used for increment in one
-"" CTRL-A is Select all
-"noremap <C-A> gggH<C-O>G
-"inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
-"cnoremap <C-A> <C-C>gggH<C-O>G
-"onoremap <C-A> <C-C>gggH<C-O>G
-"snoremap <C-A> <C-C>gggH<C-O>G
-"xnoremap <C-A> <C-C>ggVG
-
-""tab alignment selection
-"vnoremap <silent><Tab> >
-"vnoremap <silent><S-Tab> <
 
 "Find
 map <C-f> /<C-r><C-w>
@@ -324,8 +295,16 @@ endfunction
 "call AutoHighlightToggle()
 
 "http://vim.wikia.com/wiki/Open_Windows_Explorer_showing_directory_of_current_buffer
-nmap <leader>f :!start explorer "%:p:h"<CR>
+nmap <leader>e :!start explorer "%:p:h"<CR>
 
+"center search
+"http://vim.wikia.com/wiki/VimTip528
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 " }}}
 
 " General {{{
@@ -382,47 +361,17 @@ nnoremap <leader>ac :center<CR>
 " Sudo to write
 cnoremap w!! w !sudo tee % >/dev/null
 
-" Jump to matching pairs easily, with Tab
-"nnoremap <Tab> %
-"vnoremap <Tab> %
-
 " Folding
 nnoremap <Space> za
 vnoremap <Space> za
 
-" This command will execute the file, for example, if this is an
-" HTML file, it will run:
-" start c:\absolute\filename.html
-" nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"),  "/",  "\\",  "g")<CR>:silent!!cmd /cstart <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
-""" command Preview :!"C:\Program Files\Mozilla Firefox\firefox.exe" %<CR>
-
-"" Use Q for formatting the current paragraph (or visual selection)
-"vnoremap Q gq
-"nnoremap Q gqap
-
-"" Shortcut to make
-"nnoremap mk :make<CR>
-
-" Quick yanking to the end of the line
-"nnoremap Y y$
-
 " Reselect text that was just pasted with ,v
 nnoremap <leader>v V`]
-
-" Creating folds for tags in HTML
-nnoremap <leader>ft Vatzf
 
 " Since I use linux, I want this
 let g:clipbrdDefaultReg = '+'
 
 " }}}
-
-"" Disable arrow keys {{{
-"noremap <Up> <Nop>
-"noremap <Down> <Nop>
-"noremap <Left> <Nop>
-"noremap <Right> <Nop>
-"" }}}
 
 "--------------------------------------------
 "FUNCTIONS
@@ -444,21 +393,6 @@ nnoremap <leader>s :call <SID>StripTrailingWhitespaces()<cr>
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " }}}
 
-"" Align {{{
-""http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
-"function! s:Align()
-  "let p = '^\s*|\s.*\s|\s*$'
-  "if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    "let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    "let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    "Tabularize/|/l1
-    "normal! 0
-    "call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  "endif
-"endfunction
-"inoremap <silent><Bar> <Bar><Esc>:call <SID>Align()<CR>a
-"" }}}
-
 " Toggle the quickfix window {{{
 " From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
 nnoremap <c-q> :call <SID>QuickfixToggle()<cr>
@@ -477,19 +411,6 @@ function! s:QuickfixToggle()
     endif
 endfunction
 " }}}
-
-"" Toggle the foldcolumn {{{
-"nnoremap <leader>fc :call FoldColumnToggle()<cr>
-"let g:last_fold_column_width = 4 " Pick a sane default for the foldcolumn
-"function! FoldColumnToggle()
-    "if &foldcolumn
-        "let g:last_fold_column_width = &foldcolumn
-        "setlocal foldcolumn=0
-    "else
-        "let &l:foldcolumn = g:last_fold_column_width
-    "endif
-"endfunction
-"" }}}
 
 " XML formatter {{{
 function! DoFormatXML() range
@@ -543,8 +464,9 @@ function! DoFormatXML() range
 endfunction
 command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
 
-nmap <silent> <leader>fx :%FormatXML<CR>
-vmap <silent> <leader>fx :FormatXML<CR>
+"remap in autoformat section
+"nmap <silent> <leader>fx :%FormatXML<CR>
+"vmap <silent> <leader>fx :FormatXML<CR>
 " }}}
 
   "{{{Theme Rotating
@@ -626,7 +548,7 @@ vmap <leader>{ c{<C-R>"}<ESC>
 " }}}
 
 " msbuild {{{
-autocmd BufRead *.csproj,*.vbproj,*.cs,*.vb nnoremap <F5> :make /t:rebuild<cr>
+autocmd BufRead *.csproj,*.vbproj,*.cs,*.vb,*.sln nnoremap <F5> :make /t:rebuild<cr>
 " }}}
 
 " Tabular {{{
@@ -655,47 +577,6 @@ endif
 command! -range=% Rst :'<,'>!pandoc -f markdown -t rst
 " }}}
 
-" nerdtree {{{
-""I make sure the working directory is set correctly.
-"map <F2> :NERDTreeToggle<CR>
-
-"Funtion to open and close NERDTreeAndTagbar
-"function! ToggleNERDTreeAndTagbar()
-    "let w:jumpbacktohere = 1
-
-    "" Detect which plugins are open
-    "if exists('t:NERDTreeBufName')
-        "let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
-    "else
-        "let nerdtree_open = 0
-    "endif
-    "let tagbar_open = bufwinnr('__Tagbar__') != -1
-
-    "" Perform the appropriate action
-    "if nerdtree_open && tagbar_open
-        "NERDTreeClose
-        "TagbarClose
-    "elseif nerdtree_open
-        "TagbarOpen
-    "elseif tagbar_open
-        "NERDTree
-    "else
-        "NERDTree
-        "TagbarOpen
-    "endif
-
-    "" Jump back to the original window
-    "for window in range(1,winnr('$')) "execute window . 'wincmd w'
-        "if exists('w:jumpbacktohere')
-            "unlet w:jumpbacktohere
-            "break
-        "endif
-    "endfor
-"endfunction
-"nnoremap <F2> :call ToggleNERDTreeAndTagbar()<CR>
-
-" }}}
-
 " vim-nerdtree-tabs {{{
 noremap <F2> :NERDTreeTabsToggle<CR>
 " }}}
@@ -720,21 +601,6 @@ nmap <silent> <leader>gb :Gblame<CR>
 nmap <silent> <leader>gl :Glog<CR>
 nmap <silent> <leader>gp :Git push<CR>
 "}}}
-
-" SingleCompile {{{
-"nmap <F9> :SCCompile<cr>
-"nmap <F10> :SCCompileRun<cr>
-"end SingleCompile
-" }}}
-
-"" ZoomWin {{{
-"nnoremap <silent> <leader>z :ZoomWin<CR>
-"" }}}
-
-" minimap {{{
-"https://github.com/koron/minimap-vim
-nnoremap <leader>' :MinimapSync<cr>
-" }}}
 
 " sql formatter {{{
 vmap <silent>sf <Plug>SQLU_Formatter<CR>
@@ -805,80 +671,12 @@ nnoremap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 
 " autoformat {{{
 "https://github.com/Chiel92/vim-autoformat
-nnoremap <leader>af :Autoformat<cr>
+au BufReadPost,BufNewFile *.cs nnoremap <leader>f :Autoformat<cr>
+au BufReadPost,BufNewFile *.cs vnoremap <leader>f :Autoformat<cr>
+au BufReadPost,BufNewFile *.sql nnoremap <leader>f <Plug>SQLU_Formatter<cr>
+au BufReadPost,BufNewFile *.sql vnoremap <leader>f <Plug>SQLU_Formatter<cr>
+au BufReadPost,BufNewFile *.css nnoremap <leader>f :call CssPretty()<cr>
+au BufReadPost,BufNewFile *.css vnoremap <leader>f :call CssPretty()<cr>
+au BufReadPost,BufNewFile *.xml nnoremap <leader>f :%FormatXML<CR>
+au BufReadPost,BufNewFile *.xml vnoremap <leader>f :FormatXML<CR>
 " }}}
-
-" sidewise {{{
-"nnoremap <leader>sl :SidewaysLeft<cr>
-"nnoremap <leader>sr :SidewaysRight<cr>
-"}}}
-
-"" Command-t {{{
-"nnoremap <silent> <Leader>t :CommandT<CR>
-"nnoremap <silent> <Leader>b :CommandTBuffer<CR>
-"" }}}
-
-"" HardMode {{{
-"nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-"" }}}
-
-"" YankRing stuff {{{
-" let g:yankring_history_dir = $HOME.'/vimfiles/tmp'
-" nnoremap <leader>r :YRShow<CR>
-"" }}}
-
-"" Numbers {{{
-"https://github.com/myusuf3/numbers.vim
-"nnoremap <leader>n :NumbersToggle<CR>
-"nnoremap <leader>no :NumbersOnOff<CR>
-"" }}}
-
-"" Lusty Explorer {{{
-"map <Leader>lf :LustyFilesystemExplorer<cr>
-"map <Leader>lr :LustyFilesystemExplorerFromHere<cr>
-"map <Leader>lb :LustyBufferExplorer<cr>
-"map <Leader>lg :LustyBufferGrep<cr>
-"" }}}
-
-"" Toggle Taglist display {{{
-"map <F3> :TlistToggle<CR>
-""nnoremap <leader>T :Tlist<CR>
-""nnoremap <leader>U :TlistUpdate<CR>
-""nnoremap <leader>s :TlistSessionSave tlist<CR>
-""nnoremap <leader>l :TlistSessionLoad tlist<CR>
-"" }}}
-
-" GoldenView {{{
-"" 1. split to tiled windows
-"nmap <silent> <C-L>  <Plug>GoldenViewSplit
-"" 2. quickly switch current window with the main pane
-"" and toggle back
-"nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
-"nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
-"" 3. jump to next and previous window
-"nmap <silent> <C-N>  <Plug>GoldenViewNext
-"nmap <silent> <C-P>  <Plug>GoldenViewPrevious
-" }}}
-
-" Ack {{{
-"if has('win32') || has('win64')
-    "" Define <C-F> to a dummy value to see if it would set <C-f> as well.
-    "map <C-F> :dummy
-    "if maparg("<C-f>") == ":dummy"
-    "" <leader>f on systems where <C-f> == <C-F>
-        "map <leader-f> :Ack<space>
-    "else
-    "" <C-F> if we can still map <C-f> to <S-Down>
-        "map <C-F> :Ack<space>
-    "endif
-    "map <C-f> <S-Down>
-    "" CMD-Enter to enter new line, doesn't work in terminal
-    "inoremap <C-Enter> <C-o>o
-    "inoremap <C-S-Enter> <C-o>O
-"endif
-
-"" Ack for the word under cursor
-""nnoremap <leader>a :Ack<Space>
-"nnoremap <leader>a :Ack<Space><c-r><c-W>
-" }}}
-

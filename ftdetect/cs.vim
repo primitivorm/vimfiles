@@ -13,12 +13,13 @@ autocmd! BufWritePre *.cs set expandtab | retab!
 " establece file format
 autocmd! BufReadPost *.cs set ft=cs
 "for each line in buffer rewrap on write
-"autocmd BufWritePre *.cs :1,$call argumentrewrap#RewrapArguments()
+"http://vim.wikia.com/wiki/Power_of_g
+autocmd! BufWritePre *.cs :g/\v\(.+,+.+\)/call argumentrewrap#RewrapArguments()
 
 "Create a Property based on a word with CamelCase format
 au BufRead,BufNewFile *.cs nnoremap <A-r>cp Ipublic string <esc>w"zywA {<cr>}<esc>Oget { return <esc>"zpbi_<esc>l~b"xywea; }<esc>oset { <esc>"xpa = value; }<esc>kkOprivate string <esc>"xpa = string.Empty;<cr>/// <summary><cr> Obtiene o establece <esc>"zpo</summary><esc>4jV7k=
 au BufRead,BufNewFile *.cs vnoremap <A-r>cp Ipublic string <esc>w"zywA {<cr>}<esc>Oget { return <esc>"zpbi_<esc>l~b"xywea; }<esc>oset { <esc>"xpa = value; }<esc>kkOprivate string <esc>"xpa = string.Empty;<cr>/// <summary><cr> Obtiene o establece <esc>"zpo</summary><esc>4jV7k=
-"<C-r>s by Surround + first letter
+"<A-r>s by Surround + first letter
 "Surround visual selection with Namespace, #Region, Class, Struct, Interface, Try, Foreach, While, Using
 au BufRead,BufNewFile *.cs vnoremap <A-r>sn <esc>gv"zdOnamespace namespace_name {<cr>}<esc>"zP?namespace_name<cr>viw
 au BufRead,BufNewFile *.cs vnoremap <A-r>sc <esc>gv"zdOpublic class class_name {<cr>}<esc>"zP?class_name<cr>viw

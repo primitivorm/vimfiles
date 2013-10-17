@@ -99,6 +99,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'guns/xterm-color-table.vim'
 Bundle 'leshill/vim-json'
 Bundle 'mutewinter/vim-css3-syntax'
+Bundle 'Css-Pretty'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tomtom/tlib_vim'
@@ -113,7 +114,6 @@ Bundle 'motemen/git-vim'
 Bundle 'shemerey/vim-project'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
-"Bundle 'ervandew/snipmate.vim' "deprecated
 Bundle 'Raimondi/delimitMate'
 Bundle 'biruh/vim-aspnet'
 Bundle 'mklabs/vim-backbone'
@@ -140,23 +140,6 @@ Bundle 'einars/js-beautify'
 Bundle 'elzr/vim-json'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'junegunn/vim-easy-align'
-"Bundle 'mbbill/undotree'
-"Bundle '907th/vim-auto-save'
-"Bundle 'vim-scripts/_jsbeautify'
-"Bundle 'maksimr/vim-jsbeautify'
-"Bundle 'dhruvasagar/vim-table-mode'
-"Bundle 'bling/vim-bufferline'
-"Bundle 'fholgado/minibufexpl.vim'
-"Bundle 'Shougo/neosnippet'
-"Bundle 'Shougo/neocomplcache'
-"Bundle 'jpalardy/vim-slime'
-"Bundle 'gotcha/vimpdb'
-"Bundle 'rking/ag.vim'
-"Bundle 'koron/minimap-vim'
-"Bundle 'Townk/vim-autoclose'
-"Bundle 'sjl/splice.vim'
-"Bundle 'spiiph/vim-space'
-"Bundle 'ghewgill/vim-scmdiff'
 
 "colors
 Bundle 'primitivorm/vim-proman-theme'
@@ -169,6 +152,8 @@ Bundle 'nanotech/jellybeans.vim'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'Rykka/galaxy.vim'
 Bundle 'tpope/vim-vividchalk'
+Bundle 'tpope/vim-classpath'
+Bundle 'tpope/vim-fireplace'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'vim-scripts/Liquid-Carbon'
 Bundle 'vim-scripts/PyChimp'
@@ -179,71 +164,8 @@ Bundle 'sontek/rope-vim'
 Bundle 'mitechie/pyflakes-pathogen'
 Bundle 'fs111/pydoc.vim.git'
 Bundle 'vim-scripts/TaskList.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'ecomba/vim-ruby-refactoring'
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'xuhdev/SingleCompile'
-"Bundle 'daviddavis/vim-colorpack'
-"Bundle 'chriskempson/tomorrow-theme'
-"Bundle 'icsharpcode/NRefactory'
-"Bundle 'tomtom/quickfixsigns_vim'
-"Bundle 'jeetsukumaran/vim-buffergator'
-"Bundle 'spf13/PIV'
-"Bundle 'me-vlad/python-syntax.vim'
-"Bundle 'chrisbra/SaveSigns.vim'
-"Bundle 'c9s/perlomni.vim'
-"Bundle 'Rip-Rip/clang_complete'
-"Bundle 'esukram/autocomplpop.vim'
-"Bundle 'tobyS/pdv'
-"Bundle 'drmingdrmer/xptemplate'
-"Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'tpope/vim-commentary'
-"Bundle 'tpope/vim-cucumber'
-"Bundle 'tpope/vim-rails'
-"Bundle 'tpope/vim-bundler'
-"Bundle 'tpope/gem-ctags'
-"Bundle 'bryanthankins/vim-aspnetide'
-"Bundle 'skalnik/vim-vroom'
-"Bundle 'mattsacks/vim-symbols'
-"Bundle 'jeetsukumaran/vim-buffergator'
-"Bundle 'benizi/perl-support.vim'
-"Bundle 'alfredodeza/pytest.vim'
-"Bundle 'xolox/vim-lua-ftplugin'
-"Bundle 'mutewinter/tomdoc.vim'
-"Bundle 'hynek/vim-python-pep8-indent'
-"Bundle 'mattsacks/vim-complete'
-"Bundle 'vim-perl/vim-perl'
-"Bundle 'jc00ke/vim-tomdoc'
-"Bundle 'davidoc/taskpaper.vim'
-"Bundle 'xolox/vim-lua-inspect'
-"Bundle 'kablamo/VimDebug'
-"Bundle 'kevinw/pyflakes-vim'
-"Bundle 'klen/python-mode'
-"Bundle 'rorymckinley/vim-symbols-strings'
-"Bundle 'goldfeld/vim-seek'
-"Bundle 'tek/vim-quickbuf'
-"Bundle 'Yggdroot/indentLine'
-"Bundle 'Twinside/vim-codeoverview'
-"Bundle 'myusuf3/numbers.vim'
-"Bundle 'zhaocai/GoldenView.Vim'
-"Bundle 'bkad/CamelCaseMotion'
-"Bundle 'thinca/vim-template'
-"Bundle 'tobyS/skeletons.vim'
-"Bundle 'sjbach/lusty'
-"Bundle 'vim-scripts/tSkeleton'
-"Bundle 'jwu/exvim'
-"Bundle 'tomtom/tcomment_vim'
-"Bundle 'kana/vim-textobj-user'
-"Bundle 'AndrewRadev/sideways.vim'
-"Bundle 'Shougo/vimproc'
-"Bundle 'tpope/vim-unimpaired'
-"Bundle 'AndrewRadev/switch.vim'
-"Bundle 'SirVer/ultisnips'
-"Bundle 'michaeljsmith/vim-indent-object'
-"Bundle 'mkitt/tabline.vim'
-"Bundle 'wikitopian/hardmode'
-"Bundle 'vim-pandoc/vim-pandoc'
-"Bundle 'bryanthankins/vim-aspnetide'
+Bundle 'vim-perl/vim-perl'
+Bundle 'kablamo/VimDebug'
 
 " vim-scripts repos
 Bundle 'c.vim'
@@ -279,32 +201,6 @@ Bundle 'multiselect'
 Bundle 'Thesaurus'
 Bundle 'slimv.vim'
 Bundle 'ccimpl.vim'
-"Bundle 'DirDiff.vim'
-"Bundle 'QuickBuf'
-"Bundle 'ZoomWin'
-"Bundle 'buftabs'
-"Bundle 'ftpsync'
-"Bundle 'OmniCppComplete'
-"Bundle 'vcscommand.vim'
-"Bundle 'netrw.vim'
-"Bundle 'IComplete'
-"Bundle 'Rainbow-Parenthesis'
-"Bundle 'keepcase.vim'
-"Bundle 'scratch.vim'
-"Bundle 'taglist.vim'
-"Bundle 'YankRing.vim'
-"Bundle 'VB.NET-Syntax'
-"Bundle 'VimClojure'
-"Bundle 'pydoc.vim'
-"Bundle 'AutoTag'
-
-"screen-saver
-"Bundle 'uguu-org/vim-matrix-screensaver'
-
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
-"Bundle 'wincent/Command-T'
-" ...
 "------------------------------------------------
 
 filetype plugin indent on " required!
@@ -477,7 +373,7 @@ set matchpairs+=<:>     "specially for html
 
 " Folding rules {{{
 set foldenable " enable folding
-set foldcolumn=2 " add a fold column
+set foldcolumn=1 " add a fold column
 "set foldmethod=marker " detect triple-{ style fold markers
 set foldmethod=syntax
 set foldnestmax=3
@@ -583,6 +479,8 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 set list
 set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 set mouse=a " enable using the mouse if terminal emulator
+"set mousemodel=extend
+set mousemodel=popup_setpos
 "set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 " set guioptions-=r  "remove right-hand scroll bar
@@ -602,23 +500,8 @@ hi Title ctermfg=LightBlue ctermbg=Magenta
 "habilita corrector ortografico
 set nospell "active spell check
 set spelllang=es_MX "Carga el diccionario en o los lenguajes que necesitemos
-"set spell "Activa el corrector ortografico en tiempo real :set nospell desactiva
-""will add dictionary scanning
-"set complete+=k
-""use current spell file
-"set complete+=kspell
-""scan the buffers that are not in the buffer list
-"set complete+=U
-""scan current and included files
-"set complete+=i
-""tag completion
-"set complete+=]
-""scan current and included files for defined name or macro
-"set complete+=d
 "limit the number of suggested words
 set spellsuggest=best,10
-"set spellsuggest=fast,20
-"set dictionary+=~/vimfiles/spell/*
 set dictionary+=~/vimfiles/spell/es_MX.dic
 set dictionary+=~/vimfiles/spell/en_US.dic
 "set file for new words
@@ -881,8 +764,8 @@ endif
 "--------------------------------------------------------
 " https://github.com/scrooloose/syntastic
 "--------------------------------------------------------
-autocmd FileType cs, conf, xml set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
-autocmd FileType cs, conf, xml set makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
+autocmd FileType *.cs set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
+autocmd FileType *.cs set makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
 let g:syntastic_enable_balloons = 1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=1
@@ -1090,7 +973,7 @@ let g:badwolf_css_props_highlight = 1
 "---------------------------------------------------------
 "my skeletons
 let g:tskelDir=$HOME . '/vimfiles/skeletons/'
-let g:tskelUserName='ISC. Primitivo R. Montero'
+let g:tskelUserName='Ing. Primitivo R. Montero'
 let g:tskelUserEmail='cibercafe_montero@hotmail.com'
 "autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
 autocmd BufNewFile *.py TSkeletonSetup skeleton.py
@@ -1278,11 +1161,14 @@ let g:SuperTabMappingBackward = '<s-tab>'
 "---------------------------------------------------------
 " }}}
 
-" SnipMate {{{
 "------------------------------------------------------
 "c compiler
-" autocmd FileType C set makeprg=gcc\ %
-" autocmd FileType Cpp set makeprg=g++\ %
+autocmd FileType *.c,*.h set makeprg=gcc\ %
+autocmd FileType *.cpp,*.h set makeprg=g++\ %
+autocmd FileType *.cpp,*.c,*.h set errorformat=%f(%l)%m
+"------------------------------------------------------
+
+" SnipMate {{{
 "------------------------------------------------------
 "snipMate plugin
 "https://github.com/msanders/snipmate.vim
@@ -1331,7 +1217,7 @@ let g:formatprg_cs = "astyle"
 let g:formatprg_args_cs = "--mode=cs --style=ansi -pcHs4"
 let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
 set equalprg=astyle
-"autocmd BufWritePre *.cs :Autoformat
+autocmd BufWritePre *.cs :Autoformat
 "autocmd BufWritePre *.html :Autoformat
 "autocmd BufWritePre *.htm :Autoformat
 "autocmd BufWritePre *.aspx :Autoformat
@@ -1364,320 +1250,3 @@ let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe"
 "https://github.com/vim-scripts/pep8
 let g:pep8_map='<F8>'
 "}}}
-
-"" indentLine {{{
-""---------------------------------------------------------
-""https://github.com/Yggdroot/indentLine
-""---------------------------------------------------------
-"let g:indentLine_color_term = 239
-"let g:indentLine_char = '│'
-"let g:indentLine_first_char = '│'
-"let g:indentLine_showFirstIndentLevel = 1
-"let g:indentLine_color_gui = '#303030'
-""---------------------------------------------------------
-"" }}}
-
-" table {{{
-"---------------------------------------------------------
-"http://www.vim.org/scripts/script.php?script_id=769
-"---------------------------------------------------------
-"source $HOME/vimfiles/macros/table.vim
-"---------------------------------------------------------
-" }}}
-
-" NERDcommenter {{{
-"------------------------------------------------------
-" https://github.com/scrooloose/nerdcommenter
-"------------------------------------------------------
-" let NERDSpaceDelims=1
-" map <Leader>/ <Plug>NERDCommenterToggle<CR>
-" vmap <Leader>/ <Plug>NERDCommenterToggle<CR>
-"------------------------------------------------------
-" }}}
-
-" EasyMotion {{{
-"---------------------------------------------------------
-"https://github.com/Lokaltog/vim-easymotion
-"---------------------------------------------------------
-"let g:EasyMotion_leader_key = '<Leader>e'
-"hi link EasyMotionTarget ErrorMsg
-"hi link EasyMotionShade Comment
-"---------------------------------------------------------
-" }}}
-
-" Fugitive {{{
-"--------------------------------------------------------
-" http://www.vim.org/scripts/script.php?script_id=2975
-" https://github.com/tpope/vim-fugitive
-"--------------------------------------------------------
-" }}}
-
-" RainbowParentheses {{{
-"--------------------------------------------------------
-" https://github.com/vim-scripts/Rainbow-Parenthesis
-"--------------------------------------------------------
-"autocmd VimEnter * RainbowParenthesesToggle
-"autocmd Syntax * RainbowParenthesesLoadRound
-"autocmd Syntax * RainbowParenthesesLoadSquare
-"autocmd Syntax * RainbowParenthesesLoadBraces
-"
-"--------------------------------------------------------
-" }}}
-
-" Tabular {{{
-"--------------------------------------------------------
-" https://github.com/godlygeek/tabular
-"--------------------------------------------------------
-"--------------------------------------------------------
-" }}}
-
-" SQLUtilities {{{
-"---------------------------------------------------------
-"http://www.vim.org/scripts/script.php?script_id=492
-"https://github.com/vim-scripts/SQLUtilities
-"---------------------------------------------------------
-" }}}
-
-"""Vim intellisence {{{
-"""---------------------------------------------------------
-""http://insenvim.sourceforge.net/
-""https://github.com/tomtom/checksyntax_vim.git
-""---------------------------------------------------------
-"let $VIM_INTELLISENSE="C:\\Program Files (x86)\\Vim\\Intellisense\\"
-"let $VIM_INTELLISENSE="C:\\Program Files\\Vim\\Intellisense"
-"let g:visual_studio_quickfix_errorformat='%.%#%*[0-9>]\ %#%f(%l)\ :\ %m'
-""---------------------------------------------------------
-""" }}}
-
-" Pdv {{{
-"---------------------------------------------------------
-"let g:pdv_template_dir = $HOME ."/vimfiles/bundle/pdv/templates_snip"
-"nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
-"---------------------------------------------------------
-" }}}
-
-" skeletons {{{
-"---------------------------------------------------------
-"https://github.com/tobyS/skeletons.vim
-"---------------------------------------------------------
-"let g:skeletons_dir=$HOME . '/vimfiles/bundle/skeletons.vim/skeletons/'
-"autocmd BufNewFile * silent! 0r ~/vimfiles/bundle/skeletons.vim/skeletons/skeleton.%:e
-"---------------------------------------------------------
-"pdv
-"https://github.com/tobyS/pdv
-"---------------------------------------------------------
-" }}}
-
-"" vim-table-mode {{{
-"let g:table_mode_tableize_map='\t'
-"" }}}
-
-" jsbeautify {{{
-" http://www.vim.org/scripts/script.php?script_id=2727
-"<Leader>ff
-" }}}
-
-"" neocomplcache {{{
-""---------------------------------------------------------
-""https://github.com/Shougo/neocomplcache
-""---------------------------------------------------------
-""Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-"" Disable AutoComplPop.
-"let g:acp_enableAtStartup = 0
-"" Use neocomplcache.
-"let g:neocomplcache_enable_at_startup = 1
-"" Use smartcase.
-"let g:neocomplcache_enable_smart_case = 1
-"" Set minimum syntax keyword length.
-"let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-"" Enable heavy features.
-"" Use camel case completion.
-""let g:neocomplcache_enable_camel_case_completion = 1
-"" Use underbar completion.
-""let g:neocomplcache_enable_underbar_completion = 1
-"" Define dictionary.
-"let g:neocomplcache_dictionary_filetype_lists = {
-"\ 'default' : '',
-"\ 'vimshell' : $HOME.'/.vimshell_hist',
-"\ 'scheme' : $HOME.'/.gosh_completions'
-"\ }
-"" Define keyword.
-"if !exists('g:neocomplcache_keyword_patterns')
-"let g:neocomplcache_keyword_patterns = {}
-"endif
-"let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-"" Plugin key-mappings.
-"inoremap <expr><C-g>     neocomplcache#undo_completion()
-"inoremap <expr><C-l>     neocomplcache#complete_common_string()
-"" Recommended key-mappings.
-"" <CR>: close popup and save indent.
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"return neocomplcache#smart_close_popup() . "\<CR>"
-"" For no inserting <CR> key.
-""return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-"endfunction
-"" <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplcache#close_popup()
-"inoremap <expr><C-e>  neocomplcache#cancel_popup()
-"" Close popup by <Space>.
-""inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-"" For cursor moving in insert mode(Not recommended)
-""inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-""inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-""inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-""inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-"" Or set this.
-""let g:neocomplcache_enable_cursor_hold_i = 1
-"" Or set this.
-""let g:neocomplcache_enable_insert_char_pre = 1
-"" AutoComplPop like behavior.
-""let g:neocomplcache_enable_auto_select = 1
-"" Shell like behavior(not recommended).
-""set completeopt+=longest
-""let g:neocomplcache_enable_auto_select = 1
-""let g:neocomplcache_disable_auto_complete = 1
-""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-"" Enable omni completion.
-""autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-""autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-""autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-""autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-""autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"" Enable heavy omni completion.
-"if !exists('g:neocomplcache_omni_patterns')
-"let g:neocomplcache_omni_patterns = {}
-"endif
-"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplcache_omni_patterns.cs = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"" For perlomni.vim setting.
-"" https://github.com/c9s/perlomni.vim
-"let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-""---------------------------------------------------------
-"" }}}
-
-"" neosnippet {{{
-"" Plugin key-mappings.
-"imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"xmap <C-k>     <Plug>(neosnippet_expand_target)
-"" SuperTab like snippets behavior.
-"imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: pumvisible() ? "\<C-n>" : "\<TAB>"
-"smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"\ "\<Plug>(neosnippet_expand_or_jump)"
-"\: "\<TAB>"
-"" For snippet_complete marker.
-"if has('conceal')
-"set conceallevel=2 concealcursor=i
-"endif
-"" Enable snipMate compatibility feature.
-"let g:neosnippet#enable_snipmate_compatibility = 1
-"" Tell Neosnippet about the other snippets
-"let g:neosnippet#snippets_directory='~/vimfiles/bundle/vim-snippets/snippets/'
-"let g:neosnippet#snippets_directory+='~/vimfiles/snippets/'
-"" }}}
-
-" CodeOverview {{{
-"---------------------------------------------------------
-"http://www.vim.org/scripts/script.php?script_id=2888
-"https://github.com/Twinside/vim-codeoverview
-"---------------------------------------------------------
-"let g:code_overview_autostart = 1
-"let g:codeoverview_autoupdate = 1
-"let g:codeOverviewMaxLineCount = 10000
-"---------------------------------------------------------
-" }}}
-
-" HardMode {{{
-"---------------------------------------------------------
-"https://github.com/wikitopian/hardmode
-"---------------------------------------------------------
-"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-"---------------------------------------------------------
-" }}}
-" vim-space {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"https://github.com/spiiph/vim-space
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set this variable to disable space.vim
-"let g:space_loaded = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }}}
-
-"" Taglist {{{
-""---------------------------------------------------------
-""http://www.vim.org/scripts/script.php?script_id=273
-""http://ctags.sourceforge.net/
-""http://vim.sourceforge.net/scripts/script.php?script_id=273
-""http://sourceforge.net/projects/vim-taglist/files/
-""http://ctags.sourceforge.net/ctags.html
-""---------------------------------------------------------
-"" Taglist variables
-"" Display function name in status bar:
-"let g:ctags_statusline=1
-"" Automatically start script
-"let generate_tags=1
-"" Displays taglist results in a vertical window:
-"let Tlist_Use_Horiz_Window=0
-"":!which ctags -> tofindctalocation
-"" Various Taglist diplay config:
-"let Tlist_Use_Right_Window = 1
-"let Tlist_Compact_Format = 1
-"let Tlist_Exit_OnlyWindow = 1
-"let Tlist_GainFocus_On_ToggleOpen = 1
-"let Tlist_File_Fold_Auto_Close = 0
-"let Tlist_Ctags_Cmd = '"C:\cygwin\bin\ctags.exe"'
-"let Tlist_Auto_Open = 1
-""---------------------------------------------------------
-"" }}}
-
-"" Easytag {{{
-""---------------------------------------------------------
-""https://github.com/xolox/vim-easytags
-""---------------------------------------------------------
-"let g:easytags_cmd = '"C:\cygwin\bin\ctags.exe"'
-""let g:easytags_file = '"C:\Users\Proman02\vimfiles\tags"'
-"let g:easytags_file = $HOME . '/vimfiles/tags'
-
-"" let g:easytags_file = $HOME . '/tags'
-""" search first in current directory then file directory for tag file
-"set tags=tags,./tags
-"let g:easytags_dynamic_files=1
-"let g:easytags_always_enabled=0
-"let g:easytags_on_cursorhold=0
-"let g:easytags_auto_highlight=0
-""---------------------------------------------------------
-"" }}}
-
-"" OmniCppComplete {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""https://github.com/vim-scripts/OmniCppComplete
-""http://aufather.wordpress.com/2010/08/26/omni-completion-in-vim/
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
-"let OmniCpp_GlobalScopeSearch   = 1
-"let OmniCpp_DisplayMode         = 1
-"let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
-"let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
-"let OmniCpp_ShowAccess          = 1 "show access in pop-up
-"let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
-"set completeopt=menuone,menu,longest,preview
-"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-""let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
-""highlight   clear
-""highlight   Pmenu         ctermfg=0 ctermbg=2
-""highlight   PmenuSel      ctermfg=0 ctermbg=7
-""highlight   PmenuSbar     ctermfg=7 ctermbg=0
-""highlight   PmenuThumb    ctermfg=0 ctermbg=7
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" }}}
