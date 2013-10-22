@@ -3,18 +3,29 @@
 "http://www.vim.org/scripts/script.php?script_id=2087
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Automatic re-tab
-"autocmd BufReadPost *.cs if &modifiable | retab | endif
-"" convert spaces to tabs when reading file
-"autocmd! BufReadPost *.cs set noexpandtab | retab!
 " convert tabs to spaces before writing file
-autocmd! BufWritePre *.cs set expandtab | retab!
-"" convert spaces to tabs after writing file (to show guides again)
-"autocmd! BufWritePost *.cs set noexpandtab | retab!
+autocmd! BufWritePre *.cs setlocal expandtab | retab!
 " establece file format
 autocmd! BufReadPost *.cs set ft=cs
 "for each line in buffer rewrap on write
 "http://vim.wikia.com/wiki/Power_of_g
 autocmd! BufWritePre *.cs :g/\v\(.+,+.+\)/call argumentrewrap#RewrapArguments()
+
+"Autoformat
+autocmd BufWritePre *.cs :Autoformat
+
+"syntax completion
+au FileType cs exe('setl dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
+
+"syntastic format
+autocmd FileType *.cs set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
+autocmd FileType *.cs set makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
+
+"skeletons
+autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
+
+"Omnisharp
+autocmd FileType cs set omnifunc=OmniSharp#Complete
 
 "Create a Property based on a word with CamelCase format
 au BufRead,BufNewFile *.cs nnoremap <A-r>cp Ipublic string <esc>w"zywA {<cr>}<esc>Oget { return <esc>"zpbi_<esc>l~b"xywea; }<esc>oset { <esc>"xpa = value; }<esc>kkOprivate string <esc>"xpa = string.Empty;<cr>/// <summary><cr> Obtiene o establece <esc>"zpo</summary><esc>4jV7k=

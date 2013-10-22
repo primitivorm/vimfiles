@@ -671,12 +671,16 @@ nnoremap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 
 " autoformat {{{
 "https://github.com/Chiel92/vim-autoformat
-au BufReadPost,BufNewFile *.cs nnoremap <leader>f :Autoformat<cr>
-au BufReadPost,BufNewFile *.cs vnoremap <leader>f :Autoformat<cr>
-au BufReadPost,BufNewFile *.sql nnoremap <leader>f <Plug>SQLU_Formatter<cr>
-au BufReadPost,BufNewFile *.sql vnoremap <leader>f <Plug>SQLU_Formatter<cr>
-au BufReadPost,BufNewFile *.css nnoremap <leader>f :call CssPretty()<cr>
-au BufReadPost,BufNewFile *.css vnoremap <leader>f :call CssPretty()<cr>
-au BufReadPost,BufNewFile *.xml nnoremap <leader>f :%FormatXML<CR>
-au BufReadPost,BufNewFile *.xml vnoremap <leader>f :FormatXML<CR>
+autocmd FileType cs nnoremap <leader>f :Autoformat<cr>
+autocmd FileType cs vnoremap <leader>f :Autoformat<cr>
+autocmd FileType sql nnoremap <leader>f <Plug>SQLU_Formatter<cr>
+autocmd FileType sql vnoremap <leader>f <Plug>SQLU_Formatter<cr>
+autocmd FileType css nnoremap <leader>f :call CssPretty()<cr>
+autocmd FileType css vnoremap <leader>f :call CssPretty()<cr>
+autocmd FileType xml nnoremap <leader>f :%FormatXML<CR>
+autocmd FileType xml vnoremap <leader>f :FormatXML<CR>
+autocmd FileType js nnoremap <leader>f :call JsBeautify()<cr>
+autocmd FileType js vnoremap <leader>f :call JsBeautify()<cr>
+autocmd FileType html noremap <leader>f :call HtmlBeautify()<cr>
+autocmd FileType html voremap <leader>f :call HtmlBeautify()<cr>
 " }}}
