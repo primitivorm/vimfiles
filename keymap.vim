@@ -225,7 +225,6 @@ function! Smart_TabComplete()
                                                   " line to one character right
                                                   " of the cursor
   let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  echo substr
   if (strlen(substr)==0)                          " nothing to match on empty string
     return "\<tab>"
   endif
@@ -513,10 +512,6 @@ nnoremap <C-p> :CtrlP<CR>
 inoremap <C-p> <esc>:CtrlP<CR>
 nnoremap <C-b> :CtrlPBuffer<CR>
 inoremap <C-b> <esc>:CtrlPBuffer<CR>
-"nnoremap <C-l> :CtrlPMRUFiles<CR>
-"inoremap <C-l> <esc>:CtrlPMRUFiles<CR>
-"nnoremap <C-t> :CtrlPBufTag<CR>
-"inoremap <C-t> <esc>:CtrlPBufTag<CR>
 " }}}
 
 " Surround {{{

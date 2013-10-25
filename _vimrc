@@ -28,14 +28,14 @@ filetype on
 "https://github.com/gmarik/vundle
 "------------------------------------------------------
 "rtp
-set runtimepath+=~/vimfiles/bundle/vundle/
+set runtimepath+=~/vimfiles
 set runtimepath+=~/vimfiles/bin/
 set runtimepath+=~/vimfiles/bundle/
-set runtimepath+=~/vimfiles
+set runtimepath+=~/vimfiles/bundle/vundle/
 set nocompatible " be iMproved
 "https://github.com/gmarik/vundle/issues/211
 "call vundle#rc()
-call vundle#rc('~/vimfiles/bundle/vundle')
+call vundle#rc('~/vimfiles/bundle')
 "" let Vundle manage Vundle
 "" required!
 Bundle 'gmarik/vundle'
@@ -52,10 +52,13 @@ Bundle 'L9'
 Bundle 'genutils'
 Bundle 'DfrankUtil'
 Bundle 'xolox/vim-misc'
+Bundle 'tomtom/vimtlib'
+Bundle 'tomtom/tlib_vim'
 Bundle 'xolox/vim-shell'
 Bundle 'Shougo/vimshell'
 Bundle 'mattn/webapi-vim'
 Bundle 'bash-support.vim'
+Bundle 'tomtom/tplugin_vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 " }}}
@@ -73,6 +76,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Raimondi/delimitMate'
 Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
+Bundle 'Lokaltog/powerline-fonts'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'valloric/MatchTagAlways'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -102,15 +106,13 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'ccimpl.vim'
 Bundle 'tomtom/tskeletons'
 Bundle 'garbas/vim-snipmate'
+Bundle 'SirVer/ultisnips'
 Bundle 'mklabs/vim-backbone'
 Bundle 'honza/vim-snippets'
 Bundle 'tomtom/templator_vim'
 Bundle 'tomtom/tskeleton_vim'
 Bundle 'tomtom/stakeholders_vim'
 Bundle 'aperezdc/vim-template'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tomtom/vimtlib'
-Bundle 'tomtom/tplugin_vim'
 " }}}
 
 " debuging {{{
@@ -130,6 +132,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'shemerey/vim-indexer'
 "for python
+Bundle 'sontek/rope-vim'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'Word-Fuzzy-Completion'
 Bundle 'bronson/vim-visual-star-search'
@@ -206,14 +209,9 @@ Bundle 'sukima/xmledit'
 
 " python {{{
 Bundle 'rkulla/pydiction'
-Bundle 'vim-scripts/pep8'
 Bundle 'fs111/pydoc.vim.git'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'mitechie/pyflakes-pathogen'
-" }}}
-
-" ruby {{{
-Bundle 'sontek/rope-vim'
 " }}}
 
 " perl {{{
@@ -331,18 +329,21 @@ endif
 
 " Gui {{{
 set cursorline "cursorcolumn "underline the current line, for quick orientation
+" make the splitters between windows be blank
+"set fillchars=vert:\ ,stl:\ ,stlnc:\
+set fillchars=vert:\│
+"piexel space between lines
+set linespace=0
 "establece el esquema de colores
-if has('gui_running')
-    "show tabs always = 2
-    set showtabline=1
-    "max num of tabs
-    set tabpagemax=15
-    set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
-    "set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
-    " switch syntax highlighting on, when the terminal has colors
-    syntax on
-    "syntax enable
-endif
+"max num of tabs
+set tabpagemax=15
+set guifont=Envy_Code_R_for_Powerline:h10:cANSI
+"set guifont=Envy_Code_R_VS:h10:cANSI
+"set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+"set guifont=Inconsolata\ for\ Powerline:h11:cANSI
+" switch syntax highlighting on, when the terminal has colors
+syntax on
+"syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
 set background=light
@@ -395,48 +396,13 @@ set matchpairs+=<:>     "specially for html
 
 " Folding rules {{{
 set foldenable " enable folding
-set foldcolumn=1 " add a fold column
+set foldcolumn=0 " add a fold column
 set foldmethod=syntax
 set foldnestmax=3
 set foldlevel=3
-set foldlevelstart=3 " start out with everything folded
-set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+set foldlevelstart=0 " start out with everything folded
 " which commands trigger auto-unfold
-""http://vim.wikia.com/wiki/Customize_text_for_closed_folds
-"" Set a nicer foldtext function
-"function! MyFoldText()
-    "let line = getline(v:foldstart)
-    "if match( line, '^[ \t]*\(\/\*\|\/\/\)[*/\\]*[ \t]*$' ) == 0
-        "let initial = substitute( line, '^\([ \t]\)*\(\/\*\|\/\/\)\(.*\)', '\1\2', '' )
-        "let linenum = v:foldstart + 1
-        "while linenum < v:foldend
-            "let line = getline( linenum )
-            "let comment_content = substitute( line, '^\([ \t\/\*]*\)\(.*\)$', '\2', 'g' )
-            "if comment_content != ''
-                "break
-            "endif
-            "let linenum = linenum + 1
-        "endwhile
-        "let sub = initial . ' ' . comment_content
-    "else
-        "let sub = line
-        "let startbrace = substitute( line, '^.*{[ \t]*$', '{', 'g')
-        "if startbrace == '{'
-            "let line = getline(v:foldend)
-            "let endbrace = substitute( line, '^[ \t]*}\(.*\)$', '}', 'g')
-            "if endbrace == '}'
-                "let sub = sub.substitute( line, '^[ \t]*}\(.*\)$', '...}\1', 'g')
-            "endif
-        "endif
-    "endif
-    "let n = v:foldend - v:foldstart + 1
-    "let info = " " . n . " lines"
-    "let sub = sub . "                                                          "
-    "let num_w = getwinvar( 0, '&number' ) * getwinvar( 0, '&numberwidth' )
-    "let fold_w = getwinvar( 0, '&foldcolumn' )
-    "let sub = strpart( sub, 0, winwidth(0) - strlen( info ) - num_w - fold_w - 1 )
-    "return sub . info
-"endfunction
+set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 " }}}
 
 " Editor layout {{{
@@ -486,17 +452,16 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+set vb t_vb= " Turn off visual bell, error flash
 set mouse=a " enable using the mouse if terminal emulator
 set mousemodel=popup_setpos
 set guioptions-=T  "remove toolbar
 " set guioptions-=r  "remove right-hand scroll bar
 set guioptions+=b  "remove right-hand scroll bar
-"tab style like terminal
-"customize tab color
-hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
-hi TabLine ctermfg=Blue ctermbg=Yellow
-hi TabLineSel ctermfg=Red ctermbg=Yellow
-hi Title ctermfg=LightBlue ctermbg=Magenta
+" use console dialogs instead of popups
+set guioptions+=c
+" allow pasting into other applications after visual selection
+set guioptions+=a
 " }}}
 
 " Spell {{{
@@ -559,6 +524,7 @@ let g:NERDTreeCaseSensitiveSort = 0
 let g:NERDTreeQuitOnOpen        = 0
 let g:NERDTreeMouseMode         = 2
 let NERDTreeShowHidden=1
+"let NERDTreeMapOpenInTab='<ENTER>'
 "the working directory is always the one where the active buffer is located.
 set autochdir
 "I make sure the working directory is set correctly.
@@ -571,9 +537,6 @@ let g:NERDTreeIgnore=[
             \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
             \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
             \'tags', '\.suo$','\.vspscc$']
-"highlighting for flags of file
-hi NERDTreeFlag guifg=#ff0000 ctermfg=160 guibg=#e3d2d2 ctermbg=7
-
 "------------------------------------------------------
 " }}}
 
@@ -582,9 +545,10 @@ hi NERDTreeFlag guifg=#ff0000 ctermfg=160 guibg=#e3d2d2 ctermbg=7
 "https://github.com/jistr/vim-nerdtree-tabs
 "------------------------------------------------------
 let g:nerdtree_tabs_open_on_console_startup = 1 "default 0
-let g:nerdtree_tabs_autoclose              = 0 "default 1
-let g:nerdtree_tabs_synchronize_focus      = 0 "default 1
-
+let g:nerdtree_tabs_autoclose               = 0 "default 1
+let g:nerdtree_tabs_synchronize_focus       = 0 "default 1
+let g:nerdtree_tabs_smart_startup_focus     = 2 "default 1
+let g:nerdtree_tabs_synchronize_view        = 0  "default 1
 "------------------------------------------------------
 " }}}
 
@@ -600,28 +564,30 @@ set suffixesadd+=.cs
 set suffixesadd+=.py
 set suffixesadd+=.rb
 set suffixesadd+=.js
-let g:tagbar_width     = 25    "default 40
-let g:tagbar_compact   = 1     "default 0
-let g:tagbar_foldlevel = 2    "default 99
-let g:tagbar_ctags_bin = 'ctags'
-let g:tagbar_autofocus        = 1   "default 0
+"toggle fold = o/za
+let g:tagbar_width       = 25    "default 40
+let g:tagbar_compact     = 1     "default 0
+let g:tagbar_foldlevel   = 2    "default 99
+let g:tagbar_ctags_bin   = 'ctags'
+let g:tagbar_autofocus   = 0   "default 0
+let g:tagbar_expand      = 0
+"let g:tagbar_iconchars  = ['▸', '▾']
+let g:tagbar_autoclose   = 0
+let g:tagbar_singleclick = 1
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "multitabs
 "If you use multiple tabs and want Tagbar to also open in the current tab when
 "you switch to an already loaded, supported buffer
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 " uncomment this section for open new buffers in a tab always
-
 "always show tabs
 set showtabline=2
-
 if !&hidden
   set hidden " hide buffers instead of closing them this
   " means that the current buffer can be put
   " to background without being written; and
   " that marks and undo history are preserved
 endif
-
 if (&diff==0)
     "Open files always in new tabs
     autocmd BufReadPost * OpenInTab
@@ -634,7 +600,6 @@ endif
 endfunction
 command! -nargs=0 OpenInTab call DoOpenInTab()
 ""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 ""---------------------------------------------------------
 "" }}}
 
@@ -757,7 +722,8 @@ let g:sql_type_default = "sqlserver"
 " }}}
 
 "airline {{{
-let g:airline_theme             = 'powerlineish'
+"let g:airline_theme             = 'powerlineish'
+let g:airline_theme             = 'solarized'
 let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1
 
@@ -767,8 +733,10 @@ let g:airline_left_alt_sep      = '⮁'
 let g:airline_right_sep         = '⮂'
 let g:airline_right_alt_sep     = '⮃'
 let g:airline_branch_prefix     = '⭠'
+let g:airline_powerline_fonts = 1
 let g:airline_readonly_symbol   = '⭤'
 let g:airline_linecolumn_prefix = '⭡'
+let g:airline#extensions#tabline#enabled = 1
 "}}}
 
 " vim-session {{{
@@ -882,7 +850,6 @@ let MRU_File = $HOME . '/_vim_mru_files'
 "---------------------------------------------------------
 let g:mta_use_matchparen_group=0
 let g:mta_set_default_matchtag_color=0
-highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
 let g:mta_filetypes = {
             \ 'htm' : 1,
             \ 'html' : 1,
@@ -891,9 +858,10 @@ let g:mta_filetypes = {
             \ 'cs' : 1,
             \ 'aspx' : 1,
             \ 'sql' : 1,
+            \ 'py' : 1,
+            \ 'rb' : 1,
+            \ 'js' : 1,
             \}
-"Highlighting braces parentheses
-hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADFF2F
 "---------------------------------------------------------
 " }}}
 
@@ -904,7 +872,7 @@ hi MatchParen cterm=none ctermfg=black ctermbg=lightgreen guifg=black guibg=#ADF
 "for template generator add
 "runtime ~/bundle/vundle/tplugin_vim/macros/tplugin.vim
 "run :TPluginScan!
-set runtimepath+=~/vimfiles/bundle/vundle/vimtlib/
+set runtimepath+=~/vimfiles/bundle/vimtlib/
 let g:tplugin_autoload=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
@@ -1024,7 +992,7 @@ autocmd FileType *.cpp,*.c,*.h set errorformat=%f(%l)%m
 " SnipMate {{{
 "------------------------------------------------------
 "snipMate plugin
-"https://github.com/msanders/snipmate.vim
+"https://github.com/garbas/vim-snipMate
 "------------------------------------------------------
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
@@ -1072,9 +1040,4 @@ let g:ConqueTerm_CloseOnEnd = 1
 "https://github.com/vim-scripts/slimv.vim
 let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
 let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe" -l "C:\lispbox-0.7\slime-20110205.092829\start-swank.lisp"'
-"}}}
-
-" pep8 {{{
-"https://github.com/vim-scripts/pep8
-let g:pep8_map='<F8>'
 "}}}
