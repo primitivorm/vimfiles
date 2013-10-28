@@ -682,12 +682,12 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f-
 "https://mutelight.org/dbext-the-last-sql-client-youll-ever-need
 "---------------------------------------------------------
 "connect to sql server instance
-let g:dbext_default_profile_sql_des    = 'type = SQLSRV:srvname = 10.48.68.8:dbname        = amdes:user   = espejopruebas:passwd = 12345678'
-let g:dbext_default_profile_sql_desvw  = 'type = SQLSRV:srvname = 10.48.68.8\SQL2K8:dbname = amdesvw:user = espejopruebas:passwd = 12345678'
-let g:dbext_default_profile_sql_qa     = 'type = SQLSRV:srvname = 10.48.68.8:dbname        = amqa:user    = espejopruebas:passwd = 12345678'
-let g:dbext_default_profile_sql_qavw   = 'type = SQLSRV:srvname = 10.48.68.8:dbname        = amqavw:user  = espejopruebas:passwd = 12345678'
-let g:dbext_default_profile_sql_qa40   = 'type = SQLSRV:srvname = 10.48.95.40:dbname       = amqa:user    = espejopruebas:passwd = 12345678'
-let g:dbext_default_profile_sql_qavw40 = 'type = SQLSRV:srvname = 10.48.95.40:dbname       = amqavw:user  = espejopruebas:passwd = 12345678'
+let g:dbext_default_profile_sql_des='type=SQLSRV:srvname=10.48.68.8:dbname=amdes:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_desvw='type=SQLSRV:srvname=10.48.68.8\SQL2K8:dbname=amdesvw:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_qa='type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_qavw='type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_qa40='type=SQLSRV:srvname=10.48.95.40:dbname=amqa:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_qavw40='type=SQLSRV:srvname=10.48.95.40:dbname=amqavw:user=espejopruebas:passwd=12345678'
 
 
 "command to change Connection
