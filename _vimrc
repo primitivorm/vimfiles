@@ -64,7 +64,6 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 " }}}
 
 " gui {{{
-"Bundle 'ShowMarks'
 Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
 Bundle 'gcmt/taboo.vim'
@@ -188,7 +187,6 @@ Bundle 'biruh/vim-aspnet'
 Bundle 'visual_studio.vim'
 Bundle 'nosami/Omnisharp'
 Bundle 'heaths/vim-msbuild'
-"Bundle 'oranget/vim-csharp.git'
 " }}}
 
 " c++ {{{
@@ -244,6 +242,8 @@ Bundle 'sickill/coloration'
 Bundle 'guns/xterm-color-table.vim'
 "}}}
 
+Bundle 'ShowMarks'
+Bundle 'oranget/vim-csharp.git'
 "------------------------------------------------
 
 filetype plugin indent on " required!
@@ -362,7 +362,9 @@ set nowrap
 set linebreak "lbr
 set showbreak=...
 set textwidth=125
+if has('colorcolumn')
 set colorcolumn=125
+endif
 "habilita sangrado inteligente
 set smartindent
 "sangrado automatico
@@ -646,7 +648,9 @@ if has('win32') || has('win64')
   endif
 else
   set directory=~/tmp,/tmp
+  if has('undodir')
   set undodir=~/tmp,/tmp
+  endif
   let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
 endif
 "---------------------------------------------------------
