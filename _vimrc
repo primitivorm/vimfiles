@@ -64,7 +64,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 " }}}
 
 " gui {{{
-Bundle 'ShowMarks'
+"Bundle 'ShowMarks'
 Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
 Bundle 'gcmt/taboo.vim'
@@ -188,7 +188,7 @@ Bundle 'biruh/vim-aspnet'
 Bundle 'visual_studio.vim'
 Bundle 'nosami/Omnisharp'
 Bundle 'heaths/vim-msbuild'
-Bundle 'oranget/vim-csharp.git'
+"Bundle 'oranget/vim-csharp.git'
 " }}}
 
 " c++ {{{
@@ -337,7 +337,11 @@ set linespace=0
 "establece el esquema de colores
 "max num of tabs
 set tabpagemax=15
+if has('win32') || has('win64')
 set guifont=Envy_Code_R_for_Powerline:h10:cANSI
+else
+set guifont=Envy\ Code\ R\ for\ Powerline\ 10
+endif
 "set guifont=Envy_Code_R_VS:h10:cANSI
 "set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
 "set guifont=Inconsolata\ for\ Powerline:h11:cANSI
