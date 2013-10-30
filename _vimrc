@@ -28,7 +28,7 @@ filetype on
 "https://github.com/gmarik/vundle
 "------------------------------------------------------
 "rtp
-set runtimepath+=~/vimfiles
+set runtimepath+=~/vimfiles/
 set runtimepath+=~/vimfiles/bin/
 set runtimepath+=~/vimfiles/bundle/
 set runtimepath+=~/vimfiles/bundle/vundle/
@@ -70,24 +70,27 @@ Bundle 'gcmt/taboo.vim'
 Bundle 'xolox/vim-session'
 Bundle 'majutsushi/tagbar'
 Bundle 'bling/vim-airline'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Raimondi/delimitMate'
 Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
-Bundle 'Lokaltog/powerline-fonts'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'valloric/MatchTagAlways'
+Bundle 'Lokaltog/powerline-fonts'
 Bundle 'nathanaelkane/vim-indent-guides'
 " }}}
 
 " formatting {{{
 Bundle 'AutoAlign'
 Bundle 'tpope/vim-ragtag'
+"autoclose endfunction, endif, etc...
 Bundle 'tpope/vim-endwise'
 Bundle 'godlygeek/tabular'
+"autoclose {[(
+Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
+Bundle 'Raimondi/delimitMate'
 Bundle 'Chiel92/vim-autoformat'
+"highlighting tags
+Bundle 'valloric/MatchTagAlways'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'scrooloose/nerdcommenter'
@@ -103,15 +106,15 @@ Bundle 'tpope/vim-fugitive'
 
 " templating {{{
 Bundle 'ccimpl.vim'
-Bundle 'tomtom/tskeletons'
-Bundle 'garbas/vim-snipmate'
 Bundle 'SirVer/ultisnips'
-Bundle 'mklabs/vim-backbone'
+Bundle 'tomtom/tskeletons'
 Bundle 'honza/vim-snippets'
+Bundle 'garbas/vim-snipmate'
+Bundle 'mklabs/vim-backbone'
 Bundle 'tomtom/templator_vim'
 Bundle 'tomtom/tskeleton_vim'
-Bundle 'tomtom/stakeholders_vim'
 Bundle 'aperezdc/vim-template'
+Bundle 'tomtom/stakeholders_vim'
 " }}}
 
 " debuging {{{
@@ -126,7 +129,7 @@ Bundle 'FuzzyFinder'
 Bundle 'AutoComplPop'
 Bundle 'IndexedSearch'
 Bundle 'kien/ctrlp.vim'
-Bundle 'SearchComplete'
+"Bundle 'SearchComplete'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'shemerey/vim-indexer'
@@ -202,6 +205,8 @@ Bundle 'SQLComplete.vim'
 " }}}
 
 "xml {{{
+"install
+"https://github.com/sukima/xmledit
 Bundle 'sukima/xmledit'
 "}}}
 
@@ -232,18 +237,13 @@ Bundle 'Lokaltog/vim-distinguished'
 Bundle 'primitivorm/vim-proman-theme'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'altercation/vim-colors-solarized'
-"}}}
-
-"color tools {{{
+"color tools
 Bundle 'CSApprox'
 Bundle 'Rykka/colorv.vim'
 Bundle 'hexHighlight.vim'
 Bundle 'sickill/coloration'
 Bundle 'guns/xterm-color-table.vim'
 "}}}
-
-Bundle 'ShowMarks'
-Bundle 'oranget/vim-csharp.git'
 "------------------------------------------------
 
 filetype plugin indent on " required!
@@ -338,12 +338,13 @@ set linespace=0
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-set guifont=Envy_Code_R_for_Powerline:h10:cANSI
+  set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+  "set guifont=Envy_Code_R_for_Powerline:h10:cANSI
 else
-set guifont=Envy\ Code\ R\ for\ Powerline\ 10
+  set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+  "set guifont=Envy\ Code\ R\ for\ Powerline\ 10
 endif
 "set guifont=Envy_Code_R_VS:h10:cANSI
-"set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
 "set guifont=Inconsolata\ for\ Powerline:h11:cANSI
 " switch syntax highlighting on, when the terminal has colors
 syntax on
@@ -363,7 +364,7 @@ set linebreak "lbr
 set showbreak=...
 set textwidth=125
 if has('colorcolumn')
-set colorcolumn=125
+  set colorcolumn=125
 endif
 "habilita sangrado inteligente
 set smartindent
@@ -396,7 +397,7 @@ set gdefault " search/replace "globally" (on a line) by default
 set ruler
 "mat
 set matchtime=3
-set matchpairs+=<:>     "specially for html
+set matchpairs+=<:>,{:},[:],(:),¡:!,¿:?
 
 " }}}
 
