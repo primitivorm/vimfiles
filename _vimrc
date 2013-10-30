@@ -341,7 +341,7 @@ if has('win32') || has('win64')
   set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
   "set guifont=Envy_Code_R_for_Powerline:h10:cANSI
 else
-  set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
+  set guifont=Consolas\ for\ Powerline\ 10
   "set guifont=Envy\ Code\ R\ for\ Powerline\ 10
 endif
 "set guifont=Envy_Code_R_VS:h10:cANSI
