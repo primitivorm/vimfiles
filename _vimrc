@@ -73,7 +73,7 @@ Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
-Bundle 'jistr/vim-nerdtree-tabs'
+"Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Lokaltog/powerline-fonts'
 Bundle 'nathanaelkane/vim-indent-guides'
 " }}}
@@ -298,13 +298,15 @@ set wildignore+=.reviewboard-cache,.rnd,.sbt.cache.lock
 set wildignore+=.scala_history,.sqlite_history,.viminfo
 set wildignore+=*.o,*.obj,.git,vendor/rails/**,vendor/gems/**
 set wildignore+=*.swp
-if exists("&wildignorecase")
+if exists("+wildignorecase")
     set wildignorecase
 endif
 
 " first full match
 set visualbell " don't beep
 set noerrorbells " don't beep
+"disable blink
+autocmd GUIEnter * set visualbell t_vb=
 set noshowmode "show current mode
 set showcmd " show (partial) command in the last line of the screen
 " this also shows visual selection info
@@ -338,11 +340,14 @@ set linespace=0
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-  set guifont=Consolas_for_Powerline_FixedD:h10:cANSI
-  "set guifont=Envy_Code_R_for_Powerline:h10:cANSI
+  set guifont=Envy_Code_R_for_Powerline:h10
+  "set guifont=Consolas_for_Powerline_FixedD:h10
+  "set guifont=DejaVu_Sans_Mono_for_Powerline:h10
+  "set guifontwide=DejaVu_Sans_Mono_for_Powerline:h10
 else
-  set guifont=Consolas\ for\ Powerline\ 10
-  "set guifont=Envy\ Code\ R\ for\ Powerline\ 10
+  set guifont=Envy\ Code\ R\ for\ Powerline\ 10
+  "set guifont=Consolas\ for\ Powerline\ 10
+  "set guifontwide=DejaVu_Sans_Mono_for_Powerline:h10
 endif
 "set guifont=Envy_Code_R_VS:h10:cANSI
 "set guifont=Inconsolata\ for\ Powerline:h11:cANSI
@@ -351,7 +356,7 @@ syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-set background=light
+set background=dark
 colorscheme proman
 
 "habilita soporte para plugins
@@ -363,7 +368,7 @@ set nowrap
 set linebreak "lbr
 set showbreak=...
 set textwidth=125
-if has('colorcolumn')
+if exists('+colorcolumn')
   set colorcolumn=125
 endif
 "habilita sangrado inteligente
@@ -391,13 +396,13 @@ set incsearch " show search matches as you type
 set ignorecase
 "case-sensitive if search contains an uppercase character
 set smartcase
-set gdefault " search/replace "globally" (on a line) by default
+set nogdefault " search/replace "globally" (on a line) by default
 "Resalta la { o ) que estamos cerrando (sm)
 "Mostrar la posicion del cursor en todo momento
 set ruler
 "mat
 set matchtime=3
-set matchpairs+=<:>,{:},[:],(:),¡:!,¿:?
+set matchpairs+=<:>
 
 " }}}
 
@@ -527,8 +532,8 @@ let g:NERDTreeBookmarksFile     = expand($HOME.'/_NERDTreeBookmarks')
 let g:NERDTreeShowBookmarks     = 1
 let g:NERDTreeWinSize           = 40
 let g:NERDTreeChristmasTree     = 1
-let g:NERDTreeCaseSensitiveSort = 0
-let g:NERDTreeQuitOnOpen        = 0
+let g:NERDTreeCaseSensitiveSort = 1
+let g:NERDTreeQuitOnOpen        = 1
 let g:NERDTreeMouseMode         = 2
 let NERDTreeShowHidden=1
 "let NERDTreeMapOpenInTab='<ENTER>'
@@ -547,17 +552,17 @@ let g:NERDTreeIgnore=[
 "------------------------------------------------------
 " }}}
 
-" NERDTree-Tabs {{{
-"------------------------------------------------------
-"https://github.com/jistr/vim-nerdtree-tabs
-"------------------------------------------------------
-let g:nerdtree_tabs_open_on_console_startup = 1 "default 0
-let g:nerdtree_tabs_autoclose               = 0 "default 1
-let g:nerdtree_tabs_synchronize_focus       = 0 "default 1
-let g:nerdtree_tabs_smart_startup_focus     = 2 "default 1
-let g:nerdtree_tabs_synchronize_view        = 0  "default 1
-"------------------------------------------------------
-" }}}
+"" NERDTree-Tabs {{{
+""------------------------------------------------------
+""https://github.com/jistr/vim-nerdtree-tabs
+""------------------------------------------------------
+"let g:nerdtree_tabs_open_on_console_startup = 1 "default 0
+""let g:nerdtree_tabs_autoclose               = 0 "default 1
+""let g:nerdtree_tabs_synchronize_focus       = 0 "default 1
+""let g:nerdtree_tabs_smart_startup_focus     = 2 "default 1
+""let g:nerdtree_tabs_synchronize_view        = 0  "default 1
+""------------------------------------------------------
+"" }}}
 
 " Tagbar {{{
 "---------------------------------------------------------
@@ -649,7 +654,7 @@ if has('win32') || has('win64')
   endif
 else
   set directory=~/tmp,/tmp
-  if has('undodir')
+  if exists('+undodir')
   set undodir=~/tmp,/tmp
   endif
   let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
@@ -731,8 +736,7 @@ let g:sql_type_default = "sqlserver"
 " }}}
 
 "airline {{{
-"let g:airline_theme             = 'powerlineish'
-let g:airline_theme             = 'solarized'
+let g:airline_theme = 'sol'
 let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1
 
@@ -831,6 +835,7 @@ let g:badwolf_css_props_highlight = 1
 "https://github.com/tomtom/tskeleton_vim
 "---------------------------------------------------------
 "my skeletons
+"let g:tskelTypes = ['skeleton']
 let g:tskelDir=$HOME . '/vimfiles/skeletons/'
 let g:tskelUserName='Ing. Primitivo R. Montero'
 let g:tskelUserEmail='cibercafe_montero@hotmail.com'
@@ -948,10 +953,10 @@ highlight link multiple_cursors_visual Visual
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
-"" vim-auto-save {{{
-""https://github.com/907th/vim-auto-save
-let g:auto_save = 1  " Disable AutoSave on Vim startup
-"" }}}
+" vim-auto-save {{{
+"https://github.com/907th/vim-auto-save
+let g:auto_save = 1  "Enable/Disable AutoSave on Vim startup
+" }}}
 
 " Omnisharp {{{
 "---------------------------------------------------------
@@ -1011,16 +1016,16 @@ let g:snipMate.scope_aliases['sql'] = 'sql'
 "------------------------------------------------------
 " }}}
 
-"" Ultisnip {{{
-""------------------------------------------------------
-""https://github.com/vim-scripts/UltiSnips
-""------------------------------------------------------
-
-"\ 'default' : {'filetypes': ["FILETYPE"] },
-"\ 'ruby'  : {'filetypes': ["ruby", "ruby-rails", "ruby-1.9"] }
-"\ }
-""------------------------------------------------------
-"" }}}
+" Ultisnip {{{
+"------------------------------------------------------
+"https://github.com/vim-scripts/UltiSnips
+"------------------------------------------------------
+let g:UltiSnipsExpandTrigger               = '<c-space>'
+"let g:UltiSnipsListSnippets                = '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger          = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger         = '<c-k>'
+"------------------------------------------------------
+" }}}
 
 " vim-autoformat {{{
 " https://github.com/Chiel92/vim-autoformat

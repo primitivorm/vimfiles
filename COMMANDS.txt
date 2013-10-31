@@ -111,11 +111,15 @@ endif
 :vim[grep][!] /{pattern}/[g][j] {file} ->use vimgrep ej. :vimgrep /solve/j **/*.gms
 find -type d -exec rmdir {} \; -> delete empty directories recursively
 :call CssPretty() -> format csss files
+:tab split open current buffer in a new tab
+
 /* capturing commands to redirect to register
 :redir @a
 :set all
 :redir END
 */
+
+#fc-cache -fv -> install fonts in Linux
 
 install vim from cygwin
 $ svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/
@@ -172,6 +176,7 @@ vim completion
 <c-x><c-u> user defined completion
 <c-x><s> spelling suggestion
 <c-k>     word fuzzy completion
+<c-space> -> call snipmate
 -----------------------------------------------
 sqlcomplete
 <c-c> ->start sqlcomplete
@@ -486,9 +491,13 @@ tc tc antes de la siguiente, anterior occurencia de c
 [# ]# #if, #else, #endif abierto atrás, adelante
 [* ]* principio, fin de /* */ hacia atrás, adelante
 
+double double float string
+
 -----------------------------------------------
 búsqueda & sustitución
+http://usevim.com/2012/04/06/search-and-replace-files/
 -----------------------------------------------
+:%s/^V^M//g -> replace end of line in unix
 /^#\d\d -> this matches a markdown style h1.
 /s↵ ?s↵ buscar s hacia adelante, atrás
 /s/o↵ ?s?o↵ buscar s adelante, atrás con desplaz. o
@@ -1650,316 +1659,3 @@ vim -s indent.txt file
 This will use Vim to indent the contents of file, save and exit.
 
 ->scriptnames
-  1: C:\Program Files (x86)\Vim\_vimrc
-  2: ~\vimfiles\_vimrc
-  3: ~\vimfiles\keymap.vim
-  4: C:\Program Files (x86)\Vim\vim74a\ftoff.vim
-  5: ~\vimfiles\autoload\pathogen.vim
-  6: C:\Program Files (x86)\Vim\vim74a\filetype.vim
-  7: ~\vimfiles\ftdetect\cs.vim
-  8: ~\vimfiles\ftdetect\jade.vim
-  9: ~\vimfiles\ftdetect\jquery.vim
- 10: ~\vimfiles\ftdetect\py.vim
- 11: ~\vimfiles\ftdetect\vim.vim
- 12: ~\vimfiles\bundle\xpt\ftdetect\xptemplate.detect.vim
- 13: C:\Program Files (x86)\Vim\vim74a\menu.vim
- 14: C:\Program Files (x86)\Vim\vim74a\lang\menu_es.latin1.vim
- 15: C:\Program Files (x86)\Vim\vim74a\lang\menu_es_es.latin1.vim
- 16: ~\vimfiles\autoload\paste.vim
- 17: ~\vimfiles\bundle\vundle\autoload\vundle.vim
- 18: ~\vimfiles\bundle\vundle\autoload\vundle\config.vim
- 19: C:\Program Files (x86)\Vim\vim74a\ftplugin.vim
- 20: C:\Program Files (x86)\Vim\vim74a\indent.vim
- 21: C:\Program Files (x86)\Vim\vim74a\syntax\syntax.vim
- 22: C:\Program Files (x86)\Vim\vim74a\syntax\synload.vim
- 23: C:\Program Files (x86)\Vim\vim74a\syntax\syncolor.vim
- 24: ~\vimfiles\bundle\vundle\vim-proman-theme\colors\proman.vim
- 25: ~\vimfiles\bundle\vundle\vundle\plugin\AlignMapsPlugin.vim
- 26: ~\vimfiles\bundle\vundle\vundle\autoload\AlignMaps.vim
- 27: ~\vimfiles\bundle\vundle\vundle\plugin\AlignPlugin.vim
- 28: ~\vimfiles\bundle\vundle\vundle\plugin\AutoAlign.vim
- 29: ~\vimfiles\bundle\vundle\vundle\plugin\cecutil.vim
- 30: ~\vimfiles\bundle\vundle\vundle\plugin\conque_term.vim
- 31: ~\vimfiles\bundle\vundle\vundle\plugin\Decho.vim
- 32: ~\vimfiles\bundle\vundle\vim-surround\plugin\surround.vim
- 33: ~\vimfiles\bundle\vundle\vim-fugitive\plugin\fugitive.vim
- 34: ~\vimfiles\bundle\vundle\vim-endwise\plugin\endwise.vim
- 35: ~\vimfiles\bundle\vundle\vim-ragtag\plugin\ragtag.vim
- 36: ~\vimfiles\bundle\vundle\vim-abolish\plugin\abolish.vim
- 37: ~\vimfiles\bundle\vundle\vim-dispatch\plugin\dispatch.vim
- 38: ~\vimfiles\bundle\vundle\vim-capslock\plugin\capslock.vim
- 39: ~\vimfiles\bundle\vundle\nerdtree\plugin\NERD_tree.vim
- 40: ~\vimfiles\bundle\vundle\nerdtree\autoload\nerdtree.vim
- 41: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\path.vim
- 42: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\menu_controller.vim
- 43: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\menu_item.vim
- 44: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\key_map.vim
- 45: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\bookmark.vim
- 46: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\tree_file_node.vim
- 47: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\tree_dir_node.vim
- 48: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\opener.vim
- 49: ~\vimfiles\bundle\vundle\nerdtree\lib\nerdtree\creator.vim
- 50: ~\vimfiles\bundle\vundle\nerdtree\nerdtree_plugin\exec_menuitem.vim
- 51: ~\vimfiles\bundle\vundle\nerdtree\nerdtree_plugin\fs_menu.vim
- 52: ~\vimfiles\bundle\vundle\vim-nerdtree-tabs\nerdtree_plugin\vim-nerdtree-tabs.vim
- 53: ~\vimfiles\bundle\vundle\ctrlp.vim\plugin\ctrlp.vim
- 54: ~\vimfiles\bundle\vundle\ctrlp.vim\autoload\ctrlp\mrufiles.vim
- 55: ~\vimfiles\bundle\vundle\nerdcommenter\plugin\NERD_commenter.vim
- 56: ~\vimfiles\bundle\vundle\tagbar\plugin\tagbar.vim
- 57: ~\vimfiles\bundle\vundle\vim-indexer\plugin\indexer.vim
- 58: ~\vimfiles\bundle\vundle\gundo.vim\plugin\gundo.vim
- 59: ~\vimfiles\bundle\vundle\supertab\plugin\supertab.vim
- 60: ~\vimfiles\bundle\vundle\lisper-vim\plugin\lisper.vim
- 61: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\autoloclist.vim
- 62: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\balloons.vim
- 63: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\checker.vim
- 64: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\cursor.vim
- 65: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\highlighting.vim
- 66: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\loclist.vim
- 67: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\makeprg_builder.vim
- 68: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\modemap.vim
- 69: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\notifiers.vim
- 70: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\registry.vim
- 71: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic\signs.vim
- 72: ~\vimfiles\bundle\vundle\syntastic\plugin\syntastic.vim
- 73: ~\vimfiles\bundle\vundle\NrrwRgn\plugin\NrrwRgn.vim
- 74: ~\vimfiles\bundle\vundle\csapprox\plugin\CSApprox.vim
- 75: ~\vimfiles\bundle\vundle\tabular\plugin\Tabular.vim
- 76: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\plugin\viewdoc.vim
- 77: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\plugin\viewdoc_help.vim
- 78: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\plugin\viewdoc_infman.vim
- 79: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\plugin\viewdoc_man.vim
- 80: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\plugin\viewdoc_perldoc.vim
- 81: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\plugin\viewdoc_pman.vim
- 82: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\plugin\viewdoc_pydoc.vim
- 83: ~\vimfiles\bundle\vundle\vim-shell\plugin\shell.vim
- 84: ~\vimfiles\bundle\vundle\vim-misc\autoload\xolox\misc.vim
- 85: ~\vimfiles\bundle\vundle\vimshell\plugin\vimshell.vim
- 86: ~\vimfiles\bundle\vundle\vim-session\plugin\session.vim
- 87: ~\vimfiles\bundle\vundle\vim-misc\autoload\xolox\misc\os.vim
- 88: ~\vimfiles\bundle\vundle\vim-misc\autoload\xolox\misc\msg.vim
- 89: ~\vimfiles\bundle\vundle\vim-powerline\plugin\Powerline.vim
- 90: ~\vimfiles\bundle\vundle\vim-indent-guides\plugin\indent_guides.vim
- 91: ~\vimfiles\bundle\vundle\vim-indent-guides\autoload\indent_guides.vim
- 92: ~\vimfiles\bundle\vundle\xterm-color-table.vim\plugin\xterm-color-table.vim
- 93: ~\vimfiles\bundle\vundle\StripWhiteSpaces\plugin\StripWhiteSpaces.vim
- 94: ~\vimfiles\bundle\vundle\vim-matchit\plugin\matchit.vim
- 95: ~\vimfiles\bundle\vundle\tlib_vim\plugin\02tlib.vim
- 96: ~\vimfiles\bundle\vundle\stakeholders_vim\plugin\stakeholders.vim
- 97: ~\vimfiles\bundle\vundle\templator_vim\plugin\templator.vim
- 98: ~\vimfiles\bundle\vundle\tskeleton_vim\plugin\tskeleton.vim
- 99: ~\vimfiles\bundle\vundle\tlib_vim\autoload\tlib\dir.vim
-100: ~\vimfiles\bundle\vundle\tlib_vim\autoload\tlib\file.vim
-101: ~\vimfiles\bundle\vundle\tlib_vim\autoload\tlib\arg.vim
-102: ~\vimfiles\bundle\vundle\vim-template\plugin\templates.vim
-103: ~\vimfiles\bundle\vundle\git-vim\plugin\git.vim
-104: ~\vimfiles\bundle\vundle\vim-project\plugin\project.vim
-105: ~\vimfiles\bundle\vundle\vim-snipmate\plugin\snipMate.vim
-106: ~\vimfiles\bundle\vundle\vim-addon-mw-utils\autoload\funcref.vim
-107: ~\vimfiles\bundle\vundle\vim-snipmate\plugin\snipMateInterface.vim
-108: ~\vimfiles\bundle\vundle\delimitMate\plugin\delimitMate.vim
-109: ~\vimfiles\bundle\vundle\delimitMate\autoload\delimitMate.vim
-110: ~\vimfiles\bundle\vundle\vim-backbone\plugin\backbone.vim
-111: ~\vimfiles\bundle\vundle\vim-html5validator\plugin\html5validator.vim
-112: ~\vimfiles\bundle\vundle\vim-multiple-cursors\plugin\multiple_cursors.vim
-113: ~\vimfiles\bundle\vundle\vim-visual-star-search\plugin\visual-star-search.vim
-114: ~\vimfiles\bundle\vundle\jedi-vim\plugin\jedi.vim
-115: ~\vimfiles\bundle\vundle\vim-autoformat\plugin\autoformat.vim
-116: ~\vimfiles\bundle\vundle\vim-autoformat\plugin\defaults.vim
-117: ~\vimfiles\bundle\vundle\Omnisharp\plugin\OmniSharp.vim
-118: ~\vimfiles\bundle\vundle\ack.vim\plugin\ack.vim
-119: ~\vimfiles\bundle\vundle\colorv.vim\plugin\colorv.vim
-120: ~\vimfiles\bundle\vundle\colorv.vim\autoload\colorv.vim
-121: ~\vimfiles\bundle\vundle\colorv.vim\autoload\colorv\data.vim
-122: ~\vimfiles\bundle\vundle\colorv.vim\autoload\colorv\mark.vim
-123: ~\vimfiles\bundle\vundle\colorv.vim\autoload\colorv\cache.vim
-124: ~\vimfiles\bundle\vundle\colorv.vim\autoload\colorv\scheme.vim
-125: ~\vimfiles\bundle\vundle\taboo.vim\plugin\taboo.vim
-126: ~\vimfiles\bundle\vundle\vim-americanize\plugin\americanize.vim
-127: ~\vimfiles\bundle\vundle\vim-cucumber-align-pipes\plugin\cucumber-align-pipes.vim
-128: ~\vimfiles\bundle\vundle\ScrollColors\plugin\ScrollColor.vim
-129: ~\vimfiles\bundle\vundle\vim-easy-align\plugin\easy_align.vim
-130: ~\vimfiles\bundle\vundle\minimap-vim\plugin\minimap_loader.vim
-131: ~\vimfiles\bundle\vundle\galaxy.vim\plugin\galaxy.vim
-132: ~\vimfiles\bundle\vundle\vim-classpath\plugin\classpath.vim
-133: ~\vimfiles\bundle\vundle\vim-fireplace\plugin\fireplace\zip.vim
-134: C:\Program Files (x86)\Vim\vim74a\autoload\zip.vim
-135: ~\vimfiles\bundle\vundle\vim-fireplace\plugin\fireplace.vim
-136: ~\vimfiles\bundle\vundle\vim-preview\plugin\preview.vim
-137: ~\vimfiles\bundle\vundle\pep8\plugin\pep8.vim
-138: ~\vimfiles\bundle\vundle\TaskList.vim\plugin\tasklist.vim
-139: ~\vimfiles\bundle\vundle\c.vim\plugin\c.vim
-140: ~\vimfiles\bundle\vundle\L9\plugin\l9.vim
-141: ~\vimfiles\bundle\vundle\L9\autoload\l9.vim
-142: ~\vimfiles\bundle\vundle\genutils\plugin\genutils.vim
-143: ~\vimfiles\bundle\vundle\FuzzyFinder\plugin\fuf.vim
-144: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf.vim
-145: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\buffer.vim
-146: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\file.vim
-147: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\coveragefile.vim
-148: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\dir.vim
-149: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\bookmarkfile.vim
-150: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\bookmarkdir.vim
-151: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\tag.vim
-152: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\buffertag.vim
-153: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\taggedfile.vim
-154: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\jumplist.vim
-155: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\changelist.vim
-156: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\quickfix.vim
-157: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\line.vim
-158: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\help.vim
-159: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\givenfile.vim
-160: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\givendir.vim
-161: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\givencmd.vim
-162: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\callbackfile.vim
-163: ~\vimfiles\bundle\vundle\FuzzyFinder\autoload\fuf\callbackitem.vim
-164: ~\vimfiles\bundle\vundle\AutoComplPop\plugin\acp.vim
-165: ~\vimfiles\bundle\vundle\AutoComplPop\autoload\acp.vim
-166: ~\vimfiles\bundle\vundle\dbext.vim\plugin\dbext.vim
-167: ~\vimfiles\bundle\vundle\DrawIt\plugin\cecutil.vim
-168: ~\vimfiles\bundle\vundle\DrawIt\plugin\DrawItPlugin.vim
-169: ~\vimfiles\bundle\vundle\ShowMarks\plugin\showmarks.vim
-170: ~\vimfiles\bundle\vundle\IndexedSearch\plugin\IndexedSearch.vim
-171: ~\vimfiles\bundle\vundle\bash-support.vim\plugin\bash-support.vim
-172: ~\vimfiles\bundle\vundle\SQLUtilities\plugin\SQLUtilities.vim
-173: ~\vimfiles\bundle\vundle\SQLComplete.vim\plugin\sqlcomplete.vim
-174: ~\vimfiles\autoload\sqlcomplete.vim
-175: ~\vimfiles\bundle\vundle\quickfixsigns\plugin\quickfixsigns.vim
-176: ~\vimfiles\bundle\vundle\quickfixsigns\autoload\quickfixsigns\breakpoints.vim
-177: ~\vimfiles\bundle\vundle\quickfixsigns\autoload\quickfixsigns\marks.vim
-178: ~\vimfiles\bundle\vundle\quickfixsigns\autoload\quickfixsigns\vcsdiff.vim
-179: ~\vimfiles\bundle\vundle\SearchComplete\plugin\SearchComplete.vim
-180: ~\vimfiles\bundle\vundle\hexHighlight.vim\plugin\hexHighlight.vim
-181: ~\vimfiles\bundle\vundle\grep.vim\plugin\grep.vim
-182: ~\vimfiles\bundle\vundle\Decho\plugin\cecutil.vim
-183: ~\vimfiles\bundle\vundle\Decho\plugin\Decho.vim
-184: ~\vimfiles\bundle\vundle\refactor\plugin\refactor.vim
-185: ~\vimfiles\bundle\vundle\visual_studio.vim\plugin\visual_studio.vim
-186: ~\vimfiles\bundle\vundle\Word-Fuzzy-Completion\plugin\wordfuzzycompletion.vim
-187: ~\vimfiles\bundle\vundle\AutoAlign\plugin\AutoAlign.vim
-188: ~\vimfiles\bundle\vundle\AutoAlign\plugin\cecutil.vim
-189: ~\vimfiles\bundle\vundle\multiselect\plugin\multiselect.vim
-190: ~\vimfiles\bundle\vundle\Thesaurus\plugin\thesaurus.vim
-191: ~\vimfiles\bundle\vundle\slimv.vim\plugin\paredit.vim
-192: ~\vimfiles\plugin\a.vim
-193: ~\vimfiles\plugin\AlignMapsPlugin.vim
-194: ~\vimfiles\plugin\AlignPlugin.vim
-195: ~\vimfiles\plugin\BufOnly.vim
-196: ~\vimfiles\plugin\buftabs.vim
-197: ~\vimfiles\plugin\cecutil.vim
-198: ~\vimfiles\plugin\guifont++.vim
-199: ~\vimfiles\plugin\jsbeautify.vim
-200: ~\vimfiles\plugin\maximize.vim
-201: ~\vimfiles\plugin\minimap.vim
-202: ~\vimfiles\plugin\mru.vim
-203: ~\vimfiles\plugin\multvals.vim
-204: ~\vimfiles\plugin\pulse.vim
-205: ~\vimfiles\plugin\refactor.vim
-206: ~\vimfiles\plugin\showmarks.vim
-207: ~\vimfiles\plugin\swap_lines.vim
-208: ~\vimfiles\plugin\thesaurus.vim
-209: ~\vimfiles\bundle\bash-support\plugin\bash-support.vim
-210: ~\vimfiles\bundle\bufexplorer\plugin\bufexplorer.vim
-211: ~\vimfiles\bundle\genutils-2.5\plugin\genutils.vim
-212: ~\vimfiles\bundle\matchit\plugin\matchit.vim
-213: ~\vimfiles\bundle\shell\plugin\shell.vim
-214: ~\vimfiles\bundle\srcctl\plugin\srcctl.vim
-215: ~\vimfiles\bundle\vcscommand.vim\plugin\vcsbzr.vim
-216: ~\vimfiles\bundle\vcscommand.vim\plugin\vcscommand.vim
-217: ~\vimfiles\bundle\vcscommand.vim\plugin\vcscvs.vim
-218: ~\vimfiles\bundle\vcscommand.vim\plugin\vcsgit.vim
-219: ~\vimfiles\bundle\vcscommand.vim\plugin\vcshg.vim
-220: ~\vimfiles\bundle\vcscommand.vim\plugin\vcssvk.vim
-221: ~\vimfiles\bundle\vcscommand.vim\plugin\vcssvn.vim
-222: ~\vimfiles\bundle\xpt\plugin\classes\FiletypeScope.vim
-223: ~\vimfiles\bundle\xpt\autoload\XPT.vim
-224: ~\vimfiles\bundle\xpt\plugin\classes\FilterValue.vim
-225: ~\vimfiles\bundle\xpt\plugin\classes\MapSaver.vim
-226: ~\vimfiles\bundle\xpt\plugin\debug.vim
-227: ~\vimfiles\bundle\xpt\plugin\classes\RenderContext.vim
-228: ~\vimfiles\bundle\xpt\plugin\classes\SettingSwitch.vim
-229: ~\vimfiles\bundle\xpt\plugin\classes\SnippetScope.vim
-230: ~\vimfiles\bundle\xpt\plugin\FiletypeScope.class.vim
-231: ~\vimfiles\bundle\xpt\plugin\FilterValue.class.vim
-232: ~\vimfiles\bundle\xpt\plugin\MapSaver.class.vim
-233: ~\vimfiles\bundle\xpt\plugin\mapstack.vim
-234: ~\vimfiles\bundle\xpt\plugin\SettingSwitch.class.vim
-235: ~\vimfiles\bundle\xpt\plugin\SnippetScope.class.vim
-236: ~\vimfiles\bundle\xpt\plugin\xpclass.vim
-237: ~\vimfiles\bundle\xpt\plugin\xpmark.vim
-238: ~\vimfiles\bundle\xpt\plugin\xpop.test.vim
-239: ~\vimfiles\bundle\xpt\plugin\xpopup.vim
-240: ~\vimfiles\bundle\xpt\plugin\xpreplace.vim
-241: ~\vimfiles\bundle\xpt\plugin\xpt.plugin.highlight.vim
-242: ~\vimfiles\bundle\xpt\plugin\xptemplate.vim
-243: ~\vimfiles\bundle\xpt\plugin\xptemplate.conf.vim
-244: ~\vimfiles\bundle\xpt\plugin\xptemplate.util.vim
-245: ~\vimfiles\bundle\xpt\plugin\xptemplate.parser.vim
-246: C:\Program Files (x86)\Vim\vim74a\plugin\getscriptPlugin.vim
-247: C:\Program Files (x86)\Vim\vim74a\plugin\gzip.vim
-248: C:\Program Files (x86)\Vim\vim74a\plugin\matchparen.vim
-249: C:\Program Files (x86)\Vim\vim74a\plugin\netrwPlugin.vim
-250: C:\Program Files (x86)\Vim\vim74a\plugin\rrhelper.vim
-251: C:\Program Files (x86)\Vim\vim74a\plugin\spellfile.vim
-252: C:\Program Files (x86)\Vim\vim74a\plugin\tarPlugin.vim
-253: C:\Program Files (x86)\Vim\vim74a\plugin\tohtml.vim
-254: C:\Program Files (x86)\Vim\vim74a\plugin\vimballPlugin.vim
-255: C:\Program Files (x86)\Vim\vim74a\plugin\zipPlugin.vim
-256: ~\vimfiles\after\plugin\abolish.vim
-257: ~\vimfiles\bundle\vundle\csapprox\after\plugin\CSApprox.vim
-258: ~\vimfiles\bundle\vundle\tabular\after\plugin\TabularMaps.vim
-259: ~\vimfiles\bundle\vundle\tabular\autoload\tabular.vim
-260: ~\vimfiles\bundle\vundle\vim-snipmate\after\plugin\snipMate.vim
-261: C:\Program Files (x86)\Vim\vim74a\scripts.vim
-262: ~\vimfiles\bundle\vundle\vim-shell\autoload\xolox\shell.vim
-263: ~\vimfiles\bundle\vundle\vim-misc\autoload\xolox\misc\option.vim
-264: ~\vimfiles\bundle\vundle\tskeleton_vim\autoload\tskeleton.vim
-265: ~\vimfiles\bundle\vundle\tlib_vim\autoload\tlib\rx.vim
-266: ~\vimfiles\bundle\vundle\tlib_vim\autoload\tlib\cache.vim
-267: ~\vimfiles\bundle\vundle\tlib_vim\autoload\tlib\var.vim
-268: ~\vimfiles\bundle\vundle\tskeleton_vim\autoload\tskeleton\skeleton.vim
-269: ~\vimfiles\bundle\vundle\tskeleton_vim\autoload\tskeleton\mini.vim
-270: ~\vimfiles\bundle\vundle\tskeleton_vim\autoload\tskeleton\snippets.vim
-271: ~\vimfiles\bundle\vundle\vundle\cache\tskel_menu\general
-272: ~\vimfiles\bundle\vundle\bash-support.vim\autoload\mmtemplates\core.vim
-273: ~\vimfiles\bundle\vundle\syntastic\autoload\syntastic\util.vim
-274: ~\vimfiles\bundle\vundle\syntastic\syntax_checkers\text\atdtool.vim
-275: ~\vimfiles\bundle\vundle\dbext.vim\autoload\dbext.vim
-276: ~\vimfiles\bundle\vundle\ctrlp.vim\autoload\ctrlp\utils.vim
-277: ~\vimfiles\bundle\vundle\tlib_vim\autoload\tlib\balloon.vim
-278: ~\vimfiles\bundle\vundle\nerdtree\syntax\nerdtree.vim
-279: ~\vimfiles\bundle\vundle\vim-session\autoload\xolox\session.vim
-280: ~\vimfiles\bundle\vundle\vim-powerline\autoload\Pl.vim
-281: C:\\Users\\Proman02\\vimfiles\\bundle\\vundle\\vim-powerline\Powerline_default_solarized256_light_fancy.cache
-282: ~\vimfiles\bundle\vundle\vim-powerline\autoload\Pl\Match.vim
-283: ~\vimfiles\bundle\vundle\vim-indent-guides\autoload\color_helper.vim
-284: ~\vimfiles\bundle\vundle\minimap-vim\autoload\minimap.vim
-285: ~\vimfiles\bundle\vundle\vim-powerline\autoload\Powerline\Functions.vim
-286: ~\vimfiles\bundle\vundle\vim-powerline\autoload\Powerline\Functions\fugitive.vim
-287: ~\vimfiles\bundle\vundle\vim-powerline\autoload\Powerline\Functions\syntastic.vim
-288: ~\vimfiles\bundle\vundle\tagbar\autoload\tagbar.vim
-289: ~\vimfiles\bundle\vundle\vundle\ftplugin\vim\AutoAlign.vim
-290: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\ftplugin\vim_viewdoc.vim
-291: ~\vimfiles\bundle\vundle\AutoAlign\ftplugin\vim\AutoAlign.vim
-292: ~\vimfiles\bundle\xpt\ftplugin\vim\vim.xpt.vim
-293: ~\vimfiles\bundle\xpt\ftplugin\_common\common.xpt.vim
-294: ~\vimfiles\bundle\xpt\ftplugin\_common\inlineComplete.xpt.vim
-295: ~\vimfiles\bundle\xpt\ftplugin\_common\common.bracketcmpl.xpt.vim
-296: ~\vimfiles\bundle\xpt\ftplugin\_common\common.path.xpt.vim
-297: ~\vimfiles\bundle\xpt\ftplugin\_printf\c.like.xpt.vim
-298: ~\vimfiles\bundle\xpt\ftplugin\_comment\singleSign.xpt.vim
-299: C:\Program Files (x86)\Vim\vim74a\ftplugin\vim.vim
-300: C:\Program Files (x86)\Vim\vim74a\indent\vim.vim
-301: C:\Program Files (x86)\Vim\vim74a\syntax\vim.vim
-302: ~\vimfiles\bundle\vundle\vim-perl\syntax\perl.vim
-303: ~\vimfiles\bundle\vundle\vim-perl\syntax\pod.vim
-304: C:\Program Files (x86)\Vim\vim74a\syntax\pod.vim
-305: C:\Program Files (x86)\Vim\vim74a\syntax\ruby.vim
-306: ~\vimfiles\bundle\vundle\jedi-vim\after\syntax\python.vim
-307: ~\vimfiles\bundle\vundle\jedi-vim\autoload\jedi.vim
-308: ~\vimfiles\bundle\vundle\vundle\cache\tskel_menu\vim
-309: ~\vimfiles\bundle\vundle\vim-repeat\autoload\repeat.vim
-310: ~\vimfiles\bundle\vundle\vim-plugin-viewdoc\ftplugin\help_viewdoc.vim
-311: ~\vimfiles\bundle\xpt\ftplugin\help\help.xpt.vim
-312: C:\Program Files (x86)\Vim\vim74a\ftplugin\help.vim
-313: C:\Program Files (x86)\Vim\vim74a\syntax\help.vim

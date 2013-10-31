@@ -214,6 +214,11 @@ inoremap <c-u> <c-x><c-u>
 "macro completion
 inoremap <c-d> <c-x><c-d>
 
+" Execute current line or current selection as Vim EX commands.
+"http://stackoverflow.com/questions/14385998/how-can-i-execute-the-current-line-as-vim-ex-commands
+nnoremap <F10> :exe getline(".")<CR>
+vnoremap <F10> :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR>
+
 ""for dictionary completion
 "inoremap <C-k> <c-x><c-k>
 
@@ -573,7 +578,8 @@ command! -range=% Rst :'<,'>!pandoc -f markdown -t rst
 " }}}
 
 " vim-nerdtree-tabs {{{
-noremap <F2> :NERDTreeTabsToggle<CR>
+noremap <F2> :NERDTreeToggle<CR>
+"noremap <F2> :NERDTreeTabsToggle<CR>
 " }}}
 
 " Tagbar {{{
