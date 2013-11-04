@@ -346,7 +346,7 @@ if has('win32') || has('win64')
 else
   "set guifont=Envy\ Code\ R\ for\ Powerline\ 10
   "set guifont=Consolas\ for\ Powerline\ 10
-  set guifont=DejaVu_Sans_Mono_for_Powerline:h9
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 endif
 "set guifont=Envy_Code_R_VS:h10:cANSI
 "set guifont=Inconsolata\ for\ Powerline:h11:cANSI
