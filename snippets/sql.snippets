@@ -3,10 +3,10 @@
 #############################################################
 #select
 snippet sel
-	SELECT ${1:column_name}
-	FROM [dbo].[${2:table_name}]
-	WHERE ${3:conditional}
-# proc
+	SELECT ${2:column_name}
+	FROM [dbo].[${1:table_name}]
+	WHERE ${3:condition}
+# procedure
 snippet proc
 	IF EXISTS (
 		SELECT 1
@@ -60,3 +60,5 @@ snippet ljoin
 snippet rjoin
 	RIGHT JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
 		ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}
+snippet nl
+	WITH(NOLOCK)

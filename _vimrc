@@ -340,14 +340,13 @@ set linespace=0
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-  set guifont=Envy_Code_R_for_Powerline:h10
-  "set guifont=Consolas_for_Powerline_FixedD:h10
-  "set guifont=DejaVu_Sans_Mono_for_Powerline:h10
-  "set guifontwide=DejaVu_Sans_Mono_for_Powerline:h10
+  "set guifont=Envy_Code_R_for_Powerline:h10
+  set guifont=Consolas_for_Powerline_FixedD:h10
+  "set guifont=DejaVu_Sans_Mono_for_Powerline:h9
 else
-  set guifont=Envy\ Code\ R\ for\ Powerline\ 10
+  "set guifont=Envy\ Code\ R\ for\ Powerline\ 10
   "set guifont=Consolas\ for\ Powerline\ 10
-  "set guifontwide=DejaVu_Sans_Mono_for_Powerline:h10
+  set guifont=DejaVu_Sans_Mono_for_Powerline:h9
 endif
 "set guifont=Envy_Code_R_VS:h10:cANSI
 "set guifont=Inconsolata\ for\ Powerline:h11:cANSI
@@ -736,7 +735,11 @@ let g:sql_type_default = "sqlserver"
 " }}}
 
 "airline {{{
-let g:airline_theme = 'sol'
+if &background=='light'
+    let g:airline_theme = 'wombat'
+else
+    let g:airline_theme = 'light'
+endif
 let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1
 
@@ -979,7 +982,7 @@ let g:Omnisharp_highlight_user_types=1
 " }}}
 
 " AutoComplPop {{{
-let g:acp_behaviorKeywordLength = 3
+let g:acp_behaviorKeywordLength = 1
 let g:acp_completeOption        = '.,w,b,k,t,i'
 " }}}
 
