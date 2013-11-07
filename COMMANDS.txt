@@ -117,7 +117,12 @@ find -type d -exec rmdir {} \; -> delete empty directories recursively
 :redir @a
 :set all
 :redir END
+:put! a           paste register a into new window
+:call setreg('+', getreg(':'))      "copy command to clipboard
 */
+
+
+
 
 #fc-cache -fv -> install fonts in Linux
 

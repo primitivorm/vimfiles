@@ -1,3 +1,4 @@
+"runtime bundle/tplugin_vim/macros/tplugin.vim
 "http://learnvimscriptthehardway.stevelosh.com/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM CONFIGURATION
@@ -17,7 +18,8 @@ let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 "------------------------------------------------------
 "call pathogen#infect()
 filetype off " required!
-call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 filetype on
 "------------------------------------------------------
@@ -35,7 +37,7 @@ set runtimepath+=~/vimfiles/bundle/vundle/
 set nocompatible " be iMproved
 "https://github.com/gmarik/vundle/issues/211
 "call vundle#rc()
-call vundle#rc('~/vimfiles/bundle')
+call vundle#rc('~/vimfiles/bundle/')
 "" let Vundle manage Vundle
 "" required!
 Bundle 'gmarik/vundle'
@@ -73,6 +75,7 @@ Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
+Bundle 'tpope/vim-characterize'
 "Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Lokaltog/powerline-fonts'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -126,7 +129,6 @@ Bundle 'kablamo/VimDebug'
 Bundle 'grep.vim'
 Bundle 'Thesaurus'
 Bundle 'FuzzyFinder'
-Bundle 'AutoComplPop'
 Bundle 'IndexedSearch'
 Bundle 'kien/ctrlp.vim'
 "Bundle 'SearchComplete'
@@ -135,9 +137,15 @@ Bundle 'tpope/vim-abolish'
 Bundle 'shemerey/vim-indexer'
 "for python
 Bundle 'sontek/rope-vim'
+Bundle 'nvie/vim-flake8'
+Bundle 'rygwdn/rope-omni'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'Word-Fuzzy-Completion'
 Bundle 'bronson/vim-visual-star-search'
+"deprecated
+Bundle 'AutoComplPop'
+"Bundle 'dirkwallenstein/vim-autocomplpop'
+Bundle 'dirkwallenstein/vim-localcomplete'
 "}}}
 
  " html {{{
@@ -146,7 +154,11 @@ Bundle 'othree/html5.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'hokaccha/vim-html5validator'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+if has('win32') || has('win64')
+    Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+else
+    Bundle 'rstacruz/sparkup', {'rtp': 'vim'}
+endif
 " }}}
 
 " javascript {{{
@@ -262,7 +274,7 @@ filetype plugin indent on " required!
 
 " Formatting {{{
 "http://vim.wikia.com/wiki/VimTip30
-set nrformats+=alpha
+set nrformats+=alpha,octal,hex
 set fileformats="unix,dos,mac"
 set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
@@ -340,16 +352,14 @@ set linespace=0
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-  "set guifont=Envy_Code_R_for_Powerline:h10
   set guifont=Consolas_for_Powerline_FixedD:h10
+  "set guifont=Envy_Code_R_for_Powerline:h10
   "set guifont=DejaVu_Sans_Mono_for_Powerline:h9
 else
+  set guifont=Consolas\ for\ Powerline\ 10
   "set guifont=Envy\ Code\ R\ for\ Powerline\ 10
-  "set guifont=Consolas\ for\ Powerline\ 10
-  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+  "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 endif
-"set guifont=Envy_Code_R_VS:h10:cANSI
-"set guifont=Inconsolata\ for\ Powerline:h11:cANSI
 " switch syntax highlighting on, when the terminal has colors
 syntax on
 "syntax enable
@@ -401,7 +411,7 @@ set nogdefault " search/replace "globally" (on a line) by default
 set ruler
 "mat
 set matchtime=3
-set matchpairs+=<:>
+set matchpairs+=<:>,(:),[:]
 
 " }}}
 
@@ -478,7 +488,7 @@ set guioptions+=a
 " Spell {{{
 "habilita corrector ortografico
 set nospell "active spell check
-set spelllang=es_MX "Carga el diccionario en o los lenguajes que necesitemos
+set spelllang=es_mx "Carga el diccionario en o los lenguajes que necesitemos
 "limit the number of suggested words
 set spellsuggest=best,10
 set dictionary+=~/vimfiles/spell/es_MX.dic
@@ -768,7 +778,7 @@ let g:session_command_aliases = 1
 "http://www.vim.org/scripts/script.php?script_id=152
 "https://github.com/vim-scripts/ShowMarks
 "---------------------------------------------------------
-let g:showmarks_enable=1
+let g:showmarks_enable=0
 "---------------------------------------------------------
 " }}}
 
@@ -838,8 +848,10 @@ let g:badwolf_css_props_highlight = 1
 "https://github.com/tomtom/tskeleton_vim
 "---------------------------------------------------------
 "my skeletons
-"let g:tskelTypes = ['skeleton']
-let g:tskelDir=$HOME . '/vimfiles/skeletons/'
+"avoid generate error at processing vundle\cache\tskel_menu\help
+set runtimepath+=~/vimfiles/bundle/vundle/tskeleton_vim/
+let g:tskelMenuCache = ''
+let g:tskelDir=$HOME . '/vimfiles/bundle/tskeletons/'
 let g:tskelUserName='Ing. Primitivo R. Montero'
 let g:tskelUserEmail='cibercafe_montero@hotmail.com'
 "autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
@@ -887,10 +899,10 @@ let g:mta_filetypes = {
 "https://github.com/tomtom/vimtlib/blob/master/INSTALL.TXT
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "for template generator add
-"runtime ~/bundle/vundle/tplugin_vim/macros/tplugin.vim
+"runtime bundle/tplugin_vim/macros/tplugin.vim
 "run :TPluginScan!
 set runtimepath+=~/vimfiles/bundle/vimtlib/
-let g:tplugin_autoload=1
+"let g:tplugin_autoload=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " }}}
 
@@ -976,14 +988,84 @@ let g:OmniSharp_typeLookupInPreview=0
 "when the first match contains parentheses.
 set noshowmatch
 "don't autoselect first item in omnicomplete, show if only one item (for preview)
-set completeopt=menuone,menu,longest
+"set completeopt=menuone,menu,longest
+set completeopt=menuone,menu
 let g:Omnisharp_highlight_user_types=1
 "---------------------------------------------------------
 " }}}
 
 " AutoComplPop {{{
-let g:acp_behaviorKeywordLength = 1
-let g:acp_completeOption        = '.,w,b,k,t,i'
+"---------------------------------------------------------
+" Remove dictionary lookup from the Vim keyword completion.  It did always
+" complete the first match for me.  If you edit files with tags you might
+" want to add those.
+"---------------------------------------------------------
+"let g:acp_completeOption              = '.,w,b'
+let g:acp_completeOption             = '.,w,b,k,t,i'
+let g:acp_behaviorKeywordLength       = 1
+let g:acp_behaviorSnipmateLength      = 1
+" How keyword completion is triggered.  Usually you want variables before
+" the current line.  ... Unless you write a file bottom up, that is.
+let g:acp_behaviorKeywordCommand      = "\<C-P>"
+let g:acp_behaviorUserDefinedMeets    = 'acp#meetsForKeyword'
+let g:acp_autoselectFirstCompletion   = 1
+let g:acp_behaviorUserDefinedFunction = 'localcomplete#localMatches'
+"http://vertuxeltes.blogspot.com/2013/05/powerful-insert-mode-completion.html
+let g:localcomplete#LocalMinPrefixLength = 1
+let g:localcomplete#AllBuffersMinPrefixLength = 1
+let g:localcomplete#DictMinPrefixLength = 3
+let g:acp_refeed_checkpoints = [
+            \ g:localcomplete#LocalMinPrefixLength,
+            \ g:localcomplete#AllBuffersMinPrefixLength,
+            \ g:localcomplete#DictMinPrefixLength]
+" Beware. Probably expensive (flickering)
+let g:acp_refeed_after_every_char = 0
+let g:localcomplete#AdditionalKeywordChars = '-'
+let g:acp_keyword_chars_for_checkpoint =
+            \ g:localcomplete#AdditionalKeywordChars
+let b:LocalCompleteLinesAboveToSearchCount = 15
+let b:LocalCompleteLinesBelowToSearchCount = 10
+"for python
+function! g:localFirstPythonCombiner(findstart, keyword_base)
+    let l:before_rope = [
+                \ 'localcomplete#localMatches',
+                \ ]
+    let l:after_rope = [
+                \ 'localcomplete#allBufferMatches',
+                \ ]
+    return combinerEXP#ropeCombiner(
+                \ a:findstart,
+                \ a:keyword_base,
+                \ l:before_rope,
+                \ l:after_rope,
+                \ 0)
+endfunction
+" Minimum leading word lengths
+let b:LocalCompleteLocalMinPrefixLength = 1
+let b:LocalCompleteAllBuffersMinPrefixLength = 3
+
+" Restart omni completion after these word lengths.
+let b:acp_refeed_checkpoints = [
+            \ b:LocalCompleteLocalMinPrefixLength,
+            \ b:LocalCompleteAllBuffersMinPrefixLength,
+            \ ]
+
+" Preemptively override global values
+let b:acp_refeed_after_every_char = 0
+let b:LocalCompleteAdditionalKeywordChars = '-'
+let b:acp_keyword_chars_for_checkpoint =
+            \ b:LocalCompleteAdditionalKeywordChars
+if ! exists("g:acp_behavior")
+    let g:acp_behavior={}
+endif
+let g:acp_behavior['python'] = [
+        \     {
+        \       'command': "\<C-X>\<C-U>",
+        \       'completefunc': 'g:localFirstPythonCombiner',
+        \       'meets': 'acp#meetsForPythonOmni',
+        \       'repeat': 1,
+        \     },]
+let g:acp_behaviorPythonOmniLength = 1
 " }}}
 
 " SuperTab {{{
@@ -1024,7 +1106,7 @@ let g:snipMate.scope_aliases['sql'] = 'sql'
 "https://github.com/vim-scripts/UltiSnips
 "------------------------------------------------------
 let g:UltiSnipsExpandTrigger               = '<c-space>'
-"let g:UltiSnipsListSnippets                = '<c-tab>'
+let g:UltiSnipsListSnippets                = '<c-tab>'
 let g:UltiSnipsJumpForwardTrigger          = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger         = '<c-k>'
 "------------------------------------------------------
@@ -1051,6 +1133,17 @@ let g:ConqueTerm_CodePage = 1
 let g:ConqueTerm_ColorMode = 'conceal'
 let g:ConqueTerm_SessionSupport = 1
 let g:ConqueTerm_CloseOnEnd = 1
+" }}}
+
+"Word-Fuzzy-Completion {{{
+"https://github.com/vim-scripts/Word-Fuzzy-Completion
+let g:fuzzywordcompletion_disable_keybinding=1
+"}}}
+
+
+" pydiction {{{
+"https://github.com/rkulla/pydiction
+let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
 " }}}
 
 "slimv {{{

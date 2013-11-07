@@ -194,6 +194,26 @@ nnoremap <c-f7> :set spell!<cr>
 nnoremap <f7> ]s
 nnoremap <s-f7> [s
 
+"http://superuser.com/questions/641946/add-file-specific-good-words-to-internal-vim-wordlist-via-modeline
+"http://superuser.com/questions/623336/how-does-one-add-a-word-containing-a-slash-to-ones-vim-spell-dictionary-file
+"http://superuser.com/questions/133208/how-to-make-vim-spellcheck-remember-a-new-word
+function! AutoSpellGoodWords()
+    let l:goodwords_start = search('\C-\*-SpellGoodWordsStart-\*-', 'wcn')
+    let l:goodwords_end = search('\C-\*-SpellGoodWordsEnd-\*-', 'wcn')
+    if l:goodwords_start == 0 || l:goodwords_end == 0
+        return
+    endif
+    let l:lines = getline(l:goodwords_start + 1, l:goodwords_end - 1)
+    let l:words = []
+    call map(l:lines, "extend(l:words, split(v:val, '\\W\\+'))")
+    for l:word in l:words
+        silent execute ':spellgood! ' . l:word
+    endfor
+endfunction
+
+"autocmd BufReadPost * call AutoSpellGoodWords()
+nnoremap <leader>as call AutoSpellGoodWords()<cr>
+
 "insert automatically } after insert {
 inoremap {<CR> {<CR>}<Esc>O
 " }}}
@@ -245,11 +265,16 @@ function! Smart_TabComplete()
   elseif (has_slash)
     return "\<C-X>\<C-F>"                         " file matching
   else
-    return "\<C-X>\<C-O>"                         " plugin matching
+    if pumvisible()
+      return "\<C-Y>"
+    else
+      return "\<C-X>\<C-O>"                         "omni completion
+    endif
   endif
 endfunction
 
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+imap <tab> <c-r>=Smart_TabComplete()<CR>
 "snipMate completion
 inoremap <C-space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
 " }}}

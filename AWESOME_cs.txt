@@ -14,7 +14,7 @@ Mod + f : Full screen
 Mod + Shift + c : Close / Kill
 
 Mod + MouseLeft : Move window (for floating windows)
-Mod + MouseRight : Resize window (for floating windows)
+Mod + MouseRigh
 
 Mod + o : Move window to next screen
 

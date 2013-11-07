@@ -6,7 +6,7 @@
 " convert tabs to spaces before writing file
 autocmd! BufWritePre *.cs setlocal expandtab | retab!
 " establece file format
-autocmd! BufReadPost *.cs set ft=cs
+autocmd! BufReadPost *.cs setlocal ft=cs
 "for each line in buffer rewrap on write
 "http://vim.wikia.com/wiki/Power_of_g
 autocmd! BufWritePre *.cs :g/\v\(.+,+.+\)/call argumentrewrap#RewrapArguments()
