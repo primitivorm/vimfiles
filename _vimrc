@@ -144,7 +144,7 @@ Bundle 'Word-Fuzzy-Completion'
 Bundle 'bronson/vim-visual-star-search'
 "deprecated
 Bundle 'AutoComplPop'
-"Bundle 'dirkwallenstein/vim-autocomplpop'
+Bundle 'dirkwallenstein/vim-autocomplpop'
 Bundle 'dirkwallenstein/vim-localcomplete'
 "}}}
 
