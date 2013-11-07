@@ -624,17 +624,6 @@ command! -nargs=0 OpenInTab call DoOpenInTab()
 ""---------------------------------------------------------
 "" }}}
 
-"MiniBufExpl {{{
-"------------------------------------------------------
-"https://github.com/fholgado/minibufexpl.vim
-"------------------------------------------------------
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-"------------------------------------------------------
-" }}}
-
 " CtrlP {{{
 "---------------------------------------------------------
 "https://github.com/kien/ctrlp.vim
@@ -1151,3 +1140,14 @@ let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
 let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
 let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe" -l "C:\lispbox-0.7\slime-20110205.092829\start-swank.lisp"'
 "}}}
+
+""MiniBufExpl {{{
+""------------------------------------------------------
+""https://github.com/fholgado/minibufexpl.vim
+""------------------------------------------------------
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
+""------------------------------------------------------
+"" }}}
