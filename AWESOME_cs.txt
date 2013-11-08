@@ -1,37 +1,66 @@
-http://wiki.colar.net/awesome_window_manager
-Awesome cheat sheet
+http://awesome.naquadah.org/wiki/Getting_started
+--------------------------------------
+ Keyboard
+===
+Mod + <return>
+    Launch a terminal
+Mod + r
+    Display a prompt in the bar to run a program. You have acces to an history (↑) and completion (↹).
+Mod + shift + c
+    Close the selected window.
+Mod + j, k
+    Select the next, previous window.
+Mod + shift + j,k
+    Move the selected window by swapping it with the next, previous one.
+Mod + Ctrl + Space
+    Toggle the floating attribute of the window.
+Mod + left, right
+    Display the previous, next tag.
+Mod + Ctrl + j
+    Change focus to next screen (using multiple monitors).
+Mod + o
+    Move window to next screen (using multiple monitors).
+Mod + shift + space
+    Change the layout (using ⇧ (Shift), doing so in the reverse order). To fully understand their caracteristics, try with many windows.
+Mod + shift + h,l
+    Increase, lower the number of master windows (only useful in some layouts).
+Mod + Ctrl + h,l
+    Increase, lower the number of columns for non-master windows (only useful in some layouts).
+Mod + Ctrl + r
+    Relaunch awesome: allows you to reload the configuration after you modified it.
+Mod + shift + q
+    Quit awesome
 
+Mouse
+===
+Right click in an empty region
+    Open a menu
+Click on a window name in the list
+    Focus and display this window.
+Mod + drag a window
+    Move the window. Freely if floating, swapping it with other ones if not.
+Mod + drag with right button
+    Resize a floating window, or the master zone in some layouts.
+Click on a tag name in the list
+    Display this tag.
+Scroll on the tag list
+    Display the previous or next tag.
+Mod + click on a tag name
+    Put the selected window in this tag.
 
-Most useful keyboard shortcuts (there are more):
-By default the "Mod" key is the windows/apple button (between Ctrl and Alt)
+https://github.com/tony/awesome-config
+--------------------------------------
+Features
 
-Windows (a.k.a clients):
-Mod + j : Next window
-Mod + k : Previous window
-Mod + Shift + 1-9 : Move window to workspace 1..9
-Mod + m : Maximize the window
-Mod + f : Full screen
-Mod + Shift + c : Close / Kill
-
-Mod + MouseLeft : Move window (for floating windows)
-Mod + MouseRigh
-
-Mod + o : Move window to next screen
-
-Workspaces: (a.k.a tags but more powerful)
-Mod + Left : Next workspace
-Mod + Right : Previous workspace
-Mod + 1-9 : Switch to workspace 1..9
-Mod + Ctrl + 1-9 : Toggle workspace 1..9 (allows to "see" multiple workspaces at the same time)
-
-Layouts:
-Mod + Space : Next layout (you can change on the fly)
-Mod + h : Make tile 5% larger
-Mod + l : Make tile 5% smaller
-
-Other useful things:
-Mod + RETURN: Start a terminal
-
+    Modkey + Shift + Enter is Terminal
+    Modkey + Control + r is reload rc.lua
+    Modkey + t to attach/detach window from tiles
+    Modkey + shift + t to toggle titlebars
+    Battery widget - autodetects if you have battery, adds widget
+    Network widget - pick your devices, eth0 for ethernet, wlan0 for wireless or custom
+    Number taglists in various number systems - arabic (1,2,3...), chinese
+    mpd widget - autodetects if song player, adds widget (requires curl)
+    Random background picker (requires feh)
 
 Apps
 ===

@@ -275,7 +275,9 @@ filetype plugin indent on " required!
 " Formatting {{{
 "http://vim.wikia.com/wiki/VimTip30
 set nrformats+=alpha,octal,hex
-set fileformats="unix,dos,mac"
+"set fileformats="unix,dos,mac"
+set fileformats=unix
+set display=uhex
 set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 " }}}
@@ -343,8 +345,6 @@ endif
 
 " Gui {{{
 set cursorline "cursorcolumn "underline the current line, for quick orientation
-" make the splitters between windows be blank
-"set fillchars=vert:\ ,stl:\ ,stlnc:\
 set fillchars=vert:\│
 "piexel space between lines
 set linespace=0
@@ -355,17 +355,19 @@ if has('win32') || has('win64')
   set guifont=Consolas_for_Powerline_FixedD:h10
   "set guifont=Envy_Code_R_for_Powerline:h10
   "set guifont=DejaVu_Sans_Mono_for_Powerline:h9
+  "set guifont=Meslo_LG_L_DZ_for_Powerline:h9
 else
   set guifont=Consolas\ for\ Powerline\ 10
   "set guifont=Envy\ Code\ R\ for\ Powerline\ 10
   "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+  "set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline:h9
 endif
 " switch syntax highlighting on, when the terminal has colors
 syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-set background=dark
+set background=light
 colorscheme proman
 
 "habilita soporte para plugins
@@ -472,6 +474,8 @@ set suffixesadd+=.c,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.java,.py,.li
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
+"for Meslo_LG_L_DZ_for_Powerline
+"set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
 set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 set vb t_vb= " Turn off visual bell, error flash
 set mouse=a " enable using the mouse if terminal emulator
@@ -734,11 +738,12 @@ let g:sql_type_default = "sqlserver"
 " }}}
 
 "airline {{{
-if &background=='light'
-    let g:airline_theme = 'wombat'
-else
-    let g:airline_theme = 'light'
-endif
+"if &background=='light'
+    "let g:airline_theme = 'wombat'
+"else
+    "let g:airline_theme = 'light'
+"endif
+let g:airline_theme = 'solarized'
 let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1
 
@@ -989,71 +994,68 @@ let g:Omnisharp_highlight_user_types=1
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
 "---------------------------------------------------------
-"let g:acp_completeOption              = '.,w,b'
-let g:acp_completeOption             = '.,w,b,k,t,i'
+let g:acp_completeOption              = '.,w,b'
+"let g:acp_completeOption             = '.,w,b,k,t,i'
 let g:acp_behaviorKeywordLength       = 1
-let g:acp_behaviorSnipmateLength      = 1
-" How keyword completion is triggered.  Usually you want variables before
-" the current line.  ... Unless you write a file bottom up, that is.
-let g:acp_behaviorKeywordCommand      = "\<C-P>"
-let g:acp_behaviorUserDefinedMeets    = 'acp#meetsForKeyword'
-let g:acp_autoselectFirstCompletion   = 1
-let g:acp_behaviorUserDefinedFunction = 'localcomplete#localMatches'
-"http://vertuxeltes.blogspot.com/2013/05/powerful-insert-mode-completion.html
+
+""http://vertuxeltes.blogspot.com/2013/05/powerful-insert-mode-completion.html
+"let g:acp_behaviorSnipmateLength     = 1
+"" How keyword completion is triggered.  Usually you want variables before
+"" the current line.  ... Unless you write a file bottom up, that is.
+"let g:acp_behaviorKeywordCommand      = "\<C-P>"
+"let g:acp_behaviorUserDefinedMeets    = 'acp#meetsForKeyword'
+let g:acp_autoselectFirstCompletion   = 0
+"let g:acp_behaviorUserDefinedFunction = 'localcomplete#localMatches'
 let g:localcomplete#LocalMinPrefixLength = 1
-let g:localcomplete#AllBuffersMinPrefixLength = 1
-let g:localcomplete#DictMinPrefixLength = 3
-let g:acp_refeed_checkpoints = [
-            \ g:localcomplete#LocalMinPrefixLength,
-            \ g:localcomplete#AllBuffersMinPrefixLength,
-            \ g:localcomplete#DictMinPrefixLength]
-" Beware. Probably expensive (flickering)
-let g:acp_refeed_after_every_char = 0
-let g:localcomplete#AdditionalKeywordChars = '-'
-let g:acp_keyword_chars_for_checkpoint =
-            \ g:localcomplete#AdditionalKeywordChars
+let g:localcomplete#AllBuffersMinPrefixLength = 3
+let g:localcomplete#DictMinPrefixLength = 4
 let b:LocalCompleteLinesAboveToSearchCount = 15
 let b:LocalCompleteLinesBelowToSearchCount = 10
-"for python
-function! g:localFirstPythonCombiner(findstart, keyword_base)
-    let l:before_rope = [
-                \ 'localcomplete#localMatches',
-                \ ]
-    let l:after_rope = [
-                \ 'localcomplete#allBufferMatches',
-                \ ]
-    return combinerEXP#ropeCombiner(
-                \ a:findstart,
-                \ a:keyword_base,
-                \ l:before_rope,
-                \ l:after_rope,
-                \ 0)
-endfunction
-" Minimum leading word lengths
+"let g:acp_refeed_checkpoints = [
+            "\ g:localcomplete#LocalMinPrefixLength,
+            "\ g:localcomplete#AllBuffersMinPrefixLength,
+            "\ g:localcomplete#DictMinPrefixLength]
+" Beware. Probably expensive (flickering)
+"let g:acp_refeed_after_every_char = 0
+"let g:localcomplete#AdditionalKeywordChars = '-'
+"let g:acp_keyword_chars_for_checkpoint =
+            "\ g:localcomplete#AdditionalKeywordChars
+""for python
+"function! g:localFirstPythonCombiner(findstart, keyword_base)
+    "let l:before_rope = [
+                "\ 'localcomplete#localMatches',
+                "\ ]
+    "let l:after_rope = [
+                "\ 'localcomplete#allBufferMatches',
+                "\ ]
+    "return combinerEXP#ropeCombiner(
+                "\ a:findstart,
+                "\ a:keyword_base,
+                "\ l:before_rope,
+                "\ l:after_rope,
+                "\ 0)
+"endfunction
+"" Minimum leading word lengths
 let b:LocalCompleteLocalMinPrefixLength = 1
 let b:LocalCompleteAllBuffersMinPrefixLength = 3
 
-" Restart omni completion after these word lengths.
-let b:acp_refeed_checkpoints = [
-            \ b:LocalCompleteLocalMinPrefixLength,
-            \ b:LocalCompleteAllBuffersMinPrefixLength,
-            \ ]
+"" Restart omni completion after these word lengths.
+"let b:acp_refeed_checkpoints = [
+            "\ b:LocalCompleteLocalMinPrefixLength,
+            "\ b:LocalCompleteAllBuffersMinPrefixLength,
+            "\ ]
 
 " Preemptively override global values
-let b:acp_refeed_after_every_char = 0
-let b:LocalCompleteAdditionalKeywordChars = '-'
-let b:acp_keyword_chars_for_checkpoint =
-            \ b:LocalCompleteAdditionalKeywordChars
-if ! exists("g:acp_behavior")
-    let g:acp_behavior={}
-endif
-let g:acp_behavior['python'] = [
-        \     {
-        \       'command': "\<C-X>\<C-U>",
-        \       'completefunc': 'g:localFirstPythonCombiner',
-        \       'meets': 'acp#meetsForPythonOmni',
-        \       'repeat': 1,
-        \     },]
+"if ! exists("g:acp_behavior")
+    "let g:acp_behavior={}
+"endif
+"let g:acp_behavior['python'] = [
+        "\     {
+        "\       'command': "\<C-X>\<C-U>",
+        "\       'completefunc': 'g:localFirstPythonCombiner',
+        "\       'meets': 'acp#meetsForPythonOmni',
+        "\       'repeat': 1,
+        "\     },]
 let g:acp_behaviorPythonOmniLength = 1
 " }}}
 
@@ -1126,7 +1128,8 @@ let g:ConqueTerm_CloseOnEnd = 1
 
 "Word-Fuzzy-Completion {{{
 "https://github.com/vim-scripts/Word-Fuzzy-Completion
-let g:fuzzywordcompletion_disable_keybinding=1
+"http://hetland.org/coding/python/levenshtein.py
+let g:fuzzywordcompletion_disable_keybinding=0
 "}}}
 
 

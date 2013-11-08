@@ -125,7 +125,7 @@ find -type d -exec rmdir {} \; -> delete empty directories recursively
 
 
 #fc-cache -fv -> install fonts in Linux
-
+$xrdb -merge ~/.Xresources  ->actualiza configuracion xterm
 install vim from cygwin
 $ svn --force export http://apt-cyg.googlecode.com/svn/trunk/ /bin/
 $ chmod +x /bin/apt-cyg
