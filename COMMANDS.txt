@@ -1334,6 +1334,14 @@ git branch old-master
 git reset --hard origin/master
 # merge your old master, keeping "our" (origin/master's) content
 git merge -s ours old-master
+
+->to add initial repository
+git init
+touch README
+git add README
+git commit -m 'first commit'
+git remote add origin https://github.com/primitivorm/awesome.git
+git push origin master
 -----------------------------------------------
 
 -----------------------------------------------
