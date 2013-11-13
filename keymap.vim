@@ -344,7 +344,7 @@ nnoremap <silent><leader>cn :let @* = expand("%:t")<CR>
 noremap <leader>hl :set hlsearch! hlsearch?<CR>
 
 " cd to the directory containing the file in the buffer
-map <silent><leader>cd :lcd %:h<CR>
+"map <silent><leader>cd :lcd %:h<CR>
 
 " Create the directory containing the file in the buffer
 map <silent><leader>md :!mkdir -p %:p:h<CR>

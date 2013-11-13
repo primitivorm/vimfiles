@@ -73,6 +73,7 @@ Bundle 'xolox/vim-session'
 Bundle 'majutsushi/tagbar'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
+Bundle 'airblade/vim-rooter'
 Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
@@ -128,13 +129,13 @@ Bundle 'kablamo/VimDebug'
 " search/complete tools {{{
 Bundle 'grep.vim'
 Bundle 'Thesaurus'
-Bundle 'FuzzyFinder'
 Bundle 'IndexedSearch'
 Bundle 'kien/ctrlp.vim'
-"Bundle 'SearchComplete'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'shemerey/vim-indexer'
+"Bundle 'FuzzyFinder'
+"Bundle 'SearchComplete'
 "for python
 Bundle 'sontek/rope-vim'
 Bundle 'nvie/vim-flake8'
@@ -345,29 +346,21 @@ endif
 
 " Gui {{{
 set cursorline "cursorcolumn "underline the current line, for quick orientation
-set fillchars=vert:\│
-"piexel space between lines
-set linespace=0
 "establece el esquema de colores
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-  set guifont=Consolas_for_Powerline_FixedD:h10
-  "set guifont=Envy_Code_R_for_Powerline:h10
-  "set guifont=DejaVu_Sans_Mono_for_Powerline:h9
-  "set guifont=Meslo_LG_L_DZ_for_Powerline:h9
+  set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
-  set guifont=Consolas\ for\ Powerline\ 10
-  "set guifont=Envy\ Code\ R\ for\ Powerline\ 10
-  "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-  "set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline:h9
+  set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline:h10
+  ",Consolas\ for\ Powerline\ 10,Envy\ Code\ R\ for\ Powerline\ 10,DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 endif
 " switch syntax highlighting on, when the terminal has colors
 syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-set background=light
+set background=dark
 colorscheme proman
 
 "habilita soporte para plugins
@@ -444,34 +437,10 @@ set switchbuf=useopen " reveal already opened files from the
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 
-" Enable omni completion. Not required if they are already set elsewhere in .vimrc
-autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal omnifunc=RopeCompleteFunc
-autocmd FileType c,cpp,h setlocal omnifunc=ccomplete#Complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-" ruby {{{
-"http://www.cuberick.com/2008/10/ruby-autocomplete-in-vim.html
-"http://www.vim.org/scripts/script.php?script_id=1662
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-" }}}
-
-" xmledit plugin {{{
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
-" }}}
-
-"For the most accurate but slowest result, set the syntax synchronization method to fromstart
-autocmd BufEnter * :syntax sync fromstart
-"suffixes added to command gf
-set suffixesadd+=.c,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.java,.py,.lisp,.perl
-"vbnet highlighting
-autocmd BufNewFile,BufRead *.vb set ft=vbnet
+"char for split
+set fillchars=vert:\│
+"piexel space between lines
+set linespace=0
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 "for Meslo_LG_L_DZ_for_Powerline
@@ -504,6 +473,36 @@ au FileType * exe('setl dict+='.$HOME.'/vimfiles/syntax/'.&filetype.'.vim')
 "dict for new words
 set spellfile=~/vimfiles/spell/dict.add
 " }}}
+
+" autocmd {{{
+" Enable omni completion. Not required if they are already set elsewhere in .vimrc
+autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=RopeCompleteFunc
+autocmd FileType c,cpp,h setlocal omnifunc=ccomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" ruby {{{
+"http://www.cuberick.com/2008/10/ruby-autocomplete-in-vim.html
+"http://www.vim.org/scripts/script.php?script_id=1662
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" }}}
+
+" xmledit plugin {{{
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
+" }}}
+
+"For the most accurate but slowest result, set the syntax synchronization method to fromstart
+autocmd BufEnter * :syntax sync fromstart
+"suffixes added to command gf
+set suffixesadd+=.c,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.java,.py,.lisp,.perl
+"vbnet highlighting
+autocmd BufNewFile,BufRead *.vb set ft=vbnet
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS
@@ -565,18 +564,6 @@ let g:NERDTreeIgnore=[
 "------------------------------------------------------
 " }}}
 
-"" NERDTree-Tabs {{{
-""------------------------------------------------------
-""https://github.com/jistr/vim-nerdtree-tabs
-""------------------------------------------------------
-"let g:nerdtree_tabs_open_on_console_startup = 1 "default 0
-""let g:nerdtree_tabs_autoclose               = 0 "default 1
-""let g:nerdtree_tabs_synchronize_focus       = 0 "default 1
-""let g:nerdtree_tabs_smart_startup_focus     = 2 "default 1
-""let g:nerdtree_tabs_synchronize_view        = 0  "default 1
-""------------------------------------------------------
-"" }}}
-
 " Tagbar {{{
 "---------------------------------------------------------
 " http://www.vim.org/scripts/script.php?script_id=3465
@@ -618,10 +605,11 @@ if (&diff==0)
     autocmd BufReadPost * OpenInTab
 endif
 function! DoOpenInTab()
-if(&modifiable && !&readonly )
-  tab ball
-  tabn
-endif
+    "&& !&readonly
+    if(&modifiable)
+        tab ball
+        tabn
+    endif
 endfunction
 command! -nargs=0 OpenInTab call DoOpenInTab()
 ""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -704,7 +692,6 @@ let g:dbext_default_profile_sql_qa='type=SQLSRV:srvname=10.48.68.8:dbname=amqa:u
 let g:dbext_default_profile_sql_qavw='type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qa40='type=SQLSRV:srvname=10.48.95.40:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw40='type=SQLSRV:srvname=10.48.95.40:dbname=amqavw:user=espejopruebas:passwd=12345678'
-
 
 "command to change Connection
 function! FnChangeDB()
@@ -816,7 +803,7 @@ let g:use_zen_complete_tag = 1
 "---------------------------------------------------------
 " }}}
 
-" badwolf {{{
+" badwolf colorscheme{{{
 "---------------------------------------------------------
 "https://github.com/sjl/badwolf
 "---------------------------------------------------------
@@ -1067,8 +1054,8 @@ let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-u>","&omnif
 let g:SuperTabClosePreviewOnPopupClose=1
 let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
 "defaults
-let g:SuperTabMappingForward = '<tab>'
-let g:SuperTabMappingBackward = '<s-tab>'
+"let g:SuperTabMappingForward = '<tab>'
+"let g:SuperTabMappingBackward = '<s-tab>'
 "---------------------------------------------------------
 " }}}
 
@@ -1143,14 +1130,3 @@ let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
 let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
 let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe" -l "C:\lispbox-0.7\slime-20110205.092829\start-swank.lisp"'
 "}}}
-
-""MiniBufExpl {{{
-""------------------------------------------------------
-""https://github.com/fholgado/minibufexpl.vim
-""------------------------------------------------------
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
-""------------------------------------------------------
-"" }}}
