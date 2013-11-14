@@ -350,7 +350,7 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-  set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,
+  set guifont=Consolas_for_Powerline_FixedD:h10,Meslo_LG_L_DZ_for_Powerline:h9,
               \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
   set guifont=Monaco\ 10,Andale\ Mono\ 10,Terminus\ Medium\ 12,
