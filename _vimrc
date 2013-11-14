@@ -350,10 +350,13 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-  set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
+  set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,
+              \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
-  set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline:h10
-  ",Consolas\ for\ Powerline\ 10,Envy\ Code\ R\ for\ Powerline\ 10,DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+  set guifont=Monaco\ 10,Andale\ Mono\ 10,Terminus\ Medium\ 12,
+              \Meslo\ LG\ L\ DZ\ for\ Powerline\ 10,
+              \Consolas\ for\ Powerline\ 10,Envy\ Code\ R\ for\ Powerline\ 10,
+              \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 endif
 " switch syntax highlighting on, when the terminal has colors
 syntax on
@@ -583,7 +586,7 @@ let g:tagbar_foldlevel   = 2    "default 99
 let g:tagbar_ctags_bin   = 'ctags'
 let g:tagbar_autofocus   = 0   "default 0
 let g:tagbar_expand      = 0
-"let g:tagbar_iconchars  = ['▸', '▾']
+let g:tagbar_iconchars  = ['▸', '▾']
 let g:tagbar_autoclose   = 0
 let g:tagbar_singleclick = 1
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
