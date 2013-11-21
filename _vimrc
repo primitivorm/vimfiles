@@ -557,7 +557,9 @@ let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeQuitOnOpen        = 1
 let g:NERDTreeMouseMode         = 2
 let NERDTreeShowHidden=1
-"let NERDTreeMapOpenInTab='<ENTER>'
+"open in new tab with Ctrl-Enter
+let NERDTreeMapOpenInTab='<c-cr>'
+let NERDTreeMapOpenInTabSilent='<c-cr>'
 "the working directory is always the one where the active buffer is located.
 set autochdir
 "I make sure the working directory is set correctly.
@@ -595,33 +597,6 @@ let g:tagbar_expand      = 0
 let g:tagbar_iconchars  = ['▸', '▾']
 let g:tagbar_autoclose   = 0
 let g:tagbar_singleclick = 1
-"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"multitabs
-"If you use multiple tabs and want Tagbar to also open in the current tab when
-"you switch to an already loaded, supported buffer
-"autocmd BufEnter * nested :call tagbar#autoopen(0)
-" uncomment this section for open new buffers in a tab always
-"always show tabs
-set showtabline=2
-if !&hidden
-  set hidden " hide buffers instead of closing them this
-  " means that the current buffer can be put
-  " to background without being written; and
-  " that marks and undo history are preserved
-endif
-if (&diff==0)
-    "Open files always in new tabs
-    autocmd BufReadPost * OpenInTab
-endif
-function! DoOpenInTab()
-    "&& !&readonly
-    if(&modifiable)
-        tab ball
-        tabn
-    endif
-endfunction
-command! -nargs=0 OpenInTab call DoOpenInTab()
-""~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ""---------------------------------------------------------
 "" }}}
 
@@ -650,11 +625,6 @@ if has('win32') || has('win64')
   set undodir=.,$TMP,$TEMP
   if &diff
     set shell=bash
-  else
-    set shell=powershell
-    set shellcmdflag=-c
-    set shellquote=\"
-    set shellxquote=
   endif
 else
   set directory=~/tmp,/tmp
