@@ -134,6 +134,9 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'shemerey/vim-indexer'
+Bundle 'leonid-shevtsov/vimrun-silent'
+"Bundle 'FuzzyFinder'
+"Bundle 'SearchComplete'
 "for python
 Bundle 'sontek/rope-vim'
 Bundle 'nvie/vim-flake8'
@@ -650,11 +653,6 @@ if has('win32') || has('win64')
   set undodir=.,$TMP,$TEMP
   if &diff
     set shell=bash
-  else
-    set shell=powershell
-    set shellcmdflag=-c
-    set shellquote=\"
-    set shellxquote=
   endif
 else
   set directory=~/tmp,/tmp
