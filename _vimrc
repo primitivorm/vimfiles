@@ -69,8 +69,11 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
 Bundle 'gcmt/taboo.vim'
-Bundle 'xolox/vim-session'
+Bundle 'benmills/vimux'
+Bundle 'xolox/vim-notes'
+Bundle 'ervandew/screen'
 Bundle 'majutsushi/tagbar'
+Bundle 'xolox/vim-session'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-rooter'
@@ -979,7 +982,7 @@ let g:acp_autoselectFirstCompletion   = 0
 "let g:acp_behaviorUserDefinedFunction = 'localcomplete#localMatches'
 let g:localcomplete#LocalMinPrefixLength = 1
 let g:localcomplete#AllBuffersMinPrefixLength = 3
-let g:localcomplete#DictMinPrefixLength = 4
+let g:localcomplete#DictMinPrefixLength = 3
 let b:LocalCompleteLinesAboveToSearchCount = 15
 let b:LocalCompleteLinesBelowToSearchCount = 10
 "let g:acp_refeed_checkpoints = [
@@ -1007,8 +1010,8 @@ let b:LocalCompleteLinesBelowToSearchCount = 10
                 "\ 0)
 "endfunction
 "" Minimum leading word lengths
-let b:LocalCompleteLocalMinPrefixLength = 1
-let b:LocalCompleteAllBuffersMinPrefixLength = 3
+"let b:LocalCompleteLocalMinPrefixLength = 1
+"let b:LocalCompleteAllBuffersMinPrefixLength = 3
 
 "" Restart omni completion after these word lengths.
 "let b:acp_refeed_checkpoints = [
@@ -1068,7 +1071,7 @@ let g:snipMate.scope_aliases['sql'] = 'sql'
 "https://github.com/vim-scripts/UltiSnips
 "------------------------------------------------------
 let g:UltiSnipsExpandTrigger               = '<c-space>'
-let g:UltiSnipsListSnippets                = '<c-tab>'
+let g:UltiSnipsListSnippets                = '<leader>u'
 let g:UltiSnipsJumpForwardTrigger          = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger         = '<c-k>'
 "------------------------------------------------------
@@ -1084,18 +1087,18 @@ set equalprg=astyle
 "---------------------------------------------------------
 " }}}
 
-" Conque {{{
-"http://code.google.com/p/conque/
-"http://code.google.com/p/conque/wiki/Usage
-let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
-let g:ConqueTerm_FastMode = 1
-let g:ConqueTerm_ToggleKey = '<F8>'
-let g:ConqueTerm_PyExe = 'C:/Python27/python.exe'
-let g:ConqueTerm_CodePage = 1
-let g:ConqueTerm_ColorMode = 'conceal'
-let g:ConqueTerm_SessionSupport = 1
-let g:ConqueTerm_CloseOnEnd = 1
-" }}}
+"" Conque {{{
+""http://code.google.com/p/conque/
+""http://code.google.com/p/conque/wiki/Usage
+"let g:ConqueTerm_PromptRegex = '^\w\+@[0-9A-Za-z_.-]\+:[0-9A-Za-z_./\~,:-]\+\$'
+"let g:ConqueTerm_FastMode = 1
+"let g:ConqueTerm_ToggleKey = '<F8>'
+"let g:ConqueTerm_PyExe = 'C:/Python27/python.exe'
+"let g:ConqueTerm_CodePage = 1
+"let g:ConqueTerm_ColorMode = 'conceal'
+"let g:ConqueTerm_SessionSupport = 1
+"let g:ConqueTerm_CloseOnEnd = 1
+"" }}}
 
 "Word-Fuzzy-Completion {{{
 "https://github.com/vim-scripts/Word-Fuzzy-Completion

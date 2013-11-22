@@ -250,17 +250,15 @@ function! Smart_TabComplete()
                                                   " line to one character right
                                                   " of the cursor
   let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
+  if strlen(substr)==0                          " nothing to match on empty string
     return "\<tab>"
   endif
   let has_period = match(substr, '\.') != -1      " position of period, if any
   let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
+  if !has_period && !has_slash
     "check if autocomplpop is visible
-    if pumvisible()
-      return "\<C-Y>"                             "select current word
-    else
-      return "\<C-X>\<C-U>"                         " wordfuzzycompletion
+    if !pumvisible()
+      return "\<C-X>\<C-U>"                       " wordfuzzycompletion
     endif
   elseif (has_slash)
     return "\<C-X>\<C-F>"                         " file matching
@@ -272,7 +270,7 @@ endfunction
 "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 imap <tab> <c-r>=Smart_TabComplete()<CR>
 "snipMate completion
-inoremap <C-space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
+"inoremap <C-space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
 " }}}
 
 " Highlight all words when press <CR> {{{
