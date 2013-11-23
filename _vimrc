@@ -90,14 +90,18 @@ Bundle 'AutoAlign'
 Bundle 'tpope/vim-ragtag'
 "autoclose endfunction, endif, etc...
 Bundle 'tpope/vim-endwise'
+Bundle 'vim-scripts/Align'
 Bundle 'godlygeek/tabular'
 "autoclose {[(
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/cecutil'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Chiel92/vim-autoformat'
 "highlighting tags
-Bundle 'valloric/MatchTagAlways'
+"Bundle 'valloric/MatchTagAlways'
+Bundle 'primitivorm/MatchTagAlways'
+Bundle 'primitivorm/vim-swap-lines'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'scrooloose/nerdcommenter'
@@ -212,7 +216,7 @@ Bundle 'heaths/vim-msbuild'
 
 " c++ {{{
 Bundle 'c.vim'
-Bundle 'refactor'
+"Bundle 'refactor'
 " }}}
 
 " sql {{{
