@@ -62,6 +62,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'bash-support.vim'
 Bundle 'tomtom/tplugin_vim'
 Bundle 'tpope/vim-dispatch'
+Bundle 'vim-scripts/cecutil'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 " }}}
 
@@ -69,9 +70,6 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
 Bundle 'gcmt/taboo.vim'
-Bundle 'benmills/vimux'
-Bundle 'xolox/vim-notes'
-Bundle 'ervandew/screen'
 Bundle 'majutsushi/tagbar'
 Bundle 'xolox/vim-session'
 Bundle 'bling/vim-airline'
@@ -80,8 +78,8 @@ Bundle 'airblade/vim-rooter'
 Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
-"Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Lokaltog/powerline-fonts'
+Bundle 'vim-scripts/TaskList.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 " }}}
 
@@ -92,19 +90,19 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-endwise'
 Bundle 'vim-scripts/Align'
 Bundle 'godlygeek/tabular'
+
 "autoclose {[(
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/cecutil'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Chiel92/vim-autoformat'
-"highlighting tags
-"Bundle 'valloric/MatchTagAlways'
-Bundle 'primitivorm/MatchTagAlways'
-Bundle 'primitivorm/vim-swap-lines'
+
+"highlighting tags {{{
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'primitivorm/MatchTagAlways'
+Bundle 'primitivorm/vim-swap-lines'
 Bundle 'jakobwesthoff/argumentrewrap'
 Bundle 'quentindecock/vim-cucumber-align-pipes'
 " }}}
@@ -136,22 +134,20 @@ Bundle 'kablamo/VimDebug'
 " search/complete tools {{{
 Bundle 'grep.vim'
 Bundle 'Thesaurus'
+Bundle 'AutoComplPop'
 Bundle 'IndexedSearch'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'shemerey/vim-indexer'
-"for python
-Bundle 'sontek/rope-vim'
-Bundle 'nvie/vim-flake8'
-Bundle 'rygwdn/rope-omni'
-Bundle 'davidhalter/jedi-vim'
 Bundle 'Word-Fuzzy-Completion'
+Bundle 'primitivorm/vim-localcomplete'
 Bundle 'bronson/vim-visual-star-search'
-"deprecated
-Bundle 'AutoComplPop'
-Bundle 'dirkwallenstein/vim-autocomplpop'
-Bundle 'dirkwallenstein/vim-localcomplete'
+"for python
+Bundle 'nvie/vim-flake8'
+Bundle 'sontek/rope-vim'
+Bundle 'primitivorm/jedi-vim'
+Bundle 'alfredodeza/pytest.vim'
 "}}}
 
  " html {{{
@@ -216,7 +212,6 @@ Bundle 'heaths/vim-msbuild'
 
 " c++ {{{
 Bundle 'c.vim'
-"Bundle 'refactor'
 " }}}
 
 " sql {{{
@@ -233,7 +228,7 @@ Bundle 'sukima/xmledit'
 "}}}
 
 " python {{{
-Bundle 'rkulla/pydiction'
+Bundle 'primitivorm/pydiction'
 Bundle 'fs111/pydoc.vim.git'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'mitechie/pyflakes-pathogen'
@@ -494,8 +489,6 @@ set spellfile=~/vimfiles/spell/dict.add
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType python setlocal omnifunc=RopeCompleteFunc
 autocmd FileType c,cpp,h setlocal omnifunc=ccomplete#Complete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
@@ -972,68 +965,9 @@ let g:Omnisharp_highlight_user_types=1
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
 "---------------------------------------------------------
-let g:acp_completeOption              = '.,w,b'
-"let g:acp_completeOption             = '.,w,b,k,t,i'
-let g:acp_behaviorKeywordLength       = 1
-
-""http://vertuxeltes.blogspot.com/2013/05/powerful-insert-mode-completion.html
-"let g:acp_behaviorSnipmateLength     = 1
-"" How keyword completion is triggered.  Usually you want variables before
-"" the current line.  ... Unless you write a file bottom up, that is.
-"let g:acp_behaviorKeywordCommand      = "\<C-P>"
-"let g:acp_behaviorUserDefinedMeets    = 'acp#meetsForKeyword'
-let g:acp_autoselectFirstCompletion   = 0
-"let g:acp_behaviorUserDefinedFunction = 'localcomplete#localMatches'
-let g:localcomplete#LocalMinPrefixLength = 1
-let g:localcomplete#AllBuffersMinPrefixLength = 3
-let g:localcomplete#DictMinPrefixLength = 3
-let b:LocalCompleteLinesAboveToSearchCount = 15
-let b:LocalCompleteLinesBelowToSearchCount = 10
-"let g:acp_refeed_checkpoints = [
-            "\ g:localcomplete#LocalMinPrefixLength,
-            "\ g:localcomplete#AllBuffersMinPrefixLength,
-            "\ g:localcomplete#DictMinPrefixLength]
-" Beware. Probably expensive (flickering)
-"let g:acp_refeed_after_every_char = 0
-"let g:localcomplete#AdditionalKeywordChars = '-'
-"let g:acp_keyword_chars_for_checkpoint =
-            "\ g:localcomplete#AdditionalKeywordChars
-""for python
-"function! g:localFirstPythonCombiner(findstart, keyword_base)
-    "let l:before_rope = [
-                "\ 'localcomplete#localMatches',
-                "\ ]
-    "let l:after_rope = [
-                "\ 'localcomplete#allBufferMatches',
-                "\ ]
-    "return combinerEXP#ropeCombiner(
-                "\ a:findstart,
-                "\ a:keyword_base,
-                "\ l:before_rope,
-                "\ l:after_rope,
-                "\ 0)
-"endfunction
-"" Minimum leading word lengths
-"let b:LocalCompleteLocalMinPrefixLength = 1
-"let b:LocalCompleteAllBuffersMinPrefixLength = 3
-
-"" Restart omni completion after these word lengths.
-"let b:acp_refeed_checkpoints = [
-            "\ b:LocalCompleteLocalMinPrefixLength,
-            "\ b:LocalCompleteAllBuffersMinPrefixLength,
-            "\ ]
-
-" Preemptively override global values
-"if ! exists("g:acp_behavior")
-    "let g:acp_behavior={}
-"endif
-"let g:acp_behavior['python'] = [
-        "\     {
-        "\       'command': "\<C-X>\<C-U>",
-        "\       'completefunc': 'g:localFirstPythonCombiner',
-        "\       'meets': 'acp#meetsForPythonOmni',
-        "\       'repeat': 1,
-        "\     },]
+let g:acp_completeOption           = '.,w,b'
+"let g:acp_completeOption          = '.,w,b,k,t,i'
+let g:acp_behaviorKeywordLength    = 1
 let g:acp_behaviorPythonOmniLength = 1
 " }}}
 
@@ -1074,8 +1008,8 @@ let g:snipMate.scope_aliases['sql'] = 'sql'
 "------------------------------------------------------
 "https://github.com/vim-scripts/UltiSnips
 "------------------------------------------------------
-let g:UltiSnipsExpandTrigger               = '<c-space>'
-let g:UltiSnipsListSnippets                = '<leader>u'
+let g:UltiSnipsExpandTrigger               = '<tab>'
+let g:UltiSnipsListSnippets                = '<c-tab>'
 let g:UltiSnipsJumpForwardTrigger          = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger         = '<c-k>'
 "------------------------------------------------------
@@ -1114,6 +1048,7 @@ let g:fuzzywordcompletion_disable_keybinding=0
 " pydiction {{{
 "https://github.com/rkulla/pydiction
 let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
+autocmd FileType python setlocal completeopt-=preview
 " }}}
 
 "slimv {{{
@@ -1126,5 +1061,15 @@ else
 endif
 "}}}
 
+"jedi-vim {{{{
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "1"
+let g:jedi#auto_initialization=0
 
+"}}}
 

@@ -239,11 +239,9 @@ inoremap <c-d> <c-x><c-d>
 nnoremap <F10> :exe getline(".")<CR>
 vnoremap <F10> :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR>
 
-""for dictionary completion
-"inoremap <C-k> <c-x><c-k>
-
 "http://stackoverflow.com/questions/15870365/why-is-tab-completion-wildmenu-not-working
 function! Smart_TabComplete()
+  print "enter to Smart_TabComplete"
   let line = getline('.')                         " current line
 
   let substr = strpart(line, -1, col('.')+1)      " from the start of the current
@@ -269,8 +267,9 @@ endfunction
 
 "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 imap <tab> <c-r>=Smart_TabComplete()<CR>
+"imap <C-Space> <c-r>=Smart_TabComplete()<CR>
 "snipMate completion
-"inoremap <C-space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
+inoremap <C-Space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
 " }}}
 
 " Highlight all words when press <CR> {{{
