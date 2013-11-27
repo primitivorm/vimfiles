@@ -470,7 +470,7 @@ set guioptions+=a
 
 " Spell {{{
 "habilita corrector ortografico
-set spell "active spell check
+set nospell "active spell check
 "http://precheur.org/vim/create_spell_file_for_vim
 set spelllang=es,en "Carga el diccionario en o los lenguajes que necesitemos
 "limit the number of suggested words
