@@ -5,11 +5,14 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Source {{{
+" Source the vimrc file after saving it
+let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 "https://github.com/tpope/tpope/blob/master/.vimrc
 " Key mappings, functions, auto commands
 source $HOME/vimfiles/keymap.vim
-" Source the vimrc file after saving it
-let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
+"for windows compatible
+source $HOME/vimfiles/mswin.vim
+behave mswin
 " }}}
 
 " Pathogen {{{
@@ -346,6 +349,7 @@ if has("multi_byte")
   set fileencodings=ucs-bom,utf-8,latin1
   au BufEnter * if &fileencoding == "" | set fileencoding=latin2 | endif
 endif
+
 " }}}
 
 " Gui {{{
@@ -466,6 +470,10 @@ set guioptions+=b  "remove right-hand scroll bar
 set guioptions+=c
 " allow pasting into other applications after visual selection
 set guioptions+=a
+
+" Since I use linux, I want this
+let g:clipbrdDefaultReg = '+'
+
 " }}}
 
 " Spell {{{
@@ -1008,10 +1016,10 @@ let g:snipMate.scope_aliases['sql'] = 'sql'
 "------------------------------------------------------
 "https://github.com/vim-scripts/UltiSnips
 "------------------------------------------------------
-let g:UltiSnipsExpandTrigger               = '<tab>'
-let g:UltiSnipsListSnippets                = '<c-tab>'
-let g:UltiSnipsJumpForwardTrigger          = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger         = '<c-k>'
+let g:UltiSnipsExpandTrigger               = '<C-Space>'
+let g:UltiSnipsListSnippets                = '<C-S-Space>'
+let g:UltiSnipsJumpForwardTrigger          = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger         = '<S-tab>'
 "------------------------------------------------------
 " }}}
 
@@ -1041,7 +1049,7 @@ set equalprg=astyle
 "Word-Fuzzy-Completion {{{
 "https://github.com/vim-scripts/Word-Fuzzy-Completion
 "http://hetland.org/coding/python/levenshtein.py
-let g:fuzzywordcompletion_disable_keybinding=0
+let g:fuzzywordcompletion_disable_keybinding=1
 "}}}
 
 

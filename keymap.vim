@@ -5,9 +5,13 @@ let mapleader=","
 
 " Opening files located in the same directory as the current file {{{
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+"open in the same window replace existent
 map <leader>ew :e %%
+"split horizontal
 map <leader>es :sp %%
+"split vertical
 map <leader>ev :vsp %%
+"open in a new tab
 map <leader>et :tabe %%
 " }}}
 
@@ -68,14 +72,13 @@ nnoremap <C-A-Up>    : res -1<cr>
 
 " Tab maps {{{0
 " Tab navigation like Firefox
-nnoremap <silent><C-Tab> : tabnext<cr>
-nnoremap <silent><S-Tab> : tabprev<cr>
-nnoremap <silent><C-F4>  : tabclose<cr>
-nnoremap <silent><C-T>  : tabnew<cr>
-
+nnoremap <silent><C-Tab> :  tabnext<cr>
+nnoremap <silent><S-Tab> :  tabprev<cr>
+nnoremap <silent><C-F4>  :  tabclose<cr>
+nnoremap <silent><C-T>  :   tabnew<cr>
 "http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
 "Move tab to Left
-function TabLeft()
+function! TabLeft()
    let tab_number = tabpagenr() - 1
    if tab_number == 0
       execute "tabm" tabpagenr('$') - 1
@@ -85,7 +88,7 @@ function TabLeft()
 endfunction
 
 "Move tab to Right
-function TabRight()
+function! TabRight()
    let tab_number = tabpagenr() - 1
    let last_tab_number = tabpagenr('$') - 1
    if tab_number == last_tab_number
@@ -167,6 +170,18 @@ nnoremap <leader>x "+x
 vnoremap <leader>y "+y
 vnoremap <leader>x "+x
 nmap Y yy
+
+"like other editors
+"new file
+nnoremap <silent><C-N>  :   tabnew<cr>
+"open file
+if has('win32') || has('win64')
+    nmap <c-o> :browse confirm e<cr>
+    nmap <c-s-s> :browse confirm saveas<cr>
+else
+    nmap <c-o> :tabe %%
+    nmap <c-s-s> :sav new_file_name
+endif
 
 " Use CTRL-S for saving, also in Insert mode
 noremap <C-S>       :update<CR>
@@ -269,7 +284,7 @@ endfunction
 imap <tab> <c-r>=Smart_TabComplete()<CR>
 "imap <C-Space> <c-r>=Smart_TabComplete()<CR>
 "snipMate completion
-inoremap <C-Space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
+"inoremap <C-Space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
 " }}}
 
 " Highlight all words when press <CR> {{{
@@ -356,10 +371,9 @@ map! <S-Insert> <MiddleMouse>
 nmap <leader>l :set list!<CR>
 
 " Edit the vimrc file
+" source $MYVIMRC
 nnoremap <silent><leader>ed :e $MYVIMRC<CR>
 nnoremap <silent><leader>sv :so $MYVIMRC<CR>
-" nmap <leader>v :tabedit $MYVIMRC<CR>
-" source $MYVIMRC
 
 " Pull word under cursor into LHS of a substitute (for quick search and
 " replace)
@@ -387,9 +401,6 @@ vnoremap <Space> za
 
 " Reselect text that was just pasted with ,v
 nnoremap <leader>v V`]
-
-" Since I use linux, I want this
-let g:clipbrdDefaultReg = '+'
 
 " }}}
 
