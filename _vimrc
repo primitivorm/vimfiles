@@ -3,7 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM CONFIGURATION
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Source {{{
 " Source the vimrc file after saving it
 let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
@@ -283,8 +282,8 @@ filetype plugin indent on " required!
 " Formatting {{{
 "http://vim.wikia.com/wiki/VimTip30
 set nrformats+=alpha,octal,hex
-"set fileformats="unix,dos,mac"
-set fileformats=unix
+set fileformats="unix,dos,mac"
+"set fileformats=unix
 set display=uhex
 set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
@@ -339,15 +338,13 @@ set modeline
 " Encoding {{{
 " use utf8 encoding for vim files and for default file encoding
 "scriptencoding utf-8
-set fenc=utf-8
 if has("multi_byte")
   if &termencoding == ""
     let &termencoding = &encoding
   endif
   set encoding=utf-8
   setglobal fileencoding=utf-8
-  set fileencodings=ucs-bom,utf-8,latin1
-  au BufEnter * if &fileencoding == "" | set fileencoding=latin2 | endif
+  set fileencodings=ucs-bom,utf-8,ucs-2le,latin1
 endif
 
 " }}}
@@ -361,7 +358,7 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-  set guifont=Monaco:h9,Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,
+  set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,Monaco:h9,
               \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
   set guifont=Monaco\ 9,Andale\ Mono\ 10,Terminus\ Medium\ 12,
@@ -450,14 +447,14 @@ set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 
 "char for split
-set fillchars=vert:\│
+set fillchars=vert:\â”‚
 "piexel space between lines
 set linespace=0
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 "for Meslo_LG_L_DZ_for_Powerline
-"set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+"set listchars=tab:â–¸\-,trail:آ·,eol:â†µ,extends:â†’,precedes:â†گ,nbsp:أ—
+set listchars=tab:â–¸\-,trail:آ·,eol:آ¬,extends:â†’,precedes:â†گ,nbsp:أ—
 set vb t_vb= " Turn off visual bell, error flash
 set mouse=a " enable using the mouse if terminal emulator
 set mousemodel=popup_setpos
@@ -600,7 +597,7 @@ let g:tagbar_foldlevel   = 2    "default 99
 let g:tagbar_ctags_bin   = 'ctags'
 let g:tagbar_autofocus   = 0   "default 0
 let g:tagbar_expand      = 0
-let g:tagbar_iconchars  = ['▸', '▾']
+let g:tagbar_iconchars  = ['â–¸', 'â–¾']
 let g:tagbar_autoclose   = 0
 let g:tagbar_singleclick = 1
 ""---------------------------------------------------------
@@ -725,15 +722,15 @@ let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1
 
 " vim-powerline symbols
-let g:airline_left_sep          = '⮀'
-let g:airline_left_alt_sep      = '⮁'
-let g:airline_right_sep         = '⮂'
-let g:airline_right_alt_sep     = '⮃'
-let g:airline_branch_prefix     = '⭠'
+let g:airline_left_sep          = 'â®€'
+let g:airline_left_alt_sep      = 'â®پ'
+let g:airline_right_sep         = 'â®‚'
+let g:airline_right_alt_sep     = 'â®ƒ'
+let g:airline_branch_prefix     = 'â­ '
 let g:airline_powerline_fonts = 1
-let g:airline_readonly_symbol   = '⭤'
-let g:airline_linecolumn_prefix = '⭡'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_readonly_symbol   = 'â­¤'
+let g:airline_linecolumn_prefix = 'â­،'
+let g:airline#extensions#tabline#enabled = 0
 "}}}
 
 " vim-session {{{
