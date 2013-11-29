@@ -8,11 +8,11 @@
 " Source the vimrc file after saving it
 let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 "https://github.com/tpope/tpope/blob/master/.vimrc
-" Key mappings, functions, auto commands
-source $HOME/vimfiles/keymap.vim
 "for windows compatible
 source $HOME/vimfiles/mswin.vim
 behave mswin
+" Key mappings, functions, auto commands
+source $HOME/vimfiles/keymap.vim
 " }}}
 
 " Pathogen {{{

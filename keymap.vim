@@ -175,7 +175,7 @@ nmap Y yy
 "new file
 nnoremap <silent><C-N>  :   tabnew<cr>
 "open file
-if has('win32') || has('win64')
+if has('gui_running')
     nmap <c-o> :browse confirm e<cr>
     nmap <c-s-s> :browse confirm saveas<cr>
 else
