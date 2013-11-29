@@ -361,8 +361,8 @@ if has('win32') || has('win64')
   set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,Monaco:h9,
               \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
-  set guifont=Monaco\ 9,Andale\ Mono\ 10,Terminus\ Medium\ 12,
-              \Meslo\ LG\ L\ DZ\ for\ Powerline\ 10,
+  set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline\ 10,
+              \Monaco\ 9,Andale\ Mono\ 10,Terminus\ Medium\ 12,
               \Consolas\ for\ Powerline\ 10,Envy\ Code\ R\ for\ Powerline\ 10,
               \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 endif
@@ -447,14 +447,14 @@ set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 
 "char for split
-set fillchars=vert:\â”‚
+set fillchars=vert:\│
 "piexel space between lines
 set linespace=0
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 "for Meslo_LG_L_DZ_for_Powerline
-"set listchars=tab:â–¸\-,trail:آ·,eol:â†µ,extends:â†’,precedes:â†گ,nbsp:أ—
-set listchars=tab:â–¸\-,trail:آ·,eol:آ¬,extends:â†’,precedes:â†گ,nbsp:أ—
+"set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 set vb t_vb= " Turn off visual bell, error flash
 set mouse=a " enable using the mouse if terminal emulator
 set mousemodel=popup_setpos
