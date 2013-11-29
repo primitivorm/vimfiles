@@ -361,7 +361,7 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
-  set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,
+  set guifont=Monaco:h9,Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,
               \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
   set guifont=Monaco\ 9,Andale\ Mono\ 10,Terminus\ Medium\ 12,
@@ -436,8 +436,6 @@ set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 " }}}
 
 " Editor layout {{{
-set termencoding=utf-8
-set encoding=utf-8
 set lazyredraw " don't update the display while executing macros
 set laststatus=2 " tell VIM to always put a status line in, even
 " if there is only one window
