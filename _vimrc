@@ -71,7 +71,8 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 " gui {{{
 Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
-Bundle 'gcmt/taboo.vim'
+"airline support tabs
+"Bundle 'gcmt/taboo.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'xolox/vim-session'
 Bundle 'bling/vim-airline'
@@ -361,8 +362,9 @@ if has('win32') || has('win64')
   set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,Monaco:h9,
               \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
-  set guifont=Meslo\ LG\ L\ DZ\ for\ Powerline\ 10,
-              \Monaco\ 9,Andale\ Mono\ 10,Terminus\ Medium\ 12,
+  set guifont=Terminus\ Medium\ 12,
+              \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
+              \Meslo\ LG\ L\ DZ\ for\ Powerline\ 10,
               \Consolas\ for\ Powerline\ 10,Envy\ Code\ R\ for\ Powerline\ 10,
               \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 endif
@@ -563,6 +565,7 @@ let NERDTreeShowHidden=1
 "open in new tab with Ctrl-Enter
 let NERDTreeMapOpenInTab='<c-cr>'
 let NERDTreeMapOpenInTabSilent='<c-cr>'
+let g:NERDTreeDirArrows=1
 "the working directory is always the one where the active buffer is located.
 set autochdir
 "I make sure the working directory is set correctly.
@@ -597,7 +600,7 @@ let g:tagbar_foldlevel   = 2    "default 99
 let g:tagbar_ctags_bin   = 'ctags'
 let g:tagbar_autofocus   = 0   "default 0
 let g:tagbar_expand      = 0
-let g:tagbar_iconchars  = ['â–¸', 'â–¾']
+let g:tagbar_iconchars  = ['▸', '▾']
 let g:tagbar_autoclose   = 0
 let g:tagbar_singleclick = 1
 ""---------------------------------------------------------
@@ -712,25 +715,25 @@ let g:sql_type_default = "sqlserver"
 " }}}
 
 "airline {{{
-"if &background=='light'
-    "let g:airline_theme = 'wombat'
-"else
-    "let g:airline_theme = 'light'
-"endif
-let g:airline_theme = 'solarized'
+if &background=='light'
+    let g:airline_theme = 'light'
+else
+    let g:airline_theme = 'wombat'
+endif
+"let g:airline_theme = 'solarized'
 let g:airline_enable_branch     = 1
 let g:airline_enable_syntastic  = 1
 
 " vim-powerline symbols
-let g:airline_left_sep          = 'â®€'
-let g:airline_left_alt_sep      = 'â®پ'
-let g:airline_right_sep         = 'â®‚'
-let g:airline_right_alt_sep     = 'â®ƒ'
-let g:airline_branch_prefix     = 'â­ '
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_branch_prefix = '⭠'
 let g:airline_powerline_fonts = 1
-let g:airline_readonly_symbol   = 'â­¤'
-let g:airline_linecolumn_prefix = 'â­،'
-let g:airline#extensions#tabline#enabled = 0
+let g:airline_readonly_symbol = '⭤'
+let g:airline_linecolumn_prefix = '⭡'
+let g:airline#extensions#tabline#enabled = 1
 "}}}
 
 " vim-session {{{
@@ -1073,6 +1076,4 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "1"
 let g:jedi#auto_initialization=0
-
 "}}}
-

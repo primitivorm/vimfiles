@@ -1,7 +1,7 @@
 " Set options and add mapping such that Vim behaves a lot like MS-Windows
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2012 Jul 25
+" Maintainer: Bram Moolenaar <Bram@vim.org>
+" Last change: 2012 Jul 25
 
 " bail out if this isn't wanted (mrsvim.vim uses this).
 if exists("g:skip_loading_mswin") && g:skip_loading_mswin
@@ -9,7 +9,7 @@ if exists("g:skip_loading_mswin") && g:skip_loading_mswin
 endif
 
 " set the 'cpoptions' to its Vim default
-if 1	" only do this when compiled with expression evaluation
+if 1 " only do this when compiled with expression evaluation
   let s:save_cpo = &cpoptions
 endif
 set cpo&vim
@@ -32,11 +32,11 @@ vnoremap <C-C> "+y
 vnoremap <C-Insert> "+y
 
 " CTRL-V and SHIFT-Insert are Paste
-map <C-V>		"+gP
-map <S-Insert>		"+gP
+map <C-V> "+gP
+map <S-Insert> "+gP
 
-cmap <C-V>		<C-R>+
-cmap <S-Insert>		<C-R>+
+cmap <C-V> <C-R>+
+cmap <S-Insert> <C-R>+
 
 " Pasting blockwise and linewise selections is not possible in Insert and
 " Visual mode without the +virtualedit feature.  They are pasted as if they
@@ -47,16 +47,16 @@ cmap <S-Insert>		<C-R>+
 exe 'inoremap <script> <C-V> <C-G>u' . paste#paste_cmd['i']
 exe 'vnoremap <script> <C-V> ' . paste#paste_cmd['v']
 
-imap <S-Insert>		<C-V>
-vmap <S-Insert>		<C-V>
+imap <S-Insert> <C-V>
+vmap <S-Insert> <C-V>
 
 " Use CTRL-Q to do what CTRL-V used to do
-noremap <C-Q>		<C-V>
+noremap <C-Q> <C-V>
 
 " Use CTRL-S for saving, also in Insert mode
-noremap <C-S>		:update<CR>
-vnoremap <C-S>		<C-C>:update<CR>
-inoremap <C-S>		<C-O>:update<CR>
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
 
 " For CTRL-V to work autoselect must be off.
 " On Unix we have two selections, autoselect can be used.
