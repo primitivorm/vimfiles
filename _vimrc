@@ -367,6 +367,8 @@ else
               \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
               \Consolas\ for\ Powerline\ 10,Envy\ Code\ R\ for\ Powerline\ 10,
               \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+  "for linux maximize dont work
+  let g:loaded_maximize=1
 endif
 " switch syntax highlighting on, when the terminal has colors
 syntax on
