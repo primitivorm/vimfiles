@@ -362,9 +362,9 @@ if has('win32') || has('win64')
   set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,Monaco:h9,
               \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
-  set guifont=Terminus\ Medium\ 12,
+  set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
+              \Terminus\ Medium\ 12,
               \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
-              \Meslo\ LG\ L\ DZ\ for\ Powerline\ 10,
               \Consolas\ for\ Powerline\ 10,Envy\ Code\ R\ for\ Powerline\ 10,
               \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 endif
