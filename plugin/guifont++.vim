@@ -71,7 +71,11 @@ if exists("g:guifontpp_original_font_map")
 endif
 
 let s:decimalpat = '[1-9][0-9]*'
-let s:fontpat_unix = '^\(\(-[^-]\+\)\{6}-\)\(' . s:decimalpat . '\)'
+if exists("g:fontpat_unix")
+    let s:fontpat_unix = g:fontpat_unix
+elseif
+    let s:fontpat_unix = '^\(\(-[^-]\+\)\{6}-\)\(' . s:decimalpat . '\)'
+endif
 let s:fontpat_win32 = '\(:h\)\(' . s:decimalpat . '\)\(:\|,\|$\)'
 
 fun! s:GetFontSize()
@@ -96,10 +100,12 @@ endfun
 
 fun! s:SetFontSize(size)
     if has("unix")
+        "let guifont = substitute(&guifont, s:fontpat_unix,
+                               "\ '\1' . a:size, "")
         let guifont = substitute(&guifont, s:fontpat_unix,
-                               \ '\1' . a:size, "")
+                               \ a:size, "")
     elseif has("win32")
-        let guifont = substitute(&guifont, s:fontpat_win32, 
+        let guifont = substitute(&guifont, s:fontpat_win32,
                                \ '\1' . a:size . '\3', "")
     endif
     let &guifont = guifont

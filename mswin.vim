@@ -32,10 +32,10 @@ vnoremap <C-C> "+y
 vnoremap <C-Insert> "+y
 
 " CTRL-V and SHIFT-Insert are Paste
-map <C-V> "+gP
+imap <C-V> "+gP
 map <S-Insert> "+gP
 
-cmap <C-V> <C-R>+
+imap <C-V> <C-R>+
 cmap <S-Insert> <C-R>+
 
 " Pasting blockwise and linewise selections is not possible in Insert and

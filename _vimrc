@@ -82,7 +82,7 @@ Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
 Bundle 'Lokaltog/powerline-fonts'
-Bundle 'vim-scripts/TaskList.vim'
+"Bundle 'vim-scripts/TaskList.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 " }}}
 
@@ -362,14 +362,18 @@ if has('win32') || has('win64')
   set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,Monaco:h9,
               \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
-  set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
+  set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
+              \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
               \Terminus\ Medium\ 12,
               \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
-              \Consolas\ for\ Powerline\ 10,Envy\ Code\ R\ for\ Powerline\ 10,
+              \Consolas\ for\ Powerline\ 10,
               \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+  let g:fontpat_unix ='\([1-9][0-9]*\)'
+  let g:guifontpp_size_increment=1
   "for linux maximize dont work
-  let g:loaded_maximize=0
+  let g:loaded_maximize=1
 endif
+
 " switch syntax highlighting on, when the terminal has colors
 syntax on
 "syntax enable
