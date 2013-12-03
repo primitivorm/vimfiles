@@ -362,12 +362,12 @@ if has('win32') || has('win64')
   set guifont=Meslo_LG_L_DZ_for_Powerline:h9,Consolas_for_Powerline_FixedD:h10,Monaco:h9,
               \Envy_Code_R_for_Powerline:h10,DejaVu_Sans_Mono_for_Powerline:h10
 else
-  set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
-              \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
+  set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline\ 8,
+              \Envy\ Code\ R\ for\ Powerline\ 9,
               \Terminus\ Medium\ 12,
-              \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
-              \Consolas\ for\ Powerline\ 10,
-              \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+              \Monaco\ for\ Powerline\ 9,Andale\ Mono\ 9,
+              \Consolas\ for\ Powerline\ 9,
+              \DejaVu\ Sans\ Mono\ for\ Powerline\ 9
   let g:fontpat_unix ='\([1-9][0-9]*\)'
   let g:guifontpp_size_increment=1
   "for linux maximize dont work
