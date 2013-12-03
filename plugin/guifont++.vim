@@ -72,9 +72,9 @@ endif
 
 let s:decimalpat = '[1-9][0-9]*'
 if exists("g:fontpat_unix")
-    let s:fontpat_unix = g:fontpat_unix
-elseif
-    let s:fontpat_unix = '^\(\(-[^-]\+\)\{6}-\)\(' . s:decimalpat . '\)'
+  let s:fontpat_unix = g:fontpat_unix
+else
+  let s:fontpat_unix = '^\(\(-[^-]\+\)\{6}-\)\(' . s:decimalpat . '\)'
 endif
 let s:fontpat_win32 = '\(:h\)\(' . s:decimalpat . '\)\(:\|,\|$\)'
 

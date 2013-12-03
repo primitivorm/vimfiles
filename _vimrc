@@ -72,17 +72,16 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
 "airline support tabs
-"Bundle 'gcmt/taboo.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'xolox/vim-session'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-rooter'
+Bundle 'primitivorm/QuickBuf'
 Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
 Bundle 'Lokaltog/powerline-fonts'
-"Bundle 'vim-scripts/TaskList.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 " }}}
 
@@ -201,6 +200,12 @@ Bundle 'mutewinter/vim-css3-syntax'
 
 " asp {{{
 Bundle 'biruh/vim-aspnet'
+" }}}
+
+" Bundle blacklist {{{
+"Bundle 'vim-scripts/TaskList.vim'
+"Bundle 'gcmt/taboo.vim'
+"Bundle 'tyru/DumbBuf.vim'
 " }}}
 
 " csharp{{{
@@ -461,8 +466,8 @@ set linespace=0
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
 "for Meslo_LG_L_DZ_for_Powerline
-"set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+"set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 set vb t_vb= " Turn off visual bell, error flash
 set mouse=a " enable using the mouse if terminal emulator
 set mousemodel=popup_setpos
