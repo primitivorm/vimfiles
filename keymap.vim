@@ -228,7 +228,7 @@ endfunction
 imap <tab> <c-r>=Smart_TabComplete()<CR>
 "imap <C-Space> <c-r>=Smart_TabComplete()<CR>
 "snipMate completion
-"imap <C-Space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
+imap <C-Space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
 " }}}
 
 " Highlight all words when press <CR> {{{
@@ -300,7 +300,7 @@ nmap <silent><leader>cf :let @* = expand("%:~")<CR>
 nmap <silent><leader>cn :let @* = expand("%:t")<CR>
 
 " Type <leader>hl to toggle highlighting on/off, and show current value.
-map <leader>hl :set hlsearch! hlsearch?<CR>
+map <leader>h :set hlsearch! hlsearch?<CR>
 
 " cd to the directory containing the file in the buffer
 "map <silent><leader>cd :lcd %:h<CR>

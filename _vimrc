@@ -430,7 +430,7 @@ set nogdefault " search/replace "globally" (on a line) by default
 set ruler
 "mat
 set matchtime=3
-set matchpairs+=<:>,(:),[:]
+set matchpairs+=<:>,(:),[:],":",':',%:%
 
 " }}}
 
@@ -859,7 +859,7 @@ let MRU_File = $HOME . '/_vim_mru_files'
 "---------------------------------------------------------
 "https://github.com/Valloric/MatchTagAlways
 "---------------------------------------------------------
-let g:mta_use_matchparen_group=0
+let g:mta_use_matchparen_group=1
 let g:mta_set_default_matchtag_color=0
 let g:mta_filetypes = {
             \ 'htm' : 1,
@@ -872,6 +872,7 @@ let g:mta_filetypes = {
             \ 'py' : 1,
             \ 'rb' : 1,
             \ 'js' : 1,
+            \ 'vim' : 1,
             \}
 "---------------------------------------------------------
 " }}}
@@ -1025,10 +1026,11 @@ let g:snipMate.scope_aliases['sql'] = 'sql'
 "------------------------------------------------------
 "https://github.com/vim-scripts/UltiSnips
 "------------------------------------------------------
-let g:UltiSnipsExpandTrigger               = '<C-Space>'
-let g:UltiSnipsListSnippets                = '<C-S-Space>'
-let g:UltiSnipsJumpForwardTrigger          = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger         = '<S-tab>'
+"defaults
+let g:UltiSnipsExpandTrigger               = '<c-space>'
+let g:UltiSnipsListSnippets                = '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger          = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger         = '<c-k>'
 "------------------------------------------------------
 " }}}
 
