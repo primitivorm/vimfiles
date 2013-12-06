@@ -355,6 +355,13 @@ endif
 " }
 
 " Gui {
+" switch syntax highlighting on, when the terminal has colors
+syntax on
+"syntax enable
+
+"https://github.com/primitivorm/vim-proman-theme
+set background=dark
+colorscheme proman
 "Disabling vim's startup message
 set shortmess=at
 
@@ -362,9 +369,6 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 "max num of tabs
 set tabpagemax=15
-"https://github.com/primitivorm/vim-proman-theme
-set background=dark
-colorscheme proman
 if has('win32') || has('win64')
   set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
   set guifont=Envy_Code_R_for_Powerline:h10,
@@ -397,10 +401,6 @@ else
   endif
   endif
 endif
-
-" switch syntax highlighting on, when the terminal has colors
-syntax on
-"syntax enable
 
 "habilita soporte para plugins
 filetype plugin on
