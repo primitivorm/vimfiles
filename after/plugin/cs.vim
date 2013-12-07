@@ -18,14 +18,14 @@ autocmd BufWritePre *.cs :Autoformat
 au FileType cs exe('setl dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
 
 "syntastic format
-autocmd FileType *.cs set errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
-autocmd FileType *.cs set makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
+autocmd FileType *.cs setlocal errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
+autocmd FileType *.cs setlocal makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
 
 "skeletons
 autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
 
 "Omnisharp
-autocmd FileType cs set omnifunc=OmniSharp#Complete
+autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
 
 "Create a Property based on a word with CamelCase format
 au BufRead,BufNewFile *.cs nnoremap <A-r>cp Ipublic string <esc>w"zywA {<cr>}<esc>Oget { return <esc>"zpbi_<esc>l~b"xywea; }<esc>oset { <esc>"xpa = value; }<esc>kkOprivate string <esc>"xpa = string.Empty;<cr>/// <summary><cr> Obtiene o establece <esc>"zpo</summary><esc>4jV7k=

@@ -361,21 +361,24 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=15
 if has('win32') || has('win64')
+  "┊
   set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-  set guifont=Envy_Code_R_for_Powerline:h10,
-        \Meslo_LG_M_for_Powerline:h9,
-        \Consolas_for_Powerline_FixedD:h10,
-        \DejaVu_Sans_Mono_for_Powerline:h10
-        \Monaco:h9,
-        \Terminus:h11,
+  "set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+  set guifont=Consolas_for_Powerline_FixedD:h10,
+    \Meslo_LG_M_for_Powerline:h9,
+    \Envy_Code_R_for_Powerline:h10,
+    \DejaVu_Sans_Mono_for_Powerline:h10,
+    \Monaco:h9,
+    \Terminus:h11,
 else
-  set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+  set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+  "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=Envy\ Code\ R\ for\ Powerline\ 9,
-        \Meslo\ LG\ M\ DZ\ for\ Powerline\ 8,
-        \Terminus\ Medium\ 12,
-        \Monaco\ for\ Powerline\ 9,Andale\ Mono\ 9,
-        \Consolas\ for\ Powerline\ 9,
-        \DejaVu\ Sans\ Mono\ for\ Powerline\ 9
+    \Meslo\ LG\ M\ DZ\ for\ Powerline\ 8,
+    \Terminus\ Medium\ 12,
+    \Monaco\ for\ Powerline\ 9,Andale\ Mono\ 9,
+    \Consolas\ for\ Powerline\ 9,
+    \DejaVu\ Sans\ Mono\ for\ Powerline\ 9
   let g:fontpat_unix ='\([1-9][0-9]*\)'
   let g:guifontpp_size_increment=1
   "for linux maximize dont work
@@ -385,10 +388,10 @@ else
   else
   " This is console Vim.
   if exists("+lines")
-    set lines=50
+  set lines=50
   endif
   if exists("+columns")
-    set columns=100
+  set columns=100
   endif
   endif
 endif
@@ -505,6 +508,7 @@ set spellfile=~/vimfiles/spell/dict.add
 
 " autocmd {{{
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
+autocmd BufNewFile,BufRead * :retab!
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType c,cpp,h setlocal omnifunc=ccomplete#Complete
@@ -561,11 +565,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 "custom settings
 let g:NERDTreeBookmarksFile   = expand($HOME.'/_NERDTreeBookmarks')
 let g:NERDTreeShowBookmarks   = 1
-let g:NERDTreeWinSize       = 40
+let g:NERDTreeWinSize   = 40
 let g:NERDTreeChristmasTree   = 1
 let g:NERDTreeCaseSensitiveSort = 1
-let g:NERDTreeQuitOnOpen    = 1
-let g:NERDTreeMouseMode     = 2
+let g:NERDTreeQuitOnOpen  = 1
+let g:NERDTreeMouseMode   = 2
 let NERDTreeShowHidden=1
 "open in new tab with Ctrl-Enter
 let NERDTreeMapOpenInTab='<c-cr>'
@@ -577,12 +581,12 @@ set autochdir
 let g:NERDTreeChDirMode=2
 "ignore some file types
 let g:NERDTreeIgnore=[
-      \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-      \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$',
-      \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
-      \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
-      \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
-      \'tags', '\.suo$','\.vspscc$']
+    \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+    \'\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$',
+    \'\.FxCop$','\.scc$','\.vssscc$','\.ini$', '\.pol$',
+    \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
+    \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
+    \'tags', '\.suo$','\.vspscc$']
 "}}}
 
 " Tagbar {{{
@@ -619,10 +623,10 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window_bottom = 0
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_custom_ignore = {
-      \ 'dir': '\.git$\|\.hg$\|\.svn$',
-      \ 'file': '\.exe$\|\.so$\|\.dll$',
-      \ 'link': 'some_bad_symbolic_links',
-      \ }
+    \ 'dir': '\.git$\|\.hg$\|\.svn$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$',
+    \ 'link': 'some_bad_symbolic_links',
+    \ }
 if has('win32') || has('win64')
   let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
   "http://vim.wikia.com/wiki/Fix_errors_that_relate_to_reading_or_creating_files_in_the_temp_or_tmp_environment_on_an_MS_Windows_PC
@@ -634,7 +638,7 @@ if has('win32') || has('win64')
 else
   set directory=~/tmp,/tmp
   if exists('+undodir')
-    set undodir=~/tmp,/tmp
+  set undodir=~/tmp,/tmp
   endif
   let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
 endif
@@ -647,8 +651,8 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=1
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
-      \ 'active_filetypes': ['ruby', 'php', 'cs', 'python', 'lisp', 'json', 'js', 'html', 'xhtml', 'xml'],
-      \ 'passive_filetypes': ['puppet'] }
+    \ 'active_filetypes': ['ruby', 'php', 'cs', 'python', 'lisp', 'json', 'js', 'html', 'xhtml', 'xml'],
+    \ 'passive_filetypes': ['puppet'] }
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_error_symbol='E'
 let g:syntastic_style_error_symbol='S'
@@ -813,18 +817,18 @@ let MRU_File = $HOME . '/_vim_mru_files'
 let g:mta_use_matchparen_group=1
 let g:mta_set_default_matchtag_color=0
 let g:mta_filetypes = {
-      \ 'htm' : 1,
-      \ 'html' : 1,
-      \ 'xhtml' : 1,
-      \ 'xml' : 1,
-      \ 'cs' : 1,
-      \ 'aspx' : 1,
-      \ 'sql' : 1,
-      \ 'py' : 1,
-      \ 'rb' : 1,
-      \ 'js' : 1,
-      \ 'vim' : 1,
-      \}
+    \ 'htm' : 1,
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'cs' : 1,
+    \ 'aspx' : 1,
+    \ 'sql' : 1,
+    \ 'py' : 1,
+    \ 'rb' : 1,
+    \ 'js' : 1,
+    \ 'vim' : 1,
+    \}
 "}}}
 
 " vimtlib {{{
@@ -860,14 +864,14 @@ let guifontpp_original_font_map="<M-=>"
 "http://vim.sourceforge.net/scripts/script.php?script_id=770
 "ss path
 let g:ssExecutable = 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
-let g:scMenuPath     ='SourceSafe'   "menu name
-let g:scUserName     = 'proman,12345678'
+let g:scMenuPath   ='SourceSafe'   "menu name
+let g:scUserName   = 'proman,12345678'
 let g:scDiffVertical   =1
 let g:scHistVertical   =1
-let g:scSetRuler     =1
+let g:scSetRuler   =1
 let g:scMaintainStatus =1
 let g:scShowAllLocks   =1
-let g:scShowExtra    =1
+let g:scShowExtra  =1
 "ADD environment variables
 "SSUSER
 "SSPWD
@@ -910,8 +914,8 @@ let g:Omnisharp_highlight_user_types=1
 " Remove dictionary lookup from the Vim keyword completion.  It did always
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
-let g:acp_completeOption       = '.,w,b'
-"let g:acp_completeOption      = '.,w,b,k,t,i'
+let g:acp_completeOption     = '.,w,b'
+"let g:acp_completeOption    = '.,w,b,k,t,i'
 let g:acp_behaviorKeywordLength  = 1
 let g:acp_behaviorPythonOmniLength = 1
 "}}}
@@ -940,8 +944,8 @@ let g:snipMate.scope_aliases['sql'] = 'sql'
 " Ultisnip {{{
 "https://github.com/vim-scripts/UltiSnips
 "defaults
-let g:UltiSnipsExpandTrigger       = '<c-space>'
-let g:UltiSnipsListSnippets        = '<c-tab>'
+let g:UltiSnipsExpandTrigger     = '<c-space>'
+let g:UltiSnipsListSnippets      = '<c-tab>'
 let g:UltiSnipsJumpForwardTrigger  = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 "}}}
