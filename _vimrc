@@ -279,8 +279,6 @@ filetype plugin indent on " required!
 " Formatting {{{
 "http://vim.wikia.com/wiki/VimTip30
 set nrformats+=alpha,octal,hex
-set fileformats="unix,dos,mac"
-"set fileformats=unix
 set display=uhex
 set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
@@ -360,7 +358,9 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 "max num of tabs
 set tabpagemax=15
+set fileformats="unix,dos,mac"
 if has('win32') || has('win64')
+  set fileformat=dos
   "┊
   set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
@@ -371,6 +371,7 @@ if has('win32') || has('win64')
     \Monaco:h9,
     \Terminus:h11,
 else
+  set fileformat=unix
   set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=Envy\ Code\ R\ for\ Powerline\ 9,
