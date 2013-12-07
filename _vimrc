@@ -1,33 +1,29 @@
 "runtime bundle/tplugin_vim/macros/tplugin.vim
 "http://learnvimscriptthehardway.stevelosh.com/
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"--------------------------------------------
 " VIM CONFIGURATION
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Source {
-" Source the vimrc file after saving it
+"--------------------------------------------
+
+" Source the vimrc file after saving it {{{
 let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 "https://github.com/tpope/tpope/blob/master/.vimrc
 " Key mappings, functions, auto commands
 source $HOME/vimfiles/keymap.vim
-" }
+"}}}
 
-" Pathogen {
-"------------------------------------------------------
+" Pathogen {{{
 "https://github.com/tpope/vim-pathogen
-"------------------------------------------------------
 "call pathogen#infect()
 filetype off " required!
 "call pathogen#runtime_append_all_bundles()
 call pathogen#incubate()
 call pathogen#helptags()
 filetype on
-"------------------------------------------------------
-" }
+"}}}
 
-" Vundle {
-"------------------------------------------------------
+" Vundle {{{
 "https://github.com/gmarik/vundle
-"------------------------------------------------------
 "rtp
 set runtimepath+=~/vimfiles/
 set runtimepath+=~/vimfiles/bin/
@@ -40,32 +36,31 @@ call vundle#rc('~/vimfiles/bundle/')
 "" let Vundle manage Vundle
 "" required!
 Bundle 'gmarik/vundle'
+"}}}"
 
-" generic {
+" generic {{{
 Bundle 'tpope/vim-repeat'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'terryma/vim-multiple-cursors'
-" }
+"}}}
 
-" utils {
+" utils {{{
 Bundle 'L9'
 Bundle 'genutils'
 Bundle 'DfrankUtil'
 Bundle 'xolox/vim-misc'
 Bundle 'tomtom/vimtlib'
 Bundle 'tomtom/tlib_vim'
-"Bundle 'xolox/vim-shell'
-"Bundle 'Shougo/vimshell'
 Bundle 'mattn/webapi-vim'
 Bundle 'bash-support.vim'
 Bundle 'tomtom/tplugin_vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'vim-scripts/cecutil'
 Bundle 'MarcWeber/vim-addon-mw-utils'
-" }
+"}}}
 
-" gui {
+" gui {{{
 Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
 "airline support tabs
@@ -79,10 +74,11 @@ Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
 Bundle 'Lokaltog/powerline-fonts'
-Bundle 'nathanaelkane/vim-indent-guides'
-" }
+"Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'Yggdroot/indentLine'
+"}}}
 
-" formatting {
+" formatting {{{
 Bundle 'AutoAlign'
 Bundle 'tpope/vim-ragtag'
 "autoclose endfunction, endif, etc...
@@ -96,7 +92,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Chiel92/vim-autoformat'
 
-"highlighting tags {
+"highlighting tags
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'scrooloose/nerdcommenter'
@@ -104,15 +100,15 @@ Bundle 'primitivorm/MatchTagAlways'
 Bundle 'primitivorm/vim-swap-lines'
 Bundle 'jakobwesthoff/argumentrewrap'
 Bundle 'quentindecock/vim-cucumber-align-pipes'
-" }
+"}}}
 
-" source control{
+" source control{{{
 Bundle 'mattn/gist-vim'
 Bundle 'motemen/git-vim'
 Bundle 'tpope/vim-fugitive'
-" }
+"}}}
 
-" templating {
+" templating {{{
 Bundle 'ccimpl.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'tomtom/tskeletons'
@@ -123,14 +119,14 @@ Bundle 'tomtom/templator_vim'
 Bundle 'tomtom/tskeleton_vim'
 Bundle 'aperezdc/vim-template'
 Bundle 'tomtom/stakeholders_vim'
-" }
+"}}}
 
-" debuging {
+" debuging {{{
 Bundle 'Decho'
 Bundle 'kablamo/VimDebug'
-" }
+"}}}
 
-" search/complete tools {
+" search/complete tools {{{
 Bundle 'grep.vim'
 Bundle 'Thesaurus'
 Bundle 'AutoComplPop'
@@ -145,11 +141,12 @@ Bundle 'bronson/vim-visual-star-search'
 "for python
 Bundle 'nvie/vim-flake8'
 Bundle 'sontek/rope-vim'
+Bundle 'rygwdn/rope-omni'
 Bundle 'primitivorm/jedi-vim'
 Bundle 'alfredodeza/pytest.vim'
-"}
+"}}}
 
- " html {
+ " html {{{
 Bundle 'indenthtml.vim'
 Bundle 'othree/html5.vim'
 Bundle 'mattn/zencoding-vim'
@@ -160,46 +157,46 @@ if has('win32') || has('win64')
 else
   Bundle 'rstacruz/sparkup', {'rtp': 'vim'}
 endif
-" }
+"}}}
 
-" javascript {
+" javascript {{{
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'einars/js-beautify'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'michalliu/jsruntime.vim'
-" }
+"}}}
 
-" coffe-script{
+" coffe-script{{{
 Bundle 'kchmck/vim-coffee-script'
-" }
+"}}}
 
-" json {
+" json {{{
 Bundle 'elzr/vim-json'
 Bundle 'michalliu/jsoncodecs.vim'
-" }
+"}}}
 
-" lisp {
+" lisp {{{
 Bundle 'mattn/lisper-vim.git'
 Bundle 'slimv.vim'
-" }
+"}}}
 
-" jquery {
+" jquery {{{
 Bundle 'itspriddle/vim-jquery'
-" }
+"}}}
 
-" css {
+" css {{{
 Bundle 'Css-Pretty'
 Bundle 'wavded/vim-stylus'
 Bundle 'groenewege/vim-less'
 Bundle 'skammer/vim-css-color'
 Bundle 'mutewinter/vim-css3-syntax'
-" }
+"}}}
 
-" asp {
+" asp {{{
 Bundle 'biruh/vim-aspnet'
-" }
+"}}}
 
-" csharp{
+" csharp {{{
 "issue: install pywin32-214.win32-py2.7.exe
 "http://code.google.com/p/vim-visual-studio/issues/detail?id=2
 "copy C:\Python27\Lib\site-packages\pywin32_system32 to C:\Python27
@@ -207,38 +204,38 @@ Bundle 'biruh/vim-aspnet'
 Bundle 'visual_studio.vim'
 Bundle 'nosami/Omnisharp'
 Bundle 'heaths/vim-msbuild'
-" }
+"}}}
 
-" c++ {
+" c++ {{{
 Bundle 'c.vim'
 Bundle 'primitivorm/refactor'
-" }
+"}}}
 
-" sql {
+" sql {{{
 Bundle 'dbext.vim'
 Bundle 'SQLUtilities'
 Bundle 'sqlserver.vim'
 Bundle 'SQLComplete.vim'
-" }
+"}}}
 
-"xml {
+"xml {{{
 "install
 "https://github.com/sukima/xmledit
 Bundle 'sukima/xmledit'
-"}
+"}}}
 
-" python {
+" python {{{
 Bundle 'primitivorm/pydiction'
 Bundle 'fs111/pydoc.vim.git'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'mitechie/pyflakes-pathogen'
-" }
+"}}}
 
-" perl {
+" perl {{{
 Bundle 'vim-perl/vim-perl'
-" }
+"}}}
 
-"colorscheme
+"colorscheme {{{
 Bundle 'sjl/badwolf'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'Rykka/galaxy.vim'
@@ -260,31 +257,26 @@ Bundle 'Rykka/colorv.vim'
 Bundle 'hexHighlight.vim'
 Bundle 'sickill/coloration'
 Bundle 'guns/xterm-color-table.vim'
-"}
+"}}}
 
-" Bundle blacklist {
+" Bundle blacklist {{{
 "Bundle 'vim-scripts/TaskList.vim'
 "Bundle 'gcmt/taboo.vim'
 "Bundle 'tyru/DumbBuf.vim'
-" }
+"}}}
 
-"------------------------------------------------
-
+" end Bundle {{{
 filetype plugin indent on " required!
-"
 " Brief help
 " :BundleList - list configured bundles
 " :BundleInstall(!) - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
 " :BundleClean(!) - confirm(or auto-approve) removal of unused bundles
-"
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
+"}}}
 
-"------------------------------------------------------
-" }
-
-" Formatting {
+" Formatting {{{
 "http://vim.wikia.com/wiki/VimTip30
 set nrformats+=alpha,octal,hex
 set fileformats="unix,dos,mac"
@@ -292,9 +284,9 @@ set fileformats="unix,dos,mac"
 set display=uhex
 set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
-" }
+"}}}
 
-" Backup {
+" Backup {{{
 set nocp
 "evita crear archivos de respaldo
 set nobackup
@@ -338,9 +330,9 @@ set showcmd " show (partial) command in the last line of the screen
 " this also shows visual selection info
 " set nomodeline " disable mode lines (security measure)
 set modeline
-" }
+"}}}
 
-" Encoding {
+" Encoding {{{
 " use utf8 encoding for vim files and for default file encoding
 "scriptencoding utf-8
 if has("multi_byte")
@@ -351,10 +343,9 @@ if has("multi_byte")
   setglobal fileencoding=utf-8
   set fileencodings=ucs-bom,utf-8,ucs-2le,latin1
 endif
+"}}}
 
-" }
-
-" Gui {
+" Gui {{{
 " switch syntax highlighting on, when the terminal has colors
 syntax on
 "syntax enable
@@ -445,11 +436,13 @@ set nogdefault " search/replace "globally" (on a line) by default
 set ruler
 "mat
 set matchtime=3
-set matchpairs+=<:>,(:),[:],":",':',%:%
+set matchpairs+=<:>
+set matchpairs+=":"
+set matchpairs+=':'
+set matchpairs+=%:%
+"}}}
 
-" }
-
-" Folding rules {
+" Folding rules {{{
 set foldenable " enable folding
 set foldcolumn=0 " add a fold column
 set foldmethod=syntax
@@ -458,22 +451,21 @@ set foldlevel=3
 set foldlevelstart=0 " start out with everything folded
 " which commands trigger auto-unfold
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-" }
+"}}}
 
-" Editor layout {
+" Editor layout {{{
 set lazyredraw " don't update the display while executing macros
 set laststatus=2 " tell VIM to always put a status line in, even
 " if there is only one window
 set cmdheight=2 " use a status bar that is 2 rows high
-" }
+"}}}
 
-" Vim behaviour {
+" Vim behaviour {{{
 set switchbuf=useopen " reveal already opened files from the
 " quickfix window instead of opening new
 " buffers
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
-
 "char for split
 set fillchars=vert:\│
 "piexel space between lines
@@ -490,13 +482,11 @@ set guioptions+=b  "remove right-hand scroll bar
 set guioptions+=c
 " allow pasting into other applications after visual selection
 set guioptions+=a
-
 " Since I use linux, I want this
 let g:clipbrdDefaultReg = '+'
+"}}}
 
-" }
-
-" Spell {
+" Spell {{{
 "habilita corrector ortografico
 set nospell "active spell check
 "http://precheur.org/vim/create_spell_file_for_vim
@@ -507,72 +497,64 @@ set dictionary+=~/vimfiles/spell/es_MX.dic
 set dictionary+=~/vimfiles/spell/en_US.dic
 "syntax completion
 "http://vim.wikia.com/wiki/VimTip498
-au FileType * exe('setl dict+='.$HOME.'/vimfiles/syntax/'.&filetype.'.vim')
+autocmd FileType * exe('setl dict+='.$HOME.'/vimfiles/syntax/'.&filetype.'.vim')
 "dict for new words
 set spellfile=~/vimfiles/spell/dict.add
 "spellsuggest
-" }
+"}}}
 
-" autocmd {
+" autocmd {{{
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType c,cpp,h setlocal omnifunc=ccomplete#Complete
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-" ruby {
+" ruby
 "http://www.cuberick.com/2008/10/ruby-autocomplete-in-vim.html
 "http://www.vim.org/scripts/script.php?script_id=1662
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-" }
-
-" xmledit plugin {
+" xmledit plugin
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags noci
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
-" }
-
 "For the most accurate but slowest result, set the syntax synchronization method to fromstart
 autocmd BufEnter * :syntax sync fromstart
 "suffixes added to command gf
 set suffixesadd+=.c,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.java,.py,.lisp,.perl
 "vbnet highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
+"c compiler
+autocmd FileType *.c,*.h set makeprg=gcc\ %
+autocmd FileType *.cpp,*.h set makeprg=g++\ %
+autocmd FileType *.cpp,*.c,*.h set errorformat=%f(%l)%m
+"}}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"--------------------------------------------
 " PLUGINS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"--------------------------------------------
 
-" Thesaurus {
-"------------------------------------------------------
+" Thesaurus {{{
 "http://www.vim.org/scripts/script.php?script_id=2528
 "https://github.com/vim-scripts/Thesaurus
-"------------------------------------------------------
 set thesaurus+=~/vimfiles/thesaurus/mthes10/mthesaur.txt
 set thesaurus+=~/vimfiles/thesaurus/mthes10/roget13a.txt
 set thesaurus+=~/vimfiles/thesaurus/ruby.txt
-"------------------------------------------------------
-" }
+"}}}
 
-" Ragtag {
-"------------------------------------------------------
+" Ragtag {{{
 "https://github.com/tpope/vim-ragtag
 "http://www.vim.org/scripts/script.php?script_id=1896
-"------------------------------------------------------
 let g:ragtag_global_maps = 1
-"------------------------------------------------------
-" }
+"}}}
 
-" NERDTree {
-"------------------------------------------------------
+" NERDTree {{{
 "https://github.com/scrooloose/nerdtree"
-"------------------------------------------------------
 "open the plugin NERDTree at startup Vim
 if (&diff==0)
-  autocmd vimenter * NERDTree
-  autocmd vimenter * if !argc() | NERDTree | endif
+  au vimenter * NERDTree
+  au vimenter * if !argc() | NERDTree | endif
 endif
 "cerrar Vim si la unica ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -601,14 +583,11 @@ let g:NERDTreeIgnore=[
       \'\.user$', '\.cd$', '\.Cache$', '\.mdf$', '\.ldf$',
       \'\.tmp$', '^NTUSER.DAT*', '\.zip$', '\.pdb$', '\.dll$',
       \'tags', '\.suo$','\.vspscc$']
-"------------------------------------------------------
-" }
+"}}}
 
-" Tagbar {
-"---------------------------------------------------------
+" Tagbar {{{
 " http://www.vim.org/scripts/script.php?script_id=3465
 " https://github.com/majutsushi/tagbar
-"---------------------------------------------------------
 "file to find tags
 set tags=tags,./tags
 "to specify one or more file extensions, which Vim will attempt to use when looking up a filename with the gf
@@ -626,13 +605,10 @@ let g:tagbar_expand    = 0
 let g:tagbar_iconchars  = ['▸', '▾']
 let g:tagbar_autoclose   = 0
 let g:tagbar_singleclick = 1
-""---------------------------------------------------------
-"" }
+""}}}
 
-" CtrlP {
-"---------------------------------------------------------
+" CtrlP {{{
 "https://github.com/kien/ctrlp.vim
-"---------------------------------------------------------
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
@@ -662,13 +638,10 @@ else
   endif
   let g:ctrlp_user_command = 'find %s -type f' " MacOSX/Linux
 endif
-"---------------------------------------------------------
-" }
+"}}}
 
-" Syntastic {
-"--------------------------------------------------------
+" Syntastic {{{
 " https://github.com/scrooloose/syntastic
-"--------------------------------------------------------
 let g:syntastic_enable_balloons = 1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=1
@@ -691,13 +664,11 @@ if !&diff
 endif
 "quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f-
-" }
+"}}}
 
-" Dbext {
-"---------------------------------------------------------
+" Dbext {{{
 "http://www.vim.org/scripts/script.php?script_id=356
 "https://mutelight.org/dbext-the-last-sql-client-youll-ever-need
-"---------------------------------------------------------
 "connect to sql server instance
 let g:dbext_default_profile_sql_des='type=SQLSRV:srvname=10.48.68.8:dbname=amdes:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_desvw='type=SQLSRV:srvname=10.48.68.8\SQL2K8:dbname=amdesvw:user=espejopruebas:passwd=12345678'
@@ -715,29 +686,22 @@ command! -nargs=0 ChangeDB :call FnChangeDB()
 "add this comment at begin of file script to shebang
 "// dbext:profile=sql_qavw
 let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
-"---------------------------------------------------------
-" }
+"}}}
 
-" SQLComplete {
-"---------------------------------------------------------
+" SQLComplete {{{
 "https://github.com/vim-scripts/SQLComplete.vim
-"---------------------------------------------------------
 let g:ftplugin_sql_omni_key = '<C-C>'
 let g:ftplugin_sql_omni_key_right = '<c-right>'
 let g:ftplugin_sql_omni_key_left = '<c-left>'
 autocmd FileType sql set omnifunc=sqlcomplete#Complete
-"---------------------------------------------------------
-" }
+"}}}
 
-" sqlserver {
-"---------------------------------------------------------
+" sqlserver {{{
 "https://github.com/vim-scripts/sqlserver.vim
-"---------------------------------------------------------
 let g:sql_type_default = "sqlserver"
-"---------------------------------------------------------
-" }
+"}}}
 
-"airline {
+"airline {{{
 "if &background=='light'
   "let g:airline_theme = 'light'
 "else
@@ -757,69 +721,52 @@ let g:airline_powerline_fonts = 1
 let g:airline_readonly_symbol = '⭤'
 let g:airline_linecolumn_prefix = '⭡'
 let g:airline#extensions#tabline#enabled = 1
-"}
+"}}}
 
-" vim-session {
-"---------------------------------------------------------
+" vim-session {{{
 "https://github.com/xolox/vim-session
-"---------------------------------------------------------
 let g:session_command_aliases = 1
-"---------------------------------------------------------
-" }
+"}}}
 
-" Showmarks {
-"---------------------------------------------------------
+" Showmarks {{{
 "http://www.vim.org/scripts/script.php?script_id=152
 "https://github.com/vim-scripts/ShowMarks
-"---------------------------------------------------------
 let g:showmarks_enable=0
-"---------------------------------------------------------
-" }
+"}}}
 
-" IndentGuides {
-"---------------------------------------------------------
-"https://github.com/nathanaelkane/vim-indent-guides
-"---------------------------------------------------------
-let g:indent_guides_start_level=1
-let g:indent_guides_guide_size=1
-let g:indent_guides_auto_colors=1
-"run at startup
-let g:indent_guides_enable_on_vim_startup=0
-"<Leader>ig   ->show guides
-"---------------------------------------------------------
-" }
+"" IndentGuides {{{
+""https://github.com/nathanaelkane/vim-indent-guides
+"let g:indent_guides_start_level=1
+"let g:indent_guides_guide_size=1
+"let g:indent_guides_auto_colors=1
+""run at startup
+"let g:indent_guides_enable_on_vim_startup=0
+""<Leader>ig   ->show guides
+""}}}
 
-" javascript-libraries-syntax {
-"---------------------------------------------------------
+" javascript-libraries-syntax {{{
 "https://github.com/othree/javascript-libraries-syntax.vim
-"---------------------------------------------------------
 let g:used_javascript_libs = 'underscore,backbone'
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
-"---------------------------------------------------------
-" }
+"}}}
 
-" zencoding {
-"---------------------------------------------------------
+" zencoding {{{
 "https://github.com/mattn/zencoding-vim
 "http://mattn.github.com/zencoding-vim/
 "http://coding.smashingmagazine.com/2009/11/21/zen-coding-a-new-way-to-write-html-code/
-"---------------------------------------------------------
 let g:user_zen_mode='n' "only enable normal mode functions.
 let g:user_zen_mode='inv' "enable all functions, which is equal t
 let g:user_zen_mode='a' "enable all function in all mode.
 let g:user_zen_expandabbr_key = '<c-e>'
 let g:use_zen_complete_tag = 1
-"---------------------------------------------------------
-" }
+"}}}
 
-" badwolf colorscheme{
-"---------------------------------------------------------
+" badwolf colorscheme{{{
 "https://github.com/sjl/badwolf
-"---------------------------------------------------------
 " Make the gutters darker than the background.
 let g:badwolf_darkgutter = 1
 " Make the tab line darker than the background.
@@ -834,13 +781,10 @@ let g:badwolf_tabline = 3
 let g:badwolf_html_link_underline = 0
 " Turn on CSS properties highlighting
 let g:badwolf_css_props_highlight = 1
-"---------------------------------------------------------
-" }
+"}}}
 
-" tskeleton_vim {
-"---------------------------------------------------------
+" tskeleton_vim {{{
 "https://github.com/tomtom/tskeleton_vim
-"---------------------------------------------------------
 "my skeletons
 "avoid generate error at processing vundle\cache\tskel_menu\help
 set runtimepath+=~/vimfiles/bundle/vundle/tskeleton_vim/
@@ -858,19 +802,14 @@ autocmd BufNewFile *.config TSkeletonSetup skeleton.config
 autocmd BufNewFile *.css TSkeletonSetup skeleton.css
 autocmd BufNewFile *.xml TSkeletonSetup skeleton.xml
 autocmd BufNewFile *.php TSkeletonSetup skeleton.php
-"---------------------------------------------------------
-" }
+"}}}
 
-" MRU {
-"---------------------------------------------------------
+" MRU {{{
 let MRU_File = $HOME . '/_vim_mru_files'
-"---------------------------------------------------------
-" }
+"}}}
 
-" MatchTagAlways {
-"---------------------------------------------------------
+" MatchTagAlways {{{
 "https://github.com/Valloric/MatchTagAlways
-"---------------------------------------------------------
 let g:mta_use_matchparen_group=1
 let g:mta_set_default_matchtag_color=0
 let g:mta_filetypes = {
@@ -886,54 +825,39 @@ let g:mta_filetypes = {
       \ 'js' : 1,
       \ 'vim' : 1,
       \}
-"---------------------------------------------------------
-" }
+"}}}
 
-" vimtlib {
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimtlib {{{
 "https://github.com/tomtom/vimtlib/blob/master/INSTALL.TXT
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "for template generator add
 "runtime bundle/tplugin_vim/macros/tplugin.vim
 "run :TPluginScan!
 set runtimepath+=~/vimfiles/bundle/vimtlib/
 "let g:tplugin_autoload=1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }
+"}}}
 
-" vim template {
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim template {{{
 "https://github.com/aperezdc/vim-template
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:templates_plugin_loaded = 1 "to skip loading of this plugin.
 let g:templates_no_autocmd = 1 "to disable automatic insertion of template in new files.
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }
+"}}}
 
-" templator {
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" templator {{{
 "https://github.com/tomtom/templator_vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "\vimfiles\bundle\vimtlib\templator
 let b:templator_root_dir='~/vimfiles/templator/'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }
+"}}}
 
-" guifont++ {
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" guifont++ {{{
 "http://www.vim.org/scripts/script.php?script_id=593
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "source $HOME/vimfiles/plugin/guifont++.vim
 let guifontpp_smaller_font_map="<M-Down>"
 let guifontpp_larger_font_map="<M-Up>"
 let guifontpp_original_font_map="<M-=>"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }
+"}}}
 
-" csctrl {
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" csctrl {{{
 "http://vim.sourceforge.net/scripts/script.php?script_id=770
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "ss path
 let g:ssExecutable = 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
 let g:scMenuPath     ='SourceSafe'   "menu name
@@ -948,30 +872,24 @@ let g:scShowExtra    =1
 "SSUSER
 "SSPWD
 "Add to path: 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }
+"}}}
 
-" multiple-cursors {
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" multiple-cursors {{{
 "https://github.com/terryma/vim-multiple-cursors
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let  g:multi_cursor_exit_from_visual_mode=0   "default 1
 let  g:multi_cursor_exit_from_insert_mode=0   "default 1
 " Default highlighting (see help :highlight and help :highlight-link)
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
 highlight link multiple_cursors_visual Visual
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" }
+"}}}
 
-" vim-auto-save {
+" vim-auto-save {{{
 "https://github.com/907th/vim-auto-save
 let g:auto_save = 1  "Enable/Disable AutoSave on Vim startup
-" }
+"}}}
 
-" Omnisharp {
-"---------------------------------------------------------
+" Omnisharp {{{
 "https://github.com/nosami/Omnisharp
-"---------------------------------------------------------
 "start Omnisharp when open a file .cs
 let g:Omnisharp_start_server = 1
 "end Omnisharp when close a file .cs
@@ -986,23 +904,19 @@ set noshowmatch
 "set completeopt=menuone,menu,longest
 set completeopt=menuone,menu
 let g:Omnisharp_highlight_user_types=1
-"---------------------------------------------------------
-" }
+"}}}
 
-" AutoComplPop {
-"---------------------------------------------------------
+" AutoComplPop {{{
 " Remove dictionary lookup from the Vim keyword completion.  It did always
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
-"---------------------------------------------------------
 let g:acp_completeOption       = '.,w,b'
 "let g:acp_completeOption      = '.,w,b,k,t,i'
 let g:acp_behaviorKeywordLength  = 1
 let g:acp_behaviorPythonOmniLength = 1
-" }
+"}}}
 
-" SuperTab {
-"---------------------------------------------------------
+" SuperTab {{{
 let g:SuperTabDefaultCompletionType='context'
 let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
 let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-u>","&omnifunc:<c-x><c-o>"]
@@ -1011,64 +925,47 @@ let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
 "defaults
 let g:SuperTabMappingForward = '<tab>'
 let g:SuperTabMappingBackward = '<s-tab>'
-"---------------------------------------------------------
-" }
+"}}}
 
-"------------------------------------------------------
-"c compiler
-autocmd FileType *.c,*.h set makeprg=gcc\ %
-autocmd FileType *.cpp,*.h set makeprg=g++\ %
-autocmd FileType *.cpp,*.c,*.h set errorformat=%f(%l)%m
-"------------------------------------------------------
-
-" SnipMate {
-"------------------------------------------------------
+" SnipMate {{{
 "snipMate plugin
 "https://github.com/garbas/vim-snipMate
-"------------------------------------------------------
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['cs'] = 'cs'
 let g:snipMate.scope_aliases['sql'] = 'sql'
 "g:snippets_dir is deprecated add my personal snippets by runtimepath
-"------------------------------------------------------
-" }
+"}}}
 
-" Ultisnip {
-"------------------------------------------------------
+" Ultisnip {{{
 "https://github.com/vim-scripts/UltiSnips
-"------------------------------------------------------
 "defaults
-let g:UltiSnipsExpandTrigger         = '<c-space>'
+let g:UltiSnipsExpandTrigger       = '<c-space>'
 let g:UltiSnipsListSnippets        = '<c-tab>'
-let g:UltiSnipsJumpForwardTrigger      = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger     = '<c-k>'
-"------------------------------------------------------
-" }
+let g:UltiSnipsJumpForwardTrigger  = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+"}}}
 
-" vim-autoformat {
+" vim-autoformat {{{
 " https://github.com/Chiel92/vim-autoformat
-"---------------------------------------------------------
 let g:formatprg_cs = "astyle"
 let g:formatprg_args_cs = "--mode=cs --style=ansi -pcHs4"
 let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
 set equalprg=astyle
-"---------------------------------------------------------
-" }
+"}}}
 
-"Word-Fuzzy-Completion {
+"Word-Fuzzy-Completion {{{
 "https://github.com/vim-scripts/Word-Fuzzy-Completion
 "http://hetland.org/coding/python/levenshtein.py
 let g:fuzzywordcompletion_disable_keybinding=1
-"}
+"}}}
 
-
-" pydiction {
+" pydiction {{{
 "https://github.com/rkulla/pydiction
 let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
-" }
+"}}}
 
-"slimv {
+"slimv {{{
 "https://github.com/vim-scripts/slimv.vim
 if has('win32') || has('win64')
   let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
@@ -1076,9 +973,9 @@ if has('win32') || has('win64')
 else
   let g:slimv_swank_cmd = '! xterm -e sbcl --load /usr/share/common-lisp/source/slime/start-swank.lisp &'
 endif
-"}
+"}}}
 
-"jedi-vim {
+"jedi-vim {{{
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "K"
@@ -1087,4 +984,4 @@ let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "1"
 let g:jedi#auto_initialization=0
-"}
+"}}}
