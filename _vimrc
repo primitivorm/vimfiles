@@ -1,7 +1,3 @@
-
-mswin.vim /home/ls/vimfiles/mswin.vim
-
-mswin.vim /home/ls/vimfiles/mswin.vim
 "runtime bundle/tplugin_vim/macros/tplugin.vim
 "http://learnvimscriptthehardway.stevelosh.com/
 
