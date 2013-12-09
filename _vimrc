@@ -1,4 +1,5 @@
 "runtime bundle/tplugin_vim/macros/tplugin.vim
+"run :TPluginScan!
 "http://learnvimscriptthehardway.stevelosh.com/
 
 "--------------------------------------------
@@ -7,6 +8,7 @@
 
 " Source the vimrc file after saving it {{{
 let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
+let $VIMFILES=expand($HOME.'/vimfiles/')
 "https://github.com/tpope/tpope/blob/master/.vimrc
 " Key mappings, functions, auto commands
 source $HOME/vimfiles/keymap.vim
@@ -36,7 +38,7 @@ call vundle#rc('~/vimfiles/bundle/')
 "" let Vundle manage Vundle
 "" required!
 Bundle 'gmarik/vundle'
-"}}}"
+"}}}
 
 " generic {{{
 Bundle 'tpope/vim-repeat'
@@ -53,7 +55,6 @@ Bundle 'xolox/vim-misc'
 Bundle 'tomtom/vimtlib'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mattn/webapi-vim'
-"Bundle 'bash-support.vim'
 Bundle 'tomtom/tplugin_vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'vim-scripts/cecutil'
@@ -63,37 +64,34 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 " gui {{{
 Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
-"airline support tabs
+Bundle 'gcmt/taboo.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'xolox/vim-session'
-"Bundle 'Lokaltog/powerline'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
-Bundle 'airblade/vim-rooter'
+"Bundle 'airblade/vim-rooter'
 Bundle 'primitivorm/QuickBuf'
-Bundle 'shemerey/vim-project'
+"Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
 Bundle 'Lokaltog/powerline-fonts'
-"Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Yggdroot/indentLine'
 "}}}
 
 " formatting {{{
 Bundle 'AutoAlign'
-Bundle 'tpope/vim-ragtag'
 "autoclose endfunction, endif, etc...
 Bundle 'tpope/vim-endwise'
 Bundle 'vim-scripts/Align'
 Bundle 'godlygeek/tabular'
-
-"autoclose {[(
+"autoclose
 Bundle 'tsaleh/vim-matchit'
 Bundle 'tpope/vim-surround'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Chiel92/vim-autoformat'
-
 "highlighting tags
+"required for easy-align
+Bundle 'visualrepeat'
 Bundle 'gagoar/StripWhiteSpaces'
 Bundle 'junegunn/vim-easy-align'
 Bundle 'scrooloose/nerdcommenter'
@@ -103,13 +101,14 @@ Bundle 'jakobwesthoff/argumentrewrap'
 Bundle 'quentindecock/vim-cucumber-align-pipes'
 "}}}
 
-" source control{{{
+" source control {{{
 Bundle 'mattn/gist-vim'
 Bundle 'motemen/git-vim'
 Bundle 'tpope/vim-fugitive'
 "}}}
 
 " templating {{{
+"for c
 Bundle 'ccimpl.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'tomtom/tskeletons'
@@ -128,7 +127,6 @@ Bundle 'kablamo/VimDebug'
 "}}}
 
 " search/complete tools {{{
-Bundle 'grep.vim'
 Bundle 'Thesaurus'
 Bundle 'AutoComplPop'
 Bundle 'IndexedSearch'
@@ -149,6 +147,7 @@ Bundle 'alfredodeza/pytest.vim'
 
  " html {{{
 Bundle 'indenthtml.vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'othree/html5.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'plasticboy/vim-markdown'
@@ -161,10 +160,10 @@ endif
 "}}}
 
 " javascript {{{
-Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'einars/js-beautify'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'michalliu/jsruntime.vim'
+Bundle 'othree/javascript-libraries-syntax.vim'
 "}}}
 
 " coffe-script{{{
@@ -177,8 +176,8 @@ Bundle 'michalliu/jsoncodecs.vim'
 "}}}
 
 " lisp {{{
-Bundle 'mattn/lisper-vim.git'
 Bundle 'slimv.vim'
+Bundle 'mattn/lisper-vim.git'
 "}}}
 
 " jquery {{{
@@ -203,8 +202,8 @@ Bundle 'biruh/vim-aspnet'
 "copy C:\Python27\Lib\site-packages\pywin32_system32 to C:\Python27
 "http://sourceforge.net/projects/pywin32/files/pywin32/Build%20214/
 Bundle 'visual_studio.vim'
-Bundle 'primitivorm/Omnisharp'
 Bundle 'heaths/vim-msbuild'
+Bundle 'primitivorm/Omnisharp'
 "}}}
 
 " c++ {{{
@@ -226,8 +225,8 @@ Bundle 'sukima/xmledit'
 "}}}
 
 " python {{{
-Bundle 'primitivorm/pydiction'
 Bundle 'fs111/pydoc.vim.git'
+Bundle 'primitivorm/pydiction'
 Bundle 'alfredodeza/pytest.vim'
 Bundle 'mitechie/pyflakes-pathogen'
 "}}}
@@ -261,9 +260,13 @@ Bundle 'guns/xterm-color-table.vim'
 "}}}
 
 " Bundle blacklist {{{
-"Bundle 'vim-scripts/TaskList.vim'
-"Bundle 'gcmt/taboo.vim'
+"Bundle 'grep.vim'
+"Bundle 'tpope/vim-ragtag'
 "Bundle 'tyru/DumbBuf.vim'
+"Bundle 'bash-support.vim'
+"Bundle 'Lokaltog/powerline'
+"Bundle 'vim-scripts/TaskList.vim'
+"Bundle 'nathanaelkane/vim-indent-guides'
 "}}}
 
 " end Bundle {{{
@@ -510,7 +513,9 @@ set spellfile=~/vimfiles/spell/dict.add
 
 " autocmd {{{
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
-autocmd BufNewFile,BufRead * :retab!
+if !&readonly
+    autocmd BufNewFile,BufRead * :retab!
+endif
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType c,cpp,h setlocal omnifunc=ccomplete#Complete
@@ -683,12 +688,6 @@ let g:dbext_default_profile_sql_qavw='type=SQLSRV:srvname=10.48.68.8:dbname=amqa
 let g:dbext_default_profile_sql_qa40='type=SQLSRV:srvname=10.48.95.40:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw40='type=SQLSRV:srvname=10.48.95.40:dbname=amqavw:user=espejopruebas:passwd=12345678'
 
-"command to change Connection
-function! FnChangeDB()
-  :DBPromptForBufferParameters
-endfunction
-command! -nargs=0 ChangeDB :call FnChangeDB()
-
 "add this comment at begin of file script to shebang
 "// dbext:profile=sql_qavw
 let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
@@ -740,16 +739,6 @@ let g:session_command_aliases = 1
 let g:showmarks_enable=0
 "}}}
 
-"" IndentGuides {{{
-""https://github.com/nathanaelkane/vim-indent-guides
-"let g:indent_guides_start_level=1
-"let g:indent_guides_guide_size=1
-"let g:indent_guides_auto_colors=1
-""run at startup
-"let g:indent_guides_enable_on_vim_startup=0
-""<Leader>ig   ->show guides
-""}}}
-
 " javascript-libraries-syntax {{{
 "https://github.com/othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'underscore,backbone'
@@ -793,9 +782,10 @@ let g:badwolf_css_props_highlight = 1
 "https://github.com/tomtom/tskeleton_vim
 "my skeletons
 "avoid generate error at processing vundle\cache\tskel_menu\help
-set runtimepath+=~/vimfiles/bundle/vundle/tskeleton_vim/
 let g:tskelMenuCache = ''
-let g:tskelDir=$HOME . '/vimfiles/bundle/tskeletons/'
+let g:tskelGlobalBitsPath=$HOME . '/vimfiles/bundle/tskeletons/bits/'
+"let g:tskelDir=$HOME . '/vimfiles/bundle/tskeletons/'
+let g:tskelDir=$HOME . '/vimfiles/skeletons/'
 let g:tskelUserName='Ing. Primitivo R. Montero'
 let g:tskelUserEmail='cibercafe_montero@hotmail.com'
 "autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
@@ -808,6 +798,7 @@ autocmd BufNewFile *.config TSkeletonSetup skeleton.config
 autocmd BufNewFile *.css TSkeletonSetup skeleton.css
 autocmd BufNewFile *.xml TSkeletonSetup skeleton.xml
 autocmd BufNewFile *.php TSkeletonSetup skeleton.php
+autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
 "}}}
 
 " MRU {{{
@@ -840,12 +831,6 @@ let g:mta_filetypes = {
 "run :TPluginScan!
 set runtimepath+=~/vimfiles/bundle/vimtlib/
 "let g:tplugin_autoload=1
-"}}}
-
-" vim template {{{
-"https://github.com/aperezdc/vim-template
-let g:templates_plugin_loaded = 1 "to skip loading of this plugin.
-let g:templates_no_autocmd = 1 "to disable automatic insertion of template in new files.
 "}}}
 
 " templator {{{
@@ -963,7 +948,7 @@ set equalprg=astyle
 "Word-Fuzzy-Completion {{{
 "https://github.com/vim-scripts/Word-Fuzzy-Completion
 "http://hetland.org/coding/python/levenshtein.py
-let g:fuzzywordcompletion_disable_keybinding=1
+let g:fuzzywordcompletion_disable_keybinding=0
 "}}}
 
 " pydiction {{{
@@ -991,3 +976,37 @@ let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "1"
 let g:jedi#auto_initialization=0
 "}}}
+
+"vim-easy-align{{{
+"https://github.com/junegunn/vim-easy-align
+" Start interactive EasyAlign in visual mode
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign with a Vim movement
+nmap <Leader>a <Plug>(EasyAlign)
+" Repeat alignment in visual mode with . key
+vmap . <Plug>(EasyAlignRepeat)
+"}}}
+
+" vim template {{{
+"https://github.com/aperezdc/vim-template
+let g:templates_plugin_loaded = 0 "to skip loading of this plugin.
+let g:templates_no_autocmd = 0 "to disable automatic insertion of template in new files.
+"}}}
+
+""vim-rooter {{{
+""https://github.com/airblade/vim-rooter
+"let g:rooter_use_lcd = 1
+"let g:rooter_change_directory_for_non_project_files = 1
+"let g:rooter_patterns += ['.sln']
+""}
+
+"" IndentGuides {{{
+""https://github.com/nathanaelkane/vim-indent-guides
+"let g:indent_guides_start_level=1
+"let g:indent_guides_guide_size=1
+"let g:indent_guides_auto_colors=1
+""run at startup
+"let g:indent_guides_enable_on_vim_startup=0
+""<Leader>ig   ->show guides
+""}}}
+

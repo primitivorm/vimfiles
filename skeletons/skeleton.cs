@@ -12,8 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace namespace_name < +CURSOR + >
-    public class < +FILE NAME ROOT + >
+namespace <+CURSOR+>{
+    public class  <+FILE NAME ROOT+>
     {
         #region Atributos
         #endregion
@@ -21,9 +21,9 @@ namespace namespace_name < +CURSOR + >
         #endregion
         #region Constructor
         /// <summary>
-        /// Instamcia un objeto de la clase <+FILE DIRNAME+>
+        /// Instamcia un objeto de la clase <+FILE NAME ROOT+>
         /// </summary>
-        public < +FILE DIRNAME + > ()
+        public <+FILE NAME ROOT+>  ()
         {
 
         }

@@ -3,26 +3,28 @@
 "http://www.vim.org/scripts/script.php?script_id=2087
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Automatic re-tab
+set expandtab
 " convert tabs to spaces before writing file
-autocmd! BufWritePre *.cs setlocal expandtab | retab!
+if !&readonly
+  autocmd! BufWritePre *.cs setlocal expandtab | retab!
+endif
 "" establece file format
 "autocmd! BufReadPost *.cs setlocal ft=cs
 "for each line in buffer rewrap on write
 "http://vim.wikia.com/wiki/Power_of_g
 autocmd! BufWritePre *.cs :g/\v\(.+,+.+\)/call argumentrewrap#RewrapArguments()
+"<leader>ra :call argumentrewrap#RewrapArguments()<cr>
 
 "Autoformat
-autocmd BufWritePre *.cs :Autoformat
+autocmd BufRead,BufNewFile *.cs nnoremap <leader>f :Autoformat<cr>
+autocmd BufRead,BufNewFile *.cs vmap <leader>f :Autoformat<cr>
 
 "syntax completion
-au FileType cs exe('setl dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
+autocmd FileType *.cs exe('setl dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
 
 "syntastic format
 autocmd FileType *.cs setlocal errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
 autocmd FileType *.cs setlocal makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
-
-"skeletons
-autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
 
 "Omnisharp
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
@@ -64,11 +66,3 @@ endfunction
 
 au BufRead,BufNewFile *.cs nnoremap <leader>fs :call FormatStatement()<cr>
 au BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
-
-function! XsdAddColumn()
-  normal "zywI<xs:element name="wea" msprop:Generator_UserColumnName=""zpa" msprop:Generator_ColumnPropNameInRow=""zpa" msprop:Generator_ColumnVarNameInTable="column"zpa" msprop:Generator_ColumnPropNameInTable=""zpaColumn" type="xs:string" minOccurs="0" />j0
-endfunction
-
-"Create a field in a xsd file
-au BufRead,BufNewFile *.xsd nnoremap <A-r>xs :call XsdAddColumn()<cr>
-au BufRead,BufNewFile *.xsd vnoremap <A-r>xs :call XsdAddColumn()<cr>

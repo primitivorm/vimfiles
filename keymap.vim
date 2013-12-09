@@ -143,9 +143,9 @@ vmap <leader>x "+x
 "YANK
 map <leader>Y "+yy
 vmap <leader>y "+y
-"PAST
+"PASTE
 map <leader>p "+gp
-map <leader>P "+gP
+noremap <leader>P "+gP
 
 "disable paste when MiddleMouse press
 "http://vim.wikia.com/wiki/Mouse_wheel_for_scroll_only_-_disable_middle_button_paste
@@ -345,63 +345,6 @@ function! s:QuickfixToggle()
 endfunction
 " }}}
 
-" XML formatter {{{
-function! DoFormatXML() range
-    " Save the file type
-    let l:origft = &ft
-
-    " Clean the file type
-    set ft=
-
-    " Add fake initial tag (so we can process multiple top-level elements)
-    exe ":let l:beforeFirstLine=" . a:firstline . "-1"
-    if l:beforeFirstLine < 0
-        let l:beforeFirstLine=0
-    endif
-    exe a:lastline . "put ='</PrettyXML>'"
-    exe l:beforeFirstLine . "put ='<PrettyXML>'"
-    exe ":let l:newLastLine=" . a:lastline . "+2"
-    if l:newLastLine > line('$')
-        let l:newLastLine=line('$')
-    endif
-
-    " Remove XML header
-    exe ":" . a:firstline . "," . a:lastline . "s/<\?xml\\_.*\?>\\_s*//e"
-
-    " Recalculate last line of the edited code
-    let l:newLastLine=search('</PrettyXML>')
-
-    " Execute external formatter
-    exe ":silent " . a:firstline . "," . l:newLastLine . "!xmllint --noblanks --format --recover -"
-
-    " Recalculate first and last lines of the edited code
-    let l:newFirstLine=search('<PrettyXML>')
-    let l:newLastLine=search('</PrettyXML>')
-
-    " Get inner range
-    let l:innerFirstLine=l:newFirstLine+1
-    let l:innerLastLine=l:newLastLine-1
-
-    " Remove extra unnecessary indentation
-    exe ":silent " . l:innerFirstLine . "," . l:innerLastLine "s/^  //e"
-
-    " Remove fake tag
-    exe l:newLastLine . "d"
-    exe l:newFirstLine . "d"
-
-    " Put the cursor at the first line of the edited code
-    exe ":" . l:newFirstLine
-
-    " Restore the file type
-    exe "set ft=" . l:origft
-endfunction
-command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
-
-"remap in autoformat section
-"nmap <silent> <leader>fx :%FormatXML<CR>
-"vmap <silent> <leader>fx :FormatXML<CR>
-" }}}
-
 " Theme Rotating {{{
 let themeindex=0
 function! RotateColorTheme()
@@ -542,18 +485,16 @@ nmap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 
 " autoformat {{{
 "https://github.com/Chiel92/vim-autoformat
-autocmd FileType cs nmap <leader>f :Autoformat<cr>
-autocmd FileType cs vmap <leader>f :Autoformat<cr>
-autocmd FileType sql nmap <leader>f <Plug>SQLU_Formatter<cr>
-autocmd FileType sql vmap <leader>f <Plug>SQLU_Formatter<cr>
-autocmd FileType css nmap <leader>f :call CssPretty()<cr>
-autocmd FileType css vmap <leader>f :call CssPretty()<cr>
-autocmd FileType xml nmap <leader>f :%FormatXML<CR>
-autocmd FileType xml vmap <leader>f :FormatXML<CR>
-autocmd FileType js nmap <leader>f :call JsBeautify()<cr>
-autocmd FileType js vmap <leader>f :call JsBeautify()<cr>
-autocmd FileType html map <leader>f :call HtmlBeautify()<cr>
-autocmd FileType html voremap <leader>f :call HtmlBeautify()<cr>
+autocmd BufRead,BufNewFile *.sql nmap <leader>f <Plug>SQLU_Formatter<cr>
+autocmd BufRead,BufNewFile *.sql vmap <leader>f <Plug>SQLU_Formatter<cr>
+autocmd BufRead,BufNewFile *.css nmap <leader>f :call CssPretty()<cr>
+autocmd BufRead,BufNewFile *.css vmap <leader>f :call CssPretty()<cr>
+autocmd BufRead,BufNewFile *.js nmap <leader>f :call JsBeautify()<cr>
+autocmd BufRead,BufNewFile *.js vmap <leader>f :call JsBeautify()<cr>
+autocmd BufRead,BufNewFile *.htm nmap <leader>f :call HtmlBeautify()<cr>
+autocmd BufRead,BufNewFile *.htm vmap <leader>f :call HtmlBeautify()<cr>
+autocmd BufRead,BufNewFile *.html nmap <leader>f :call HtmlBeautify()<cr>
+autocmd BufRead,BufNewFile *.html vmap <leader>f :call HtmlBeautify()<cr>
 " }}}
 
 "redefine MyDiff function {{{
