@@ -359,7 +359,7 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 "max num of tabs
 set tabpagemax=15
-set fileformats="unix,dos,mac"
+set fileformats=unix,dos,mac
 if has('win32') || has('win64')
   "set fileformat=dos
   "┊
