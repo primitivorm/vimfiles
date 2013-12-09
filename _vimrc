@@ -53,7 +53,7 @@ Bundle 'xolox/vim-misc'
 Bundle 'tomtom/vimtlib'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mattn/webapi-vim'
-Bundle 'bash-support.vim'
+"Bundle 'bash-support.vim'
 Bundle 'tomtom/tplugin_vim'
 Bundle 'tpope/vim-dispatch'
 Bundle 'vim-scripts/cecutil'
@@ -66,6 +66,7 @@ Bundle 'quickfixsigns'
 "airline support tabs
 Bundle 'majutsushi/tagbar'
 Bundle 'xolox/vim-session'
+"Bundle 'Lokaltog/powerline'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
 Bundle 'airblade/vim-rooter'
@@ -202,7 +203,7 @@ Bundle 'biruh/vim-aspnet'
 "copy C:\Python27\Lib\site-packages\pywin32_system32 to C:\Python27
 "http://sourceforge.net/projects/pywin32/files/pywin32/Build%20214/
 Bundle 'visual_studio.vim'
-Bundle 'nosami/Omnisharp'
+Bundle 'primitivorm/Omnisharp'
 Bundle 'heaths/vim-msbuild'
 "}}}
 
@@ -360,7 +361,7 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 set tabpagemax=15
 set fileformats="unix,dos,mac"
 if has('win32') || has('win64')
-  set fileformat=dos
+  "set fileformat=dos
   "┊
   set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
@@ -371,7 +372,7 @@ if has('win32') || has('win64')
     \Monaco:h9,
     \Terminus:h11,
 else
-  set fileformat=unix
+  "set fileformat=unix
   set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=Envy\ Code\ R\ for\ Powerline\ 9,
