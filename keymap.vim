@@ -522,4 +522,4 @@ function! MyDiff()
   endif
   silent execute '!diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
-"}}}"
+"}}}

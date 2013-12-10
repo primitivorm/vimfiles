@@ -5,15 +5,11 @@
 "" Automatic re-tab
 set expandtab
 " convert tabs to spaces before writing file
-if !&readonly
+if !&readonly && &modifiable
   autocmd! BufWritePre *.cs setlocal expandtab | retab!
 endif
 "" establece file format
 "autocmd! BufReadPost *.cs setlocal ft=cs
-"for each line in buffer rewrap on write
-"http://vim.wikia.com/wiki/Power_of_g
-autocmd! BufWritePre *.cs :g/\v\(.+,+.+\)/call argumentrewrap#RewrapArguments()
-"<leader>ra :call argumentrewrap#RewrapArguments()<cr>
 
 "Autoformat
 autocmd BufRead,BufNewFile *.cs nnoremap <leader>f :Autoformat<cr>
@@ -66,3 +62,8 @@ endfunction
 
 au BufRead,BufNewFile *.cs nnoremap <leader>fs :call FormatStatement()<cr>
 au BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
+
+"for each line in buffer rewrap on write
+"http://vim.wikia.com/wiki/Power_of_g
+"<leader>ra :call argumentrewrap#RewrapArguments()<cr>
+autocmd! BufWritePre *.cs :g/\v^(\s|\w)+\(.+,+.+\)/call argumentrewrap#RewrapArguments()

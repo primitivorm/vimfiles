@@ -492,6 +492,8 @@ set guioptions+=c
 set guioptions+=a
 " Since I use linux, I want this
 let g:clipbrdDefaultReg = '+'
+""to show tabtooltip
+"set guioptions+=e
 "}}}
 
 " Spell {{{
@@ -513,9 +515,6 @@ set spellfile=~/vimfiles/spell/dict.add
 
 " autocmd {{{
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
-if !&readonly
-    autocmd BufNewFile,BufRead * :retab!
-endif
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType c,cpp,h setlocal omnifunc=ccomplete#Complete
