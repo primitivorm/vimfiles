@@ -363,8 +363,11 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=15
 set fileformats=unix,dos,mac
+"set fileformats=unix
+"change between dos to unix format
+set shortmess=x
+"autocmd BufRead,BufNewFile * set fileformat=unix
 if has('win32') || has('win64')
-  "set fileformat=dos
   "┊
   set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
@@ -375,7 +378,6 @@ if has('win32') || has('win64')
     \Monaco:h9,
     \Terminus:h11,
 else
-  "set fileformat=unix
   set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=Envy\ Code\ R\ for\ Powerline\ 9,
