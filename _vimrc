@@ -105,6 +105,7 @@ Bundle 'quentindecock/vim-cucumber-align-pipes'
 Bundle 'mattn/gist-vim'
 Bundle 'motemen/git-vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'primitivorm/Source-Control'
 "}}}
 
 " templating {{{
@@ -371,34 +372,33 @@ if has('win32') || has('win64')
   "┊
   set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-  set guifont=Consolas_for_Powerline_FixedD:h10,
-    \Meslo_LG_M_for_Powerline:h9,
-    \Envy_Code_R_for_Powerline:h10,
-    \DejaVu_Sans_Mono_for_Powerline:h10,
-    \Monaco:h9,
-    \Terminus:h11,
+  set guifont=Consolas_for_Powerline_FixedD:h11,
+    \Meslo_LG_M_for_Powerline:h10,
+    \Envy_Code_R_for_Powerline:h11,
+    \DejaVu_Sans_Mono_for_Powerline:h11,
+    \Monaco:h10,
+    \Terminus:h12,
 else
   set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Envy\ Code\ R\ for\ Powerline\ 9,
-    \Meslo\ LG\ M\ DZ\ for\ Powerline\ 8,
-    \Terminus\ Medium\ 12,
-    \Monaco\ for\ Powerline\ 9,Andale\ Mono\ 9,
-    \Consolas\ for\ Powerline\ 9,
-    \DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-  let g:fontpat_unix ='\([1-9][0-9]*\)'
+  set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
+    \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
+    \Terminus\ Medium\ 13,
+    \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
+    \Consolas\ for\ Powerline\ 10,
+    \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
   let g:guifontpp_size_increment=1
   "for linux maximize dont work
   let g:loaded_maximize=1
   if has("gui_running")
-  set lines=999 columns=999
+    set lines=999 columns=999
   else
   " This is console Vim.
   if exists("+lines")
-  set lines=50
+    set lines=50
   endif
   if exists("+columns")
-  set columns=100
+    set columns=100
   endif
   endif
 endif
@@ -715,14 +715,10 @@ let g:sql_type_default = "sqlserver"
 "}}}
 
 "airline {{{
-"if &background=='light'
-  "let g:airline_theme = 'light'
-"else
-  "let g:airline_theme = 'wombat'
-"endif
 let g:airline_theme = 'solarized'
-let g:airline_enable_branch   = 1
-let g:airline_enable_syntastic  = 1
+let g:airline_enable_branch = 1
+let g:airline_enable_syntastic = 1
+let g:airline_detect_iminsert = 1
 
 " vim-powerline symbols
 let g:airline_left_sep = '⮀'
@@ -860,7 +856,7 @@ let guifontpp_original_font_map="<M-=>"
 "ss path
 let g:ssExecutable = 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
 let g:scMenuPath   ='SourceSafe'   "menu name
-let g:scUserName   = 'proman,12345678'
+let g:scUserName   = $SSUSER . ',' . $SSPWD
 let g:scDiffVertical   =1
 let g:scHistVertical   =1
 let g:scSetRuler   =1
