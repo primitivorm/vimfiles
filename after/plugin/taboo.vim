@@ -27,7 +27,7 @@ function! FoldSpellBalloon()
   " Detect if we are in a fold
   if foldStart < 0
     " Detect if we are on a misspelled word
-    let lines = spellsuggest( spellbadword(v:beval_text)[ 0 ], 5, 0 )
+    "let lines = spellsuggest( spellbadword(v:beval_text)[ 0 ], 5, 0 )
   else
     " we are in a fold
     let numLines = foldEnd - foldStart + 1
@@ -49,8 +49,36 @@ if !exists('b:tlib_balloons')
   let b:tlib_balloons=[]
 endif
 call add(b:tlib_balloons, 'FoldSpellBalloon()')
-
 autocmd BufRead,BufNewFile * set balloonexpr=FoldSpellBalloon()
 set ballooneval
 "}}}
 
+" Tab maps {{{
+" Tab navigation like Firefox
+nmap <silent><C-Tab> :  tabnext<cr>
+nmap <silent><S-Tab> :  tabprev<cr>
+nmap <silent><C-F4>  :  tabclose<cr>
+nmap <silent><C-T>  :   tabnew<cr>
+"http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
+"Move tab to Left
+function! TabLeft()
+   let tab_number = tabpagenr() - 1
+   if tab_number == 0
+      execute "tabm" tabpagenr('$') - 1
+   else
+      execute "tabm" tab_number - 1
+   endif
+endfunction
+"Move tab to Right
+function! TabRight()
+   let tab_number = tabpagenr() - 1
+   let last_tab_number = tabpagenr('$') - 1
+   if tab_number == last_tab_number
+      execute "tabm" 0
+   else
+      execute "tabm" tab_number + 1
+   endif
+ endfunction0
+nmap <silent><A-Left>  : call TabLeft()<CR>
+nmap <silent><A-Right> : call TabRight()<CR>
+" }}}

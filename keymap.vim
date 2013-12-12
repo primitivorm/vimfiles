@@ -48,39 +48,9 @@ nmap <C-A-Down>  : res +1<cr>
 nmap <C-A-Up>    : res -1<cr>
 " }}}
 
-" Tab maps {{{
-" Tab navigation like Firefox
-nmap <silent><C-Tab> :  tabnext<cr>
-nmap <silent><S-Tab> :  tabprev<cr>
-nmap <silent><C-F4>  :  tabclose<cr>
-nmap <silent><C-T>  :   tabnew<cr>
-"http://stackoverflow.com/questions/2106138/rearrange-tabs-with-the-mouse-in-gvim
-"Move tab to Left
-function! TabLeft()
-   let tab_number = tabpagenr() - 1
-   if tab_number == 0
-      execute "tabm" tabpagenr('$') - 1
-   else
-      execute "tabm" tab_number - 1
-   endif
-endfunction
-
-"Move tab to Right
-function! TabRight()
-   let tab_number = tabpagenr() - 1
-   let last_tab_number = tabpagenr('$') - 1
-   if tab_number == last_tab_number
-      execute "tabm" 0
-   else
-      execute "tabm" tab_number + 1
-   endif
- endfunction0
-
-nmap <silent><A-Left>  : call TabLeft()<CR>
-nmap <silent><A-Right> : call TabRight()<CR>
-" }}}
-
 " Easy Vim Mapping like others editors {{{
+"easy help current word under cursor
+map <F1> <ESC>:exec "help ".expand("<cword>")<CR>
 
 "Shift-Home, Shift-End
 nnoremap <silent><S-Home> <Esc>v^
@@ -134,6 +104,8 @@ nnoremap <silent><C-BS> diw
 "Tab in Normal mode goto next word
 nnoremap <silent><Tab> w
 " Del switch to Insert mode
+nnoremap <silent><C-Del> <Del>diW
+" Del switch to Insert mode
 vnoremap <silent><Del> <Del>i
 
 " to the clipboard with <leader>x <leader>y and <leader>p
@@ -151,53 +123,52 @@ noremap <leader>P "+gP
 "http://vim.wikia.com/wiki/Mouse_wheel_for_scroll_only_-_disable_middle_button_paste
 map <MiddleMouse> <LeftMouse>
 
+"CTRL-S is Save file
+nmap <C-s> :update<cr>
 "CTRL-N is New file
-nmap <silent><C-N>  :   tabnew<cr>
-
+nmap <silent><C-N>  :tabnew<cr>
 "CTRL-O is Open file
 if has('gui_running')
-    nmap <c-o> :browse confirm e<cr>
+    nmap <C-o> :browse confirm e<cr>
 else
-    nmap <c-o> :tabe %%
+    nmap <C-o> :tabe %%
 endif
-
 "CTRL-F is Find command
-map <C-F> /\v<C-r><C-w>
-"Replace
+nmap <C-F> /\v<C-r><C-w>
+"CTRL-H is Replace
 nmap <C-h> :%s/<C-r><C-w>/
-
 "CTRL-U is Change minus to MAYUS
 vmap <C-u> U
 "CTRL-L is Change MAYUS to minus
 vmap <C-l> u
 
 "Spelling Check
-nmap <c-f7> :set spell!<cr>
-nmap <f7> ]s
-nmap <s-f7> [s
+nmap <C-f7> :set spell!<cr>
+"nmap <f7> ]s
+"nmap <s-f7> [s
+autocmd BufReadPre * if &diff|nmap <f7> ]c<cr>|nmap <s-f7> [c|else|nmap <f7> ]s|nmap <s-f7> [s|endif
 
 "insert autoclose for {
 imap {<CR> {<CR>}<Esc>O
-
 "insert autoclose for %
 inoremap % %%<Left>
 "}}}
 
 " Tab completion {{{
 "for file completion
-imap <c-f> <c-x><c-f>
+imap <C-f> <C-x><C-f>
 "for line completion
-imap <C-l> <c-x><c-l>
+imap <C-l> <C-x><C-l>
 "for thesaurus file
-imap <c-t> <c-x><c-t>
+imap <C-t> <C-x><C-t>
 "for tag completion
-imap <c-]> <c-x><c-]>
+imap <C-]> <C-x><C-]>
 "current file all words
-imap <c-u> <c-x><c-u>
+imap <C-u> <C-x><C-u>
 "macro completion
-imap <c-d> <c-x><c-d>
+imap <C-d> <C-x><C-d>
 ""for words in current file
-"imap <c-i> <c-x><c-i>
+"imap <C-i> <C-x><C-i>
 "}}}
 
 " Execute current line or current selection as Vim EX commands. {{{
@@ -222,6 +193,7 @@ function! Highlighting()
   return ":silent set hlsearch\<CR>"
 endfunction
 nmap <silent> <expr> <CR> Highlighting()
+"nmap <silent> <expr> <2-LeftMouse> Highlighting()
 
 "http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle
 " Highlight all instances of word under cursor, when idle.
@@ -445,7 +417,7 @@ autocmd FileType *.cs nmap fi :call OmniSharp#FindImplementations()<cr>
 autocmd FileType *.cs nmap fu :call OmniSharp#FindUsages()<cr>
 autocmd FileType *.cs nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
 "I find contextual code actions so useful that I have it mapped to the spacebar
-autocmd FileType *.cs nmap <c-space> :call OmniSharp#GetCodeActions()<cr>
+autocmd FileType *.cs nmap <C-Space> :call OmniSharp#GetCodeActions()<cr>
 " rename with dialog
 autocmd FileType *.cs nmap nm :call OmniSharp#Rename()<cr>
 autocmd FileType *.cs nmap <silent><S-F2> :call OmniSharp#Rename()<cr>
@@ -475,7 +447,7 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 "go to end of word in insert mode
-imap <c-e> <esc>ea
+imap <C-e> <esc>ea
 " }}}
 
 " argumentrewrap {{{
@@ -497,7 +469,7 @@ autocmd BufRead,BufNewFile *.html nmap <leader>f :call HtmlBeautify()<cr>
 autocmd BufRead,BufNewFile *.html vmap <leader>f :call HtmlBeautify()<cr>
 " }}}
 
-"redefine MyDiff function {{{
+"Redefine MyDiff function {{{
 set diffexpr=MyDiff()
 function! MyDiff()
   let opt = '-a --binary '

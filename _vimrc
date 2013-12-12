@@ -412,8 +412,10 @@ set nowrap
 set linebreak "lbr
 set showbreak=...
 set textwidth=125
+set wrapmargin
 if exists('+colorcolumn')
-  set colorcolumn=125
+  set colorcolumn=120
+  let &colorcolumn="120,".join(range(150,999),",")
 endif
 "habilita sangrado inteligente
 set smartindent
@@ -454,13 +456,15 @@ set matchpairs+=%:%
 
 " Folding rules {{{
 set foldenable " enable folding
-set foldcolumn=0 " add a fold column
+set foldcolumn=1 " add a fold column
 set foldmethod=syntax
 set foldnestmax=3
 set foldlevel=3
 set foldlevelstart=0 " start out with everything folded
 " which commands trigger auto-unfold
-set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+"set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
+"default
+set foldopen=block,hor,insert,mark,percent,quickfix,search,tag,undo
 "}}}
 
 " Editor layout {{{
@@ -500,7 +504,12 @@ let g:clipbrdDefaultReg = '+'
 
 " Spell {{{
 "habilita corrector ortografico
-set nospell "active spell check
+"if &diff
+    "set nospell
+"else
+    "set spell "active spell check
+"endif
+set nospell
 "http://precheur.org/vim/create_spell_file_for_vim
 set spelllang=es,en "Carga el diccionario en o los lenguajes que necesitemos
 "limit the number of suggested words
@@ -534,7 +543,8 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags noci
 "For the most accurate but slowest result, set the syntax synchronization method to fromstart
 autocmd BufEnter * :syntax sync fromstart
 "suffixes added to command gf
-set suffixesadd+=.c,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.java,.py,.lisp,.perl
+set suffixes+=.c,.h,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.aspx.vb,.aspx.cs,.java,.py,.lisp,.perl,.vim
+set suffixesadd+=.c,.h,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.aspx.vb,.aspx.cs,java,.py,.lisp,.perl,.vim
 "vbnet highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "c compiler
@@ -564,24 +574,24 @@ let g:ragtag_global_maps = 1
 " NERDTree {{{
 "https://github.com/scrooloose/nerdtree"
 "open the plugin NERDTree at startup Vim
-if (&diff==0)
-  au vimenter * NERDTree
-  au vimenter * if !argc() | NERDTree | endif
-endif
-"cerrar Vim si la unica ventana abierta es la de NERDTree
+"if (&diff==0)
+  "au vimenter * NERDTree
+  "au vimenter * if !argc() | NERDTree | endif
+"endif
+"cerrar Vim si la única ventana abierta es la de NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "custom settings
-let g:NERDTreeBookmarksFile   = expand($HOME.'/_NERDTreeBookmarks')
-let g:NERDTreeShowBookmarks   = 1
-let g:NERDTreeWinSize   = 40
-let g:NERDTreeChristmasTree   = 1
+let g:NERDTreeBookmarksFile     = expand($HOME.'/_NERDTreeBookmarks')
+let g:NERDTreeShowBookmarks     = 1
+let g:NERDTreeWinSize           = 25
+let g:NERDTreeChristmasTree     = 1
 let g:NERDTreeCaseSensitiveSort = 1
-let g:NERDTreeQuitOnOpen  = 1
-let g:NERDTreeMouseMode   = 2
-let NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen        = 1
+let g:NERDTreeMouseMode         = 2
+let NERDTreeShowHidden          = 0
 "open in new tab with Ctrl-Enter
-let NERDTreeMapOpenInTab='<c-cr>'
-let NERDTreeMapOpenInTabSilent='<c-cr>'
+"let NERDTreeMapOpenInTab='<c-cr>'
+"let NERDTreeMapOpenInTabSilent='<c-cr>'
 let g:NERDTreeDirArrows=1
 "the working directory is always the one where the active buffer is located.
 set autochdir
@@ -603,16 +613,13 @@ let g:NERDTreeIgnore=[
 "file to find tags
 set tags=tags,./tags
 "to specify one or more file extensions, which Vim will attempt to use when looking up a filename with the gf
-set suffixesadd+=.cs
-set suffixesadd+=.py
-set suffixesadd+=.rb
-set suffixesadd+=.js
+"set suffixes+=.cs,.py,.rb,.js
 "toggle fold = o/za
 let g:tagbar_width     = 25  "default 40
 let g:tagbar_compact   = 1   "default 0
 let g:tagbar_foldlevel   = 2  "default 99
 let g:tagbar_ctags_bin   = 'ctags'
-let g:tagbar_autofocus   = 0   "default 0
+let g:tagbar_autofocus   = 1   "default 0
 let g:tagbar_expand    = 0
 let g:tagbar_iconchars  = ['▸', '▾']
 let g:tagbar_autoclose   = 0
