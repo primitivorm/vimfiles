@@ -12,8 +12,8 @@ endif
 "autocmd! BufReadPost *.cs setlocal ft=cs
 
 "Autoformat
-autocmd BufRead,BufNewFile *.cs nnoremap <leader>f :Autoformat<cr>
-autocmd BufRead,BufNewFile *.cs vmap <leader>f :Autoformat<cr>
+autocmd BufRead,BufNewFile *.cs nnoremap <leader>f :silent Autoformat<cr>
+autocmd BufRead,BufNewFile *.cs vmap <leader>f :silent Autoformat<cr>
 
 "syntax completion
 autocmd FileType *.cs exe('setl dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
@@ -66,4 +66,4 @@ au BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
 "for each line in buffer rewrap on write
 "http://vim.wikia.com/wiki/Power_of_g
 "<leader>ra :call argumentrewrap#RewrapArguments()<cr>
-autocmd! BufWritePre *.cs :g/\v^(\s|\w)+\(.+,+.+\)/call argumentrewrap#RewrapArguments()
+autocmd! BufWritePre *.cs :silent g/\v^(\s|\w)+\(.+,+.+\)/call argumentrewrap#RewrapArguments()

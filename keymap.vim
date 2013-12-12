@@ -142,6 +142,11 @@ vmap <C-u> U
 "CTRL-L is Change MAYUS to minus
 vmap <C-l> u
 
+"CTRL-ENTER is insert line after
+nmap <c-cr> o<esc>
+"CTRL-ENTER is insert line before
+nmap <c-s-cr> O<esc>
+
 "Spelling Check
 nmap <C-f7> :set spell!<cr>
 "nmap <f7> ]s
@@ -177,9 +182,9 @@ nmap <F10> :exe getline(".")<CR>
 vmap <F10> :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR>
 "}}}
 "
-"SnipMate completion {{{
-imap <C-Space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
-" }}}
+""SnipMate completion {{{
+"imap <C-Space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
+"" }}}
 
 " Highlight all words when press <CR> {{{
 let g:highlighting = 0

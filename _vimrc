@@ -112,8 +112,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'ccimpl.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'tomtom/tskeletons'
-Bundle 'honza/vim-snippets'
-Bundle 'garbas/vim-snipmate'
+"Bundle 'honza/vim-snippets'
+"Bundle 'garbas/vim-snipmate'
 Bundle 'mklabs/vim-backbone'
 Bundle 'tomtom/templator_vim'
 Bundle 'tomtom/tskeleton_vim'
@@ -408,11 +408,11 @@ filetype plugin on
 "muestra numeros de linea del archivo
 set nu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
-set nowrap
+set wrap
 set linebreak "lbr
 set showbreak=...
-set textwidth=125
-set wrapmargin
+set textwidth=120
+set wrapmargin=120
 if exists('+colorcolumn')
   set colorcolumn=120
   let &colorcolumn="120,".join(range(150,999),",")
@@ -926,23 +926,28 @@ let g:SuperTabMappingForward = '<tab>'
 let g:SuperTabMappingBackward = '<s-tab>'
 "}}}
 
-" SnipMate {{{
-"snipMate plugin
-"https://github.com/garbas/vim-snipMate
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['cs'] = 'cs'
-let g:snipMate.scope_aliases['sql'] = 'sql'
-"g:snippets_dir is deprecated add my personal snippets by runtimepath
-"}}}
+"" SnipMate {{{
+""snipMate plugin
+""https://github.com/garbas/vim-snipMate
+"let g:snipMate = {}
+"let g:snipMate.scope_aliases = {}
+"let g:snipMate.scope_aliases['cs'] = 'cs'
+"let g:snipMate.scope_aliases['sql'] = 'sql'
+""g:snippets_dir is deprecated add my personal snippets by runtimepath
+""}}}
 
 " Ultisnip {{{
 "https://github.com/vim-scripts/UltiSnips
 "defaults
-let g:UltiSnipsExpandTrigger     = '<c-space>'
-let g:UltiSnipsListSnippets      = '<c-tab>'
-let g:UltiSnipsJumpForwardTrigger  = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+set runtimepath+=~/vimfiles/snippets/
+let g:UltiSnipsDoHash                = 0
+let g:UltiSnipsExpandTrigger         = '<tab>'
+let g:UltiSnipsListSnippets          = '<c-space>'
+let g:UltiSnipsJumpForwardTrigger    = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger   = '<s-tab>'
+let g:UltiSnipsSnippetsDir           = "~/vimfiles/snippets/"
+let g:UltiSnipsSnippetDirectories    = ["UltiSnips", "snippets"]
+let g:UltiSnipsDontReverseSearchPath = "1"
 "}}}
 
 " vim-autoformat {{{
