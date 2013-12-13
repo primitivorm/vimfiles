@@ -3,7 +3,7 @@
 "http://www.vim.org/scripts/script.php?script_id=2087
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Automatic re-tab
-set expandtab
+setlocal expandtab
 " convert tabs to spaces before writing file
 if !&readonly && &modifiable
   autocmd! BufWritePre *.cs setlocal expandtab | retab!
@@ -16,7 +16,7 @@ autocmd BufRead,BufNewFile *.cs nnoremap <leader>f :silent Autoformat<cr>
 autocmd BufRead,BufNewFile *.cs vmap <leader>f :silent Autoformat<cr>
 
 "syntax completion
-autocmd FileType *.cs exe('setl dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
+autocmd FileType *.cs exe('setlocal dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
 
 "syntastic format
 autocmd FileType *.cs setlocal errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m

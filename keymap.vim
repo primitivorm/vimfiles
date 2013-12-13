@@ -121,12 +121,12 @@ noremap <leader>P "+gP
 
 "disable paste when MiddleMouse press
 "http://vim.wikia.com/wiki/Mouse_wheel_for_scroll_only_-_disable_middle_button_paste
-map <MiddleMouse> <LeftMouse>
+"nnoremap <MiddleMouse> <LeftMouse>
 
 "CTRL-S is Save file
 nmap <C-s> :update<cr>
-"CTRL-N is New file
-nmap <silent><C-N>  :tabnew<cr>
+""CTRL-N is New file
+"nmap <silent><C-N>  :tabnew<cr>
 "CTRL-O is Open file
 if has('gui_running')
     nmap <C-o> :browse confirm e<cr>
@@ -197,6 +197,7 @@ function! Highlighting()
   let g:highlighting = 1
   return ":silent set hlsearch\<CR>"
 endfunction
+"TODO: Uncoment this
 nmap <silent> <expr> <CR> Highlighting()
 "nmap <silent> <expr> <2-LeftMouse> Highlighting()
 
@@ -251,8 +252,8 @@ nmap ,. '.
 map <leader>h :set hlsearch! hlsearch?<CR>
 
 " Make shift-insert work like in Xterm
-map <S-Insert> <MiddleMouse>
-map! <S-Insert> <MiddleMouse>
+"map <S-Insert> <MiddleMouse>
+"map! <S-Insert> <MiddleMouse>
 
 "list
 nmap <leader>l :set list!<CR>
@@ -446,7 +447,7 @@ nmap <silent> <leader>sc :SyntasticCheck<cr>
 " multiple-cursor {{{
 "https://github.com/terryma/vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-d>'   "like SublimeText 2
+let g:multi_cursor_next_key='<C-n>'   "like SublimeText 3 use <c-d>
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'

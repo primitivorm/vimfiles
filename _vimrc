@@ -66,16 +66,17 @@ Bundle 'sjl/gundo.vim'
 Bundle 'quickfixsigns'
 Bundle 'gcmt/taboo.vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'xolox/vim-session'
+"Bundle 'xolox/vim-session'
 Bundle 'bling/vim-airline'
+Bundle 'Yggdroot/indentLine'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'airblade/vim-rooter'
 Bundle 'primitivorm/QuickBuf'
 "Bundle 'shemerey/vim-project'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
+Bundle 'primitivorm/minimap-vim'
 Bundle 'Lokaltog/powerline-fonts'
-Bundle 'Yggdroot/indentLine'
 "}}}
 
 " formatting {{{
@@ -148,7 +149,7 @@ Bundle 'alfredodeza/pytest.vim'
 
  " html {{{
 Bundle 'indenthtml.vim'
-Bundle 'mattn/emmet-vim'
+"Bundle 'mattn/emmet-vim'
 Bundle 'othree/html5.vim'
 Bundle 'mattn/zencoding-vim'
 Bundle 'plasticboy/vim-markdown'
@@ -297,7 +298,8 @@ set nowritebackup
 set noswapfile
 "guarda el archivo en cuanto se deja el buffer
 set autowrite
-autocmd focuslost * :wa
+"TODO: Testing minimap
+"autocmd focuslost * :wa
 set autoread
 " store swap files in one of these directories
 " (in case swapfile is ever turned on)
@@ -357,7 +359,8 @@ syntax on
 set background=dark
 colorscheme proman
 "Disabling vim's startup message
-set shortmess=at
+"set shortmess+=atx
+set shortmess=a
 
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
@@ -366,7 +369,7 @@ set tabpagemax=15
 set fileformats=unix,dos,mac
 "set fileformats=unix
 "change between dos to unix format
-set shortmess=x
+"set shortmess+=x
 "autocmd BufRead,BufNewFile * set fileformat=unix
 if has('win32') || has('win64')
   "┊
@@ -491,7 +494,7 @@ set mouse=a " enable using the mouse if terminal emulator
 set mousemodel=popup_setpos
 set guioptions-=T  "remove toolbar
 " set guioptions-=r  "remove right-hand scroll bar
-set guioptions+=b  "remove right-hand scroll bar
+set guioptions+=b  "remove bootom-hand scroll bar
 " use console dialogs instead of popups
 set guioptions+=c
 " allow pasting into other applications after visual selection
@@ -615,6 +618,9 @@ set tags=tags,./tags
 "to specify one or more file extensions, which Vim will attempt to use when looking up a filename with the gf
 "set suffixes+=.cs,.py,.rb,.js
 "toggle fold = o/za
+"open fold=+
+"close fold=-
+"openall=*
 let g:tagbar_width     = 25  "default 40
 let g:tagbar_compact   = 1   "default 0
 let g:tagbar_foldlevel   = 2  "default 99
@@ -624,6 +630,7 @@ let g:tagbar_expand    = 0
 let g:tagbar_iconchars  = ['▸', '▾']
 let g:tagbar_autoclose   = 0
 let g:tagbar_singleclick = 1
+let g:tagbar_map_closeallfolds = ['_', 'zM',]
 ""}}}
 
 " CtrlP {{{
@@ -880,7 +887,7 @@ highlight link multiple_cursors_visual Visual
 
 " vim-auto-save {{{
 "https://github.com/907th/vim-auto-save
-let g:auto_save = 1  "Enable/Disable AutoSave on Vim startup
+let g:auto_save = 0  "Enable/Disable AutoSave on Vim startup
 "}}}
 
 " Omnisharp {{{
@@ -989,7 +996,8 @@ let g:jedi#auto_initialization=0
 "vim-easy-align{{{
 "https://github.com/junegunn/vim-easy-align
 " Start interactive EasyAlign in visual mode
-vmap <Enter> <Plug>(EasyAlign)
+"TODO: Uncoment this
+"vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign with a Vim movement
 nmap <Leader>a <Plug>(EasyAlign)
 " Repeat alignment in visual mode with . key
@@ -1019,3 +1027,6 @@ let g:templates_no_autocmd = 0 "to disable automatic insertion of template in ne
 ""<Leader>ig   ->show guides
 ""}}}
 
+"minimap {{{
+set ttymouse=xterm2
+"}}}
