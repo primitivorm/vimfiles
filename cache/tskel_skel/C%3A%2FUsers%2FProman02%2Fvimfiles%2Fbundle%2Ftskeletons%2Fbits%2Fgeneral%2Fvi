@@ -1,0 +1,1 @@
+{'val': {'menu': 'vi', 'bitfile': 'C:/Users/Proman02/vimfiles/bundle/tskeletons/bits/general/vi', 'cname': 'vi', 'type': 'tskeleton', 'meta': {'menu': '', 'abbrev': '', 'before': '', 'here_before': '', 'type': 'tskeleton', 'msg': '', 'here_after': '', 'after': '', 'condition': 1}, 'text': 'vi: ft=<+&filetype+>:tw=<+&textwidth+>:ts=<+&tabstop+>'}}

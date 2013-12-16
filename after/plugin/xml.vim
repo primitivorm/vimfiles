@@ -1,3 +1,4 @@
+autocmd BufNewFile,BufRead *.xml setlocal foldmethod=indent
 "autoformat
 autocmd BufRead,BufNewFile *.xml nnoremap <leader>f :% !xmllint.exe % --format<cr>
 
