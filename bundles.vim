@@ -18,6 +18,7 @@ Bundle 'tomtom/vimtlib'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'tomtom/tplugin_vim'
+"used for Omnisharp
 Bundle 'tpope/vim-dispatch'
 Bundle 'vim-scripts/cecutil'
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -89,6 +90,7 @@ Bundle 'kablamo/VimDebug'
 Bundle 'Thesaurus'
 Bundle 'AutoComplPop'
 Bundle 'IndexedSearch'
+"used for Omnisharp
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-abolish'
@@ -163,7 +165,6 @@ Bundle 'biruh/vim-aspnet'
 "copy C:\Python27\Lib\site-packages\pywin32_system32 to C:\Python27
 "http://sourceforge.net/projects/pywin32/files/pywin32/Build%20214/
 Bundle 'visual_studio.vim'
-Bundle 'heaths/vim-msbuild'
 Bundle 'primitivorm/Omnisharp'
 "}}}
 
@@ -247,6 +248,8 @@ Bundle 'guns/xterm-color-table.vim'
 "Bundle 'tyru/DumbBuf.vim'
 "Bundle 'bash-support.vim'
 "Bundle 'xolox/vim-session'
+"sustituted for Omnisharp
+"Bundle 'heaths/vim-msbuild'
 "Bundle 'Lokaltog/powerline'
 "Bundle 'honza/vim-snippets'
 "Bundle '907th/vim-auto-save'
