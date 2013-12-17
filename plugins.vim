@@ -511,10 +511,6 @@ nmap <Leader>a <Plug>(EasyAlign)
 vmap . <Plug>(EasyAlignRepeat)
 "}}}
 
-"minimap {{{
-set ttymouse=xterm2
-"}}}
-
 " Bundle {{{
 nmap <leader>bi :BundleInstall<cr>
 " }}}

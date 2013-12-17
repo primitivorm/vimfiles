@@ -35,7 +35,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'primitivorm/QuickBuf'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
-Bundle 'primitivorm/minimap-vim'
+"Bundle 'primitivorm/minimap-vim'
 Bundle 'Lokaltog/powerline-fonts'
 "}}}
 
