@@ -41,7 +41,7 @@ function! MyDiff()
   else
     let cmd = $VIMRUNTIME . '\diff'
   endif
-  silent execute '!diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+  silent execute 'diff ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 "}}}
 
@@ -129,4 +129,3 @@ endfunction
 " Rotate Color Scheme <F12>
 nmap <silent><F12> :execute RotateColorTheme()<CR>
 " }}}
-

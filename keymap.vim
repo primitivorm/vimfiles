@@ -15,19 +15,11 @@ map <leader>ev :vsp %%
 map <leader>et :tabe %%
 " }}}
 
-" Window navigation {{{
-map <C-w> <C-w>w " cycle between the open windows
-map <C-Left> <C-w>h " focus the window to the left
-map <C-Down> <C-w>j " focus the window to the down
-map <C-Up> <C-w>k " focus the window to the up
-map <C-Right> <C-w>l " focus the window to the right
-"}}}
-
 " Create window splits easier. The default {{{
 " way is Ctrl-w,v and Ctrl-w,s. I remap
 " this to vv and ss
-nmap <silent>vv <C-w>v
 nmap <silent>ss <C-w>s
+nmap <silent>vv <C-w>v
 " }}}
 
 " Adjust viewports {{{
@@ -37,6 +29,14 @@ nmap <Leader>= <C-w>=
 nmap <Leader>_ <C-w>_
 "Maximize Left to Right
 nmap <Leader><Bar> <C-w><Bar>
+"}}}
+
+" Window navigation {{{
+map <C-w> <C-w>w " cycle between the open windows
+map <C-Left> <C-w>h " focus the window to the left
+map <C-Down> <C-w>j " focus the window to the down
+map <C-Up> <C-w>k " focus the window to the up
+map <C-Right> <C-w>l " focus the window to the right
 "}}}
 
 " Resize window {{{
@@ -113,30 +113,31 @@ vnoremap <silent><Del> <Del>i
 nmap <leader>x "+x
 vmap <leader>x "+x
 "YANK
-map <leader>Y "+yy
+"Y copy current line
 vmap <leader>y "+y
 "PASTE
 map <leader>p "+gp
-noremap <leader>P "+gP
+"noremap <leader>P "+gP
 
 "disable paste when MiddleMouse press
 "http://vim.wikia.com/wiki/Mouse_wheel_for_scroll_only_-_disable_middle_button_paste
-"nnoremap <MiddleMouse> <LeftMouse>
+nnoremap <MiddleMouse> <LeftMouse>
 
 "CTRL-S is Save file
 nmap <C-s> :update<cr>
-""CTRL-N is New file
-"nmap <silent><C-N>  :tabnew<cr>
-"CTRL-O is Open file
 if has('gui_running')
-    nmap <C-o> :browse confirm e<cr>
+  "CTRL-O is Open file
+  nmap <C-o> :browse confirm tabnew<cr>
+  "CTRL-H is Replace
+  nmap <C-h> :promptrepl <c-r><c-w><cr>
 else
-    nmap <C-o> :tabe %%
+  "CTRL-O is Open file
+  nmap <C-o> :tabnew %%
+  "CTRL-H is Replace
+  nmap <C-h> :%s/<C-r><C-w>/
 endif
 "CTRL-F is Find command
 nmap <C-F> /\v<C-r><C-w>
-"CTRL-H is Replace
-nmap <C-h> :%s/<C-r><C-w>/
 "CTRL-U is Change minus to MAYUS
 vmap <C-u> U
 "CTRL-L is Change MAYUS to minus
@@ -170,21 +171,11 @@ imap <C-t> <C-x><C-t>
 imap <C-]> <C-x><C-]>
 "current file all words
 imap <C-u> <C-x><C-u>
-"macro completion
-imap <C-d> <C-x><C-d>
+""macro completion
+"imap <C-d> <C-x><C-d>
 ""for words in current file
 "imap <C-i> <C-x><C-i>
 "}}}
-
-" Execute current line or current selection as Vim EX commands. {{{
-"http://stackoverflow.com/questions/14385998/how-can-i-execute-the-current-line-as-vim-ex-commands
-nmap <F10> :exe getline(".")<CR>
-vmap <F10> :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR>
-"}}}
-"
-""SnipMate completion {{{
-"imap <C-Space> <C-G>u<C-R>=snipMate#TriggerSnippet()<CR>
-"" }}}
 
 "Open file manager {{{
 "http://vim.wikia.com/wiki/Open_Windows_Explorer_showing_directory_of_current_buffer
@@ -206,7 +197,7 @@ nmap G Gzz
 
 " General {{{
 "Go to last edit location with ,.
-nmap ,. '.
+nmap <leader>. '.
 
 " Type <leader>hl to toggle highlighting on/off, and show current value.
 map <leader>h :set hlsearch! hlsearch?<CR>
@@ -219,9 +210,8 @@ map <leader>h :set hlsearch! hlsearch?<CR>
 nmap <leader>l :set list!<CR>
 
 " Edit the vimrc file
-" source $MYVIMRC
-nmap <silent><leader>ed :e $MYVIMRC<CR>
-nmap <silent><leader>sv :so $MYVIMRC<CR>
+nmap <silent><leader>ed :tabnew $MYVIMRC<CR>
+nmap <silent><leader>ld :source $MYVIMRC<CR>
 
 " Quickly get out of insert mode without your fingers having to leave the
 " home row (either use 'jj' or 'jk')
@@ -239,7 +229,7 @@ cmap w!! w !sudo tee % >/dev/null
 nmap <Space> za
 vmap <Space> za
 
-" Reselect text that was just pasted with ,v
+" Reselect text that was just pasted with ,p
 nmap <leader>v V`]
 
 " }}}

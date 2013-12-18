@@ -10,7 +10,6 @@ Bundle 'terryma/vim-multiple-cursors'
 "}}}
 
 " utils {{{
-Bundle 'L9'
 Bundle 'genutils'
 Bundle 'DfrankUtil'
 Bundle 'xolox/vim-misc'
@@ -18,6 +17,7 @@ Bundle 'tomtom/vimtlib'
 Bundle 'tomtom/tlib_vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'tomtom/tplugin_vim'
+"used for Omnisharp
 Bundle 'tpope/vim-dispatch'
 Bundle 'vim-scripts/cecutil'
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -34,7 +34,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'primitivorm/QuickBuf'
 Bundle 'greyblake/vim-preview'
 Bundle 'tpope/vim-characterize'
-Bundle 'primitivorm/minimap-vim'
+"Bundle 'primitivorm/minimap-vim'
 Bundle 'Lokaltog/powerline-fonts'
 "}}}
 
@@ -89,6 +89,7 @@ Bundle 'kablamo/VimDebug'
 Bundle 'Thesaurus'
 Bundle 'AutoComplPop'
 Bundle 'IndexedSearch'
+"used for Omnisharp
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-abolish'
@@ -163,7 +164,6 @@ Bundle 'biruh/vim-aspnet'
 "copy C:\Python27\Lib\site-packages\pywin32_system32 to C:\Python27
 "http://sourceforge.net/projects/pywin32/files/pywin32/Build%20214/
 Bundle 'visual_studio.vim'
-Bundle 'heaths/vim-msbuild'
 Bundle 'primitivorm/Omnisharp'
 "}}}
 
@@ -177,7 +177,6 @@ Bundle 'primitivorm/refactor'
 
 " sql {{{
 Bundle 'dbext.vim'
-Bundle 'SQLUtilities'
 Bundle 'sqlserver.vim'
 Bundle 'SQLComplete.vim'
 "}}}
@@ -233,7 +232,6 @@ Bundle 'altercation/vim-colors-solarized'
 "twilight
 "wombat
 "color tools
-Bundle 'CSApprox'
 Bundle 'Rykka/colorv.vim'
 Bundle 'hexHighlight.vim'
 Bundle 'sickill/coloration'
@@ -241,12 +239,17 @@ Bundle 'guns/xterm-color-table.vim'
 "}}}
 
 " Bundle blacklist {{{
+"Bundle 'L9'
 "Bundle 'grep.vim'
+"Bundle 'CSApprox'
+"Bundle 'SQLUtilities'
 "Bundle 'mattn/emmet-vim'
 "Bundle 'tpope/vim-ragtag'
 "Bundle 'tyru/DumbBuf.vim'
 "Bundle 'bash-support.vim'
 "Bundle 'xolox/vim-session'
+"sustituted for Omnisharp
+"Bundle 'heaths/vim-msbuild'
 "Bundle 'Lokaltog/powerline'
 "Bundle 'honza/vim-snippets'
 "Bundle '907th/vim-auto-save'

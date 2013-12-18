@@ -54,8 +54,6 @@ set nowritebackup
 set noswapfile
 "guarda el archivo en cuanto se deja el buffer
 set autowrite
-"TODO: Testing minimap
-"autocmd focuslost * :wa
 set autoread
 " store swap files in one of these directories
 " (in case swapfile is ever turned on)
@@ -115,7 +113,8 @@ syntax on
 set background=dark
 colorscheme proman
 "Disabling vim's startup message
-"set shortmess+=atx
+"change between dos to unix format
+"set shortmess=atx
 set shortmess=a
 
 set cursorline "cursorcolumn "underline the current line, for quick orientation
@@ -123,9 +122,6 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=15
 set fileformats=unix,dos,mac
-"set fileformats=unix
-"change between dos to unix format
-"set shortmess+=x
 "autocmd BufRead,BufNewFile * set fileformat=unix
 if has('win32') || has('win64')
   "┊
@@ -136,7 +132,12 @@ if has('win32') || has('win64')
     \Envy_Code_R_for_Powerline:h11,
     \DejaVu_Sans_Mono_for_Powerline:h11,
     \Monaco:h10,
-    \Terminus:h12,
+    \Terminus:h12
+  set directory=.,$TMP,$TEMP
+  set undodir=.,$TMP,$TEMP
+  if &diff
+    set shell=bash
+  endif
 else
   set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
@@ -146,6 +147,10 @@ else
     \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
     \Consolas\ for\ Powerline\ 10,
     \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+  set directory=~/tmp,/tmp
+  if exists('+undodir')
+    set undodir=~/tmp,/tmp
+  endif
   let g:guifontpp_size_increment=1
   "for linux maximize dont work
   let g:loaded_maximize=1
@@ -262,17 +267,9 @@ set guioptions+=c
 set guioptions+=a
 " Since I use linux, I want this
 let g:clipbrdDefaultReg = '+'
-""to show tabtooltip
-"set guioptions+=e
 "}}}
 
 " Spell {{{
-"habilita corrector ortografico
-"if &diff
-    "set nospell
-"else
-    "set spell "active spell check
-"endif
 set nospell
 "http://precheur.org/vim/create_spell_file_for_vim
 set spelllang=es,en "Carga el diccionario en o los lenguajes que necesitemos
@@ -316,4 +313,3 @@ autocmd FileType *.c,*.h set makeprg=gcc\ %
 autocmd FileType *.cpp,*.h set makeprg=g++\ %
 autocmd FileType *.cpp,*.c,*.h set errorformat=%f(%l)%m
 "}}}
-
