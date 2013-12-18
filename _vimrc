@@ -113,7 +113,8 @@ syntax on
 set background=dark
 colorscheme proman
 "Disabling vim's startup message
-"set shortmess+=atx
+"change between dos to unix format
+"set shortmess=atx
 set shortmess=a
 
 set cursorline "cursorcolumn "underline the current line, for quick orientation
@@ -121,9 +122,6 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=15
 set fileformats=unix,dos,mac
-"set fileformats=unix
-"change between dos to unix format
-"set shortmess+=x
 "autocmd BufRead,BufNewFile * set fileformat=unix
 if has('win32') || has('win64')
   "┊

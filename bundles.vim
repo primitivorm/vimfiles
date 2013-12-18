@@ -10,7 +10,6 @@ Bundle 'terryma/vim-multiple-cursors'
 "}}}
 
 " utils {{{
-Bundle 'L9'
 Bundle 'genutils'
 Bundle 'DfrankUtil'
 Bundle 'xolox/vim-misc'
@@ -178,7 +177,6 @@ Bundle 'primitivorm/refactor'
 
 " sql {{{
 Bundle 'dbext.vim'
-Bundle 'SQLUtilities'
 Bundle 'sqlserver.vim'
 Bundle 'SQLComplete.vim'
 "}}}
@@ -234,7 +232,6 @@ Bundle 'altercation/vim-colors-solarized'
 "twilight
 "wombat
 "color tools
-Bundle 'CSApprox'
 Bundle 'Rykka/colorv.vim'
 Bundle 'hexHighlight.vim'
 Bundle 'sickill/coloration'
@@ -242,7 +239,10 @@ Bundle 'guns/xterm-color-table.vim'
 "}}}
 
 " Bundle blacklist {{{
+"Bundle 'L9'
 "Bundle 'grep.vim'
+"Bundle 'CSApprox'
+"Bundle 'SQLUtilities'
 "Bundle 'mattn/emmet-vim'
 "Bundle 'tpope/vim-ragtag'
 "Bundle 'tyru/DumbBuf.vim'

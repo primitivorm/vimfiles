@@ -19,7 +19,7 @@ let g:ragtag_global_maps = 1
 " NERDTree {{{
 "https://github.com/scrooloose/nerdtree"
 "open the plugin NERDTree at startup Vim
-if (&diff==0)
+if !&diff
   au vimenter * NERDTree
   au vimenter * if !argc() | NERDTree | endif
 endif
@@ -30,7 +30,7 @@ let g:NERDTreeBookmarksFile     = expand($HOME.'/_NERDTreeBookmarks')
 let g:NERDTreeShowBookmarks     = 1
 let g:NERDTreeWinSize           = 25
 let g:NERDTreeChristmasTree     = 1
-let g:NERDTreeCaseSensitiveSort = 1
+let g:NERDTreeCaseSensitiveSort = 0
 let g:NERDTreeQuitOnOpen        = 1
 let g:NERDTreeMouseMode         = 2
 let NERDTreeShowHidden          = 0
@@ -39,7 +39,7 @@ let NERDTreeShowHidden          = 0
 "let NERDTreeMapOpenInTabSilent='<c-cr>'
 let g:NERDTreeDirArrows=1
 "the working directory is always the one where the active buffer is located.
-set autochdir
+"set autochdir
 "I make sure the working directory is set correctly.
 let g:NERDTreeChDirMode=2
 "ignore some file types
