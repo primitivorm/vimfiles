@@ -232,4 +232,7 @@ vmap <Space> za
 " Reselect text that was just pasted with ,p
 nmap <leader>v V`]
 
+"Omnicompletion
+imap <c-space> <c-x><c-o>
+
 " }}}

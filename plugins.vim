@@ -10,12 +10,6 @@ set thesaurus+=~/vimfiles/thesaurus/mthes10/roget13a.txt
 set thesaurus+=~/vimfiles/thesaurus/ruby.txt
 "}}}
 
-"" Ragtag {{{
-""https://github.com/tpope/vim-ragtag
-""http://www.vim.org/scripts/script.php?script_id=1896
-"let g:ragtag_global_maps = 1
-""}}}
-
 " NERDTree {{{
 "https://github.com/scrooloose/nerdtree"
 "open the plugin NERDTree at startup Vim
@@ -94,9 +88,9 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_cache_dir = $HOME.'/ctrlp_cache'
 let g:ctrlp_max_height = 15
 let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_follow_symlinks = 0
+let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_prompt_mappings='<s-f4>'
+let g:ctrlp_prompt_mappings='<S-F4>'
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$\|\.hg$\|\.svn$',
@@ -170,22 +164,6 @@ autocmd FileType sql nmap <leader>lv :DBListView <cr>
 autocmd FileType sql nmap <leader>lc :DBListColumn <cr>
 "}}}
 
-"" SQLComplete {{{
-""https://github.com/vim-scripts/SQLComplete.vim
-"let g:ftplugin_sql_omni_key = '<C-C>'
-"let g:ftplugin_sql_omni_key_right = '<c-right>'
-"let g:ftplugin_sql_omni_key_left = '<c-left>'
-"autocmd FileType sql set omnifunc=sqlcomplete#Complete
-""}}}
-
-" sql formatter {{{
-vmap <silent>sf <Plug>SQLU_Formatter<CR>
-nmap <silent>scl <Plug>SQLU_CreateColumnList<CR>
-nmap <silent>scd <Plug>SQLU_GetColumnDef<CR>
-nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
-nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
-" }}}
-
 " argumentrewrap {{{
 "https://github.com/jakobwesthoff/argumentrewrap
 nmap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
@@ -214,12 +192,6 @@ let g:airline_linecolumn_prefix = '⭡'
 let g:airline#extensions#tabline#enabled = 1
 "}}}
 
-" Showmarks {{{
-"http://www.vim.org/scripts/script.php?script_id=152
-"https://github.com/vim-scripts/ShowMarks
-let g:showmarks_enable=0
-"}}}
-
 " javascript-libraries-syntax {{{
 "https://github.com/othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'underscore,backbone'
@@ -228,17 +200,6 @@ autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
-"}}}
-
-" zencoding {{{
-"https://github.com/mattn/zencoding-vim
-"http://mattn.github.com/zencoding-vim/
-"http://coding.smashingmagazine.com/2009/11/21/zen-coding-a-new-way-to-write-html-code/
-let g:user_zen_mode='n' "only enable normal mode functions.
-let g:user_zen_mode='inv' "enable all functions, which is equal t
-let g:user_zen_mode='a' "enable all function in all mode.
-let g:user_zen_expandabbr_key = '<c-e>'
-let g:use_zen_complete_tag = 1
 "}}}
 
 " badwolf colorscheme{{{
@@ -257,29 +218,6 @@ let g:badwolf_tabline = 3
 let g:badwolf_html_link_underline = 0
 " Turn on CSS properties highlighting
 let g:badwolf_css_props_highlight = 1
-"}}}
-
-" tskeleton_vim {{{
-"https://github.com/tomtom/tskeleton_vim
-"my skeletons
-"avoid generate error at processing vundle\cache\tskel_menu\help
-let g:tskelMenuCache = ''
-let g:tskelGlobalBitsPath=$HOME . '/vimfiles/bundle/tskeletons/bits/'
-"let g:tskelDir=$HOME . '/vimfiles/bundle/tskeletons/'
-let g:tskelDir=$HOME . '/vimfiles/skeletons/'
-let g:tskelUserName='Ing. Primitivo R. Montero'
-let g:tskelUserEmail='cibercafe_montero@hotmail.com'
-"autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
-autocmd BufNewFile *.py TSkeletonSetup skeleton.py
-autocmd BufNewFile *.htm TSkeletonSetup skeleton.htm
-autocmd BufNewFile *.html TSkeletonSetup skeleton.htm
-autocmd BufNewFile *.project TSkeletonSetup skeleton.project
-autocmd BufNewFile *.sln TSkeletonSetup skeleton.sln
-autocmd BufNewFile *.config TSkeletonSetup skeleton.config
-autocmd BufNewFile *.css TSkeletonSetup skeleton.css
-autocmd BufNewFile *.xml TSkeletonSetup skeleton.xml
-autocmd BufNewFile *.php TSkeletonSetup skeleton.php
-autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
 "}}}
 
 " MRU {{{
@@ -303,27 +241,6 @@ let g:mta_filetypes = {
     \ 'js' : 1,
     \ 'vim' : 1,
     \}
-"}}}
-
-" vimtlib {{{
-"https://github.com/tomtom/vimtlib/blob/master/INSTALL.TXT
-"for template generator add
-"runtime bundle/tplugin_vim/macros/tplugin.vim
-"run :TPluginScan!
-set runtimepath+=~/vimfiles/bundle/vimtlib/
-"let g:tplugin_autoload=1
-"}}}
-
-" vim template {{{
-"https://github.com/aperezdc/vim-template
-let g:templates_plugin_loaded = 0 "to skip loading of this plugin.
-let g:templates_no_autocmd = 0 "to disable automatic insertion of template in new files.
-"}}}
-
-" templator {{{
-"https://github.com/tomtom/templator_vim
-"\vimfiles\bundle\vimtlib\templator
-let b:templator_root_dir='~/vimfiles/templator/'
 "}}}
 
 " guifont++ {{{
@@ -389,9 +306,12 @@ set completeopt=menuone,menu
 let g:Omnisharp_highlight_user_types=1
 "mappings
 autocmd FileType cs nmap <F5> :wa!<cr>:call OmniSharp#Build()<cr>
-autocmd FileType cs nmap <leader>d :call OmniSharp#GotoDefinition()<cr>
+autocmd FileType cs nmap gd :call OmniSharp#GotoDefinition()<cr>
 autocmd FileType cs nmap <leader>fi :call OmniSharp#FindImplementations()<cr>
+autocmd FileType cs nmap <leader>ft :OmniSharpFindType<cr>
+autocmd FileType cs nmap <leader>fs :OmniSharpFindSymbol<cr>
 autocmd FileType cs nmap <leader>fu :call OmniSharp#FindUsages()<cr>
+autocmd FileType cs nmap <leader>fm :OmniSharpFindMembersInBuffer<cr>
 autocmd FileType cs nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
 "I find contextual code actions so useful that I have it mapped to the spacebar
 autocmd FileType cs nmap <C-Space> :call OmniSharp#GetCodeActions()<cr>
@@ -416,7 +336,7 @@ set splitbelow
 " Remove dictionary lookup from the Vim keyword completion.  It did always
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
-let g:acp_completeOption     = '.,w,b'
+let g:acp_completeOption     = '.,w,b,i'
 "let g:acp_completeOption    = '.,w,b,k,t,i'
 let g:acp_behaviorKeywordLength  = 1
 let g:acp_behaviorPythonOmniLength = 1
@@ -456,60 +376,16 @@ let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
 set equalprg=astyle
 
 "https://github.com/Chiel92/vim-autoformat
-autocmd BufRead,BufNewFile *.sql nmap <leader>f <Plug>SQLU_Formatter<cr>
-autocmd BufRead,BufNewFile *.sql vmap <leader>f <Plug>SQLU_Formatter<cr>
-autocmd BufRead,BufNewFile *.css nmap <leader>f :call CssPretty()<cr>
-autocmd BufRead,BufNewFile *.css vmap <leader>f :call CssPretty()<cr>
-autocmd BufRead,BufNewFile *.js nmap <leader>f :call JsBeautify()<cr>
-autocmd BufRead,BufNewFile *.js vmap <leader>f :call JsBeautify()<cr>
-autocmd BufRead,BufNewFile *.htm nmap <leader>f :call HtmlBeautify()<cr>
-autocmd BufRead,BufNewFile *.htm vmap <leader>f :call HtmlBeautify()<cr>
-autocmd BufRead,BufNewFile *.html nmap <leader>f :call HtmlBeautify()<cr>
-autocmd BufRead,BufNewFile *.html vmap <leader>f :call HtmlBeautify()<cr>
-"}}}
-
-"Word-Fuzzy-Completion {{{
-"https://github.com/vim-scripts/Word-Fuzzy-Completion
-"http://hetland.org/coding/python/levenshtein.py
-let g:fuzzywordcompletion_disable_keybinding=0
-"default keymap is <c-k>
-"}}}
-
-" pydiction {{{
-"https://github.com/rkulla/pydiction
-let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
-"}}}
-
-"slimv {{{
-"https://github.com/vim-scripts/slimv.vim
-if has('win32') || has('win64')
-  let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
-  let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe" -l "C:\lispbox-0.7\slime-20110205.092829\start-swank.lisp"'
-else
-  let g:slimv_swank_cmd = '! xterm -e sbcl --load /usr/share/common-lisp/source/slime/start-swank.lisp &'
-endif
-"}}}
-
-"jedi-vim {{{
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "1"
-let g:jedi#auto_initialization=0
-"}}}
-
-"vim-easy-align{{{
-"https://github.com/junegunn/vim-easy-align
-" Start interactive EasyAlign in visual mode
-"TODO: Uncoment this
-vmap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign with a Vim movement
-nmap <Leader>a <Plug>(EasyAlign)
-" Repeat alignment in visual mode with . key
-vmap . <Plug>(EasyAlignRepeat)
+"autocmd BufRead,BufNewFile *.sql nmap <leader>f <Plug>SQLU_Formatter<cr>
+"autocmd BufRead,BufNewFile *.sql vmap <leader>f <Plug>SQLU_Formatter<cr>
+"autocmd BufRead,BufNewFile *.css nmap <leader>f :call CssPretty()<cr>
+"autocmd BufRead,BufNewFile *.css vmap <leader>f :call CssPretty()<cr>
+"autocmd BufRead,BufNewFile *.js nmap <leader>f :call JsBeautify()<cr>
+"autocmd BufRead,BufNewFile *.js vmap <leader>f :call JsBeautify()<cr>
+"autocmd BufRead,BufNewFile *.htm nmap <leader>f :call HtmlBeautify()<cr>
+"autocmd BufRead,BufNewFile *.htm vmap <leader>f :call HtmlBeautify()<cr>
+"autocmd BufRead,BufNewFile *.html nmap <leader>f :call HtmlBeautify()<cr>
+"autocmd BufRead,BufNewFile *.html vmap <leader>f :call HtmlBeautify()<cr>
 "}}}
 
 " Bundle {{{
@@ -526,6 +402,8 @@ nmap <silent><S-U> :GundoToggle<CR>
 "}}}
 
 "" Fugitive {{{
+"Commands
+"===
 "Gstatus
 "Gdiff
 "Gcommit
@@ -535,3 +413,132 @@ nmap <silent><S-U> :GundoToggle<CR>
 "GitPull
 ""}}}
 
+"Unused plugins {{{
+"" SQLComplete {{{
+""https://github.com/vim-scripts/SQLComplete.vim
+"let g:ftplugin_sql_omni_key = '<C-C>'
+"let g:ftplugin_sql_omni_key_right = '<c-right>'
+"let g:ftplugin_sql_omni_key_left = '<c-left>'
+"autocmd FileType sql set omnifunc=sqlcomplete#Complete
+""}}}
+
+"" sql formatter {{{
+"vmap <silent>sf <Plug>SQLU_Formatter<CR>
+"nmap <silent>scl <Plug>SQLU_CreateColumnList<CR>
+"nmap <silent>scd <Plug>SQLU_GetColumnDef<CR>
+"nmap <silent>scdt <Plug>SQLU_GetColumnDataType<CR>
+"nmap <silent>scp <Plug>SQLU_CreateProcedure<CR>
+"" }}}
+
+"" Showmarks {{{
+""http://www.vim.org/scripts/script.php?script_id=152
+""https://github.com/vim-scripts/ShowMarks
+"let g:showmarks_enable=0
+""}}}
+
+"" zencoding {{{
+""https://github.com/mattn/zencoding-vim
+""http://mattn.github.com/zencoding-vim/
+""http://coding.smashingmagazine.com/2009/11/21/zen-coding-a-new-way-to-write-html-code/
+"let g:user_zen_mode='n' "only enable normal mode functions.
+"let g:user_zen_mode='inv' "enable all functions, which is equal t
+"let g:user_zen_mode='a' "enable all function in all mode.
+"let g:user_zen_expandabbr_key = '<c-e>'
+"let g:use_zen_complete_tag = 1
+""}}}
+
+"" tskeleton_vim {{{
+""https://github.com/tomtom/tskeleton_vim
+""my skeletons
+""avoid generate error at processing vundle\cache\tskel_menu\help
+"let g:tskelMenuCache = ''
+"let g:tskelGlobalBitsPath=$HOME . '/vimfiles/bundle/tskeletons/bits/'
+""let g:tskelDir=$HOME . '/vimfiles/bundle/tskeletons/'
+"let g:tskelDir=$HOME . '/vimfiles/skeletons/'
+"let g:tskelUserName='Ing. Primitivo R. Montero'
+"let g:tskelUserEmail='cibercafe_montero@hotmail.com'
+""autocmd BufNewFile /here/*.suffix TSkeletonSetup othertemplate.suffix
+"autocmd BufNewFile *.py TSkeletonSetup skeleton.py
+"autocmd BufNewFile *.htm TSkeletonSetup skeleton.htm
+"autocmd BufNewFile *.html TSkeletonSetup skeleton.htm
+"autocmd BufNewFile *.project TSkeletonSetup skeleton.project
+"autocmd BufNewFile *.sln TSkeletonSetup skeleton.sln
+"autocmd BufNewFile *.config TSkeletonSetup skeleton.config
+"autocmd BufNewFile *.css TSkeletonSetup skeleton.css
+"autocmd BufNewFile *.xml TSkeletonSetup skeleton.xml
+"autocmd BufNewFile *.php TSkeletonSetup skeleton.php
+"autocmd BufNewFile *.cs TSkeletonSetup skeleton.cs
+""}}}
+
+"" vimtlib {{{
+""https://github.com/tomtom/vimtlib/blob/master/INSTALL.TXT
+""for template generator add
+""runtime bundle/tplugin_vim/macros/tplugin.vim
+""run :TPluginScan!
+"set runtimepath+=~/vimfiles/bundle/vimtlib/
+""let g:tplugin_autoload=1
+""}}}
+
+"" vim template {{{
+""https://github.com/aperezdc/vim-template
+"let g:templates_plugin_loaded = 0 "to skip loading of this plugin.
+"let g:templates_no_autocmd = 0 "to disable automatic insertion of template in new files.
+""}}}
+
+"" templator {{{
+""https://github.com/tomtom/templator_vim
+""\vimfiles\bundle\vimtlib\templator
+"let b:templator_root_dir='~/vimfiles/templator/'
+""}}}
+
+""Word-Fuzzy-Completion {{{
+""https://github.com/vim-scripts/Word-Fuzzy-Completion
+""http://hetland.org/coding/python/levenshtein.py
+"let g:fuzzywordcompletion_disable_keybinding=0
+""default keymap is <c-k>
+""}}}
+
+"" pydiction {{{
+""https://github.com/rkulla/pydiction
+"let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
+""}}}
+
+""slimv {{{
+""https://github.com/vim-scripts/slimv.vim
+"if has('win32') || has('win64')
+  "let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
+  "let g:slimv_swank_cmd = '!start "C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe" -l "C:\lispbox-0.7\slime-20110205.092829\start-swank.lisp"'
+"else
+  "let g:slimv_swank_cmd = '! xterm -e sbcl --load /usr/share/common-lisp/source/slime/start-swank.lisp &'
+"endif
+""}}}
+
+""jedi-vim {{{
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = "<leader>d"
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>r"
+"let g:jedi#show_call_signatures = "1"
+"let g:jedi#auto_initialization=0
+""}}}
+
+""vim-easy-align{{{
+""https://github.com/junegunn/vim-easy-align
+"" Start interactive EasyAlign in visual mode
+""TODO: Uncoment this
+"vmap <Enter> <Plug>(EasyAlign)
+"" Start interactive EasyAlign with a Vim movement
+"nmap <Leader>a <Plug>(EasyAlign)
+"" Repeat alignment in visual mode with . key
+"vmap . <Plug>(EasyAlignRepeat)
+""}}}
+
+"" Ragtag {{{
+""https://github.com/tpope/vim-ragtag
+""http://www.vim.org/scripts/script.php?script_id=1896
+"let g:ragtag_global_maps = 1
+""}}}
+
+"}}}

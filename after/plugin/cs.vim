@@ -6,10 +6,8 @@
 setlocal expandtab
 " convert tabs to spaces before writing file
 if !&readonly && &modifiable
-  autocmd! BufWritePre *.cs setlocal expandtab | retab!
+  autocmd! BufWritePre *.cs retab!
 endif
-"" establece file format
-"autocmd! BufReadPost *.cs setlocal ft=cs
 
 "Autoformat
 autocmd BufRead,BufNewFile *.cs nnoremap <leader>f :silent Autoformat<cr>
@@ -20,7 +18,7 @@ autocmd FileType cs exe('setlocal dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
 
 "syntastic format
 autocmd FileType cs setlocal errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
-autocmd FileType cs setlocal makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
+"autocmd FileType cs setlocal makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
 
 "Omnisharp
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete

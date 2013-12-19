@@ -55,6 +55,8 @@ set noswapfile
 "guarda el archivo en cuanto se deja el buffer
 set autowrite
 set autoread
+set diffexpr=
+
 " store swap files in one of these directories
 " (in case swapfile is ever turned on)
 "set viminfo='20,\"80 " read/write a .viminfo file, don't store more
@@ -114,7 +116,7 @@ set background=dark
 colorscheme proman
 "Disabling vim's startup message
 "change between dos to unix format
-"set shortmess=atx
+"set shortmess+=atx
 set shortmess=a
 
 set cursorline "cursorcolumn "underline the current line, for quick orientation
@@ -123,10 +125,9 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 set tabpagemax=15
 set fileformats=unix,dos,mac
 "autocmd BufRead,BufNewFile * set fileformat=unix
+set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 if has('win32') || has('win64')
   "┊
-  set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-  "set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
   set guifont=Consolas_for_Powerline_FixedD:h11,
     \Meslo_LG_M_for_Powerline:h10,
     \Envy_Code_R_for_Powerline:h11,
@@ -135,11 +136,7 @@ if has('win32') || has('win64')
     \Terminus:h12
   set directory=.,$TMP,$TEMP
   set undodir=.,$TMP,$TEMP
-  "if &diff
-    "set shell=bash
-  "endif
 else
-  set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
     \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
