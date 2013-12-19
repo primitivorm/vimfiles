@@ -168,7 +168,7 @@ imap <C-l> <C-x><C-l>
 "for thesaurus file
 imap <C-t> <C-x><C-t>
 "for tag completion
-imap <C-]> <C-x><C-]>
+"imap <C-]> <C-x><C-]>
 "current file all words
 imap <C-u> <C-x><C-u>
 ""macro completion

@@ -1,5 +1,5 @@
 "runtime bundle/tplugin_vim/macros/tplugin.vim
-"run :TPluginScan!
+"TPluginScan!
 "http://learnvimscriptthehardway.stevelosh.com/
 
 "--------------------------------------------
@@ -135,9 +135,9 @@ if has('win32') || has('win64')
     \Terminus:h12
   set directory=.,$TMP,$TEMP
   set undodir=.,$TMP,$TEMP
-  if &diff
-    set shell=bash
-  endif
+  "if &diff
+    "set shell=bash
+  "endif
 else
   set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
@@ -169,6 +169,7 @@ endif
 
 "habilita soporte para plugins
 filetype plugin on
+filetype plugin indent on " required!
 "muestra numeros de linea del archivo
 set nu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
@@ -238,7 +239,11 @@ set foldopen=block,hor,insert,mark,percent,quickfix,search,tag,undo
 
 " Editor layout {{{
 set lazyredraw " don't update the display while executing macros
-set laststatus=2 " tell VIM to always put a status line in, even
+" tell VIM to always put a status line in, even
+set laststatus=2
+if has("statusline")
+  set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+endif
 " if there is only one window
 set cmdheight=2 " use a status bar that is 2 rows high
 "}}}
@@ -309,7 +314,7 @@ set suffixesadd+=.c,.h,.cpp,.cs,.js,.css,.html,.htm,.xml,.rb,.h,.aspx,.aspx.vb,.
 "vbnet highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "c compiler
-autocmd FileType *.c,*.h set makeprg=gcc\ %
-autocmd FileType *.cpp,*.h set makeprg=g++\ %
-autocmd FileType *.cpp,*.c,*.h set errorformat=%f(%l)%m
+autocmd FileType c,h set makeprg=gcc\ %
+autocmd FileType cpp,h set makeprg=g++\ %
+autocmd FileType cpp,c,h set errorformat=%f(%l)%m
 "}}}

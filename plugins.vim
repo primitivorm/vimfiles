@@ -10,11 +10,11 @@ set thesaurus+=~/vimfiles/thesaurus/mthes10/roget13a.txt
 set thesaurus+=~/vimfiles/thesaurus/ruby.txt
 "}}}
 
-" Ragtag {{{
-"https://github.com/tpope/vim-ragtag
-"http://www.vim.org/scripts/script.php?script_id=1896
-let g:ragtag_global_maps = 1
-"}}}
+"" Ragtag {{{
+""https://github.com/tpope/vim-ragtag
+""http://www.vim.org/scripts/script.php?script_id=1896
+"let g:ragtag_global_maps = 1
+""}}}
 
 " NERDTree {{{
 "https://github.com/scrooloose/nerdtree"
@@ -39,7 +39,7 @@ let NERDTreeShowHidden          = 0
 "let NERDTreeMapOpenInTabSilent='<c-cr>'
 let g:NERDTreeDirArrows=1
 "the working directory is always the one where the active buffer is located.
-"set autochdir
+set autochdir
 "I make sure the working directory is set correctly.
 let g:NERDTreeChDirMode=2
 "ignore some file types
@@ -94,8 +94,9 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_cache_dir = $HOME.'/ctrlp_cache'
 let g:ctrlp_max_height = 15
 let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_follow_symlinks = 0
 let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_prompt_mappings='<s-f4>'
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$\|\.hg$\|\.svn$',
@@ -169,13 +170,13 @@ autocmd FileType sql nmap <leader>lv :DBListView <cr>
 autocmd FileType sql nmap <leader>lc :DBListColumn <cr>
 "}}}
 
-" SQLComplete {{{
-"https://github.com/vim-scripts/SQLComplete.vim
-let g:ftplugin_sql_omni_key = '<C-C>'
-let g:ftplugin_sql_omni_key_right = '<c-right>'
-let g:ftplugin_sql_omni_key_left = '<c-left>'
-autocmd FileType sql set omnifunc=sqlcomplete#Complete
-"}}}
+"" SQLComplete {{{
+""https://github.com/vim-scripts/SQLComplete.vim
+"let g:ftplugin_sql_omni_key = '<C-C>'
+"let g:ftplugin_sql_omni_key_right = '<c-right>'
+"let g:ftplugin_sql_omni_key_left = '<c-left>'
+"autocmd FileType sql set omnifunc=sqlcomplete#Complete
+""}}}
 
 " sql formatter {{{
 vmap <silent>sf <Plug>SQLU_Formatter<CR>

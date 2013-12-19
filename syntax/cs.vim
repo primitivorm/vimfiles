@@ -1,108 +1,185 @@
-" VIM Syntax file
-" Language: C# (C Sharp)
-" Author:	Dan Seitz and Nathan Sharfi
+" Vim syntax file
+" Language:             Microsoft C#
+" Maintainer:           Kian Ryan (kian@orangetentacle.co.uk)
+" Former Maintainer:    Anduin Withers (awithers@anduin.com)
+" Last Change:          2012 Sep 22
+" Filenames:            *.cs
+"
+" REFERENCES:
+" [1] ECMA TC39: C# Language Specification (WD13Oct01.doc)
 
-" For version 5.x: Clear all syntax items
-" For version 6.x: Quit when syntax has already been created
-if version < 600
-	syntax clear
-elseif exists("b:current_syntax")
-	finish
+if exists("b:current_syntax")
+    finish
 endif
 
-"ambiguous: new(storageclass, operator), using(statement, namespace)
-" TODO: get a #region fold in here (I tried)
-syn region	csCodeBlockFold					start="{" end="}" transparent fold
-set foldlevel=2
-set foldmethod=syntax
-syn sync fromstart
-" Comment and XML Documentation
-syn match	csSpecialVal			"\\x\x\{1,4}\|\\u\x\{4}\|\\U\x\{8}\|\\0\o\{3}"
-syn match	csRegexSpecialVal		"\\[abtrvfne]\|\\\o\{3}\|\\c\u\|\\x\x\{2}\|\\u\x\{4}"
-syn match	csSpecialChar			"\\['\"?\\abefnrtv]"
-syn match	csConsoleIndex			"{\(.\+?\)}" contained
-syn region	csLineComment			start="//" end="$"
-syn region	csCommentC				start="/\*" end="\*/"
-syn match	csFloat					"\d\{1,}\.\d\{0,}[dDfm]\|\d\{1,}[dDm]\|\d\{1,}\.\d\{1,}"
-syn match	csNumber				"0x\x\{1,}\|\d\{1,}" contains=csFloat
-syn match	csXMLDocComment			+///.*+ contains=csXMLDocTag
-syn region	csXMLDocTag				transparent contained start=+<+ end=+>+ contains=xmlDocTagName
-syn keyword csXMLDocTagName			transparent contained c code example exception include 
-syn keyword csXMLDocTagName			transparent contained permission remarks returns see seealso
-syn keyword csXMLDocTagName			transparent contained list para param paramref summary value
-syn keyword csConstant				null
-syn region	csString				start=+"+	end=+"+	skip=+\\"+ contains=csSpecialChar,csConsoleIndex,csSpecialVal
-syn region	csVerbatimString		start=+@"+	end=+"+	skip=+""+
-syn region	csChar					start=+'+	end=+'+ skip=+\'+ contains=csSpecialChar,csSpecialVal
-" number stuff...not yet
-syn keyword csBoolean				true false
-" float stuff...not yet
-" identifier, function not here yet
-syn keyword csStatement				goto break continue return
-syn keyword csStatement				lock checked
-syn keyword csConditional			if else switch
-syn keyword csRepeat				while do for foreach
-syn keyword csLabel					case default
-" operator: not here yet
-syn keyword csKeyword				this base
-syn keyword csException				try throw catch finally
+let s:cs_cpo_save = &cpo
+set cpo&vim
 
-syn	region	csRegion				start="^\s*#\s*\(region\>\|endregion\>\|\)" skip="\\$" end="$" end="//"me=s-1 fold contains=csCommentC
-syn keyword csPreproc				#region #endregion #line #warning #error
-syn keyword csDefine				#define #undef
-syn keyword csPreCondit				#if #elif #endif #else 
+" type
+syn keyword csType			bool byte char decimal double float int long object sbyte short string uint ulong ushort void var dynamic
+" storage
+syn keyword csTypeDecleration           class enum struct nextgroup=csClass skipwhite
+syn keyword csStorage			delegate interface namespace struct
+syn keyword csInterfaceDecleration      interface nextgroup=csIface skipwhite
+" repeat / condition / label
+syn keyword csRepeat			break continue do for foreach goto return while
+syn keyword csConditional		else if switch
+syn keyword csLabel			case default
+" there's no :: operator in C#
+syn match csOperatorError		display +::+
+" user labels (see [1] 8.6 Statements)
+syn match   csLabel			display +^\s*\I\i*\s*:\([^:]\)\@=+
+" modifier
+syn keyword csModifier			abstract const extern internal override private protected public readonly sealed static virtual volatile nextgroup=CsClass,CsIface skipwhite
+" constant
+syn keyword csConstant			false null true
+" exception
+syn keyword csException			try catch finally throw
+
+" TODO:
+syn keyword csUnspecifiedStatement	as base checked event fixed in is lock operator out params ref sizeof stackalloc this unchecked unsafe using 
+" TODO:
+syn keyword csUnsupportedStatement	add remove value
+" TODO:
+syn keyword csUnspecifiedKeyword	explicit implicit
+
+syn keyword csTypeOf                    typeof nextgroup=csEnclosed
+
+" Linq Keywords
+syn keyword csLinq                      from where select group into orderby join let in on equals by ascending descending
+
+" Async Keywords
+syn keyword csAsync                     async await
+
+" Contextual Keywords
+syn match csContextualStatement	/\<yield[[:space:]\n]\+\(return\|break\)/me=s+5
+syn match csContextualStatement	/\<partial[[:space:]\n]\+\(class\|struct\|interface\)/me=s+7
+syn match csContextualStatement	/\<\(get\|set\);/me=s+3
+syn match csContextualStatement	/\<\(get\|set\)[[:space:]\n]*{/me=s+3
+syn match csContextualStatement /\<where\>[^:]\+:/me=s+5
+
+"New Declerations
+syn keyword csNewDecleration            new nextgroup=csClass skipwhite
+
+"Interface  & Class Identifier
+syn match csClass contained       /\<[A-Z][a-z]\w\+/ nextgroup=csGeneric
+syn match csIface contained       /\<I[A-Z][a-z]\w\+/ nextgroup=csGeneric
+syn region csGeneric start="<" end=">" contains=csIface,csClass
+syn region csEnclosed start="(" end=")" contains=csConstant,csType,csString, csCharacter, csNumber,csIface,csClass
+"syn region csInherits start=":" end="{" contains=csIface,csClass
+
+" Attributes
+syn region csAttributeLine start="^\s*\[" end="\]\s*$" contains=csString, csCharacter, csNumber, csType
 
 
-syn keyword csType					bool byte char decimal double float string object
-syn keyword csType					int long sbyte short uint ulong ushort void
-syn keyword csStructStorageClass	abstract sealed
-syn keyword csMemberStorageClass	abstract virtual override static
-syn keyword csStructure				struct enum class namespace interface delegate event
-syn keyword csStructAccess			public internal
-syn keyword csMemberAccess			public protected private readonly
-syn keyword csTodo					contained TODO FIXME BUG BUGBUG HACK XXX
-syn cluster csCommentGroup			contains=csTodo
-" needs csAttribute
+" Comments
+"
+" PROVIDES: @csCommentHook
+"
+" TODO: include strings ?
+"
+syn keyword csTodo		contained TODO FIXME XXX NOTE
+syn region  csComment		start="/\*"  end="\*/" contains=@csCommentHook,csTodo,@Spell
+syn match   csComment		"//.*$" contains=@csCommentHook,csTodo,@Spell
 
-if version >= 508 || !exists("did_cs_syn_init")
-	if version < 508
-		let did_cs_syn_init = 1
-		command -nargs=+ HiLink hi link <args>
-	else
-		command -nargs=+ HiLink hi def link <args>
-	endif
+" xml markup inside '///' comments
+syn cluster xmlRegionHook	add=csXmlCommentLeader
+syn cluster xmlCdataHook	add=csXmlCommentLeader
+syn cluster xmlStartTagHook	add=csXmlCommentLeader
+syn keyword csXmlTag		contained Libraries Packages Types Excluded ExcludedTypeName ExcludedLibraryName
+syn keyword csXmlTag		contained ExcludedBucketName TypeExcluded Type TypeKind TypeSignature AssemblyInfo
+syn keyword csXmlTag		contained AssemblyName AssemblyPublicKey AssemblyVersion AssemblyCulture Base
+syn keyword csXmlTag		contained BaseTypeName Interfaces Interface InterfaceName Attributes Attribute
+syn keyword csXmlTag		contained AttributeName Members Member MemberSignature MemberType MemberValue
+syn keyword csXmlTag		contained ReturnValue ReturnType Parameters Parameter MemberOfPackage
+syn keyword csXmlTag		contained ThreadingSafetyStatement Docs devdoc example overload remarks returns summary
+syn keyword csXmlTag		contained threadsafe value internalonly nodoc exception param permission platnote
+syn keyword csXmlTag		contained seealso b c i pre sub sup block code note paramref see subscript superscript
+syn keyword csXmlTag		contained list listheader item term description altcompliant altmember
 
-	HiLink	csFloat					Float
-	HiLink	csNumber				Number
-	HiLink	csSpecialVal			csSpecialChar
-	HiLink	csConsoleIndex			csSpecialChar
-	HiLink	csSpecialChar			SpecialChar
-	HiLink	csLineComment			Comment
-	HiLink	csCommentC				Comment
-	HiLink	csXMLDocComment			Comment
-	HiLink	csConstant				Constant
-	HiLink	csString				String
-	HiLink	csVerbatimString		String
-	HiLink	csChar					Character
-	HiLink	csBoolean				Boolean
-	HiLink	csStatement				Statement
-	HiLink	csConditional			Conditional
-	HiLink	csRepeat				Repeat
-	HiLink	csLabel					Label
-	HiLink	csKeyword				Keyword
-	HiLink	csException				Exception
-	HiLink	csPreproc				Preproc
-	HiLink	csRegion				Preproc
-	HiLink	csDefine				Define
-	HiLink	csPreCondit				PreCondit
-	HiLink	csType					Type
-	HiLink	csStructure				Structure
-	HiLink	csStructStorageClass	StorageClass
-	HiLink	csMemberStorageClass	StorageClass
-	HiLink	csMemberAccess			AccessLevel
-	HiLink	csStructAccess			AccessLevel
-	HiLink	csAttribute				Attribute
-delcommand HiLink
-endif
+syn cluster xmlTagHook add=csXmlTag
+
+syn match   csXmlCommentLeader	+\/\/\/+    contained
+syn match   csXmlComment	+\/\/\/.*$+ contains=csXmlCommentLeader,@csXml,@Spell
+syntax include @csXml syntax/xml.vim
+hi def link xmlRegion Comment
+
+
+" [1] 9.5 Pre-processing directives
+syn region	csPreCondit
+    \ start="^\s*#\s*\(define\|undef\|if\|elif\|else\|endif\|line\|error\|warning\)"
+    \ skip="\\$" end="$" contains=csComment keepend
+syn region	csRegion matchgroup=csPreCondit start="^\s*#\s*region.*$"
+    \ end="^\s*#\s*endregion" transparent fold contains=TOP
+
+
+
+" Strings and constants
+syn match   csSpecialError	contained "\\."
+syn match   csSpecialCharError	contained "[^']"
+" [1] 9.4.4.4 Character literals
+syn match   csSpecialChar	contained +\\["\\'0abfnrtvx]+
+" unicode characters
+syn match   csUnicodeNumber	+\\\(u\x\{4}\|U\x\{8}\)+ contained contains=csUnicodeSpecifier
+syn match   csUnicodeSpecifier	+\\[uU]+ contained
+syn region  csVerbatimString	start=+@"+ end=+"+ skip=+""+ contains=csVerbatimSpec,@Spell
+syn match   csVerbatimSpec	+@"+he=s+1 contained
+syn region  csString		start=+"+  end=+"+ end=+$+ contains=csSpecialChar,csSpecialError,csUnicodeNumber,@Spell
+syn match   csCharacter		"'[^']*'" contains=csSpecialChar,csSpecialCharError
+syn match   csCharacter		"'\\''" contains=csSpecialChar
+syn match   csCharacter		"'[^\\]'"
+syn match   csNumber		"\<\(0[0-7]*\|0[xX]\x\+\|\d\+\)[lL]\=\>"
+syn match   csNumber		"\(\<\d\+\.\d*\|\.\d\+\)\([eE][-+]\=\d\+\)\=[fFdD]\="
+syn match   csNumber		"\<\d\+[eE][-+]\=\d\+[fFdD]\=\>"
+syn match   csNumber		"\<\d\+\([eE][-+]\=\d\+\)\=[fFdD]\>"
+
+" The default highlighting.
+hi def link csType			Type
+hi def link csTypeDecleration		StorageClass
+hi def link csInterfaceDecleration      StorageClass
+hi def link csNewDecleration            StorageClass
+hi def link csStorage			StorageClass
+hi def link csRepeat			Repeat
+hi def link csConditional		Conditional
+hi def link csLabel			Label
+hi def link csModifier			StorageClass
+hi def link csConstant			Constant
+hi def link csException			Exception
+hi def link csUnspecifiedStatement	Statement
+hi def link csUnsupportedStatement	Statement
+hi def link csUnspecifiedKeyword	Keyword
+hi def link csLinq                      Keyword
+hi def link csAsync                     Keyword
+hi def link csContextualStatement	Statement
+hi def link csOperatorError		Error
+
+hi def link csIface                     Type
+hi def link csClass                     Type
+
+hi def link csTodo			Todo
+hi def link csComment			Comment
+
+hi def link csSpecialError		Error
+hi def link csSpecialCharError		Error
+hi def link csString			String
+hi def link csVerbatimString		String
+hi def link csVerbatimSpec		SpecialChar
+hi def link csPreCondit			PreCondit
+hi def link csCharacter			Character
+hi def link csSpecialChar		SpecialChar
+hi def link csNumber			Number
+hi def link csUnicodeNumber		SpecialChar
+hi def link csUnicodeSpecifier		SpecialChar
+hi def link csTypeOf                    Keyword
+
+" xml markup
+hi def link csXmlCommentLeader		Comment
+hi def link csXmlComment		Comment
+hi def link csXmlTag			Statement
 
 let b:current_syntax = "cs"
+
+let &cpo = s:cs_cpo_save
+unlet s:cs_cpo_save
+
+" vim: ts=8
