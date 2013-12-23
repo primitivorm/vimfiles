@@ -174,23 +174,22 @@ nmap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 let g:sql_type_default = "sqlserver"
 "}}}
 
-"airline {{{
-let g:airline_theme = 'solarized'
-let g:airline_enable_branch = 1
-let g:airline_enable_syntastic = 1
-let g:airline_detect_iminsert = 1
-
-" vim-powerline symbols
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_branch_prefix = '⭠'
-let g:airline_powerline_fonts = 1
-let g:airline_readonly_symbol = '⭤'
-let g:airline_linecolumn_prefix = '⭡'
-let g:airline#extensions#tabline#enabled = 1
-"}}}
+""airline {{{
+"let g:airline_theme = 'solarized'
+"let g:airline_enable_branch = 1
+"let g:airline_enable_syntastic = 1
+"let g:airline_detect_iminsert = 1
+"" vim-powerline symbols
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline_branch_prefix = '⭠'
+"let g:airline_powerline_fonts = 1
+"let g:airline_readonly_symbol = '⭤'
+"let g:airline_linecolumn_prefix = '⭡'
+"let g:airline#extensions#tabline#enabled = 1
+""}}}
 
 " javascript-libraries-syntax {{{
 "https://github.com/othree/javascript-libraries-syntax.vim
@@ -402,15 +401,19 @@ nmap <silent><S-U> :GundoToggle<CR>
 "}}}
 
 "" Fugitive {{{
-"Commands
-"===
-"Gstatus
-"Gdiff
-"Gcommit
-"Gblame
-"Glog
-"GitPush
-"GitPull
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+"auto-clean fugitive buffers
+autocmd BufReadPost fugitive://* set bufhidden=delete
+nmap <silent> <leader>gs :Gstatus<CR>
+nmap <silent> <leader>gd :Gdiff<CR>
+nmap <silent> <leader>gc :Gcommit<CR>
+nmap <silent> <leader>gb :Gblame<CR>
+nmap <silent> <leader>gl :Glog<CR>
+nmap <silent> <leader>gp :GitPush<CR>
+nmap <silent> <leader>gu :GitPull<CR>
 ""}}}
 
 "Unused plugins {{{

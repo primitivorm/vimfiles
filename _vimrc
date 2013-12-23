@@ -182,7 +182,7 @@ set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
   set colorcolumn=120
-  let &colorcolumn="120,".join(range(140,999),",")
+  let &colorcolumn="120,".join(range(130,999),",")
 endif
 "habilita sangrado inteligente
 set smartindent
@@ -239,7 +239,12 @@ set lazyredraw " don't update the display while executing macros
 " tell VIM to always put a status line in, even
 set laststatus=2
 if has("statusline")
-  set statusline=%<%f\ %h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
+  set runtimepath+=~/vimfiles/cream/
+  source $HOME/vimfiles/cream/genutils.vim
+  source $HOME/vimfiles/cream/cream-lib.vim
+  source $HOME/vimfiles/cream/cream-lib-os.vim
+  source $HOME/vimfiles/cream/cream-statusline.vim
+  "set statusline=%<%f\ %{fugitive#statusline()}%h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 endif
 " if there is only one window
 set cmdheight=2 " use a status bar that is 2 rows high
