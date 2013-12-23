@@ -171,10 +171,10 @@ filetype plugin indent on " required!
 set nu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
 set nowrap
-set linebreak "lbr
+set nolinebreak "lbr
 set showbreak=...
 set textwidth=120
-set wrapmargin=120
+set wrapmargin=0
 "http://vim.wikia.com/wiki/VimTip30
 set nrformats+=alpha,octal,hex
 set display=uhex
@@ -182,7 +182,7 @@ set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
   set colorcolumn=120
-  let &colorcolumn="120,".join(range(130,999),",")
+  let &colorcolumn="120,".join(range(140,999),",")
 endif
 "habilita sangrado inteligente
 set smartindent
