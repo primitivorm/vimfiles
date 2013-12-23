@@ -3,7 +3,6 @@
 "--------------------------------------------
 
 Bundle 'AutoComplPop'
-Bundle 'AutoFenc.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'Yggdroot/indentLine'
 Bundle 'altercation/vim-colors-solarized'
@@ -76,6 +75,7 @@ Bundle 'tpope/vim-surround'
 "unused bundles {{{
 "Bundle '907th/vim-auto-save'
 "Bundle 'AutoAlign'
+"Bundle 'AutoFenc.vim'
 "Bundle 'CSApprox'
 "Bundle 'Chiel92/vim-autoformat'
 "Bundle 'Css-Pretty'
