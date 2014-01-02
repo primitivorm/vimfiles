@@ -122,47 +122,18 @@ set shortmess=a
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 "max num of tabs
-set tabpagemax=15
-set fileformats=unix,dos,mac
-"autocmd BufRead,BufNewFile * set fileformat=unix
+set tabpagemax=50
+set fileformats=dos,unix
 set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-if has('win32') || has('win64')
-  "┊
-  set guifont=Consolas_for_Powerline_FixedD:h11,
-    \Meslo_LG_M_for_Powerline:h10,
-    \Envy_Code_R_for_Powerline:h11,
-    \DejaVu_Sans_Mono_for_Powerline:h11,
-    \Monaco:h10,
-    \Terminus:h12
-  set directory=.,$TMP,$TEMP
-  set undodir=.,$TMP,$TEMP
-else
-  "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
-    \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
-    \Terminus\ Medium\ 13,
-    \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
-    \Consolas\ for\ Powerline\ 10,
-    \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-  set directory=~/tmp,/tmp
-  if exists('+undodir')
-    set undodir=~/tmp,/tmp
-  endif
-  let g:guifontpp_size_increment=1
-  "for linux maximize dont work
-  let g:loaded_maximize=1
-  if has("gui_running")
-    set lines=999 columns=999
-  else
-  " This is console Vim.
-  if exists("+lines")
-    set lines=50
-  endif
-  if exists("+columns")
-    set columns=100
-  endif
-  endif
-endif
+"┊
+set guifont=Consolas_for_Powerline_FixedD:h11,
+\Meslo_LG_M_for_Powerline:h10,
+\Envy_Code_R_for_Powerline:h11,
+\DejaVu_Sans_Mono_for_Powerline:h11,
+\Monaco:h10,
+\Terminus:h12
+set directory=.,$TMP,$TEMP
+set undodir=.,$TMP,$TEMP
 
 "habilita soporte para plugins
 filetype plugin on
@@ -176,8 +147,9 @@ set showbreak=...
 set textwidth=120
 set wrapmargin=0
 "http://vim.wikia.com/wiki/VimTip30
-set nrformats+=alpha,octal,hex
-set display=uhex
+set nrformats+=alpha,hex
+"set display=uhex
+set display=lastline
 set formatoptions=tcq "fo
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
@@ -191,7 +163,7 @@ set smartindent
 "use 4 spaces for tabs set tabstop=4 softtabstop=4 shiftwidth=4 " display indentation guides
 set tabstop=4
 set shiftwidth=4
-set scrolloff=4 " keep 4 lines off the edges of the screen when scrolling
+set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling
 "change tabs to spaces
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
@@ -219,6 +191,10 @@ set matchpairs+=<:>
 set matchpairs+=":"
 set matchpairs+=':'
 set matchpairs+=%:%
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
 "}}}
 
 " Folding rules {{{
