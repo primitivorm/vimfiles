@@ -124,14 +124,42 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=50
 set fileformats=unix,dos
-set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+"set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 "┊
+if has('win32') || has('win64')
+set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+""set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 set guifont=Consolas_for_Powerline_FixedD:h11,
-\Meslo_LG_M_for_Powerline:h10,
-\Envy_Code_R_for_Powerline:h11,
-\DejaVu_Sans_Mono_for_Powerline:h11,
-\Monaco:h10,
-\Terminus:h12
+            \Meslo_LG_M_for_Powerline:h10,
+            \Envy_Code_R_for_Powerline:h11,
+            \DejaVu_Sans_Mono_for_Powerline:h11,
+            \Monaco:h10,
+            \Terminus:h12,
+else
+    set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+    "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+    set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
+    \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
+    \Terminus\ Medium\ 13,
+    \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
+    \Consolas\ for\ Powerline\ 10,
+    \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+    let g:guifontpp_size_increment=1
+    "for linux maximize dont work
+    let g:loaded_maximize=1
+    if has("gui_running")
+        set lines=999 columns=999
+    else
+        " This is console Vim.
+        if exists("+lines")
+            set lines=50
+        endif
+        if exists("+columns")
+            set columns=100
+        endif
+    endif
+endif
+
 set directory=.,$TMP,$TEMP
 set undodir=.,$TMP,$TEMP
 
