@@ -324,7 +324,7 @@ endfunction
 
 " Windows Shortcut {{{1
 function! Cream_make_shortcut(spath, sname, target, key, desc)
-" Make a windows shortcut. 
+" Make a windows shortcut.
 "
 " Example:
 "   call Cream_make_shortcut( .
@@ -357,7 +357,7 @@ function! Cream_make_shortcut(spath, sname, target, key, desc)
 			return
 		endif
 	endif
-	
+
 	" verify a:spath has trailing slash
 	let spath = Cream_path_addtrailingslash(a:spath)
 

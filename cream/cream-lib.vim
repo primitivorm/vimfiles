@@ -910,7 +910,7 @@ function! Cream_last_buffer_restore()
 
 	" TODO: Technically, this is startup fix stuff, but this routine
 	" would only occur at startup.
-	" 
+	"
 
 endfunction
 
@@ -1575,10 +1575,10 @@ function! Cream_cwd()
 		if exists("b:cream_pathfilename")
 			" need quotes on unix for unescaped filenames (escaping is harder)
 			if Cream_has("ms")
-				execute 'cd ' . 
+				execute 'cd ' .
 				\ fnamemodify(expand(b:cream_pathfilename), ":p:h")
 			else
-				execute 'cd ' . 
+				execute 'cd ' .
 				\ escape(fnamemodify(expand(b:cream_pathfilename), ":p:h"), ' \')
 			endif
 		endif
@@ -1631,7 +1631,7 @@ function! Cream_file_open_undercursor(mode)
 		"elseif match(expand("<cWORD>"), "http://", 0) == 0
 		"    let myfile = expand("<cWORD>")
 		"    let isURL = 1
-	   
+
 		"" filename
 		"elseif filereadable(myfile)
 		"
@@ -1745,7 +1745,7 @@ function! Cream_saveas(...)
 	let isnewmod = Cream_buffer_isnewmod()
 
 	" if passed arg and head of it exists
-	if a:0 == 1 
+	if a:0 == 1
 		let pathname == Cream_path_fullsystem(a:1)
 	endif
 	if exists("pathname")
@@ -2397,7 +2397,7 @@ function! Cream_count_words(mode)
 	" display results
 	let n = confirm(
 		\ "This " . cnttype . " has:" . "\n" .
-		\ "\n" . 
+		\ "\n" .
 		\ str .
 		\ "\n", "Copy and Close\n&Close", 2, "Info")
 	if n == 1
@@ -2909,7 +2909,7 @@ endfunction
 
 function! Cream_up(mode)
 	" if popup menu is visible, move in menu
-	if pumvisible() 
+	if pumvisible()
 		return "\<C-p>"
 	endif
 	if     a:mode == "i"
@@ -3328,7 +3328,7 @@ function! Cream_tag_forward()
 	"else
 		silent! tag
 	"endif
-	call Cream_window_setup()	
+	call Cream_window_setup()
 endfunction
 
 function! Cream_tag_goto()
@@ -3730,7 +3730,7 @@ function! Cream_find_native()
 " Dialog Find, using Vim's native find dialog.
 	let mymagic = &magic
 	set nomagic
-	"try 
+	"try
 		silent! promptfind
 	"    catch /^Vim\%((\a\+)\)\=:E486/
 	"        call confirm(
@@ -6013,7 +6013,7 @@ function! Cream_complete_backward()
 endfunction
 
 function! Cream_complete_omni_forward()
-	if pumvisible() 
+	if pumvisible()
 		return "\<C-n>"
 	endif
 	if &omnifunc != ""
@@ -6023,7 +6023,7 @@ function! Cream_complete_omni_forward()
 	endif
 endfunction
 function! Cream_complete_omni_backward()
-	if pumvisible() 
+	if pumvisible()
 		return "\<C-p>"
 	endif
 	if &omnifunc != ""

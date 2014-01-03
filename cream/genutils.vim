@@ -63,19 +63,19 @@
 "     >>>>t.vim<<<<
 "	au VimEnter * call LoadSettings()
 "	au VimLeavePre * call SaveSettings()
-"	
+"
 "	function! LoadSettings()
 "	  let s:tVar = GetPersistentVar("T", "tVar", "defVal")
 "	endfunction
-"	
+"
 "	function! SaveSettings()
 "	  call PutPersistentVar("T", "tVar", s:tVar)
 "	endfunction
-"	
+"
 "	function! SetVar(val)
 "	  let s:tVar = a:val
 "	endfunction
-"	
+"
 "	function! GetVar()
 "	  return s:tVar
 "	endfunction
@@ -84,7 +84,7 @@
 "   - Place the following in your vimrc if you find them useful:
 "
 "       command! DiffOff :call CleanDiffOptions()
-"      
+"
 "       command! -nargs=0 -range=% SortByLength <line1>,<line2>call QSort(
 "           \ 's:CmpByLengthNname', 1)
 "       command! -nargs=0 -range=% RSortByLength <line1>,<line2>call QSort(
@@ -416,7 +416,7 @@ function! RestoreWindowSettings2(sid)
   let orgLines = MvIterNext("savedWindowSettings")
   let orgCols = MvIterNext("savedWindowSettings")
   let activeWindow = MvIterNext("savedWindowSettings")
- 
+
   let winNo = 1
   while MvIterHasNext("savedWindowSettings")
 	let height = MvIterNext("savedWindowSettings")
@@ -426,7 +426,7 @@ function! RestoreWindowSettings2(sid)
 	exec 'vert resize ' . ((&columns * width + (orgCols / 2)) / orgCols)
 	let winNo = winNo + 1
   endwhile
- 
+
   " Restore the current window.
   call MoveCursorToWindow(activeWindow)
   call ResetWindowSettings2(a:sid)
@@ -679,7 +679,7 @@ function! RemoveNotifyWindowClose(windowTitle)
 	  unlet s:notifyWindowFunctions
 	  unlet g:notifyWindowTitles " Debug.
 	  unlet g:notifyWindowFunctions " Debug.
- 
+
 	  aug NotifyWindowClose
 		au!
 	  aug END

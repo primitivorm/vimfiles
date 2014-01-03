@@ -249,7 +249,7 @@ function! s:setupSyntax()
   hi def link ThesHeader 	Statement
   hi def link ThesType  	Number
   hi def link ThesSyn 		Special
-  hi def link ThesHelp 	        Comment	
+  hi def link ThesHelp 	        Comment
 endfunction
 
 command! Thesaurus call s:Lookup()
