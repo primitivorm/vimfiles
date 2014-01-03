@@ -47,7 +47,6 @@ source $HOME/vimfiles/plugins.vim
 "}}}
 
 " Backup {{{
-set nocp
 "evita crear archivos de respaldo
 set nobackup
 set nowritebackup
@@ -103,6 +102,9 @@ if has("multi_byte")
   set encoding=utf-8
   setglobal fileencoding=utf-8
   set fileencodings=ucs-bom,utf-8,ucs-2le,latin1
+  if has("eval")
+    let &fileencodings = substitute(&fileencodings,"latin1","cp1252","")
+  endif
 endif
 "}}}
 
@@ -115,9 +117,7 @@ syntax on
 set background=dark
 colorscheme proman
 "Disabling vim's startup message
-"change between dos to unix format
-"set shortmess+=atx
-set shortmess=a
+"set shortmess=a
 
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
@@ -150,7 +150,7 @@ set wrapmargin=0
 set nrformats+=alpha,hex
 "set display=uhex
 set display=lastline
-set formatoptions=tcq "fo
+"set formatoptions=tcq "default
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
   set colorcolumn=120
@@ -163,7 +163,6 @@ set smartindent
 "use 4 spaces for tabs set tabstop=4 softtabstop=4 shiftwidth=4 " display indentation guides
 set tabstop=4
 set shiftwidth=4
-set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling
 "change tabs to spaces
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
@@ -171,6 +170,7 @@ set virtualedit=onemore "go to end of line on insert mode at press <up> <down> k
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
+set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling
 "Use Mark plugin to highlight selected word
 "hl
 set hlsearch
@@ -183,10 +183,10 @@ set ignorecase
 set smartcase
 set nogdefault " search/replace "globally" (on a line) by default
 "Resalta la { o ) que estamos cerrando (sm)
+set showmatch
 "Mostrar la posicion del cursor en todo momento
 set ruler
-"mat
-set matchtime=3
+set matchtime=3 "mat
 set matchpairs+=<:>
 set matchpairs+=":"
 set matchpairs+=':'
