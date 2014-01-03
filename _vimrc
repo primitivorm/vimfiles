@@ -123,11 +123,7 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 "max num of tabs
 set tabpagemax=50
-<<<<<<< HEAD
 set fileformats=unix,dos
-=======
-set fileformats=dos,unix
->>>>>>> 4c3353791ca15aa0f72424a04d219f0200f9d2c3
 set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 "┊
 set guifont=Consolas_for_Powerline_FixedD:h11,
@@ -154,11 +150,7 @@ set wrapmargin=0
 set nrformats+=alpha,hex
 "set display=uhex
 set display=lastline
-<<<<<<< HEAD
-set formatoptions=tcq "fo
-=======
 "set formatoptions=tcq "default
->>>>>>> 4c3353791ca15aa0f72424a04d219f0200f9d2c3
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
   set colorcolumn=120
@@ -171,10 +163,6 @@ set smartindent
 "use 4 spaces for tabs set tabstop=4 softtabstop=4 shiftwidth=4 " display indentation guides
 set tabstop=4
 set shiftwidth=4
-<<<<<<< HEAD
-set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling
-=======
->>>>>>> 4c3353791ca15aa0f72424a04d219f0200f9d2c3
 "change tabs to spaces
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
@@ -203,11 +191,7 @@ set matchpairs+=<:>
 set matchpairs+=":"
 set matchpairs+=':'
 set matchpairs+=%:%
-<<<<<<< HEAD
-" Load matchit.vim, but only if the user hasn't installed a newer " version.
-=======
 " Load matchit.vim, but only if the user hasn't installed a newer version.
->>>>>>> 4c3353791ca15aa0f72424a04d219f0200f9d2c3
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
