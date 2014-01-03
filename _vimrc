@@ -47,7 +47,6 @@ source $HOME/vimfiles/plugins.vim
 "}}}
 
 " Backup {{{
-set nocp
 "evita crear archivos de respaldo
 set nobackup
 set nowritebackup
@@ -103,6 +102,9 @@ if has("multi_byte")
   set encoding=utf-8
   setglobal fileencoding=utf-8
   set fileencodings=ucs-bom,utf-8,ucs-2le,latin1
+  if has("eval")
+    let &fileencodings = substitute(&fileencodings,"latin1","cp1252","")
+  endif
 endif
 "}}}
 
@@ -115,53 +117,27 @@ syntax on
 set background=dark
 colorscheme proman
 "Disabling vim's startup message
-"change between dos to unix format
-"set shortmess+=atx
-set shortmess=a
+"set shortmess=a
 
 set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 "max num of tabs
 set tabpagemax=50
+<<<<<<< HEAD
 set fileformats=unix,dos
+=======
+set fileformats=dos,unix
+>>>>>>> 4c3353791ca15aa0f72424a04d219f0200f9d2c3
 set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-if has('win32') || has('win64')
-  "┊
-  set guifont=Consolas_for_Powerline_FixedD:h11,
-    \Meslo_LG_M_for_Powerline:h10,
-    \Envy_Code_R_for_Powerline:h11,
-    \DejaVu_Sans_Mono_for_Powerline:h11,
-    \Monaco:h10,
-    \Terminus:h12
-  set directory=.,$TMP,$TEMP
-  set undodir=.,$TMP,$TEMP
-else
-  "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
-    \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
-    \Terminus\ Medium\ 13,
-    \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
-    \Consolas\ for\ Powerline\ 10,
-    \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-  set directory=~/tmp,/tmp
-  if exists('+undodir')
-    set undodir=~/tmp,/tmp
-  endif
-  let g:guifontpp_size_increment=1
-  "for linux maximize dont work
-  let g:loaded_maximize=1
-  if has("gui_running")
-    set lines=999 columns=999
-  else
-  " This is console Vim.
-  if exists("+lines")
-    set lines=50
-  endif
-  if exists("+columns")
-    set columns=100
-  endif
-  endif
-endif
+"┊
+set guifont=Consolas_for_Powerline_FixedD:h11,
+\Meslo_LG_M_for_Powerline:h10,
+\Envy_Code_R_for_Powerline:h11,
+\DejaVu_Sans_Mono_for_Powerline:h11,
+\Monaco:h10,
+\Terminus:h12
+set directory=.,$TMP,$TEMP
+set undodir=.,$TMP,$TEMP
 
 "habilita soporte para plugins
 filetype plugin on
@@ -178,7 +154,11 @@ set wrapmargin=0
 set nrformats+=alpha,hex
 "set display=uhex
 set display=lastline
+<<<<<<< HEAD
 set formatoptions=tcq "fo
+=======
+"set formatoptions=tcq "default
+>>>>>>> 4c3353791ca15aa0f72424a04d219f0200f9d2c3
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
   set colorcolumn=120
@@ -191,7 +171,10 @@ set smartindent
 "use 4 spaces for tabs set tabstop=4 softtabstop=4 shiftwidth=4 " display indentation guides
 set tabstop=4
 set shiftwidth=4
+<<<<<<< HEAD
 set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling
+=======
+>>>>>>> 4c3353791ca15aa0f72424a04d219f0200f9d2c3
 "change tabs to spaces
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
@@ -199,6 +182,7 @@ set virtualedit=onemore "go to end of line on insert mode at press <up> <down> k
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
+set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling
 "Use Mark plugin to highlight selected word
 "hl
 set hlsearch
@@ -211,15 +195,19 @@ set ignorecase
 set smartcase
 set nogdefault " search/replace "globally" (on a line) by default
 "Resalta la { o ) que estamos cerrando (sm)
+set showmatch
 "Mostrar la posicion del cursor en todo momento
 set ruler
-"mat
-set matchtime=3
+set matchtime=3 "mat
 set matchpairs+=<:>
 set matchpairs+=":"
 set matchpairs+=':'
 set matchpairs+=%:%
+<<<<<<< HEAD
 " Load matchit.vim, but only if the user hasn't installed a newer " version.
+=======
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+>>>>>>> 4c3353791ca15aa0f72424a04d219f0200f9d2c3
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif

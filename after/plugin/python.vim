@@ -13,7 +13,7 @@ endif
 nnoremap <buffer><F8> :call Flake8()<CR>
 
 setlocal expandtab
-setlocal scrolloff=2
+setlocal scrolloff=5
 setlocal shiftwidth=4
 setlocal smartindent
 setlocal tabstop=4
