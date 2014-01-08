@@ -3,6 +3,8 @@
 "http://www.vim.org/scripts/script.php?script_id=2087
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Automatic re-tab
+autocmd filetype cs setlocal textwidth=0
+
 setlocal expandtab
 " convert tabs to spaces before writing file
 if !&readonly && &modifiable

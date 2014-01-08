@@ -7,7 +7,7 @@
 "--------------------------------------------
 
 " Source the vimrc file after saving it {{{
-let $MYVIMRC=expand($HOME.'/_vimrc')
+let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 let $VIMFILES=expand($HOME.'/vimfiles/')
 "https://github.com/tpope/tpope/blob/master/.vimrc
 " Key mappings, functions, auto commands
@@ -18,11 +18,11 @@ source $HOME/vimfiles/functions.vim
 
 " Pathogen {{{
 "https://github.com/tpope/vim-pathogen
-"call pathogen#infect()
-"filetype off " required!
+call pathogen#infect()
+filetype off " required!
 "call pathogen#runtime_append_all_bundles()
-"call pathogen#incubate()
-"call pathogen#helptags()
+call pathogen#incubate()
+call pathogen#helptags()
 filetype on
 "}}}
 
@@ -85,6 +85,7 @@ set visualbell " don't beep
 set noerrorbells " don't beep
 "disable blink
 autocmd GUIEnter * set visualbell t_vb=
+set vb t_vb= " Turn off visual bell, error flash
 set noshowmode "show current mode
 set showcmd " show (partial) command in the last line of the screen
 " this also shows visual selection info
@@ -127,37 +128,37 @@ set fileformats=unix,dos
 "set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
 "┊
 if has('win32') || has('win64')
-set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-""set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-set guifont=Consolas_for_Powerline_FixedD:h11,
-            \Meslo_LG_M_for_Powerline:h10,
-            \Envy_Code_R_for_Powerline:h11,
-            \DejaVu_Sans_Mono_for_Powerline:h11,
-            \Monaco:h10,
-            \Terminus:h12,
+  "set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+  set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
+  set guifont=Envy_Code_R_for_Powerline:h11,
+          \Meslo_LG_M_for_Powerline:h10,
+          \Consolas_for_Powerline_FixedD:h11,
+          \DejaVu_Sans_Mono_for_Powerline:h11,
+          \Monaco:h10,
+          \Terminus:h12,
 else
-    set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-    "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-    set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
-    \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
-    \Terminus\ Medium\ 13,
-    \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
-    \Consolas\ for\ Powerline\ 10,
-    \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
-    let g:guifontpp_size_increment=1
-    "for linux maximize dont work
-    let g:loaded_maximize=1
-    if has("gui_running")
-        set lines=999 columns=999
-    else
-        " This is console Vim.
-        if exists("+lines")
-            set lines=50
-        endif
-        if exists("+columns")
-            set columns=100
-        endif
+  "set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+  set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+  set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
+          \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
+          \Terminus\ Medium\ 13,
+          \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
+          \Consolas\ for\ Powerline\ 10,
+          \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+  let g:guifontpp_size_increment=1
+  "for linux maximize dont work
+  let g:loaded_maximize=1
+  if has("gui_running")
+    set lines=999 columns=999
+  else
+    " This is console Vim.
+    if exists("+lines")
+        set lines=50
     endif
+    if exists("+columns")
+        set columns=100
+    endif
+  endif
 endif
 
 set directory=.,$TMP,$TEMP
@@ -248,7 +249,6 @@ if has("statusline")
   source $HOME/vimfiles/cream/cream-lib.vim
   source $HOME/vimfiles/cream/cream-lib-os.vim
   source $HOME/vimfiles/cream/cream-statusline.vim
-  "set statusline=%<%f\ %{fugitive#statusline()}%h%m%r%=%{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}%k\ %-14.(%l,%c%V%)\ %P
 endif
 " if there is only one window
 set cmdheight=2 " use a status bar that is 2 rows high
@@ -266,7 +266,6 @@ set fillchars=vert:\│
 set linespace=0
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set list
-set vb t_vb= " Turn off visual bell, error flash
 set mouse=a " enable using the mouse if terminal emulator
 set mousemodel=popup_setpos
 set guioptions-=T  "remove toolbar

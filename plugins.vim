@@ -174,23 +174,6 @@ nmap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 let g:sql_type_default = "sqlserver"
 "}}}
 
-""airline {{{
-"let g:airline_theme = 'solarized'
-"let g:airline_enable_branch = 1
-"let g:airline_enable_syntastic = 1
-"let g:airline_detect_iminsert = 1
-"" vim-powerline symbols
-"let g:airline_left_sep = '⮀'
-"let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-"let g:airline_right_alt_sep = '⮃'
-"let g:airline_branch_prefix = '⭠'
-"let g:airline_powerline_fonts = 1
-"let g:airline_readonly_symbol = '⭤'
-"let g:airline_linecolumn_prefix = '⭡'
-"let g:airline#extensions#tabline#enabled = 1
-""}}}
-
 " javascript-libraries-syntax {{{
 "https://github.com/othree/javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'underscore,backbone'
@@ -397,7 +380,8 @@ nmap <silent><S-U> :GundoToggle<CR>
 
 "indentLine {{{
 "https://github.com/Yggdroot/indentLine
-  let g:indentLine_indentLevel = 20
+let g:indentLine_indentLevel = 20
+let g:indentLine_showFirstIndentLevel = 1
 "}}}
 
 "" Fugitive {{{
@@ -494,7 +478,7 @@ nmap <silent> <leader>gu :GitPull<CR>
 "let b:templator_root_dir='~/vimfiles/templator/'
 ""}}}
 
-""Word-Fuzzy-Completion {{{
+"" Word-Fuzzy-Completion {{{
 ""https://github.com/vim-scripts/Word-Fuzzy-Completion
 ""http://hetland.org/coding/python/levenshtein.py
 "let g:fuzzywordcompletion_disable_keybinding=0
@@ -506,7 +490,7 @@ nmap <silent> <leader>gu :GitPull<CR>
 "let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
 ""}}}
 
-""slimv {{{
+""  slimv {{{
 ""https://github.com/vim-scripts/slimv.vim
 "if has('win32') || has('win64')
   "let g:slimv_lisp='C:\lispbox-0.7\ccl-1.6-windowsx86\wx86cl64.exe'
@@ -516,7 +500,7 @@ nmap <silent> <leader>gu :GitPull<CR>
 "endif
 ""}}}
 
-""jedi-vim {{{
+"" jedi-vim {{{
 "let g:jedi#goto_assignments_command = "<leader>g"
 "let g:jedi#goto_definitions_command = "<leader>d"
 "let g:jedi#documentation_command = "K"
@@ -527,7 +511,7 @@ nmap <silent> <leader>gu :GitPull<CR>
 "let g:jedi#auto_initialization=0
 ""}}}
 
-""vim-easy-align{{{
+"" vim-easy-align{{{
 ""https://github.com/junegunn/vim-easy-align
 "" Start interactive EasyAlign in visual mode
 ""TODO: Uncoment this
@@ -542,6 +526,23 @@ nmap <silent> <leader>gu :GitPull<CR>
 ""https://github.com/tpope/vim-ragtag
 ""http://www.vim.org/scripts/script.php?script_id=1896
 "let g:ragtag_global_maps = 1
+""}}}
+
+""airline {{{
+"let g:airline_theme = 'solarized'
+"let g:airline_enable_branch = 1
+"let g:airline_enable_syntastic = 1
+"let g:airline_detect_iminsert = 1
+"" vim-powerline symbols
+"let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+"let g:airline_branch_prefix = '⭠'
+"let g:airline_powerline_fonts = 1
+"let g:airline_readonly_symbol = '⭤'
+"let g:airline_linecolumn_prefix = '⭡'
+"let g:airline#extensions#tabline#enabled = 1
 ""}}}
 
 "}}}
