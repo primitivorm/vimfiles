@@ -1,5 +1,3 @@
-"XOCYRER0858150114
-"RVP15012014BE
 "runtime bundle/tplugin_vim/macros/tplugin.vim
 "TPluginScan!
 "http://learnvimscriptthehardway.stevelosh.com/
@@ -117,8 +115,8 @@ syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-set background=dark
-colorscheme proman
+set background=light
+colorscheme eclipse
 "Disabling vim's startup message
 "set shortmess=a
 
@@ -127,19 +125,17 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=50
 set fileformats=unix,dos
-"set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-"┊
+"▸»·↵→←×┊
 if has('win32') || has('win64')
-  "set listchars=tab:▸\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-  set listchars=tab:»\-,trail:·,eol:¬,extends:→,precedes:←,nbsp:×
-  set guifont=Envy_Code_R_for_Powerline:h11,
-          \Meslo_LG_M_for_Powerline:h10,
+  set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+  set guifont=Meslo_LG_M_for_Powerline:h10,
           \Consolas_for_Powerline_FixedD:h11,
+          \Envy_Code_R_for_Powerline:h11,
+          \Sauce_Code_Powerline:h11,
           \DejaVu_Sans_Mono_for_Powerline:h11,
           \Monaco:h10,
           \Terminus:h12,
 else
-  "set listchars=tab:▸\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
           \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
