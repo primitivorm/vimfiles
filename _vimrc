@@ -116,7 +116,7 @@ syntax on
 
 "https://github.com/primitivorm/vim-proman-theme
 set background=light
-colorscheme eclipse
+colorscheme proman
 "Disabling vim's startup message
 "set shortmess=a
 
@@ -247,6 +247,11 @@ if has("statusline")
   source $HOME/vimfiles/cream/cream-lib.vim
   source $HOME/vimfiles/cream/cream-lib-os.vim
   source $HOME/vimfiles/cream/cream-statusline.vim
+  "colors for cream
+  hi User1  gui=bold guifg=#808080 guibg=#FFDEAD
+  hi User2  gui=bold guifg=#333333 guibg=#FFDEAD
+  hi User3  gui=bold guifg=#000000 guibg=#FFDEAD
+  hi User4  gui=bold guifg=#000000 guibg=#FFDEAD
 endif
 " if there is only one window
 set cmdheight=2 " use a status bar that is 2 rows high
