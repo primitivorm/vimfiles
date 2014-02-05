@@ -102,7 +102,7 @@ if has("multi_byte")
   endif
   set encoding=utf-8
   setglobal fileencoding=utf-8
-  set fileencodings=ucs-bom,utf-8,ucs-2le,latin1
+  set fileencodings=ucs-bom,utf-8,latin1,ucs-2le
   if has("eval")
     let &fileencodings = substitute(&fileencodings,"latin1","cp1252","")
   endif
@@ -125,16 +125,16 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "max num of tabs
 set tabpagemax=50
 set fileformats=unix,dos
-"▸»·↵→←×┊
+"▸»·↵→←×┊¬
 if has('win32') || has('win64')
   set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Meslo_LG_M_for_Powerline:h10,
-          \Consolas_for_Powerline_FixedD:h11,
-          \Envy_Code_R_for_Powerline:h11,
-          \Sauce_Code_Powerline:h11,
-          \DejaVu_Sans_Mono_for_Powerline:h11,
+  set guifont=DejaVu_Sans_Mono_for_Powerline:h10,
+          \Consolas_for_Powerline_FixedD:h10,
+          \Envy_Code_R_for_Powerline:h10,
+          \Meslo_LG_M_for_Powerline:h10,
+          \Sauce_Code_Powerline:h10,
           \Monaco:h10,
-          \Terminus:h12,
+          \Terminus:h12
 else
   set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
