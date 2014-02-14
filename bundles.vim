@@ -37,6 +37,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'amdt/vim-niji'
 
 " Brief help {{{
 " :BundleList - list configured bundles

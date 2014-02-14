@@ -318,10 +318,16 @@ set splitbelow
 " Remove dictionary lookup from the Vim keyword completion.  It did always
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
-let g:acp_completeOption     = '.,w,b,i'
-"let g:acp_completeOption    = '.,w,b,k,t,i'
-let g:acp_behaviorKeywordLength  = 1
-let g:acp_behaviorPythonOmniLength = 1
+let g:acp_completeOption = '.,w,b,i,u,t'
+let g:acp_behaviorFileLength = 3
+"length to trigger AutoComplPop
+let g:acp_behaviorKeywordLength = 3
+let g:acp_behaviorXmlOmniLength = 3
+let g:acp_behaviorHtmlOmniLength = 3
+let g:acp_behaviorPythonOmniLength = 3
+let g:acp_behaviorCssOmniValueLength = 3
+let g:acp_behaviorRubyOmniSymbolLength = 3
+let g:acp_behaviorCssOmniPropertyLength = 3
 "}}}
 
 " SuperTab {{{
@@ -329,11 +335,11 @@ let g:SuperTabDefaultCompletionType='context'
 let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
 let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-u>","&omnifunc:<c-x><c-o>"]
 let g:SuperTabClosePreviewOnPopupClose=1
-let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
-let g:SuperTabLongestHighlight = 1
+let g:SuperTabNoCompleteAfter=['^', ',', '\s']
+let g:SuperTabLongestHighlight=3
 "defaults
-let g:SuperTabMappingForward = '<tab>'
-let g:SuperTabMappingBackward = '<s-tab>'
+let g:SuperTabMappingForward='<tab>'
+let g:SuperTabMappingBackward='<s-tab>'
 "}}}
 
 " Ultisnip {{{
@@ -384,7 +390,7 @@ let g:indentLine_indentLevel = 20
 let g:indentLine_showFirstIndentLevel = 1
 "}}}
 
-"" Fugitive {{{
+" Fugitive {{{
 autocmd User fugitive
   \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
   \   nnoremap <buffer> .. :edit %:h<CR> |
@@ -398,7 +404,12 @@ nmap <silent> <leader>gb :Gblame<CR>
 nmap <silent> <leader>gl :Glog<CR>
 nmap <silent> <leader>gp :GitPush<CR>
 nmap <silent> <leader>gu :GitPull<CR>
-""}}}
+"}}}
+
+" vim-niji {{{
+" https://github.com/amdt/vim-niji
+"let g:niji_match_all_filetypes = 1
+" }}}
 
 "Unused plugins {{{
 "" SQLComplete {{{
