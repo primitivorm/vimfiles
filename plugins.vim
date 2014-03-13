@@ -318,16 +318,18 @@ set splitbelow
 " Remove dictionary lookup from the Vim keyword completion.  It did always
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
-let g:acp_completeOption = '.,w,b,i,u,t'
-let g:acp_behaviorFileLength = 3
+let g:acp_completeOption = '.,w,b,u,t,i'
 "length to trigger AutoComplPop
-let g:acp_behaviorKeywordLength = 3
-let g:acp_behaviorXmlOmniLength = 3
-let g:acp_behaviorHtmlOmniLength = 3
-let g:acp_behaviorPythonOmniLength = 3
-let g:acp_behaviorCssOmniValueLength = 3
-let g:acp_behaviorRubyOmniSymbolLength = 3
-let g:acp_behaviorCssOmniPropertyLength = 3
+"let g:acp_behaviorFileLength = 3
+"let g:acp_behaviorKeywordLength = 3
+"let g:acp_behaviorXmlOmniLength = 3
+"let g:acp_behaviorHtmlOmniLength = 3
+"let g:acp_behaviorPythonOmniLength = 3
+"let g:acp_behaviorCssOmniValueLength = 3
+"let g:acp_behaviorRubyOmniSymbolLength = 3
+"let g:acp_behaviorCssOmniPropertyLength = 3
+"let g:acp_behaviorSnipmateLength=3
+"let g:acp_behaviorRubyOmniMethodLength=3
 "}}}
 
 " SuperTab {{{

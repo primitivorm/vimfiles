@@ -285,11 +285,14 @@ let g:clipbrdDefaultReg = '+'
 " Spell {{{
 set nospell
 "http://precheur.org/vim/create_spell_file_for_vim
-set spelllang=es,en "Carga el diccionario en o los lenguajes que necesitemos
+"set spelllang=es,en "Carga el diccionario en o los lenguajes que necesitemos
 "limit the number of suggested words
 set spellsuggest=best,10
 set dictionary+=~/vimfiles/spell/es_MX.dic
 set dictionary+=~/vimfiles/spell/en_US.dic
+"set complete-=k complete+=k
+set keymap=accents
+set pumheight=10
 "syntax completion
 "http://vim.wikia.com/wiki/VimTip498
 autocmd FileType * exe('setl dict+='.$HOME.'/vimfiles/syntax/'.&filetype.'.vim')
