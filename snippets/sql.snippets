@@ -1,24 +1,28 @@
-#############################################################
+#########################################################
 # my snippets for sql code
-#############################################################
-snippet header
--- =============================================
--- Author:  ${4:Ing. Primitivo R. Montero}
--- Create date: `!v strftime("%d-%m-%Y")`
--- Description: ${1}
--- Parameters:
--- ${2}
--- =============================================
--- Usage: ${3}
--- =============================================
+#########################################################
+#copy right
+snippet cr
+/********************************************************
+Nombre: `!v expand('%:t')`
+*********************************************************
+Autor: ${2:Ing. Primitivo R. Montero}
+Fecha de creacion: `!v strftime("%d-%m-%Y")`
+Descripcion: ${1}
+*********************************************************
+Modificaciones:
+Persona           Fecha            Motivo
+*********************************************************
+
+********************************************************/
 endsnippet
 #select
 snippet sel
 SELECT ${2:column_name}
-FROM [dbo].[${1:table_name}]
+FROM [dbo].[${1:table_name}] WITH(NOLOCK)
 WHERE ${3:condition}
 endsnippet
-# procedure
+#create procedure
 snippet proc
 IF EXISTS (
 	SELECT 1
@@ -31,16 +35,6 @@ BEGIN
 	PRINT 'Eliminando [dbo].[$1]'
 END
 GO
--- =============================================
--- Author:  ${6:Ing. Primitivo R. Montero}
--- Create date: ${2:dd}-${3:mmm}-${4:yyyy}
--- Description: ${5}
--- Parameters:
--- <parameter_list - description>
--- =============================================
--- Usage:
---  1) exec [dbo].[$1] <parameter_list>
--- =============================================
 PRINT 'Creando [dbo].[$1]'
 GO
 SET ANSI_NULLS ON
@@ -48,11 +42,11 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[$1]
-${7:parameter_list}
+${7}
 AS
 BEGIN
-	SET NOCOUNT ON
-	--select statement here
+	SET NOCOUNT ON;
+	${8}
 END
 GO
 endsnippet
@@ -68,17 +62,30 @@ snippet paramn
 endsnippet
 # joins
 snippet join
-INNER JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
-	ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}
+INNER JOIN [dbo].[${1:table2}] ${2:alias_table2} WITH(NOLOCK)
+	ON $2.${3:field_table2} = ${4:alias_table1}.${5:$3}
 endsnippet
 snippet ljoin
-LEFT JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
-	ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}
+LEFT JOIN [dbo].[${1:table2}] ${2:alias_table2} WITH(NOLOCK)
+	ON $2.${3:field_table2} = ${4:alias_table1}.${5:$3}
 endsnippet
 snippet rjoin
-RIGHT JOIN [dbo].[${1:table2}] ${2:aliastable2} WITH(NOLOCK)
-	ON $2.${3:campotable2} = ${4:aliastable1}.${5:$3}
+RIGHT JOIN [dbo].[${1:table2}] ${2:alias_table2} WITH(NOLOCK)
+	ON $2.${3:field_table2} = ${4:alias_table1}.${5:$3}
 endsnippet
 snippet nl
 WITH(NOLOCK)
+endsnippet
+#insert
+snippet ins
+INSERT INTO [dbo].[${1:table_name}](
+	${2}
+)
+VALUES(
+	${3}
+);
+endsnippet
+#alter
+snippet alter
+ALTER TABLE ${1:table_name} ADD ${2:field_name} ${3:field_type} NULL
 endsnippet

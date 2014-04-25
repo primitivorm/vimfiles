@@ -1,21 +1,20 @@
 # header
-#############################################################
+#########################################################
 # my snippets for csharp code
-#############################################################
-snippet header
-/*
+#########################################################
+snippet cr
+/********************************************************
+Nombre: `!v expand('%:t')`
 *********************************************************
-*   Nombre: `!v expand('%:t')`
+Autor: ${2:Ing. Primitivo R. Montero}
+Fecha de creacion: `!v strftime("%d-%m-%Y")`
+Descripcion: ${1}
 *********************************************************
-*   Autor: ${2:Ing. Primitivo R. Montero}
-*   Fecha de creación: `!v strftime("%d-%m-%Y")`
-*   Descripción: ${1}
+Modificaciones:
+Persona           Fecha            Motivo
 *********************************************************
-*   Modificaciones:
-*   Persona           Fecha            Motivo
-*
-*********************************************************
-*/
+
+*********************************************************/
 ${6}
 endsnippet
 # if else
@@ -27,33 +26,19 @@ if (${1:/*condition*/}) {
 }
 endsnippet
 # try catch finally
-snippet try
-try{
-	{1}
-}catch(Exception){
-	throw;
-}
-endsnippet
-snippet tryf
-try{
-	{1}
-}finally{
-	{2}
-}
-endsnippet
 snippet trycf
 try{
-	{1}
+	${1}
 }catch(Exception){
 	throw;
 }finally{
-	{2}
+	${2}
 }
 endsnippet
 # namespace
 snippet name
 namespace ${1}{
-	{2}
+	${2}
 }
 endsnippet
 # import (using)
@@ -92,7 +77,7 @@ endsnippet
 # region
 snippet region
 #region ${1:region_name}
-	{2}
+	${2}
 #endregion
 endsnippet
 # using
@@ -109,7 +94,7 @@ ${5:public} ${1:return_type} ${2:function_name} (${3:param_type} ${4:param_name}
 endsnippet
 # database layer
 snippet funds
-private DataSet ${1:function_name} ( ${2:string} ${3:param_name} ){
+public DataSet ${1:function_name} ( ${2:string} ${3:param_name} ){
 	DataSet dsDatos = new DataSet();
 	IDBManager oMan = null;
 	try{
@@ -126,5 +111,23 @@ private DataSet ${1:function_name} ( ${2:string} ${3:param_name} ){
 		oMan = null;
 	}
 	return dsDatos;
+}
+endsnippet
+snippet funv
+public void ${1:function_name} ( ${2:string} ${3:param_name} ){
+	IDBManager oMan = null;
+	try{
+		oMan = new DBManager(DataProvider.SqlServer);
+		oMan.ConnectionString = Conexion;
+		oMan.ClearParameters();
+		oMan.AddParameters(0, "@p$3", $3);
+		oMan.Open();
+		oMan.ExecuteNonQuery(CommandType.StoredProcedure, "${4:sp_name}");
+	}catch (Exception){
+		throw;
+	}finally{
+		oMan.Close();
+		oMan = null;
+	}
 }
 endsnippet

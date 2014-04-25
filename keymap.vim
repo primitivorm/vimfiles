@@ -117,7 +117,7 @@ vmap <leader>x "+x
 vmap <leader>y "+y
 "PASTE
 map <leader>p "+gp
-"noremap <leader>P "+gP
+noremap <leader>P "+gP
 
 "disable paste when MiddleMouse press
 "http://vim.wikia.com/wiki/Mouse_wheel_for_scroll_only_-_disable_middle_button_paste
@@ -142,6 +142,9 @@ nmap <C-F> /\v<C-r><C-w>
 vmap <C-u> U
 "CTRL-L is Change MAYUS to minus
 vmap <C-l> u
+
+"delete duplicate lines
+nmap <leader>d :v/./,/./-1join <cr>
 
 "CTRL-ENTER is insert line after
 nmap <c-cr> o<esc>

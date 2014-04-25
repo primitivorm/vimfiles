@@ -115,8 +115,10 @@ syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-set background=light
+"set background=light
+set background=dark
 colorscheme proman
+"colorscheme summerfruit256
 "Disabling vim's startup message
 "set shortmess=a
 
@@ -285,7 +287,7 @@ let g:clipbrdDefaultReg = '+'
 " Spell {{{
 set nospell
 "http://precheur.org/vim/create_spell_file_for_vim
-"set spelllang=es,en "Carga el diccionario en o los lenguajes que necesitemos
+set spelllang=es,en "Carga el diccionario en o los lenguajes que necesitemos
 "limit the number of suggested words
 set spellsuggest=best,10
 set dictionary+=~/vimfiles/spell/es_MX.dic

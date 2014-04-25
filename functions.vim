@@ -86,7 +86,7 @@ function! RotateColorTheme()
    while y == -1
       "top 10 plus proman theme
       "http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
-      let colorstring = "#railscasts#codeschool#Monokai#badwolf#mustang#wombat#github#solarized#mac_classic#eclipse#proman#"
+      let colorstring = "#railscasts#codeschool#Monokai#badwolf#mustang#wombat#github#solarized#mac_classic#eclipse#tomorrow-night#summerfruit256#proman#"
       let x = match(colorstring,"#",g:themeindex)
       let y = match(colorstring,"#",x + 1)
       let g:themeindex = x + 1
@@ -101,4 +101,26 @@ endfunction
 
 " Rotate Color Scheme <F12>
 nmap <silent><F12> :execute RotateColorTheme()<CR>
+"change background
+function! ChangeBackground()
+    if &background=="light"
+        set background=dark
+    else
+        set background=light
+    endif
+endfunction
+nmap <silent><C-F12> :execute ChangeBackground()<CR>
+" }}}
+
+" Incrrement visual selection {{{
+" http://vim.wikia.com/wiki/Making_a_list_of_numbers
+function! Incr()
+  let a = line('.') - line("'<")
+  let c = virtcol("'<")
+  if a > 0
+    execute 'normal! '.c.'|'.a."\<C-a>"
+  endif
+  normal `<
+endfunction
+vnoremap <C-a> :call Incr()<CR>
 " }}}

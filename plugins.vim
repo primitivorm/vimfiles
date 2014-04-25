@@ -108,6 +108,7 @@ nmap <C-p> :CtrlP<CR>
 imap <C-p> <esc>:CtrlP<CR>
 nmap <C-b> :CtrlPBuffer<CR>
 imap <C-b> <esc>:CtrlPBuffer<CR>
+nnoremap <leader>t :CtrlPTag<cr>
 "}}}
 
 " Syntastic {{{
@@ -134,7 +135,6 @@ if !&diff
 endif
 "quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f-
-
 nmap <silent> <leader>sc :SyntasticCheck<cr>
 "}}}
 
@@ -318,7 +318,8 @@ set splitbelow
 " Remove dictionary lookup from the Vim keyword completion.  It did always
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
-let g:acp_completeOption = '.,w,b,u,t,i'
+"let g:acp_completeOption = '.,w,b,u,t,i'
+let g:acp_completeOption = '.,w,b,u'
 "length to trigger AutoComplPop
 "let g:acp_behaviorFileLength = 3
 "let g:acp_behaviorKeywordLength = 3
@@ -408,10 +409,12 @@ nmap <silent> <leader>gp :GitPush<CR>
 nmap <silent> <leader>gu :GitPull<CR>
 "}}}
 
-" vim-niji {{{
-" https://github.com/amdt/vim-niji
-"let g:niji_match_all_filetypes = 1
-" }}}
+" Word-Fuzzy-Completion {{{
+"https://github.com/vim-scripts/Word-Fuzzy-Completion
+"http://hetland.org/coding/python/levenshtein.py
+let g:fuzzywordcompletion_disable_keybinding=0
+"default keymap is <c-k>
+"}}}
 
 "Unused plugins {{{
 "" SQLComplete {{{
@@ -491,13 +494,6 @@ nmap <silent> <leader>gu :GitPull<CR>
 "let b:templator_root_dir='~/vimfiles/templator/'
 ""}}}
 
-"" Word-Fuzzy-Completion {{{
-""https://github.com/vim-scripts/Word-Fuzzy-Completion
-""http://hetland.org/coding/python/levenshtein.py
-"let g:fuzzywordcompletion_disable_keybinding=0
-""default keymap is <c-k>
-""}}}
-
 "" pydiction {{{
 ""https://github.com/rkulla/pydiction
 "let g:pydiction_location = $HOME . '/vimfiles/bundle/pydiction/complete-dict'
@@ -557,5 +553,10 @@ nmap <silent> <leader>gu :GitPull<CR>
 "let g:airline_linecolumn_prefix = '⭡'
 "let g:airline#extensions#tabline#enabled = 1
 ""}}}
+
+" vim-niji {{{
+" https://github.com/amdt/vim-niji
+"let g:niji_match_all_filetypes = 1
+" }}}
 
 "}}}

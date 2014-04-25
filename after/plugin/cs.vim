@@ -55,7 +55,7 @@ function! FormatStatement()
   let line = substitute(line, '\s\+', ' ',  'g')
   let line = substitute(line, '\s\+$', '',  'g')
   call setline('.', line)
-  exec 'normal! V=$l'
+  "exec 'normal! V=$l'
   startinsert
   return
 endfunction
