@@ -209,7 +209,7 @@ map <leader>h :set hlsearch! hlsearch?<CR>
 "map <S-Insert> <MiddleMouse>
 "map! <S-Insert> <MiddleMouse>
 
-"list
+" list
 nmap <leader>l :set list!<CR>
 
 " Edit the vimrc file
@@ -235,7 +235,14 @@ vmap <Space> za
 " Reselect text that was just pasted with ,p
 nmap <leader>v V`]
 
-"Omnicompletion
+" Omnicompletion
 imap <c-space> <c-x><c-o>
 
+"It is much more efficient having Q save and quit the current buffer
+nnoremap <silent> Q ZZ
+
+" Key bindings for adjusting the tab/shift width.
+nnoremap <leader>w2 :setlocal tabstop=2<CR>:setlocal shiftwidth=2<CR>
+nnoremap <leader>w4 :setlocal tabstop=4<CR>:setlocal shiftwidth=4<CR>
+nnoremap <leader>w8 :setlocal tabstop=8<CR>:setlocal shiftwidth=8<CR>
 " }}}

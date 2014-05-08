@@ -58,14 +58,13 @@ function! AutoHighlightToggle()
 endfunction
 ""call at startup
 "call AutoHighlightToggle()
-"}}}
+" }}}
 
 " Toggle the quickfix window {{{
 " From Steve Losh, http://learnvimscriptthehardway.stevelosh.com/chapters/38.html
 nmap <leader>q :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
-
 function! s:QuickfixToggle()
     if g:quickfix_is_open
         cclose

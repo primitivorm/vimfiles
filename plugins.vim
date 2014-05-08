@@ -305,7 +305,7 @@ autocmd FileType cs command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
 autocmd FileType cs nmap <leader>rs :call OmniSharp#ReloadSolution()<cr>
 autocmd FileType cs nmap <leader>cf :call OmniSharp#CodeFormat()<cr>
 " (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
-autocmd FileType cs nmap <leader>ss :OmniSharpStartServer<cr>
+autocmd FileType cs setlocal nmap <leader>ss :OmniSharpStartServer<cr>
 autocmd FileType cs nmap <leader>sp :OmniSharpStopServer<cr>
 autocmd FileType cs nmap <leader>ht :OmniSharpHighlightTypes<cr>
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
@@ -416,6 +416,12 @@ let g:fuzzywordcompletion_disable_keybinding=0
 "default keymap is <c-k>
 "}}}
 
+"" vim-niji {{{
+"" https://github.com/amdt/vim-niji
+"let g:niji_match_all_filetypes = 1
+"let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
+"" }}}
+
 "Unused plugins {{{
 "" SQLComplete {{{
 ""https://github.com/vim-scripts/SQLComplete.vim
@@ -509,16 +515,16 @@ let g:fuzzywordcompletion_disable_keybinding=0
 "endif
 ""}}}
 
-"" jedi-vim {{{
-"let g:jedi#goto_assignments_command = "<leader>g"
-"let g:jedi#goto_definitions_command = "<leader>d"
-"let g:jedi#documentation_command = "K"
-"let g:jedi#usages_command = "<leader>n"
-"let g:jedi#completions_command = "<C-Space>"
-"let g:jedi#rename_command = "<leader>r"
-"let g:jedi#show_call_signatures = "1"
-"let g:jedi#auto_initialization=0
-""}}}
+" jedi-vim {{{
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "1"
+let g:jedi#auto_initialization=0
+"}}}
 
 "" vim-easy-align{{{
 ""https://github.com/junegunn/vim-easy-align
@@ -553,10 +559,5 @@ let g:fuzzywordcompletion_disable_keybinding=0
 "let g:airline_linecolumn_prefix = '⭡'
 "let g:airline#extensions#tabline#enabled = 1
 ""}}}
-
-" vim-niji {{{
-" https://github.com/amdt/vim-niji
-"let g:niji_match_all_filetypes = 1
-" }}}
 
 "}}}

@@ -1,5 +1,6 @@
 autocmd BufNewFile,BufRead *.xml setlocal foldmethod=indent
 "autoformat
+"http://code.google.com/p/xmllint/downloads/detail?name=xmllint.exe&can=2&q=
 autocmd BufRead,BufNewFile *.xml nnoremap <leader>f :% !xmllint.exe % --format<cr>
 
 function! XsdAddColumn()

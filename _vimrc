@@ -115,8 +115,12 @@ syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-"set background=light
-set background=dark
+set background=light
+highlight clear
+if exists("syntax_on")
+    syntax reset
+endif
+"set background=dark
 colorscheme proman
 "colorscheme summerfruit256
 "Disabling vim's startup message
@@ -126,6 +130,8 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 "establece el esquema de colores
 "max num of tabs
 set tabpagemax=50
+"setting a limit on the characters Vim will highlight per line at most
+set synmaxcol=512
 set fileformats=unix,dos
 "▸»·↵→←×┊¬
 if has('win32') || has('win64')
@@ -169,6 +175,8 @@ filetype plugin on
 filetype plugin indent on " required!
 "muestra numeros de linea del archivo
 set nu
+" Show relative line numbers.
+"set rnu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
 set nowrap
 set nolinebreak "lbr

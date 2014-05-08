@@ -5,10 +5,9 @@
 "" Automatic re-tab
 autocmd filetype cs setlocal textwidth=0
 
-setlocal expandtab
 " convert tabs to spaces before writing file
 if !&readonly && &modifiable
-  autocmd! BufWritePre *.cs retab!
+  autocmd! BufWritePre *.cs setlocal expandtab | retab!
 endif
 
 "Autoformat
@@ -55,13 +54,13 @@ function! FormatStatement()
   let line = substitute(line, '\s\+', ' ',  'g')
   let line = substitute(line, '\s\+$', '',  'g')
   call setline('.', line)
-  "exec 'normal! V=$l'
+  exec 'normal! V=$l'
   startinsert
   return
 endfunction
 
-au BufRead,BufNewFile *.cs nnoremap <leader>fs :call FormatStatement()<cr>
-au BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
+autocmd BufRead,BufNewFile *.cs nnoremap <leader>fs :call FormatStatement()<cr>
+autocmd BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
 
 "for each line in buffer rewrap on write
 "http://vim.wikia.com/wiki/Power_of_g
