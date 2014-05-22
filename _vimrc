@@ -20,10 +20,11 @@ source $HOME/vimfiles/functions.vim
 "https://github.com/tpope/vim-pathogen
 call pathogen#infect()
 filetype off " required!
+filetype plugin off
+filetype plugin indent off
 "call pathogen#runtime_append_all_bundles()
 call pathogen#incubate()
 call pathogen#helptags()
-filetype on
 "}}}
 
 " Vundle {{{
@@ -171,6 +172,7 @@ set directory=.,$TMP,$TEMP
 set undodir=.,$TMP,$TEMP
 
 "habilita soporte para plugins
+filetype on
 filetype plugin on
 filetype plugin indent on " required!
 "muestra numeros de linea del archivo
