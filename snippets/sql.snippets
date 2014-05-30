@@ -11,7 +11,7 @@ Fecha de creacion: `!v strftime("%d-%m-%Y")`
 Descripcion: ${1}
 *********************************************************
 Modificaciones:
-Persona           Fecha            Motivo
+Persona			  Fecha			   Motivo
 *********************************************************
 
 ********************************************************/
@@ -88,4 +88,39 @@ endsnippet
 #alter
 snippet alter
 ALTER TABLE ${1:table_name} ADD ${2:field_name} ${3:field_type} NULL
+endsnippet
+#cursor
+snippet cursor
+DECLARE ${1:cursor_name} CURSOR FAST_FORWARD
+FOR
+	SELECT ${3:column_name}
+	FROM ${2:table_name}
+DECLARE @${3} ${4:column_type}
+OPEN ${1}
+FETCH NEXT FROM ${1}
+	INTO @${3}
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		${5}
+		FETCH NEXT FROM ${1}
+	END
+CLOSE ${1}
+DEALLOCATE ${1}
+endsnippet
+#while
+snippet while
+WHILE ${1:condition}
+BEGIN
+	${2:statements}
+END
+endsnippet
+snippet whilebc
+WHILE ${1:condition}
+BEGIN
+	${2:statements}
+	IF ${3:condition}
+		BREAK
+	ELSE
+		CONTINUE
+END
 endsnippet

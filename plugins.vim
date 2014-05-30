@@ -154,8 +154,8 @@ let g:dbext_default_profile_sql_qavw40='type=SQLSRV:srvname=10.48.95.40:dbname=a
 let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
 
 " execute statement
-autocmd FileType sql nmap <F5> :DBExecVisualSQL <cr>
 autocmd FileType sql vmap <F5> :DBExecVisualSQL <cr>
+autocmd FileType sql nmap <F5> :DBExecVisualSQL <cr>
 autocmd FileType sql map <A-F1> :DBDescribeTable <cr>
 "remap <leader>sl+ to <leader>l+
 autocmd FileType sql nmap <leader>lt :DBListTable <cr>
@@ -336,7 +336,7 @@ let g:acp_completeOption = '.,w,b,u'
 " SuperTab {{{
 let g:SuperTabDefaultCompletionType='context'
 let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
-let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-u>","&omnifunc:<c-x><c-o>"]
+let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-o>","&omnifunc:<c-x><c-u>", "&omnifunc:<c-x><c-k>"]
 let g:SuperTabClosePreviewOnPopupClose=1
 let g:SuperTabNoCompleteAfter=['^', ',', '\s']
 let g:SuperTabLongestHighlight=3

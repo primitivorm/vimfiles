@@ -133,7 +133,7 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 set tabpagemax=50
 "setting a limit on the characters Vim will highlight per line at most
 set synmaxcol=512
-set fileformats=unix,dos
+set fileformats=dos,unix
 "▸»·↵→←×┊¬
 if has('win32') || has('win64')
   set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
