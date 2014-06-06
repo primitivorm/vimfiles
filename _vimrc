@@ -266,7 +266,7 @@ if has("statusline")
   hi User4  gui=bold guifg=#000000 guibg=#FFDEAD
 endif
 " if there is only one window
-set cmdheight=2 " use a status bar that is 2 rows high
+set cmdheight=1 " use a status bar that is 2 rows high
 "}}}
 
 " Vim behaviour {{{
