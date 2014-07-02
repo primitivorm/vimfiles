@@ -183,7 +183,7 @@ set nu
 set nowrap
 set nolinebreak "lbr
 set showbreak=...
-set textwidth=72
+set textwidth=79
 set wrapmargin=0
 "http://vim.wikia.com/wiki/VimTip30
 set nrformats+=alpha,hex
@@ -192,8 +192,8 @@ set display=lastline
 "set formatoptions=tcq "default
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
-  set colorcolumn=120
-  let &colorcolumn="120,".join(range(140,999),",")
+  set colorcolumn=80
+  let &colorcolumn="100,".join(range(120,999),",")
 endif
 "habilita sangrado inteligente
 set smartindent
@@ -218,6 +218,8 @@ set smarttab " insert tabs on the start of a line according to shiftwidth, not t
 set incsearch " show search matches as you type
 "Caso insesitivo para busquedas es decir no distingue mayusculas y minusculas
 set ignorecase
+"With this option set vi will complete the new word as 'thimble' instead of 'Thimble'
+set infercase
 "case-sensitive if search contains an uppercase character
 set smartcase
 set nogdefault " search/replace "globally" (on a line) by default

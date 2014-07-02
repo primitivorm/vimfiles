@@ -138,6 +138,7 @@ else
 endif
 "CTRL-F is Find command
 nmap <C-F> /\v<C-r><C-w>
+vmap <C-F> /\v<C-r><C-w>
 "CTRL-U is Change minus to MAYUS
 vmap <C-u> U
 "CTRL-L is Change MAYUS to minus
