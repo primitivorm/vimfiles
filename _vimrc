@@ -320,7 +320,6 @@ set spellfile=~/vimfiles/spell/dict.add
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType c,cpp,h setlocal omnifunc=ccomplete#Complete
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " ruby
 "http://www.cuberick.com/2008/10/ruby-autocomplete-in-vim.html
 "http://www.vim.org/scripts/script.php?script_id=1662
@@ -342,4 +341,9 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 autocmd FileType c,h set makeprg=gcc\ %
 autocmd FileType cpp,h set makeprg=g++\ %
 autocmd FileType cpp,c,h set errorformat=%f(%l)%m
+
+
+if !&omnifunc
+    set omnifunc=FuzzyWordCompletion
+endif
 "}}}

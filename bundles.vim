@@ -51,6 +51,8 @@ Bundle 'primitivorm/vim-swap-lines'
 Bundle 'primitivorm/vim-visual-star-search'
 Bundle 'primitivorm/xmledit'
 Bundle 'sjl/badwolf'
+"Bundle 'primitivorm/SQLUtilities'
+"Bundle 'primitivorm/YouCompleteMe'
 
 " Brief help {{{
 " :BundleList - list configured bundles
@@ -105,7 +107,6 @@ Bundle 'sjl/badwolf'
 "Bundle 'Rykka/colorv.vim'
 "Bundle 'Rykka/galaxy.vim'
 "Bundle 'SQLComplete.vim'
-"Bundle 'SQLUtilities'
 "Bundle 'Thesaurus'
 "Bundle 'airblade/vim-rooter'
 "Bundle 'alfredodeza/pytest.vim'

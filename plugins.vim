@@ -339,10 +339,11 @@ let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
 let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-o>","&omnifunc:<c-x><c-u>", "&omnifunc:<c-x><c-k>"]
 let g:SuperTabClosePreviewOnPopupClose=1
 let g:SuperTabNoCompleteAfter=['^', ',', '\s']
-let g:SuperTabLongestHighlight=3
+let g:SuperTabLongestHighlight=1
 "defaults
 let g:SuperTabMappingForward='<tab>'
 let g:SuperTabMappingBackward='<s-tab>'
+let g:SuperTabLongestEnhanced=1
 "}}}
 
 " Ultisnip {{{
@@ -421,6 +422,16 @@ let g:fuzzywordcompletion_disable_keybinding=0
 "let g:niji_match_all_filetypes = 1
 "let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
 "" }}}
+
+" YouCompleteMe {{{
+"https://github.com/Valloric/YouCompleteMe
+"let g:ycm_confirm_extra_conf=0
+let g:ycm_global_ycm_extra_conf = "~/vimfiles/bundle/vim-ycm/third_party/.ycm_extra_conf.py"
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" }}}
 
 "Unused plugins {{{
 "" SQLComplete {{{
