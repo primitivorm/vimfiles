@@ -392,6 +392,12 @@ nmap <silent><S-U> :GundoToggle<CR>
 "https://github.com/Yggdroot/indentLine
 let g:indentLine_indentLevel = 20
 let g:indentLine_showFirstIndentLevel = 1
+"let g:indentLine_char = "┊"
+"let g:indentLine_first_char = "┊"
+"let g:indentLine_color_gui="#204a87"
+let g:indentLine_char = "│"
+let g:indentLine_first_char = "│"
+let g:indentLine_color_gui="#b2b2b2"
 "}}}
 
 " Fugitive {{{

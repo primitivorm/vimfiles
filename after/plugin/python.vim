@@ -14,9 +14,9 @@ autocmd filetype python setlocal completefunc=jedi#complete
 autocmd filetype python setlocal completeopt-=preview
 
 autocmd filetype python setlocal expandtab
-autocmd filetype python setlocal smartindent
+autocmd filetype python setlocal foldlevel=99
 autocmd filetype python setlocal scrolloff=5
-autocmd filetype python setlocal tabstop=8
 autocmd filetype python setlocal shiftwidth=4
+autocmd filetype python setlocal smartindent
 autocmd filetype python setlocal softtabstop=4
-autocmd filetype python setlocal foldlevel=3
+autocmd filetype python setlocal tabstop=8

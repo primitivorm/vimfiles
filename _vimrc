@@ -133,8 +133,12 @@ set cursorline "cursorcolumn "underline the current line, for quick orientation
 set tabpagemax=50
 "setting a limit on the characters Vim will highlight per line at most
 set synmaxcol=512
-set fileformats=dos,unix
-"▸»·↵→←×┊¬
+if has('win32') || has('win64')
+    set fileformats=dos,unix
+else
+    set fileformats=unix,dos
+endif
+"▸»·↵→←×┊│¬
 if has('win32') || has('win64')
   set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=DejaVu_Sans_Mono_for_Powerline:h10,
@@ -146,12 +150,12 @@ if has('win32') || has('win64')
           \Terminus:h12
 else
   set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Envy\ Code\ R\ for\ Powerline\ 10,
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10,
           \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
           \Terminus\ Medium\ 13,
           \Monaco\ for\ Powerline\ 10,Andale\ Mono\ 10,
           \Consolas\ for\ Powerline\ 10,
-          \DejaVu\ Sans\ Mono\ for\ Powerline\ 10
+          \Envy\ Code\ R\ for\ Powerline\ 10
   let g:guifontpp_size_increment=1
   "for linux maximize dont work
   let g:loaded_maximize=1
@@ -182,7 +186,8 @@ set nu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
 set nowrap
 set nolinebreak "lbr
-set showbreak=...
+"http://www.bestofvim.com/tip/better-line-wraps/
+set showbreak=↪
 set textwidth=79
 set wrapmargin=0
 "http://vim.wikia.com/wiki/VimTip30
@@ -242,9 +247,9 @@ endif
 set foldenable " enable folding
 set foldcolumn=1 " add a fold column
 set foldmethod=syntax
-set foldnestmax=3
-set foldlevel=3
-set foldlevelstart=0 " start out with everything folded
+set foldnestmax=9
+set foldlevel=99
+set foldlevelstart=99 "start out with everything unfolded
 " which commands trigger auto-unfold
 "set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 "default
@@ -341,7 +346,6 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 autocmd FileType c,h set makeprg=gcc\ %
 autocmd FileType cpp,h set makeprg=g++\ %
 autocmd FileType cpp,c,h set errorformat=%f(%l)%m
-
 
 if !&omnifunc
     set omnifunc=FuzzyWordCompletion

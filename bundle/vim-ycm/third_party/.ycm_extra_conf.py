@@ -58,6 +58,7 @@ flags = [
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
 '-I',
 '../libwebm',
+#personal paths for c++ compiler
 '-I',
 'C:\llvm\include',
 '-I',

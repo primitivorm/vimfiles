@@ -24,4 +24,3 @@ endfunc
 " Completion types to use (current buffer, other window buffers, invisible
 " buffers and included files)
 setlocal complete=.,w,b,i
-
