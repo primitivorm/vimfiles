@@ -31,7 +31,8 @@ let NERDTreeShowHidden          = 0
 "open in new tab with Ctrl-Enter
 "let NERDTreeMapOpenInTab='<c-cr>'
 "let NERDTreeMapOpenInTabSilent='<c-cr>'
-let g:NERDTreeDirArrows=1
+"let g:NERDTreeDirArrows=1
+let g:NERDTreeDirArrows=0
 "the working directory is always the one where the active buffer is located.
 set autochdir
 "I make sure the working directory is set correctly.
@@ -65,7 +66,7 @@ let g:tagbar_foldlevel   = 2  "default 99
 let g:tagbar_ctags_bin   = 'ctags'
 let g:tagbar_autofocus   = 1   "default 0
 let g:tagbar_expand    = 0
-let g:tagbar_iconchars  = ['▸', '▾']
+"let g:tagbar_iconchars  = ['▸', '▾']
 let g:tagbar_autoclose   = 0
 let g:tagbar_singleclick = 1
 "let g:tagbar_map_closeallfolds = ['_', 'zM',]
@@ -318,8 +319,8 @@ set splitbelow
 " Remove dictionary lookup from the Vim keyword completion.  It did always
 " complete the first match for me.  If you edit files with tags you might
 " want to add those.
-"let g:acp_completeOption = '.,w,b,u,t,i'
-let g:acp_completeOption = '.,w,b,u'
+let g:acp_completeOption = '.,w,b,u,t,i'
+"let g:acp_completeOption = '.,w,b,u'
 "length to trigger AutoComplPop
 "let g:acp_behaviorFileLength = 3
 "let g:acp_behaviorKeywordLength = 3
@@ -331,6 +332,7 @@ let g:acp_completeOption = '.,w,b,u'
 "let g:acp_behaviorCssOmniPropertyLength = 3
 "let g:acp_behaviorSnipmateLength=3
 "let g:acp_behaviorRubyOmniMethodLength=3
+
 "}}}
 
 " SuperTab {{{
@@ -339,11 +341,13 @@ let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
 let g:SuperTabDefaultCompletionTypeDiscovery=["&completefunc:<c-x><c-o>","&omnifunc:<c-x><c-u>", "&omnifunc:<c-x><c-k>"]
 let g:SuperTabClosePreviewOnPopupClose=1
 let g:SuperTabNoCompleteAfter=['^', ',', '\s']
-let g:SuperTabLongestHighlight=1
+"let g:SuperTabLongestHighlight=1
+let g:SuperTabLongestHighlight=0
 "defaults
 let g:SuperTabMappingForward='<tab>'
 let g:SuperTabMappingBackward='<s-tab>'
-let g:SuperTabLongestEnhanced=1
+"let g:SuperTabLongestEnhanced=1
+let g:SuperTabLongestEnhanced=0
 "}}}
 
 " Ultisnip {{{
@@ -395,8 +399,8 @@ let g:indentLine_showFirstIndentLevel = 1
 "let g:indentLine_char = "┊"
 "let g:indentLine_first_char = "┊"
 "let g:indentLine_color_gui="#204a87"
-let g:indentLine_char = "│"
-let g:indentLine_first_char = "│"
+"let g:indentLine_char = "│"
+"let g:indentLine_first_char = "│"
 let g:indentLine_color_gui="#b2b2b2"
 "}}}
 
@@ -423,19 +427,76 @@ let g:fuzzywordcompletion_disable_keybinding=0
 "default keymap is <c-k>
 "}}}
 
-"" vim-niji {{{
-"" https://github.com/amdt/vim-niji
-"let g:niji_match_all_filetypes = 1
-"let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
-"" }}}
+" jedi-vim {{{
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "1"
+let g:jedi#auto_initialization=0
+"}}}
+
+"vim-predictive {{{
+let g:predictive#dict_path        = expand($HOME . '/quick_references/predictive_dict.txt')
+let &completefunc='predictive#complete'
+let g:acp_behaviorUserDefinedFunction = 'predictive#complete'
+let g:acp_behaviorUserDefinedMeets = 'predictive#meets_for_predictive'
+
+"let g:predictive#disable_plugin=0
+"let g:predictive#auto_learn       = 0
+"let g:predictive#auto_add_to_dict = 0
+"let g:predictive#fuzzy_completion_enable=1
+
+"let g:predictive#file_types       = {
+            "\ 'text': [],
+            "\ 'vim' : [],
+            "\ 'python' : [],
+            "\ 'sql' : []
+            "\}
+
+"for key in keys(g:predictive#file_types)
+    "call add(g:predictive#file_types[key], {
+        "\   'command'      : "\<C-x>\<C-u>",
+        "\   'completefunc' : 'predictive#complete',
+        "\   'meets'        : 'predictive#meets_for_predictive',
+        "\   'repeat'       : '0',
+    "\})
+"endfor
+"if !exists("g:acp_behavior")
+    "let g:acp_behavior = {}
+"endif
+"call extend(g:acp_behavior, g:predictive#file_types, 'keep')
+"}}}
 
 " YouCompleteMe {{{
 "https://github.com/Valloric/YouCompleteMe
 "let g:ycm_confirm_extra_conf=0
 let g:ycm_global_ycm_extra_conf = "~/vimfiles/bundle/vim-ycm/third_party/.ycm_extra_conf.py"
-let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_completion=0
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1,
+      \ 'python' : 1,
+      \ 'java' : 1,
+      \ 'help' : 1,
+      \ 'vim' : 1,
+      \ 'sql' : 1
+      \}
+
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " }}}
 
@@ -532,17 +593,6 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "endif
 ""}}}
 
-" jedi-vim {{{
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "1"
-let g:jedi#auto_initialization=0
-"}}}
-
 "" vim-easy-align{{{
 ""https://github.com/junegunn/vim-easy-align
 "" Start interactive EasyAlign in visual mode
@@ -576,5 +626,11 @@ let g:jedi#auto_initialization=0
 "let g:airline_linecolumn_prefix = '⭡'
 "let g:airline#extensions#tabline#enabled = 1
 ""}}}
+
+"" vim-niji {{{
+"" https://github.com/amdt/vim-niji
+"let g:niji_match_all_filetypes = 1
+"let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure']
+"" }}}
 
 "}}}

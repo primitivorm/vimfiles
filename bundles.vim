@@ -51,6 +51,10 @@ Bundle 'primitivorm/vim-swap-lines'
 Bundle 'primitivorm/vim-visual-star-search'
 Bundle 'primitivorm/xmledit'
 Bundle 'sjl/badwolf'
+
+"experimental
+Bundle 'primitivorm/vim-predictive'
+
 "Bundle 'primitivorm/SQLUtilities'
 "Bundle 'primitivorm/YouCompleteMe'
 

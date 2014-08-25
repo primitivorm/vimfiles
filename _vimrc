@@ -102,8 +102,9 @@ if has("multi_byte")
   let &termencoding = &encoding
   endif
   set encoding=utf-8
+  "set encoding=latin1
   setglobal fileencoding=utf-8
-  set fileencodings=ucs-bom,utf-8,latin1,ucs-2le
+  set fileencodings=ucs-bom,utf-8,default,latin1,ucs-2le
   if has("eval")
     let &fileencodings = substitute(&fileencodings,"latin1","cp1252","")
   endif
@@ -116,7 +117,7 @@ syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-set background=light
+set background=dark
 highlight clear
 if exists("syntax_on")
     syntax reset
@@ -140,7 +141,7 @@ else
 endif
 "▸»·↵→←×┊│¬
 if has('win32') || has('win64')
-  set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+  "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=DejaVu_Sans_Mono_for_Powerline:h10,
           \Consolas_for_Powerline_FixedD:h10,
           \Envy_Code_R_for_Powerline:h10,
@@ -149,7 +150,7 @@ if has('win32') || has('win64')
           \Monaco:h10,
           \Terminus:h12
 else
-  set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+  "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
   set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10,
           \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
           \Terminus\ Medium\ 13,
@@ -257,7 +258,7 @@ set foldopen=block,hor,insert,mark,percent,quickfix,search,tag,undo
 "}}}
 
 " Editor layout {{{
-set lazyredraw " don't update the display while executing macros
+"set lazyredraw " don't update the display while executing macros
 " tell VIM to always put a status line in, even
 set laststatus=2
 if has("statusline")
@@ -283,11 +284,12 @@ set switchbuf=useopen " reveal already opened files from the
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 "char for split
-set fillchars=vert:\│
+set fillchars=vert:\|
+"set fillchars=vert:\│
 "piexel space between lines
 set linespace=0
 "muestra los caracteres ocultos y los remplaza por los establecidos
-set list
+set nolist
 set mouse=a " enable using the mouse if terminal emulator
 set mousemodel=popup_setpos
 set guioptions-=T  "remove toolbar

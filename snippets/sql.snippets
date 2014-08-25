@@ -124,3 +124,11 @@ BEGIN
 		CONTINUE
 END
 endsnippet
+snippet table
+CREATE TABLE [dbo].[${1:table_name}](
+	${2:column}
+)
+endsnippet
+snippet column
+[${1:column_name}] ${2:column_type},
+endsnippet
