@@ -9,7 +9,8 @@ nnoremap <buffer><F8> :call Flake8()<CR>
 autocmd BufRead,BufNewFile,BufEnter *.py nnoremap <F5> :!python %<cr>
 
 "autocmd filetype python setlocal omnifunc=RopeCompleteFunc
-autocmd filetype python setlocal completefunc=jedi#complete
+"autocmd filetype python setlocal omnifunc=jedi#completions
+"autocmd filetype python setlocal completefunc=jedi#completions
 "disable preview window
 autocmd filetype python setlocal completeopt-=preview
 

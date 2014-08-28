@@ -428,6 +428,8 @@ let g:fuzzywordcompletion_disable_keybinding=0
 "}}}
 
 " jedi-vim {{{
+let g:jedi#auto_initialization=1
+let g:jedi#completions_enable=1
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "K"
@@ -440,34 +442,21 @@ let g:jedi#auto_initialization=0
 
 "vim-predictive {{{
 let g:predictive#dict_path        = expand($HOME . '/quick_references/predictive_dict.txt')
-let &completefunc='predictive#complete'
-let g:acp_behaviorUserDefinedFunction = 'predictive#complete'
-let g:acp_behaviorUserDefinedMeets = 'predictive#meets_for_predictive'
-
+"let &completefunc='predictive#complete'
+"let g:acp_behaviorUserDefinedFunction = 'predictive#complete'
+"let g:acp_behaviorUserDefinedMeets = 'predictive#meets_for_predictive'
 "let g:predictive#disable_plugin=0
 "let g:predictive#auto_learn       = 0
 "let g:predictive#auto_add_to_dict = 0
 "let g:predictive#fuzzy_completion_enable=1
 
-"let g:predictive#file_types       = {
-            "\ 'text': [],
-            "\ 'vim' : [],
-            "\ 'python' : [],
-            "\ 'sql' : []
-            "\}
+let g:predictive#file_types       = {
+            \ 'text': [],
+            \ 'vim' : [],
+            \ 'python' : [],
+            \ 'sql' : []
+            \}
 
-"for key in keys(g:predictive#file_types)
-    "call add(g:predictive#file_types[key], {
-        "\   'command'      : "\<C-x>\<C-u>",
-        "\   'completefunc' : 'predictive#complete',
-        "\   'meets'        : 'predictive#meets_for_predictive',
-        "\   'repeat'       : '0',
-    "\})
-"endfor
-"if !exists("g:acp_behavior")
-    "let g:acp_behavior = {}
-"endif
-"call extend(g:acp_behavior, g:predictive#file_types, 'keep')
 "}}}
 
 " YouCompleteMe {{{

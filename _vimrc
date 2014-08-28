@@ -117,13 +117,14 @@ syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-set background=dark
+"set background=dark
+set background=light
 highlight clear
 if exists("syntax_on")
     syntax reset
 endif
-"set background=dark
-colorscheme proman
+"colorscheme proman
+colorscheme solarized
 "colorscheme summerfruit256
 "Disabling vim's startup message
 "set shortmess=a
