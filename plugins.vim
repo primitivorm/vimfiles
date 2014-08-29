@@ -175,15 +175,15 @@ nmap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 let g:sql_type_default = "sqlserver"
 "}}}
 
-" javascript-libraries-syntax {{{
-"https://github.com/othree/javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'underscore,backbone'
-autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
-autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
-"}}}
+"" javascript-libraries-syntax {{{
+""https://github.com/othree/javascript-libraries-syntax.vim
+"let g:used_javascript_libs = 'underscore,backbone'
+"autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+"autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
+"autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
+"autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
+"autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
+""}}}
 
 " badwolf colorscheme{{{
 "https://github.com/sjl/badwolf
@@ -288,27 +288,27 @@ set noshowmatch
 set completeopt=menuone,menu
 let g:Omnisharp_highlight_user_types=1
 "mappings
-autocmd FileType cs nmap <F5> :wa!<cr>:call OmniSharp#Build()<cr>
-autocmd FileType cs nmap gd :call OmniSharp#GotoDefinition()<cr>
-autocmd FileType cs nmap <leader>fi :call OmniSharp#FindImplementations()<cr>
-autocmd FileType cs nmap <leader>ft :OmniSharpFindType<cr>
-autocmd FileType cs nmap <leader>fs :OmniSharpFindSymbol<cr>
-autocmd FileType cs nmap <leader>fu :call OmniSharp#FindUsages()<cr>
-autocmd FileType cs nmap <leader>fm :OmniSharpFindMembersInBuffer<cr>
-autocmd FileType cs nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
+autocmd FileType cs nnoremap <F5> :wa!<cr>:call OmniSharp#Build()<cr>
+autocmd FileType cs nnoremap gd :call OmniSharp#GotoDefinition()<cr>
+autocmd FileType cs nnoremap <leader>fi :call OmniSharp#FindImplementations()<cr>
+autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
+autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
+autocmd FileType cs nnoremap <leader>fu :call OmniSharp#FindUsages()<cr>
+autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembersInBuffer<cr>
+autocmd FileType cs nnoremap <leader>tl :call OmniSharp#TypeLookup()<cr>
 "I find contextual code actions so useful that I have it mapped to the spacebar
-autocmd FileType cs nmap <C-Space> :call OmniSharp#GetCodeActions()<cr>
+autocmd FileType cs nnoremap <C-Space> :call OmniSharp#GetCodeActions()<cr>
 " rename with dialog
-autocmd FileType cs nmap <leader>r :call OmniSharp#Rename()<cr>
+autocmd FileType cs nnoremap <leader>r :call OmniSharp#Rename()<cr>
 " rename without dialog - with cursor on the symbol to rename... ':Rename newname'
 autocmd FileType cs command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
 " Force OmniSharp to reload the solution. Useful when switching branches etc.
-autocmd FileType cs nmap <leader>rs :call OmniSharp#ReloadSolution()<cr>
-autocmd FileType cs nmap <leader>cf :call OmniSharp#CodeFormat()<cr>
+autocmd FileType cs nnoremap <leader>rs :call OmniSharp#ReloadSolution()<cr>
+autocmd FileType cs nnoremap <leader>cf :call OmniSharp#CodeFormat()<cr>
 " (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
-autocmd FileType cs setlocal nmap <leader>ss :OmniSharpStartServer<cr>
-autocmd FileType cs nmap <leader>sp :OmniSharpStopServer<cr>
-autocmd FileType cs nmap <leader>ht :OmniSharpHighlightTypes<cr>
+autocmd FileType cs setlocal nnoremap <leader>ss :OmniSharpStartServer<cr>
+autocmd FileType cs nnoremap <leader>sp :OmniSharpStopServer<cr>
+autocmd FileType cs nnoremap <leader>ht :OmniSharpHighlightTypes<cr>
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
 "move the preview window (code documentation) to the bottom of the screen, so it doesn't move the code!
@@ -420,36 +420,27 @@ nmap <silent> <leader>gp :GitPush<CR>
 nmap <silent> <leader>gu :GitPull<CR>
 "}}}
 
-" Word-Fuzzy-Completion {{{
-"https://github.com/vim-scripts/Word-Fuzzy-Completion
-"http://hetland.org/coding/python/levenshtein.py
-let g:fuzzywordcompletion_disable_keybinding=0
-"default keymap is <c-k>
-"}}}
+"" Word-Fuzzy-Completion {{{
+""https://github.com/vim-scripts/Word-Fuzzy-Completion
+""http://hetland.org/coding/python/levenshtein.py
+"let g:fuzzywordcompletion_disable_keybinding=0
+""default keymap is <c-k>
+""}}}
 
-" jedi-vim {{{
-let g:jedi#auto_initialization=1
-let g:jedi#completions_enable=1
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#show_call_signatures = "1"
-let g:jedi#auto_initialization=0
-"}}}
+"" jedi-vim {{{
+""let g:jedi#auto_initialization=0
+""let g:jedi#completions_enable=0
+"let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_definitions_command = "<leader>d"
+"let g:jedi#documentation_command = "K"
+"let g:jedi#usages_command = "<leader>n"
+"let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#rename_command = "<leader>r"
+"let g:jedi#show_call_signatures = "1"
+""}}}
 
 "vim-predictive {{{
 let g:predictive#dict_path        = expand($HOME . '/quick_references/predictive_dict.txt')
-"let &completefunc='predictive#complete'
-"let g:acp_behaviorUserDefinedFunction = 'predictive#complete'
-"let g:acp_behaviorUserDefinedMeets = 'predictive#meets_for_predictive'
-"let g:predictive#disable_plugin=0
-"let g:predictive#auto_learn       = 0
-"let g:predictive#auto_add_to_dict = 0
-"let g:predictive#fuzzy_completion_enable=1
-
 let g:predictive#file_types       = {
             \ 'text': [],
             \ 'vim' : [],
@@ -457,17 +448,25 @@ let g:predictive#file_types       = {
             \ 'sql' : []
             \}
 
+"let &completefunc='predictive#complete'
+"let g:acp_behaviorUserDefinedFunction = 'predictive#complete'
+"let g:acp_behaviorUserDefinedMeets = 'predictive#meets_for_predictive'
+"let g:predictive#disable_plugin=0
+"let g:predictive#auto_learn       = 0
+"let g:predictive#auto_add_to_dict = 0
+"let g:predictive#fuzzy_completion_enable=1
 "}}}
 
 " YouCompleteMe {{{
 "https://github.com/Valloric/YouCompleteMe
-"let g:ycm_confirm_extra_conf=0
+let g:ycm_confirm_extra_conf=0
 let g:ycm_global_ycm_extra_conf = "~/vimfiles/bundle/vim-ycm/third_party/.ycm_extra_conf.py"
 "let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_completion=0
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
-
+let g:syntastic_always_populate_loc_list = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'qf' : 1,
@@ -479,13 +478,13 @@ let g:ycm_filetype_blacklist = {
       \ 'pandoc' : 1,
       \ 'infolog' : 1,
       \ 'mail' : 1,
-      \ 'python' : 1,
       \ 'java' : 1,
       \ 'help' : 1,
       \ 'vim' : 1,
       \ 'sql' : 1
       \}
 
+      "\ 'python' : 1,
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " }}}
 
