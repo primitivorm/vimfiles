@@ -123,8 +123,8 @@ highlight clear
 if exists("syntax_on")
     syntax reset
 endif
-"colorscheme proman
-colorscheme solarized
+colorscheme proman
+"colorscheme solarized
 "colorscheme summerfruit256
 "Disabling vim's startup message
 "set shortmess=a
@@ -349,8 +349,4 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 autocmd FileType c,h set makeprg=gcc\ %
 autocmd FileType cpp,h set makeprg=g++\ %
 autocmd FileType cpp,c,h set errorformat=%f(%l)%m
-
-if !&omnifunc
-    set omnifunc=FuzzyWordCompletion
-endif
 "}}}

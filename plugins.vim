@@ -288,27 +288,27 @@ set noshowmatch
 set completeopt=menuone,menu
 let g:Omnisharp_highlight_user_types=1
 "mappings
-autocmd FileType cs nnoremap <F5> :wa!<cr>:call OmniSharp#Build()<cr>
-autocmd FileType cs nnoremap gd :call OmniSharp#GotoDefinition()<cr>
-autocmd FileType cs nnoremap <leader>fi :call OmniSharp#FindImplementations()<cr>
-autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
-autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
-autocmd FileType cs nnoremap <leader>fu :call OmniSharp#FindUsages()<cr>
-autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembersInBuffer<cr>
-autocmd FileType cs nnoremap <leader>tl :call OmniSharp#TypeLookup()<cr>
+autocmd FileType cs nmap <F5> :wa!<cr> :call OmniSharp#Build()<cr>
+autocmd FileType cs nmap gd :call OmniSharp#GotoDefinition()<cr>
+autocmd FileType cs nmap <leader>fi :call OmniSharp#FindImplementations()<cr>
+autocmd FileType cs nmap <leader>ft :OmniSharpFindType<cr>
+autocmd FileType cs nmap <leader>fs :OmniSharpFindSymbol<cr>
+autocmd FileType cs nmap <leader>fu :call OmniSharp#FindUsages()<cr>
+autocmd FileType cs nmap <leader>fm :OmniSharpFindMembersInBuffer<cr>
+autocmd FileType cs nmap <leader>tl :call OmniSharp#TypeLookup()<cr>
 "I find contextual code actions so useful that I have it mapped to the spacebar
-autocmd FileType cs nnoremap <C-Space> :call OmniSharp#GetCodeActions()<cr>
+autocmd FileType cs nmap <C-Space> :call OmniSharp#GetCodeActions()<cr>
 " rename with dialog
-autocmd FileType cs nnoremap <leader>r :call OmniSharp#Rename()<cr>
+autocmd FileType cs nmap <leader>r :call OmniSharp#Rename()<cr>
+" Force OmniSharp to reload the solution. Useful when switching branches etc.
+autocmd FileType cs nmap <leader>rs :call OmniSharp#ReloadSolution()<cr>
+autocmd FileType cs nmap <leader>cf :call OmniSharp#CodeFormat()<cr>
+" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
+autocmd FileType cs nmap <leader>ss :OmniSharpStartServer<cr>
+autocmd FileType cs nmap <leader>sp :OmniSharpStopServer<cr>
+autocmd FileType cs nmap <leader>ht :OmniSharpHighlightTypes<cr>
 " rename without dialog - with cursor on the symbol to rename... ':Rename newname'
 autocmd FileType cs command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
-" Force OmniSharp to reload the solution. Useful when switching branches etc.
-autocmd FileType cs nnoremap <leader>rs :call OmniSharp#ReloadSolution()<cr>
-autocmd FileType cs nnoremap <leader>cf :call OmniSharp#CodeFormat()<cr>
-" (Experimental - uses vim-dispatch or vimproc plugin) - Start the omnisharp server for the current solution
-autocmd FileType cs setlocal nnoremap <leader>ss :OmniSharpStartServer<cr>
-autocmd FileType cs nnoremap <leader>sp :OmniSharpStopServer<cr>
-autocmd FileType cs nnoremap <leader>ht :OmniSharpHighlightTypes<cr>
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
 "move the preview window (code documentation) to the bottom of the screen, so it doesn't move the code!
@@ -425,6 +425,9 @@ nmap <silent> <leader>gu :GitPull<CR>
 ""http://hetland.org/coding/python/levenshtein.py
 "let g:fuzzywordcompletion_disable_keybinding=0
 ""default keymap is <c-k>
+"if !&omnifunc
+    "set omnifunc=FuzzyWordCompletion
+"endif
 ""}}}
 
 "" jedi-vim {{{

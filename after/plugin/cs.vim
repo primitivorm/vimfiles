@@ -60,7 +60,7 @@ function! FormatStatement()
 endfunction
 
 autocmd BufRead,BufNewFile *.cs nnoremap <leader>fs :call FormatStatement()<cr>
-autocmd BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
+"autocmd BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
 
 "for each line in buffer rewrap on write
 "http://vim.wikia.com/wiki/Power_of_g
