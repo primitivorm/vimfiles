@@ -3,6 +3,8 @@
 "--------------------------------------------
 
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'vim-scripts/peaksea'
+Bundle 'shawncplus/skittles_berry'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'primitivorm/Align'
 Bundle 'primitivorm/AutoAlign'

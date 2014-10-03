@@ -32,6 +32,7 @@ call pathogen#helptags()
 "rtp
 set runtimepath+=~/vimfiles/
 set runtimepath+=~/vimfiles/bin/
+set runtimepath+=~/vimfiles/after/
 set runtimepath+=~/vimfiles/bundle/
 set runtimepath+=~/vimfiles/bundle/vundle/
 set nocompatible " be iMproved
@@ -104,7 +105,7 @@ if has("multi_byte")
   set encoding=utf-8
   "set encoding=latin1
   setglobal fileencoding=utf-8
-  set fileencodings=ucs-bom,utf-8,default,latin1,ucs-2le
+  set fileencodings=ucs-bom,utf-8,default,latin1,ucs-2le,utf-16le,cp1252,iso-8859-15
   if has("eval")
     let &fileencodings = substitute(&fileencodings,"latin1","cp1252","")
   endif
@@ -117,13 +118,15 @@ syntax on
 "syntax enable
 
 "https://github.com/primitivorm/vim-proman-theme
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 highlight clear
 if exists("syntax_on")
     syntax reset
 endif
+
 colorscheme proman
+"colorscheme skittles_berry
 "colorscheme solarized
 "colorscheme summerfruit256
 "Disabling vim's startup message
@@ -143,9 +146,9 @@ endif
 "▸»·↵→←×┊│¬
 if has('win32') || has('win64')
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Andale_Mono:h10,
+  set guifont=Consolas_for_Powerline_FixedD:h10,
+            \Andale_Mono:h10,
             \DejaVu_Sans_Mono_for_Powerline:h10,
-            \Consolas_for_Powerline_FixedD:h10,
             \Envy_Code_R_for_Powerline:h10,
             \Meslo_LG_M_for_Powerline:h10,
             \Sauce_Code_Powerline:h10,
@@ -153,12 +156,12 @@ if has('win32') || has('win64')
             \Terminus:h12
 else
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Andale\ Mono\ 10,
+  set guifont=Consolas\ for\ Powerline\ 10,
+            \Andale\ Mono\ 10,
             \DejaVu\ Sans\ Mono\ for\ Powerline\ 10,
             \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
             \Terminus\ Medium\ 13,
             \Monaco\ for\ Powerline\ 10,
-            \Consolas\ for\ Powerline\ 10,
             \Envy\ Code\ R\ for\ Powerline\ 10
   let g:guifontpp_size_increment=1
   "for linux maximize dont work
