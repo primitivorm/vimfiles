@@ -146,9 +146,9 @@ endif
 "▸»·↵→←×┊│¬
 if has('win32') || has('win64')
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Consolas_for_Powerline_FixedD:h10,
+  set guifont=DejaVu_Sans_Mono_for_Powerline:h10,
             \Andale_Mono:h10,
-            \DejaVu_Sans_Mono_for_Powerline:h10,
+            \Consolas_for_Powerline_FixedD:h10,
             \Envy_Code_R_for_Powerline:h10,
             \Meslo_LG_M_for_Powerline:h10,
             \Sauce_Code_Powerline:h10,
@@ -156,9 +156,9 @@ if has('win32') || has('win64')
             \Terminus:h12
 else
   "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-  set guifont=Consolas\ for\ Powerline\ 10,
+  set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10,
             \Andale\ Mono\ 10,
-            \DejaVu\ Sans\ Mono\ for\ Powerline\ 10,
+            \Consolas\ for\ Powerline\ 10,
             \Meslo\ LG\ M\ DZ\ for\ Powerline\ 9,
             \Terminus\ Medium\ 13,
             \Monaco\ for\ Powerline\ 10,
