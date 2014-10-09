@@ -162,6 +162,9 @@ autocmd BufReadPre * if &diff|nmap <f7> ]c<cr>|nmap <s-f7> [c|else|nmap <f7> ]s|
 imap {<CR> {<CR>}<Esc>O
 "insert autoclose for %
 inoremap % %%<Left>
+"insert autoclose for "
+inoremap " ""<Left>
+
 "}}}
 
 " Tab completion {{{
