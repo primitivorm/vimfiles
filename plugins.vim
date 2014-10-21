@@ -362,21 +362,30 @@ let g:UltiSnipsDontReverseSearchPath = "1"
 " vim-autoformat {{{
 " https://github.com/Chiel92/vim-autoformat
 let g:formatprg_cs = "astyle"
-let g:formatprg_args_cs = "--mode=cs --style=ansi -pcHs4"
-let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
+let g:formatprg_args_cs = "--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s4"
+let g:formatprg_args_expr_cs = '"--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s".&shiftwidth'
+let g:formatprg_c = "astyle"
+let g:formatprg_args_c = "--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s4"
+let g:formatprg_args_expr_c = '"--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s".&shiftwidth'
+let g:formatprg_cpp = "astyle"
+let g:formatprg_args_cpp =  "--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s4"
+let g:formatprg_args_expr_cpp = '"--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s".&shiftwidth'
 set equalprg=astyle
+"}}}
 
-"https://github.com/Chiel92/vim-autoformat
-"autocmd BufRead,BufNewFile *.sql nmap <leader>f <Plug>SQLU_Formatter<cr>
-"autocmd BufRead,BufNewFile *.sql vmap <leader>f <Plug>SQLU_Formatter<cr>
-"autocmd BufRead,BufNewFile *.css nmap <leader>f :call CssPretty()<cr>
-"autocmd BufRead,BufNewFile *.css vmap <leader>f :call CssPretty()<cr>
-"autocmd BufRead,BufNewFile *.js nmap <leader>f :call JsBeautify()<cr>
-"autocmd BufRead,BufNewFile *.js vmap <leader>f :call JsBeautify()<cr>
-"autocmd BufRead,BufNewFile *.htm nmap <leader>f :call HtmlBeautify()<cr>
-"autocmd BufRead,BufNewFile *.htm vmap <leader>f :call HtmlBeautify()<cr>
-"autocmd BufRead,BufNewFile *.html nmap <leader>f :call HtmlBeautify()<cr>
-"autocmd BufRead,BufNewFile *.html vmap <leader>f :call HtmlBeautify()<cr>
+" vim-jsbeautify {{{
+" https://github.com/maksimr/vim-jsbeautify
+" http://editorconfig.org/
+" require: http://nodejs.org/
+"for javascript
+autocmd FileType javascript noremap <buffer>  <leader>f :call JsBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <leader>f :call RangeJsBeautify()<cr>
+" for html
+autocmd FileType html,xhtml noremap <buffer> <leader>f :call HtmlBeautify()<cr>
+autocmd FileType html,xhtml vnoremap <buffer> <leader>f :call RangeHtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <leader>f :call RangeCSSBeautify()<cr>
 "}}}
 
 " Bundle {{{
@@ -445,7 +454,7 @@ let g:predictive#file_types       = {
             \ 'python' : [],
             \ 'sql' : []
             \}
-
+let g:predictive#keyword_patterns = '^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$'
 "let &completefunc='predictive#complete'
 "let g:acp_behaviorUserDefinedFunction = 'predictive#complete'
 "let g:acp_behaviorUserDefinedMeets = 'predictive#meets_for_predictive'

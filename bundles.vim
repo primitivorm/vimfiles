@@ -2,9 +2,10 @@
 "Bundles list
 "--------------------------------------------
 
+Bundle 'L9'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-scripts/peaksea'
-Bundle 'shawncplus/skittles_berry'
+Bundle 'einars/js-beautify'
+Bundle 'maksimr/vim-jsbeautify'
 Bundle 'nelstrom/vim-mac-classic-theme'
 Bundle 'primitivorm/Align'
 Bundle 'primitivorm/AutoAlign'
@@ -31,6 +32,7 @@ Bundle 'primitivorm/tabular'
 Bundle 'primitivorm/tagbar'
 Bundle 'primitivorm/ultisnips'
 Bundle 'primitivorm/vim-abolish'
+Bundle 'primitivorm/vim-autoformat'
 Bundle 'primitivorm/vim-dispatch'
 Bundle 'primitivorm/vim-endwise'
 Bundle 'primitivorm/vim-flake8'
@@ -43,7 +45,9 @@ Bundle 'primitivorm/vim-surround'
 Bundle 'primitivorm/vim-swap-lines'
 Bundle 'primitivorm/vim-visual-star-search'
 Bundle 'primitivorm/xmledit'
+Bundle 'shawncplus/skittles_berry'
 Bundle 'sjl/badwolf'
+Bundle 'vim-scripts/peaksea'
 
 "testing version
 Bundle 'primitivorm/vim-predictive'

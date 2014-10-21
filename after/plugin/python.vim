@@ -8,6 +8,10 @@ nnoremap <buffer><F8> :call Flake8()<CR>
 "you don't need the batch script. Just add C:\Python27\Lib to PATH, and you're all set.
 autocmd BufRead,BufNewFile,BufEnter *.py nnoremap <F5> :!python %<cr>
 
+"Autoformat
+autocmd BufRead,BufNewFile *.py nnoremap <leader>f :silent Autoformat<cr>
+autocmd BufRead,BufNewFile *.py vmap <leader>f :silent Autoformat<cr>
+
 "autocmd filetype python setlocal omnifunc=RopeCompleteFunc
 "autocmd filetype python setlocal omnifunc=jedi#completions
 "autocmd filetype python setlocal completefunc=jedi#completions
