@@ -448,12 +448,7 @@ nmap <silent> <leader>gu :GitPull<CR>
 
 "vim-predictive {{{
 let g:predictive#dict_path        = expand($HOME . '/quick_references/predictive_dict.txt')
-let g:predictive#file_types       = {
-            \ 'text': [],
-            \ 'vim' : [],
-            \ 'python' : [],
-            \ 'sql' : []
-            \}
+let g:predictive#file_types = ['*', 'text', 'vim', 'python']
 let g:predictive#keyword_patterns = '^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$'
 "let &completefunc='predictive#complete'
 "let g:acp_behaviorUserDefinedFunction = 'predictive#complete'
