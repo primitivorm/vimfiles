@@ -1,9 +1,9 @@
-autocmd BufRead,BufNewFile *.vim setlocal textwidth=0
-autocmd BufRead,BufNewFile *.vim setlocal expandtab
-autocmd BufRead,BufNewFile *.vim setlocal scrolloff=5
-autocmd BufRead,BufNewFile *.vim setlocal shiftwidth=4
-autocmd BufRead,BufNewFile *.vim setlocal tabstop=4
-autocmd BufRead,BufNewFile *.vim setlocal foldmethod=marker
+autocmd BufRead,BufNewFile *.vim,_vimrc setlocal textwidth=0
+autocmd BufRead,BufNewFile *.vim,_vimrc setlocal expandtab
+autocmd BufRead,BufNewFile *.vim,_vimrc setlocal scrolloff=5
+autocmd BufRead,BufNewFile *.vim,_vimrc setlocal shiftwidth=2
+autocmd BufRead,BufNewFile *.vim,_vimrc setlocal tabstop=2
+autocmd BufRead,BufNewFile *.vim,_vimrc setlocal foldmethod=marker
 
 " convert tabs to spaces before writing file
 if !&readonly && &modifiable

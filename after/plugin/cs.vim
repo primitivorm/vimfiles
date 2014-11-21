@@ -19,7 +19,7 @@ autocmd FileType cs exe('setlocal dict+='.$HOME.'/vimfiles/syntax/csharp.vim')
 
 "syntastic format
 autocmd FileType cs setlocal errorformat=\ %#%f(%l\\\,%c):\ error\ CS%n:\ %m
-"autocmd FileType cs setlocal makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
+autocmd FileType cs setlocal makeprg=msbuild\ \"%\"\ /nologo\ /v:q\ /property:GenerateFullPaths=true\ $*
 
 "Omnisharp
 autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
@@ -54,13 +54,13 @@ function! FormatStatement()
   let line = substitute(line, '\s\+', ' ',  'g')
   let line = substitute(line, '\s\+$', '',  'g')
   call setline('.', line)
-  exec 'normal! V=$l'
+  "exec 'normal! V=$l'
   startinsert
   return
 endfunction
 
 autocmd BufRead,BufNewFile *.cs nnoremap <leader>fs :call FormatStatement()<cr>
-"autocmd BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
+autocmd BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()<cr>
 
 "for each line in buffer rewrap on write
 "http://vim.wikia.com/wiki/Power_of_g

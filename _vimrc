@@ -125,7 +125,8 @@ if exists("syntax_on")
     syntax reset
 endif
 
-colorscheme proman
+colorscheme Tomorrow-Night
+"colorscheme proman
 "colorscheme skittles_berry
 "colorscheme solarized
 "colorscheme summerfruit256
@@ -141,10 +142,11 @@ set synmaxcol=512
 set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-set guifont=InputMonoNarrow:h10,
-            \DejaVu_Sans_Mono_for_Powerline:h10,
-            \Andale_Mono:h10,
+set guifont=Consola_Mono:h10,
             \Consolas_for_Powerline_FixedD:h10,
+            \InputMonoNarrow:h10,
+            \Andale_Mono:h10,
+            \DejaVu_Sans_Mono_for_Powerline:h10,
             \Envy_Code_R_for_Powerline:h10,
             \Meslo_LG_M_for_Powerline:h10,
             \Sauce_Code_Powerline:h10,

@@ -138,10 +138,6 @@ nmap <silent> <leader>sc :SyntasticCheck<cr>
 "http://www.vim.org/scripts/script.php?script_id=356
 "https://mutelight.org/dbext-the-last-sql-client-youll-ever-need
 "connect to sql server instance
-let g:dbext_default_profile_sql_des='type=SQLSRV:srvname=10.48.68.8:dbname=amdes:user=espejopruebas:passwd=12345678'
-let g:dbext_default_profile_sql_desvw='type=SQLSRV:srvname=10.48.68.8\SQL2K8:dbname=amdesvw:user=espejopruebas:passwd=12345678'
-let g:dbext_default_profile_sql_qa='type=SQLSRV:srvname=10.48.68.8:dbname=amqa:user=espejopruebas:passwd=12345678'
-let g:dbext_default_profile_sql_qavw='type=SQLSRV:srvname=10.48.68.8:dbname=amqavw:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qa40='type=SQLSRV:srvname=10.48.95.40:dbname=amqa:user=espejopruebas:passwd=12345678'
 let g:dbext_default_profile_sql_qavw40='type=SQLSRV:srvname=10.48.95.40:dbname=amqavw:user=espejopruebas:passwd=12345678'
 
@@ -168,34 +164,6 @@ nmap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 " sqlserver {{{
 "https://github.com/vim-scripts/sqlserver.vim
 let g:sql_type_default = "sqlserver"
-"}}}
-
-"" javascript-libraries-syntax {{{
-""https://github.com/othree/javascript-libraries-syntax.vim
-"let g:used_javascript_libs = 'underscore,backbone'
-"autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
-"autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
-"autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
-"autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 0
-"autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 0
-""}}}
-
-" badwolf colorscheme{{{
-"https://github.com/sjl/badwolf
-" Make the gutters darker than the background.
-let g:badwolf_darkgutter = 1
-" Make the tab line darker than the background.
-let g:badwolf_tabline = 0
-" Make the tab line the same color as the background.
-let g:badwolf_tabline = 1
-" Make the tab line lighter than the background.
-let g:badwolf_tabline = 2
-" Make the tab line much lighter than the background.
-let g:badwolf_tabline = 3
-" Turn off HTML link underlining
-let g:badwolf_html_link_underline = 0
-" Turn on CSS properties highlighting
-let g:badwolf_css_props_highlight = 1
 "}}}
 
 " MRU {{{
@@ -283,7 +251,8 @@ set noshowmatch
 set completeopt=menuone,menu
 let g:Omnisharp_highlight_user_types=1
 "mappings
-autocmd FileType cs nmap <F5> :wa!<cr> :call OmniSharp#Build()<cr>
+"autocmd FileType cs nmap <F5> :wa!<cr> :call OmniSharp#Build()<cr>
+autocmd FileType cs nmap <F5> :call OmniSharp#Build()<cr>
 autocmd FileType cs nmap gd :call OmniSharp#GotoDefinition()<cr>
 autocmd FileType cs nmap <leader>fi :call OmniSharp#FindImplementations()<cr>
 autocmd FileType cs nmap <leader>ft :OmniSharpFindType<cr>
@@ -362,8 +331,8 @@ let g:UltiSnipsDontReverseSearchPath = "1"
 " vim-autoformat {{{
 " https://github.com/Chiel92/vim-autoformat
 let g:formatprg_cs = "astyle"
-let g:formatprg_args_cs = "--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s4"
-let g:formatprg_args_expr_cs = '"--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s".&shiftwidth'
+let g:formatprg_args_cs = "--mode=cs --style=ansi -pcHs4"
+let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
 let g:formatprg_c = "astyle"
 let g:formatprg_args_c = "--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s4"
 let g:formatprg_args_expr_c = '"--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s".&shiftwidth'
@@ -424,39 +393,10 @@ nmap <silent> <leader>gp :GitPush<CR>
 nmap <silent> <leader>gu :GitPull<CR>
 "}}}
 
-"" Word-Fuzzy-Completion {{{
-""https://github.com/vim-scripts/Word-Fuzzy-Completion
-""http://hetland.org/coding/python/levenshtein.py
-"let g:fuzzywordcompletion_disable_keybinding=0
-""default keymap is <c-k>
-"if !&omnifunc
-    "set omnifunc=FuzzyWordCompletion
-"endif
-""}}}
-
-"" jedi-vim {{{
-""let g:jedi#auto_initialization=0
-""let g:jedi#completions_enable=0
-"let g:jedi#goto_assignments_command = "<leader>g"
-"let g:jedi#goto_definitions_command = "<leader>d"
-"let g:jedi#documentation_command = "K"
-"let g:jedi#usages_command = "<leader>n"
-"let g:jedi#completions_command = "<C-Space>"
-"let g:jedi#rename_command = "<leader>r"
-"let g:jedi#show_call_signatures = "1"
-""}}}
-
 "vim-predictive {{{
 let g:predictive#dict_path        = expand($HOME . '/quick_references/predictive_dict.txt')
 let g:predictive#file_types = ['*', 'text', 'vim', 'python']
 let g:predictive#keyword_patterns = '^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$'
-"let &completefunc='predictive#complete'
-"let g:acp_behaviorUserDefinedFunction = 'predictive#complete'
-"let g:acp_behaviorUserDefinedMeets = 'predictive#meets_for_predictive'
-"let g:predictive#disable_plugin=0
-"let g:predictive#auto_learn       = 0
-"let g:predictive#auto_add_to_dict = 0
-"let g:predictive#fuzzy_completion_enable=1
 "}}}
 
 " YouCompleteMe {{{
