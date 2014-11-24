@@ -125,8 +125,8 @@ if exists("syntax_on")
     syntax reset
 endif
 
-colorscheme Tomorrow-Night
-"colorscheme proman
+colorscheme proman
+"colorscheme Tomorrow-Night
 "colorscheme skittles_berry
 "colorscheme solarized
 "colorscheme summerfruit256
