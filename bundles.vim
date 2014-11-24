@@ -56,28 +56,3 @@ Bundle 'primitivorm/vim-predictive'
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 " }}}
-
-""aditional colors in vimfiles/color {{{
-""autoclose
-""bandit
-""blackboard
-""candy
-""codeschool
-""color tools
-""default
-""eclipse
-""for c
-""for python
-""github
-""guardian
-""install
-""mickeysoft
-""molokai
-""molokai-transparent
-""monokai
-""mustang
-""railscasts
-""smyck
-""twilight
-""wombat
-"}}}

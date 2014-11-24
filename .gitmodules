@@ -1,0 +1,6 @@
+[submodule "c:/Users/Proman02/vimfiles/bundle/Align"]
+	path = c:/Users/Proman02/vimfiles/bundle/Align
+	url = https://github.com/primitivorm/Align
+[submodule "bundle/Align"]
+	path = bundle/Align
+	url = https://github.com/primitivorm/Align
