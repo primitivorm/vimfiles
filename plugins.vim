@@ -395,8 +395,9 @@ nmap <silent> <leader>gu :GitPull<CR>
 
 "vim-predictive {{{
 let g:predictive#dict_path        = expand($HOME . '/quick_references/predictive_dict.txt')
-let g:predictive#file_types = ['*', 'text', 'vim', 'python']
+let g:predictive#file_types = ['*', 'text', 'vim', 'python', 'cs', 'sql', 'java', 'ruby', 'html', 'xml', 'javascript']
 let g:predictive#keyword_patterns = '^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$'
+let g:predictive#debug=0
 "}}}
 
 " YouCompleteMe {{{

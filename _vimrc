@@ -125,10 +125,10 @@ if exists("syntax_on")
     syntax reset
 endif
 
-colorscheme proman
+"colorscheme proman
 "colorscheme Tomorrow-Night
 "colorscheme skittles_berry
-"colorscheme solarized
+colorscheme solarized
 "colorscheme summerfruit256
 "Disabling vim's startup message
 "set shortmess=a
