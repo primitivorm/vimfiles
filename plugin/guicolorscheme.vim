@@ -1,6 +1,6 @@
 " guicolorscheme.vim: Convert GUI only color schems
 "
-" Maintainer:	 Aaron Griffin <aaron@archlinux.org>
+" Maintainer:    Aaron Griffin <aaron@archlinux.org>
 " Last Modified: Mon Feb 26 22:52:34 UTC 2007
 " Version:       1.2
 " URL:           http://www.vim.org/script.php?script_id=39

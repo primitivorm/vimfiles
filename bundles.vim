@@ -1,58 +1,59 @@
 "--------------------------------------------
-"Bundles list
+"Plugins list
 "--------------------------------------------
 
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'primitivorm/Align'
-Bundle 'primitivorm/AutoAlign'
-Bundle 'primitivorm/AutoComplPop'
-Bundle 'primitivorm/L9'
-Bundle 'primitivorm/MatchTagAlways'
-Bundle 'primitivorm/Omnisharp'
-Bundle 'primitivorm/QuickBuf'
-Bundle 'primitivorm/Source-Control'
-Bundle 'primitivorm/ack.vim'
-Bundle 'primitivorm/argumentrewrap'
-Bundle 'primitivorm/ctrlp.vim'
-Bundle 'primitivorm/dbext.vim'
-Bundle 'primitivorm/gundo.vim'
-Bundle 'primitivorm/hexHighlight.vim'
-Bundle 'primitivorm/indentLine'
-Bundle 'primitivorm/js-beautify'
-Bundle 'primitivorm/nerdcommenter'
-Bundle 'primitivorm/nerdtree'
-Bundle 'primitivorm/quickfixsigns'
-Bundle 'primitivorm/sqlserver.vim'
-Bundle 'primitivorm/supertab'
-Bundle 'primitivorm/syntastic'
-Bundle 'primitivorm/taboo.vim'
-Bundle 'primitivorm/tabular'
-Bundle 'primitivorm/tagbar'
-Bundle 'primitivorm/ultisnips'
-Bundle 'primitivorm/vim-abolish'
-Bundle 'primitivorm/vim-autoformat'
-Bundle 'primitivorm/vim-dispatch'
-Bundle 'primitivorm/vim-endwise'
-Bundle 'primitivorm/vim-flake8'
-Bundle 'primitivorm/vim-fugitive'
-Bundle 'primitivorm/vim-git'
-Bundle 'primitivorm/vim-jsbeautify'
-Bundle 'primitivorm/vim-multiple-cursors'
-Bundle 'primitivorm/vim-niji'
-Bundle 'primitivorm/vim-proman-theme'
-Bundle 'primitivorm/vim-surround'
-Bundle 'primitivorm/vim-swap-lines'
-Bundle 'primitivorm/vim-visual-star-search'
-Bundle 'primitivorm/xmledit'
+Plugin 'primitivorm/Align'
+Plugin 'primitivorm/AutoAlign'
+Plugin 'primitivorm/AutoComplPop'
+Plugin 'primitivorm/L9'
+Plugin 'primitivorm/MatchTagAlways'
+Plugin 'primitivorm/Omnisharp'
+Plugin 'primitivorm/QuickBuf'
+Plugin 'primitivorm/Source-Control'
+Plugin 'primitivorm/ack.vim'
+Plugin 'primitivorm/argumentrewrap'
+Plugin 'primitivorm/ctrlp.vim'
+Plugin 'primitivorm/dbext.vim'
+Plugin 'primitivorm/gundo.vim'
+Plugin 'primitivorm/indentLine'
+Plugin 'primitivorm/js-beautify'
+Plugin 'primitivorm/nerdcommenter'
+Plugin 'primitivorm/nerdtree'
+Plugin 'primitivorm/quickfixsigns'
+Plugin 'primitivorm/rope-omni'
+Plugin 'primitivorm/sqlserver.vim'
+Plugin 'primitivorm/supertab'
+Plugin 'primitivorm/syntastic'
+Plugin 'primitivorm/taboo.vim'
+Plugin 'primitivorm/tabular'
+Plugin 'primitivorm/tagbar'
+Plugin 'primitivorm/ultisnips'
+Plugin 'primitivorm/vim-abolish'
+Plugin 'primitivorm/vim-autoformat'
+Plugin 'primitivorm/vim-colors-solarized'
+Plugin 'primitivorm/vim-css-color'
+Plugin 'primitivorm/vim-dispatch'
+Plugin 'primitivorm/vim-endwise'
+Plugin 'primitivorm/vim-flake8'
+Plugin 'primitivorm/vim-fugitive'
+Plugin 'primitivorm/vim-git'
+Plugin 'primitivorm/vim-jsbeautify'
+Plugin 'primitivorm/vim-multiple-cursors'
+Plugin 'primitivorm/vim-niji'
+Plugin 'primitivorm/vim-proman-theme'
+Plugin 'primitivorm/vim-surround'
+Plugin 'primitivorm/vim-swap-lines'
+Plugin 'primitivorm/vim-visual-star-search'
+Plugin 'primitivorm/xmledit'
 
 "testing version
-Bundle 'primitivorm/vim-predictive'
+Plugin 'primitivorm/vim-predictive'
 
 " Brief help {{{
-" :BundleList - list configured bundles
-" :BundleInstall(!) - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!) - confirm(or auto-approve) removal of unused bundles
+" :PluginList - list configured bundles
+" :PluginInstall(!) - install(update) bundles
+" :PluginSearch(!) foo - search(or refresh cache first) for foo
+" :PluginClean(!) - confirm(or auto-approve) removal of unused bundles
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+" NOTE: comments after Plugin command are not allowed..
 " }}}

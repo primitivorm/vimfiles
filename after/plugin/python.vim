@@ -12,7 +12,9 @@ autocmd BufRead,BufNewFile,BufEnter *.py nnoremap <F5> :!python %<cr>
 autocmd BufRead,BufNewFile *.py nnoremap <leader>f :silent Autoformat<cr>
 autocmd BufRead,BufNewFile *.py vmap <leader>f :silent Autoformat<cr>
 
-"autocmd filetype python setlocal omnifunc=RopeCompleteFunc
+autocmd filetype python setlocal omnifunc=RopeCompleteFunc
+autocmd BufRead,BufNewFile *.py nnoremap gd :RopeGotoDefinition<cr>
+autocmd BufRead,BufNewFile *.py nnoremap <leader>r :RopeRename<cr>
 "autocmd filetype python setlocal omnifunc=jedi#completions
 "autocmd filetype python setlocal completefunc=jedi#completions
 "disable preview window

@@ -358,7 +358,7 @@ autocmd FileType css vnoremap <buffer> <leader>f :call RangeCSSBeautify()<cr>
 "}}}
 
 " Bundle {{{
-nmap <leader>bi :BundleInstall<cr>
+nmap <leader>bi :PluginInstall<cr>
 " }}}
 
 " GUndo {{{
@@ -397,7 +397,7 @@ nmap <silent> <leader>gu :GitPull<CR>
 let g:predictive#dict_path        = expand($HOME . '/quick_references/predictive_dict.txt')
 let g:predictive#file_types = ['*', 'text', 'vim', 'python', 'cs', 'sql', 'java', 'ruby', 'html', 'xml', 'javascript']
 let g:predictive#keyword_patterns = '^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$'
-let g:predictive#debug=0
+let g:predictive#debug=1
 "}}}
 
 " YouCompleteMe {{{

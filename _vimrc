@@ -14,6 +14,8 @@ let $VIMFILES=expand($HOME.'/vimfiles/')
 source $HOME/vimfiles/keymap.vim
 "functions source
 source $HOME/vimfiles/functions.vim
+"256 colors name
+source $HOME/vimfiles/xterm256colors.vim
 "}}}
 
 " Pathogen {{{
@@ -34,18 +36,20 @@ set runtimepath+=~/vimfiles/
 set runtimepath+=~/vimfiles/bin/
 set runtimepath+=~/vimfiles/after/
 set runtimepath+=~/vimfiles/bundle/
-set runtimepath+=~/vimfiles/bundle/vundle/
+set runtimepath+=~/vimfiles/bundle/Vundle.vim/
+set runtimepath+=~/vimfiles/bundle/vim-proman-theme/
 set nocompatible " be iMproved
 "https://github.com/gmarik/vundle/issues/211
-"call vundle#rc()
-call vundle#rc('~/vimfiles/bundle/')
+call vundle#begin('~/vimfiles/bundle/')
 "" let Vundle manage Vundle
 "" required!
-Bundle 'gmarik/vundle'
+Plugin 'primitivorm/Vundle.vim'
 "bundles source
 source $HOME/vimfiles/bundles.vim
 "plugins config
 source $HOME/vimfiles/plugins.vim
+" All of your Plugins must be added before the following line
+call vundle#end()
 "}}}
 
 " Backup {{{
@@ -117,7 +121,6 @@ endif
 syntax on
 "syntax enable
 
-"https://github.com/primitivorm/vim-proman-theme
 set background=dark
 "set background=light
 highlight clear
@@ -125,10 +128,10 @@ if exists("syntax_on")
     syntax reset
 endif
 
-"colorscheme proman
+colorscheme proman
 "colorscheme Tomorrow-Night
 "colorscheme skittles_berry
-colorscheme solarized
+"colorscheme solarized
 "colorscheme summerfruit256
 "Disabling vim's startup message
 "set shortmess=a
@@ -177,8 +180,8 @@ set display=lastline
 "set formatoptions=tcq "default
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
-  set colorcolumn=80
-  let &colorcolumn="100,".join(range(120,999),",")
+  set colorcolumn=79
+  let &colorcolumn="80,".join(range(100,999),",")
 endif
 "habilita sangrado inteligente
 set smartindent
@@ -246,11 +249,11 @@ if has("statusline")
   source $HOME/vimfiles/cream/cream-lib.vim
   source $HOME/vimfiles/cream/cream-lib-os.vim
   source $HOME/vimfiles/cream/cream-statusline.vim
-  "colors for cream
-  hi User1  gui=bold guifg=#808080 guibg=#FFDEAD
-  hi User2  gui=bold guifg=#333333 guibg=#FFDEAD
-  hi User3  gui=bold guifg=#000000 guibg=#FFDEAD
-  hi User4  gui=bold guifg=#000000 guibg=#FFDEAD
+  ""colors for cream
+  "hi User1  gui=bold guifg=#808080 guibg=#FFDEAD
+  "hi User2  gui=bold guifg=#333333 guibg=#FFDEAD
+  "hi User3  gui=bold guifg=#000000 guibg=#FFDEAD
+  "hi User4  gui=bold guifg=#000000 guibg=#FFDEAD
 endif
 " if there is only one window
 set cmdheight=1 " use a status bar that is 2 rows high
