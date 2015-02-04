@@ -1,6 +1,6 @@
 "eclim configuration
-let g:EclimCompletionMethod = 'omnifunc'
-let g:acp_behaviorJavaEclimLength = 3
+"let g:EclimCompletionMethod = 'omnifunc'
+"let g:acp_behaviorJavaEclimLength = 3
 "autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 "function MeetsForJavaEclim(context)

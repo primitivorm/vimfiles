@@ -43,7 +43,7 @@ set nocompatible " be iMproved
 call vundle#begin('~/vimfiles/bundle/')
 "" let Vundle manage Vundle
 "" required!
-Plugin 'primitivorm/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 "bundles source
 source $HOME/vimfiles/bundles.vim
 "plugins config
@@ -145,7 +145,8 @@ set synmaxcol=512
 set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-set guifont=Consola_Mono:h10,
+set guifont=Consolas:h10,
+            \Consola_Mono:h10,
             \Consolas_for_Powerline_FixedD:h10,
             \InputMonoNarrow:h10,
             \Andale_Mono:h10,

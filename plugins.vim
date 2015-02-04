@@ -317,15 +317,10 @@ let g:SuperTabLongestEnhanced=0
 " Ultisnip {{{
 "https://github.com/vim-scripts/UltiSnips
 "defaults
-set runtimepath+=~/vimfiles/snippets/
-let g:UltiSnipsDoHash                = 0
 let g:UltiSnipsExpandTrigger         = '<tab>'
 let g:UltiSnipsListSnippets          = '<c-space>'
 let g:UltiSnipsJumpForwardTrigger    = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger   = '<s-tab>'
-let g:UltiSnipsSnippetsDir           = "~/vimfiles/snippets/"
-let g:UltiSnipsSnippetDirectories    = ["UltiSnips", "snippets"]
-let g:UltiSnipsDontReverseSearchPath = "1"
 "}}}
 
 " vim-autoformat {{{
@@ -393,6 +388,10 @@ nmap <silent> <leader>gp :GitPush<CR>
 nmap <silent> <leader>gu :GitPull<CR>
 "}}}
 
+" quick buffer {{{
+  let g:qb_hotkey = "<F4>"
+"}}}
+"
 "vim-predictive {{{
 let g:predictive#dict_path        = expand($HOME . '/quick_references/predictive_dict.txt')
 let g:predictive#file_types = ['*', 'text', 'vim', 'python', 'cs', 'sql', 'java', 'ruby', 'html', 'xml', 'javascript']
