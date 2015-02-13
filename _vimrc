@@ -129,6 +129,7 @@ if exists("syntax_on")
 endif
 
 colorscheme proman
+"colorscheme Monokai
 "colorscheme Tomorrow-Night
 "colorscheme skittles_berry
 "colorscheme solarized
