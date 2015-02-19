@@ -217,18 +217,19 @@ let g:scShowExtra  =1
 
 " multiple-cursors {{{
 "https://github.com/terryma/vim-multiple-cursors
-let  g:multi_cursor_exit_from_visual_mode=0   "default 1
-let  g:multi_cursor_exit_from_insert_mode=0   "default 1
+"let  g:multi_cursor_exit_from_visual_mode=0   "default 1
+"let  g:multi_cursor_exit_from_insert_mode=0   "default 1
 " Default highlighting (see help :highlight and help :highlight-link)
-highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
-highlight link multiple_cursors_visual Visual
+hi! multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+hi! link multiple_cursors_visual Visual
 
 "https://github.com/terryma/vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-n>'   "like SublimeText 3 use <c-d>
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+"default
+"let g:multi_cursor_use_default_mapping=0
+"let g:multi_cursor_next_key='<C-n>'   "like SublimeText 3 use <c-d>
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
 
 "go to end of word in insert mode
 imap <C-e> <esc>ea
@@ -369,7 +370,7 @@ let g:indentLine_showFirstIndentLevel = 1
 "let g:indentLine_color_gui="#204a87"
 "let g:indentLine_char = "│"
 "let g:indentLine_first_char = "│"
-let g:indentLine_color_gui="#b2b2b2"
+let g:indentLine_color_gui="#808080"
 "}}}
 
 " Fugitive {{{

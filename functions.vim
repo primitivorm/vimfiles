@@ -83,9 +83,9 @@ let themeindex=0
 function! RotateColorTheme()
    let y = -1
    while y == -1
-      "top 10 plus proman theme
       "http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
-      let colorstring = "#codeschool#Monokai#mustang#wombat#github#solarized#eclipse#tomorrow-night#summerfruit256#proman#"
+      let colorstring = "#codeschool#Monokai#mustang#wombat#github#solarized#eclipse#"
+                        \ . "tomorrow-night#summerfruit256#proman#codeblocks-dark#visualstudio#Tomorrow"
       let x = match(colorstring,"#",g:themeindex)
       let y = match(colorstring,"#",x + 1)
       let g:themeindex = x + 1
@@ -93,13 +93,13 @@ function! RotateColorTheme()
          let g:themeindex = 0
       else
          let themestring = strpart(colorstring,x + 1,y - x - 1)
-         return ":colorscheme ".themestring
+         return ":colorscheme " . themestring
       endif
    endwhile
 endfunction
-
 " Rotate Color Scheme <F12>
-nmap <silent><F12> :execute RotateColorTheme()<CR>
+nmap <silent><F12> :exe RotateColorTheme()<bar>:exe "hi! CursorColumn guibg=#e0e0e0"<CR>
+
 "change background
 function! ChangeBackground()
     if &background=="light"

@@ -128,12 +128,18 @@ if exists("syntax_on")
     syntax reset
 endif
 
-colorscheme proman
+colorscheme visualstudio
+"colorscheme proman
+"colorscheme codeblocks-dark
+"colorscheme Tomorrow
+"colorscheme codeschool
+"colorscheme molokai
 "colorscheme Monokai
 "colorscheme Tomorrow-Night
 "colorscheme skittles_berry
 "colorscheme solarized
 "colorscheme summerfruit256
+
 "Disabling vim's startup message
 "set shortmess=a
 
@@ -183,7 +189,7 @@ set display=lastline
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
 if exists('+colorcolumn')
   set colorcolumn=79
-  let &colorcolumn="80,".join(range(100,999),",")
+  "let &colorcolumn="80,".join(range(100,999),",")
 endif
 "habilita sangrado inteligente
 set smartindent
@@ -251,11 +257,12 @@ if has("statusline")
   source $HOME/vimfiles/cream/cream-lib.vim
   source $HOME/vimfiles/cream/cream-lib-os.vim
   source $HOME/vimfiles/cream/cream-statusline.vim
-  ""colors for cream
-  "hi User1  gui=bold guifg=#808080 guibg=#FFDEAD
-  "hi User2  gui=bold guifg=#333333 guibg=#FFDEAD
-  "hi User3  gui=bold guifg=#000000 guibg=#FFDEAD
-  "hi User4  gui=bold guifg=#000000 guibg=#FFDEAD
+
+  " for cream statusline
+  hi! User1  gui=NONE guifg=#999999 guibg=#073642 gui=bold
+  hi! User2  gui=NONE guifg=#93a1a1 guibg=#073642 gui=NONE
+  hi! User3  gui=NONE guifg=#bcc9db guibg=#073642 gui=bold
+  hi! User4  gui=NONE guifg=#d7d7af guibg=#073642 gui=bold
 endif
 " if there is only one window
 set cmdheight=1 " use a status bar that is 2 rows high
