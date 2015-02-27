@@ -74,6 +74,11 @@ let g:tagbar_singleclick = 1
 map <F3> :TagbarToggle<CR>
 nmap <C-]> :tabnew %<CR>g<C-]>
 vmap <C-]> <Esc>:tabnew %<CR>gvg<C-]>
+
+autocmd BufWritePost *
+      \ if filereadable('tags') |
+      \   call system('ctags -a '.expand('%')) |
+      \ endif
 ""}}}
 
 " ctags {{{
@@ -403,7 +408,7 @@ let g:predictive#debug=0
 " YouCompleteMe {{{
 "https://github.com/Valloric/YouCompleteMe
 let g:ycm_confirm_extra_conf=0
-let g:ycm_global_ycm_extra_conf = "~/vimfiles/bundle/vim-ycm/third_party/_ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/vimfiles/_ycm_extra_conf.py"
 "let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_completion=0
 let g:ycm_key_list_select_completion=[]

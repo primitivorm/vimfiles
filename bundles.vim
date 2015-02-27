@@ -16,7 +16,6 @@ Plugin 'amdt/vim-niji'
 Plugin 'beautify-web/js-beautify'
 Plugin 'bronson/vim-visual-star-search'
 Plugin 'dbext.vim'
-Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'honza/vim-snippets'
 Plugin 'jakobwesthoff/argumentrewrap'
@@ -25,7 +24,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'mileszs/ack.vim'
 Plugin 'nvie/vim-flake8'
-Plugin 'othree/vim-autocomplpop'
 Plugin 'primitivorm/vim-proman-theme'
 Plugin 'primitivorm/vim-swap-lines'
 Plugin 'quickfixsigns'
@@ -44,10 +42,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-surround'
 Plugin 'hexHighlight.vim'
+Plugin 'craigemery/vim-autotag'
+Plugin 'ervandew/supertab'
 
 "testing version
 Plugin 'primitivorm/vim-predictive'
 Plugin 'primitivorm/vim-latino'
+
+"YCM obsoletes
+"Plugin 'othree/vim-autocomplpop'
 
 " Brief help {{{
 " :PluginList - list configured bundles
