@@ -1,3 +1,4 @@
+import os
 flags = [
 '-Wall',
 '-Wextra',
@@ -17,7 +18,7 @@ flags = [
 '-isystem',
 'C:\mingw\include',
 '-isystem',
-'~\Documents\GitHub\latino\src',
+'~/Documents/GitHub/latino/src/',
 '-I',
 '.',
 '-I',
