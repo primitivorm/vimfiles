@@ -1,4 +1,6 @@
 import os
+import ycm_core
+
 flags = [
 '-Wall',
 '-Wextra',
@@ -25,8 +27,6 @@ flags = [
 '../driver'
 '-I',
 '../debug'
-'-I',
-'../include'
 '-I',
 '../include'
 ]
