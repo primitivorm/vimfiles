@@ -9,14 +9,16 @@ Plugin 'L9'
 Plugin 'QuickBuf'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/MatchTagAlways'
-Plugin 'Yggdroot/indentLine'
 Plugin 'ajpaulson/taboo.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'amdt/vim-niji'
 Plugin 'beautify-web/js-beautify'
 Plugin 'bronson/vim-visual-star-search'
+Plugin 'craigemery/vim-autotag'
 Plugin 'dbext.vim'
+Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
+Plugin 'hexHighlight.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jakobwesthoff/argumentrewrap'
 Plugin 'kien/ctrlp.vim'
@@ -24,6 +26,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'mileszs/ack.vim'
 Plugin 'nvie/vim-flake8'
+Plugin 'othree/vim-autocomplpop'
 Plugin 'primitivorm/vim-proman-theme'
 Plugin 'primitivorm/vim-swap-lines'
 Plugin 'quickfixsigns'
@@ -41,16 +44,13 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-surround'
-Plugin 'hexHighlight.vim'
-Plugin 'craigemery/vim-autotag'
-Plugin 'ervandew/supertab'
 
 "testing version
-Plugin 'primitivorm/vim-predictive'
 Plugin 'primitivorm/vim-latino'
+Plugin 'primitivorm/vim-predictive'
 
-"YCM obsoletes
-"Plugin 'othree/vim-autocomplpop'
+"Plugin 'Valloric/ListToggle'
+"Plugin 'Yggdroot/indentLine'
 
 " Brief help {{{
 " :PluginList - list configured bundles
@@ -58,5 +58,5 @@ Plugin 'primitivorm/vim-latino'
 " :PluginSearch(!) foo - search(or refresh cache first) for foo
 " :PluginClean(!) - confirm(or auto-approve) removal of unused bundles
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Plugin command are not allowed..
+" TODO: comments after Plugin command are not allowed..
 " }}}

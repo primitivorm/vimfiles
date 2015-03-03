@@ -128,17 +128,18 @@ if exists("syntax_on")
     syntax reset
 endif
 
-colorscheme visualstudio
-"colorscheme proman
-"colorscheme codeblocks-dark
-"colorscheme Tomorrow
-"colorscheme codeschool
-"colorscheme molokai
-"colorscheme Monokai
-"colorscheme Tomorrow-Night
-"colorscheme skittles_berry
-"colorscheme solarized
-"colorscheme summerfruit256
+"colo zellner
+"colo visualstudio
+colo proman
+"colo codeblocks-dark
+"colo Tomorrow
+"colo codeschool
+"colo molokai
+"colo Monokai
+"colo Tomorrow-Night
+"colo skittles_berry
+"colo solarized
+"colo summerfruit256
 
 "Disabling vim's startup message
 "set shortmess=a
