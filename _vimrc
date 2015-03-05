@@ -121,16 +121,16 @@ endif
 syntax on
 "syntax enable
 
-set background=dark
-"set background=light
+""set background=dark
+set background=light
 highlight clear
 if exists("syntax_on")
     syntax reset
 endif
 
 "colo zellner
-"colo visualstudio
-colo proman
+colo visualstudio
+"colo proman
 "colo codeblocks-dark
 "colo Tomorrow
 "colo codeschool
