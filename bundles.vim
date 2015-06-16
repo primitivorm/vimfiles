@@ -44,10 +44,12 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'dyng/ctrlsf.vim'
 
 "testing version
 Plugin 'primitivorm/vim-latino'
-Plugin 'primitivorm/vim-predictive'
+"Plugin 'primitivorm/vim-predictive'
 
 "Plugin 'Valloric/ListToggle'
 "Plugin 'Yggdroot/indentLine'

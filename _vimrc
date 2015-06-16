@@ -121,16 +121,16 @@ endif
 syntax on
 "syntax enable
 
-""set background=dark
-set background=light
+set background=dark
+"set background=light
 highlight clear
 if exists("syntax_on")
     syntax reset
 endif
 
 "colo zellner
-colo visualstudio
-"colo proman
+"colo visualstudio
+colo proman
 "colo codeblocks-dark
 "colo Tomorrow
 "colo codeschool
@@ -153,17 +153,22 @@ set synmaxcol=512
 set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
-set guifont=Consolas:h10,
-            \Consola_Mono:h10,
-            \Consolas_for_Powerline_FixedD:h10,
-            \InputMonoNarrow:h10,
-            \Andale_Mono:h10,
-            \DejaVu_Sans_Mono_for_Powerline:h10,
-            \Envy_Code_R_for_Powerline:h10,
-            \Meslo_LG_M_for_Powerline:h10,
-            \Sauce_Code_Powerline:h10,
-            \Monaco:h10,
+
+set guifont=DejaVu_Sans_Mono_for_Powerline:h11,
+            \Lucida_Console:h11,
+            \Consolas:h11,
+            \Ubuntu_Mono:h11,
+            \Consola_Mono:h11,
+            \Consolas_for_Powerline_FixedD:h11,
+            \InputMonoNarrow:h11,
+            \Andale_Mono:h11,
+            \Envy_Code_R_for_Powerline:h11,
+            \Meslo_LG_M_for_Powerline:h11,
+            \Sauce_Code_Powerline:h11,
+            \Monaco:h11,
             \Terminus:h12
+
+"temporal directories
 set directory=.,$TMP,$TEMP
 set undodir=.,$TMP,$TEMP
 
@@ -203,7 +208,8 @@ set shiftwidth=4
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 set virtualedit=onemore "go to end of line on insert mode at press <up> <down> key
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
+""set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set backspace=2
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
 set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling

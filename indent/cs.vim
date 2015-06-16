@@ -1,5 +1,5 @@
 " Vim indent file
-" Language:	C#
+" Language: C#
 " Maintainer:   Aquila Deus
 "
 
@@ -9,9 +9,7 @@ if exists("b:did_indent")
 endif
 let b:did_indent = 1
 
-
 setlocal indentexpr=GetCSIndent()
-
 
 function! GetCSIndent()
 
@@ -30,5 +28,4 @@ function! GetCSIndent()
   else
     return cindent(v:lnum)
   endif
-
 endfunction
