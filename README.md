@@ -7,7 +7,7 @@ Install
 ===
 1. Download with git at home ($cd ~)
 
-$git clone git clone https://github.com/primitivorm/vimfiles.git
+$git clone https://github.com/primitivorm/vimfiles.git
 
 2. Add "source ~/vimfiles/_vimrc" to your .vimrc
 3. Execute :BundleInstall

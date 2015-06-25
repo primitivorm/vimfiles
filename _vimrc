@@ -121,8 +121,8 @@ endif
 syntax on
 "syntax enable
 
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 highlight clear
 if exists("syntax_on")
     syntax reset
@@ -130,7 +130,8 @@ endif
 
 "colo zellner
 "colo visualstudio
-colo proman
+"colo proman
+colo zenburn
 "colo codeblocks-dark
 "colo Tomorrow
 "colo codeschool
@@ -154,10 +155,10 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 "set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
 
-set guifont=DejaVu_Sans_Mono_for_Powerline:h11,
+set guifont=Ubuntu_Mono:h12,
             \Lucida_Console:h11,
+            \DejaVu_Sans_Mono_for_Powerline:h11,
             \Consolas:h11,
-            \Ubuntu_Mono:h11,
             \Consola_Mono:h11,
             \Consolas_for_Powerline_FixedD:h11,
             \InputMonoNarrow:h11,
@@ -193,10 +194,10 @@ set nrformats+=alpha,hex
 set display=lastline
 "set formatoptions=tcq "default
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
-if exists('+colorcolumn')
-  set colorcolumn=79
-  "let &colorcolumn="80,".join(range(100,999),",")
-endif
+"if exists('+colorcolumn')
+  "set colorcolumn=79
+  ""let &colorcolumn="80,".join(range(100,999),",")
+"endif
 "habilita sangrado inteligente
 set smartindent
 "sangrado automatico

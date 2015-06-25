@@ -45,7 +45,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'dyng/ctrlsf.vim'
+Plugin 'Zenburn'
 
 "testing version
 Plugin 'primitivorm/vim-latino'
@@ -53,6 +53,7 @@ Plugin 'primitivorm/vim-latino'
 
 "Plugin 'Valloric/ListToggle'
 "Plugin 'Yggdroot/indentLine'
+"Plugin 'dyng/ctrlsf.vim'
 
 " Brief help {{{
 " :PluginList - list configured bundles
