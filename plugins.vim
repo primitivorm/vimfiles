@@ -135,6 +135,11 @@ let g:syntastic_python_checkers=['pylint']
 if !&diff
   let g:syntastic_check_on_open=1
 endif
+
+"c compiler options
+let g:syntastic_c_compiler = 'gcc'
+let g:syntastic_c_compiler_options = '-std=c11'
+
 "quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f-
 nmap <silent> <leader>sc :SyntasticCheck<cr>

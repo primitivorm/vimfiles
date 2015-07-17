@@ -121,23 +121,25 @@ endif
 syntax on
 "syntax enable
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 highlight clear
 if exists("syntax_on")
     syntax reset
 endif
 
+colo proman
+"colo wombat
+"colo codeschool
+"colo mustang
+"colo Tomorrow-Night
+"colo codeblocks-dark
 "colo zellner
 "colo visualstudio
-"colo proman
-colo zenburn
-"colo codeblocks-dark
+"colo zenburn
 "colo Tomorrow
-"colo codeschool
 "colo molokai
 "colo Monokai
-"colo Tomorrow-Night
 "colo skittles_berry
 "colo solarized
 "colo summerfruit256
@@ -153,17 +155,18 @@ set tabpagemax=50
 set synmaxcol=512
 set fileformats=dos,unix
 "▸»·↵→←×┊│¬
-"set listchars=tab:»\-,trail:·,eol:↵,extends:→,precedes:←,nbsp:×
+set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=Ubuntu_Mono:h12,
+set guifont=Consolas:h11,
+            \Envy_Code_R_for_Powerline:h11,
             \Lucida_Console:h11,
             \DejaVu_Sans_Mono_for_Powerline:h11,
-            \Consolas:h11,
+            \Ubuntu_Mono:h12,
+            \Bitstream_Vera_Sans_Mono:h10,
             \Consola_Mono:h11,
-            \Consolas_for_Powerline_FixedD:h11,
             \InputMonoNarrow:h11,
             \Andale_Mono:h11,
-            \Envy_Code_R_for_Powerline:h11,
+            \Consolas_for_Powerline_FixedD:h11,
             \Meslo_LG_M_for_Powerline:h11,
             \Sauce_Code_Powerline:h11,
             \Monaco:h11,
@@ -271,6 +274,8 @@ if has("statusline")
   hi! User2  gui=NONE guifg=#93a1a1 guibg=#073642 gui=NONE
   hi! User3  gui=NONE guifg=#bcc9db guibg=#073642 gui=bold
   hi! User4  gui=NONE guifg=#d7d7af guibg=#073642 gui=bold
+  " Highlighting: Setup some nice colours to show the mark positions.
+  hi! FoldColumn guibg=bg guifg=fg ctermfg=fg ctermbg=bg gui=reverse cterm=reverse
 endif
 " if there is only one window
 set cmdheight=1 " use a status bar that is 2 rows high
@@ -283,6 +288,7 @@ set switchbuf=useopen " reveal already opened files from the
 set history=1000 " remember more commands and search history
 set undolevels=1000 " use many muchos levels of undo
 "char for split
+"set fillchars=stl:-,stlnc:-,vert:\|
 set fillchars=vert:\|
 "set fillchars=vert:\│
 "piexel space between lines
