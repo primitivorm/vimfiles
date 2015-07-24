@@ -131,6 +131,7 @@ endif
 colo proman
 "colo wombat
 "colo codeschool
+"colo mango
 "colo mustang
 "colo Tomorrow-Night
 "colo codeblocks-dark
@@ -143,6 +144,7 @@ colo proman
 "colo skittles_berry
 "colo solarized
 "colo summerfruit256
+"colo Papercolor
 
 "Disabling vim's startup message
 "set shortmess=a
@@ -157,12 +159,15 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=Consolas:h11,
+set guifont=Inconsolata_for_Powerline:h11,
+            \Anonymous_Pro_for_Powerline:h11,
+            \Anonymice_Powerline:h11,
+            \Consolas:h11,
             \Envy_Code_R_for_Powerline:h11,
             \Lucida_Console:h11,
             \DejaVu_Sans_Mono_for_Powerline:h11,
-            \Ubuntu_Mono:h12,
-            \Bitstream_Vera_Sans_Mono:h10,
+            \Ubuntu_Mono:h11,
+            \Bitstream_Vera_Sans_Mono:h11,
             \Consola_Mono:h11,
             \InputMonoNarrow:h11,
             \Andale_Mono:h11,
@@ -290,7 +295,6 @@ set undolevels=1000 " use many muchos levels of undo
 "char for split
 "set fillchars=stl:-,stlnc:-,vert:\|
 set fillchars=vert:\|
-"set fillchars=vert:\│
 "piexel space between lines
 set linespace=0
 "muestra los caracteres ocultos y los remplaza por los establecidos

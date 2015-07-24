@@ -46,6 +46,8 @@ Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'Zenburn'
+Plugin 'goatslacker/mango.vim'
+Plugin 'NLKNguyen/papercolor-theme'
 
 "testing version
 Plugin 'primitivorm/vim-latino'

@@ -1,2 +1,2 @@
 " establece file format
-autocmd! BufReadPost *.c setlocal ft=c
+autocmd! BufReadPost *.c,*.h setlocal ft=c
