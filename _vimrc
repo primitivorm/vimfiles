@@ -121,20 +121,22 @@ endif
 syntax on
 "syntax enable
 
-set background=dark
-"set background=light
-highlight clear
+"set background=dark
+set background=light
+hi clear
 if exists("syntax_on")
     syntax reset
 endif
 
+"colo summerfruit256
 colo proman
+"colo xoria256
+"colo codeblocks-dark
 "colo wombat
 "colo codeschool
 "colo mango
 "colo mustang
 "colo Tomorrow-Night
-"colo codeblocks-dark
 "colo zellner
 "colo visualstudio
 "colo zenburn
@@ -143,7 +145,6 @@ colo proman
 "colo Monokai
 "colo skittles_berry
 "colo solarized
-"colo summerfruit256
 "colo Papercolor
 
 "Disabling vim's startup message
@@ -159,22 +160,26 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=Inconsolata_for_Powerline:h11,
+set guifont=LettrGoth12_BT:h12,
+            \Andale_Mono:h11,
+            \Meslo_LG_M_for_Powerline:h11,
+            \Consolas:h11,
+            \Consolas_for_Powerline_FixedD:h11,
+            \Ubuntu_Mono:h12,
+            \Bitstream_Vera_Sans_Mono:h11,
             \Anonymous_Pro_for_Powerline:h11,
             \Anonymice_Powerline:h11,
-            \Consolas:h11,
             \Envy_Code_R_for_Powerline:h11,
             \Lucida_Console:h11,
             \DejaVu_Sans_Mono_for_Powerline:h11,
-            \Ubuntu_Mono:h11,
-            \Bitstream_Vera_Sans_Mono:h11,
+            \Inconsolata_for_Powerline:h11,
             \Consola_Mono:h11,
+            \Monaco:h10,
+            \Input:h11,
             \InputMonoNarrow:h11,
-            \Andale_Mono:h11,
-            \Consolas_for_Powerline_FixedD:h11,
-            \Meslo_LG_M_for_Powerline:h11,
             \Sauce_Code_Powerline:h11,
             \Monaco:h11,
+            \Fixedsys:h11,
             \Terminus:h12
 
 "temporal directories
@@ -193,7 +198,8 @@ set nu
 set nowrap
 set nolinebreak "lbr
 "http://www.bestofvim.com/tip/better-line-wraps/
-set showbreak=↪
+"set showbreak=↪
+set showbreak=..
 set textwidth=79
 set wrapmargin=0
 "http://vim.wikia.com/wiki/VimTip30
@@ -280,7 +286,7 @@ if has("statusline")
   hi! User3  gui=NONE guifg=#bcc9db guibg=#073642 gui=bold
   hi! User4  gui=NONE guifg=#d7d7af guibg=#073642 gui=bold
   " Highlighting: Setup some nice colours to show the mark positions.
-  hi! FoldColumn guibg=bg guifg=fg ctermfg=fg ctermbg=bg gui=reverse cterm=reverse
+  "hi! FoldColumn guibg=bg guifg=fg ctermfg=fg ctermbg=bg gui=reverse cterm=reverse
 endif
 " if there is only one window
 set cmdheight=1 " use a status bar that is 2 rows high

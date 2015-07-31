@@ -87,31 +87,31 @@ autocmd BufWritePost *
 map <C-F3> :!ctags -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
 " }}}
 
-" CtrlP {{{
-"https://github.com/kien/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_cache_dir = $HOME.'/ctrlp_cache'
-let g:ctrlp_max_height = 15
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_prompt_mappings='<S-F4>'
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\.git$\|\.hg$\|\.svn$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$',
-    \ 'link': 'some_bad_symbolic_links',
-    \ }
-"http://vim.wikia.com/wiki/Fix_errors_that_relate_to_reading_or_creating_files_in_the_temp_or_tmp_environment_on_an_MS_Windows_PC
-let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
-nmap <C-p> :CtrlP<CR>
-imap <C-p> <esc>:CtrlP<CR>
-nmap <C-b> :CtrlPBuffer<CR>
-imap <C-b> <esc>:CtrlPBuffer<CR>
-nnoremap <leader>t :CtrlPTag<cr>
-"}}}
+"" CtrlP {{{
+""https://github.com/kien/ctrlp.vim
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_working_path_mode = 'ra'
+"let g:ctrlp_cache_dir = $HOME.'/ctrlp_cache'
+"let g:ctrlp_max_height = 15
+"let g:ctrlp_clear_cache_on_exit = 1
+"let g:ctrlp_follow_symlinks = 1
+"let g:ctrlp_match_window_bottom = 0
+"let g:ctrlp_prompt_mappings='<S-F4>'
+"set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+"let g:ctrlp_custom_ignore = {
+    "\ 'dir': '\.git$\|\.hg$\|\.svn$',
+    "\ 'file': '\.exe$\|\.so$\|\.dll$',
+    "\ 'link': 'some_bad_symbolic_links',
+    "\ }
+""http://vim.wikia.com/wiki/Fix_errors_that_relate_to_reading_or_creating_files_in_the_temp_or_tmp_environment_on_an_MS_Windows_PC
+"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
+"nmap <C-p> :CtrlP<CR>
+"imap <C-p> <esc>:CtrlP<CR>
+"nmap <C-b> :CtrlPBuffer<CR>
+"imap <C-b> <esc>:CtrlPBuffer<CR>
+"nnoremap <leader>t :CtrlPTag<cr>
+""}}}
 
 " Syntastic {{{
 " https://github.com/scrooloose/syntastic
@@ -440,4 +440,9 @@ let g:ycm_filetype_blacklist = {
 
       "\ 'python' : 1,
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" }}}
+
+" {{{ ack
+" https://github.com/mileszs/ack.vim
+let g:ack_default_options=" -s -H --nogroup --nocolor --column --smart-case --follow "
 " }}}

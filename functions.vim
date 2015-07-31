@@ -84,8 +84,9 @@ function! RotateColorTheme()
    let y = -1
    while y == -1
       "http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
-      let colorstring = "#codeschool#Monokai#mustang#wombat#github#solarized#eclipse#"
-                        \ . "tomorrow-night#summerfruit256#proman#codeblocks-dark#visualstudio#Tomorrow"
+      "#solarized#tomorrow-night#
+      let colorstring = "#xoria256#codeschool#Monokai#mustang#wombat#github#eclipse#"
+                        \ . "summerfruit256#proman#codeblocks-dark#visualstudio#Tomorrow"
       let x = match(colorstring,"#",g:themeindex)
       let y = match(colorstring,"#",x + 1)
       let g:themeindex = x + 1

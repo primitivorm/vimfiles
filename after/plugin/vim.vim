@@ -15,6 +15,6 @@ endif
 "autocmd BufRead,BufNewFile,BufEnter *.vim nnoremap <F5> :exe getline(".")<CR>
 "autocmd BufRead,BufNewFile,BufEnter *.vim vnoremap <F5> :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR>
 "http://superuser.com/questions/370619/can-vim-autocommand-be-triggered-by-filetype-instead-of-by-pattern
-au BufEnter * if &ft ==# 'vim' | nnoremap <F5> :exe getline(".")<CR> | endif
-au BufEnter * if &ft ==# 'vim' | vnoremap <F5> :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR> | endif
+au BufEnter * if &ft ==# 'vim' | nnoremap <C-F5> :exe getline(".")<CR> | endif
+au BufEnter * if &ft ==# 'vim' | vnoremap <C-F5> :<C-w>exe join(getline("'<","'>"),'<Bar>')<CR> | endif
 "}}}

@@ -2,8 +2,6 @@
 "Plugins list
 "--------------------------------------------
 
-Plugin 'Align'
-Plugin 'AutoAlign'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'L9'
 Plugin 'QuickBuf'
@@ -21,7 +19,6 @@ Plugin 'godlygeek/tabular'
 Plugin 'hexHighlight.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jakobwesthoff/argumentrewrap'
-Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'mileszs/ack.vim'
@@ -48,14 +45,18 @@ Plugin 'tpope/vim-repeat'
 Plugin 'Zenburn'
 Plugin 'goatslacker/mango.vim'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'xoria256.vim'
 
 "testing version
 Plugin 'primitivorm/vim-latino'
 "Plugin 'primitivorm/vim-predictive'
 
+"Plugin 'Align'
+"Plugin 'AutoAlign'
 "Plugin 'Valloric/ListToggle'
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'dyng/ctrlsf.vim'
+"Plugin 'kien/ctrlp.vim'
 
 " Brief help {{{
 " :PluginList - list configured bundles
