@@ -21,7 +21,7 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 " Highlight all words when press <CR> {{{
 let g:highlighting = 0
 function! Highlighting()
-  if g:highlighting == 1 && @/ =~ '^\'.expand('<cword>').'\$'
+  if g:highlighting == 1 && @/ =~ '^'.expand('<cword>').'$'
     let g:highlighting = 0
     return ":silent nohlsearch\<CR>"
   endif
@@ -43,16 +43,17 @@ function! AutoHighlightToggle()
   if exists('#auto_highlight')
     au! auto_highlight
     augroup! auto_highlight
-    setl updatetime=1000
-    echo 'Highlight current word: off'
+    setl updatetime=500
     return 0
   else
     augroup auto_highlight
       au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'),'\').'\>'
+    let curr = getline('.')[col('.')-1]
+    if curr !~ '\W'
+      au CursorHold * let @/ = expand('<cword>')
+    endif
     augroup end
-    setl updatetime=1000
-    echo 'Highlight current word: ON'
+    setl updatetime=500
     return 1
   endif
 endfunction

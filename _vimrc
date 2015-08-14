@@ -1,4 +1,4 @@
-"runtime bundle/tplugin_vim/macros/tplugin.vim
+runtime bundle/tplugin_vim/macros/tplugin.vim
 "TPluginScan!
 "http://learnvimscriptthehardway.stevelosh.com/
 
@@ -160,7 +160,8 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=LettrGoth12_BT:h12,
+set guifont=\Courier_New:h10:b,
+            \LettrGoth12_BT:h12,
             \Andale_Mono:h11,
             \Meslo_LG_M_for_Powerline:h11,
             \Consolas:h11,
@@ -174,7 +175,6 @@ set guifont=LettrGoth12_BT:h12,
             \DejaVu_Sans_Mono_for_Powerline:h11,
             \Inconsolata_for_Powerline:h11,
             \Consola_Mono:h11,
-            \Monaco:h10,
             \Input:h11,
             \InputMonoNarrow:h11,
             \Sauce_Code_Powerline:h11,

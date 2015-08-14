@@ -9,3 +9,5 @@ endif
 " Autoformat
 autocmd BufRead,BufNewFile *.c nnoremap <leader>f :silent Autoformat<cr>
 autocmd BufRead,BufNewFile *.c vmap <leader>f :silent Autoformat<cr>
+
+"autocmd CursorHold *.[ch] nested exe "silent! ptag " . expand("<cword>")
