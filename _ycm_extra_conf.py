@@ -58,7 +58,6 @@ flags = [
 '-isystem',
 'C:\mingw\include',
 '-isystem',
-'~/Documents/GitHub/latino/src/',
 '-I',
 '.',
 '-I',

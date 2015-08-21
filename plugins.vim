@@ -87,32 +87,6 @@ autocmd BufWritePost *
 map <C-F3> :!ctags -R --c++-kinds=+cmnp --fields=+ianmzS --extra=+fq --exclude="bin" *<CR>
 " }}}
 
-"" CtrlP {{{
-""https://github.com/kien/ctrlp.vim
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"let g:ctrlp_working_path_mode = 'ra'
-"let g:ctrlp_cache_dir = $HOME.'/ctrlp_cache'
-"let g:ctrlp_max_height = 15
-"let g:ctrlp_clear_cache_on_exit = 1
-"let g:ctrlp_follow_symlinks = 1
-"let g:ctrlp_match_window_bottom = 0
-"let g:ctrlp_prompt_mappings='<S-F4>'
-"set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
-"let g:ctrlp_custom_ignore = {
-    "\ 'dir': '\.git$\|\.hg$\|\.svn$',
-    "\ 'file': '\.exe$\|\.so$\|\.dll$',
-    "\ 'link': 'some_bad_symbolic_links',
-    "\ }
-""http://vim.wikia.com/wiki/Fix_errors_that_relate_to_reading_or_creating_files_in_the_temp_or_tmp_environment_on_an_MS_Windows_PC
-"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d' " Windows
-"nmap <C-p> :CtrlP<CR>
-"imap <C-p> <esc>:CtrlP<CR>
-"nmap <C-b> :CtrlPBuffer<CR>
-"imap <C-b> <esc>:CtrlPBuffer<CR>
-"nnoremap <leader>t :CtrlPTag<cr>
-""}}}
-
 " Syntastic {{{
 " https://github.com/scrooloose/syntastic
 let g:syntastic_enable_balloons = 1
@@ -120,7 +94,7 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_auto_jump=1
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
-    \ 'active_filetypes': ['ruby', 'php', 'cs', 'python', 'lisp', 'json', 'js', 'html', 'xhtml', 'xml'],
+    \ 'active_filetypes': ['ruby', 'php', 'cs', 'python', 'lisp', 'json', 'js', 'html', 'xhtml', 'xml', 'c', 'cpp'],
     \ 'passive_filetypes': ['puppet'] }
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_error_symbol='E'
@@ -134,11 +108,13 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_python_checkers=['pylint']
 if !&diff
   let g:syntastic_check_on_open=1
+  let g:syntastic_check_on_wq =0
 endif
 
 "c compiler options
+"let g:syntastic_c_checkers = ['clang_check']
 let g:syntastic_c_compiler = 'gcc'
-let g:syntastic_c_compiler_options = '-std=c11'
+let g:syntastic_c_compiler_options = '-std=c11 -stdlib=libc'
 
 "quickfix
 set cscopequickfix=s-,c-,d-,i-,t-,e-,g-,f-
@@ -401,7 +377,7 @@ nmap <silent> <leader>gu :GitPull<CR>
 "}}}
 
 " quick buffer {{{
-  let g:qb_hotkey = "<F4>"
+let g:qb_hotkey = "<F4>"
 "}}}
 "
 "vim-predictive {{{
@@ -413,9 +389,31 @@ let g:predictive#debug=0
 
 " YouCompleteMe {{{
 "https://github.com/Valloric/YouCompleteMe
+
+""{{{ Uncomment this lines for ycm syntax checker
+"let g:ycm_register_as_syntastic_checker = 1 "default 1
+"let g:Show_diagnostics_ui = 1 "default 1
+""will put icons in Vim's gutter on lines that have a diagnostic set.
+""Turning this off will also turn off the YcmErrorLine and YcmWarningLine
+""highlighting
+"let g:ycm_enable_diagnostic_signs = 1
+"let g:ycm_enable_diagnostic_highlighting = 0
+"let g:ycm_always_populate_location_list = 1 "default 0
+"let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+"let g:ycm_complete_in_strings = 1 "default 1
+"let g:ycm_collect_identifiers_from_tags_files = 0 "default 0
+"let g:ycm_path_to_python_interpreter = '' "default ''
+"let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+"let g:ycm_server_log_level = 'info' "default info
+"let g:ycm_confirm_extra_conf = 1
+"let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+"let g:ycm_filetype_whitelist = { '*': 1 }
+"let g:ycm_key_invoke_completion = '<C-Space>'
+"nnoremap <F11> :YcmForceCompileAndDiagnostics <CR>
+"" }}}
+
 let g:ycm_confirm_extra_conf=0
 let g:ycm_global_ycm_extra_conf = "~/vimfiles/_ycm_extra_conf.py"
-"let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_autoclose_preview_window_after_completion=0
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
@@ -432,13 +430,10 @@ let g:ycm_filetype_blacklist = {
       \ 'pandoc' : 1,
       \ 'infolog' : 1,
       \ 'mail' : 1,
-      \ 'java' : 1,
       \ 'help' : 1,
       \ 'vim' : 1,
-      \ 'sql' : 1
       \}
 
-      "\ 'python' : 1,
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " }}}
 

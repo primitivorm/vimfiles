@@ -113,7 +113,7 @@ endfunction
 nmap <silent><C-F12> :execute ChangeBackground()<CR>
 " }}}
 
-" Incrrement visual selection {{{
+" Increment visual selection {{{
 " http://vim.wikia.com/wiki/Making_a_list_of_numbers
 function! Incr()
   let a = line('.') - line("'<")
