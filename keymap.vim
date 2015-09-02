@@ -32,7 +32,7 @@ nmap <Leader><Bar> <C-w><Bar>
 "}}}
 
 " Window navigation {{{
-map <C-w> <C-w>w " cycle between the open windows
+"map <C-w> <C-w>w " cycle between the open windows
 map <C-Left> <C-w>h " focus the window to the left
 map <C-Down> <C-w>j " focus the window to the down
 map <C-Up> <C-w>k " focus the window to the up

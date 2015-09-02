@@ -28,10 +28,6 @@ let g:NERDTreeCaseSensitiveSort = 0
 let g:NERDTreeQuitOnOpen        = 1
 let g:NERDTreeMouseMode         = 2
 let NERDTreeShowHidden          = 0
-"open in new tab with Ctrl-Enter
-"let NERDTreeMapOpenInTab='<c-cr>'
-"let NERDTreeMapOpenInTabSilent='<c-cr>'
-"let g:NERDTreeDirArrows=1
 let g:NERDTreeDirArrows=0
 "the working directory is always the one where the active buffer is located.
 set autochdir
@@ -237,6 +233,7 @@ set noshowmatch
 "don't autoselect first item in omnicomplete, show if only one item (for preview)
 "set completeopt=menuone,menu,longest
 set completeopt=menuone,menu
+"set completeopt=menuone,menu,preview
 let g:Omnisharp_highlight_user_types=1
 "mappings
 "autocmd FileType cs nmap <F5> :wa!<cr> :call OmniSharp#Build()<cr>
@@ -273,6 +270,7 @@ set splitbelow
 " want to add those.
 let g:acp_completeOption = '.,w,b,u,t,i'
 "let g:acp_completeOption = '.,w,b,u'
+"let g:acp_completeoptPreview = 0
 "length to trigger AutoComplPop
 "let g:acp_behaviorFileLength = 3
 "let g:acp_behaviorKeywordLength = 3
@@ -284,7 +282,6 @@ let g:acp_completeOption = '.,w,b,u,t,i'
 "let g:acp_behaviorCssOmniPropertyLength = 3
 "let g:acp_behaviorSnipmateLength=3
 "let g:acp_behaviorRubyOmniMethodLength=3
-
 "}}}
 
 " SuperTab {{{

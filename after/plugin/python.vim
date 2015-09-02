@@ -18,7 +18,7 @@ autocmd BufRead,BufNewFile *.py nnoremap <leader>r :RopeRename<cr>
 "autocmd filetype python setlocal omnifunc=jedi#completions
 "autocmd filetype python setlocal completefunc=jedi#completions
 "disable preview window
-autocmd filetype python setlocal completeopt-=preview
+"autocmd filetype python setlocal completeopt-=preview
 
 autocmd filetype python setlocal expandtab
 autocmd filetype python setlocal foldlevel=99
