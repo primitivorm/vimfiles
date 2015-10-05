@@ -104,7 +104,7 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_python_checkers=['pylint']
 if !&diff
   let g:syntastic_check_on_open=1
-  let g:syntastic_check_on_wq =0
+  "let g:syntastic_check_on_wq=0
 endif
 
 "c compiler options
@@ -411,7 +411,7 @@ let g:predictive#debug=0
 
 let g:ycm_confirm_extra_conf=0
 let g:ycm_global_ycm_extra_conf = "~/vimfiles/_ycm_extra_conf.py"
-let g:ycm_autoclose_preview_window_after_completion=0
+let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:syntastic_always_populate_loc_list = 1
