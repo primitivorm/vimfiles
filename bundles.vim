@@ -46,6 +46,7 @@ Plugin 'Zenburn'
 Plugin 'goatslacker/mango.vim'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'xoria256.vim'
+Plugin 'noahfrederick/vim-hemisu'
 
 "testing version
 Plugin 'primitivorm/vim-latino'

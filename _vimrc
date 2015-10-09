@@ -128,9 +128,9 @@ if exists("syntax_on")
     syntax reset
 endif
 
-colo github
+"colo github
 "colo summerfruit256
-"colo proman
+colo proman
 "colo xoria256
 "colo codeblocks-dark
 "colo wombat
