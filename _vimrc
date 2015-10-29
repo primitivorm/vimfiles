@@ -121,8 +121,8 @@ endif
 syntax on
 "syntax enable
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 hi clear
 if exists("syntax_on")
     syntax reset
@@ -130,10 +130,10 @@ endif
 
 "colo github
 "colo summerfruit256
-colo proman
+"colo proman
 "colo xoria256
 "colo codeblocks-dark
-"colo wombat
+colo wombat
 "colo codeschool
 "colo mango
 "colo mustang
@@ -162,6 +162,7 @@ set fileformats=dos,unix
 set listchars=tab:»\-,trail:·,eol:¬
 
 set guifont=Consolas:h11,
+            \monofur:h11:cANSI,
             \Courier_New:h10:b,
             \LettrGoth12_BT:h12,
             \Andale_Mono:h11,
