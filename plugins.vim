@@ -438,3 +438,9 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " https://github.com/mileszs/ack.vim
 let g:ack_default_options=" -s -H --nogroup --nocolor --column --smart-case --follow "
 " }}}
+
+" {{{
+" https://github.com/funorpain/vim-cpplint
+autocmd FileType cpp map <buffer> <F8> :call Cpplint()<CR>
+autocmd BufWritePost *.h,*.cpp call Cpplint()
+" }}}

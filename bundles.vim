@@ -47,6 +47,7 @@ Plugin 'goatslacker/mango.vim'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'xoria256.vim'
 Plugin 'noahfrederick/vim-hemisu'
+Plugin 'funorpain/vim-cpplint'
 
 "testing version
 Plugin 'primitivorm/vim-latino'
