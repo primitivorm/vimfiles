@@ -48,6 +48,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'xoria256.vim'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'funorpain/vim-cpplint'
+Plugin 'captbaritone/better-indent-support-for-php-with-html'
 
 "testing version
 Plugin 'primitivorm/vim-latino'

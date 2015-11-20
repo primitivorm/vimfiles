@@ -121,8 +121,8 @@ endif
 syntax on
 "syntax enable
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 hi clear
 if exists("syntax_on")
     syntax reset
@@ -220,8 +220,9 @@ set smartindent
 "sangrado automatico
 "define el numero espacios para la tecla <TAB>
 "use 4 spaces for tabs set tabstop=4 softtabstop=4 shiftwidth=4 " display indentation guides
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 "change tabs to spaces
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'

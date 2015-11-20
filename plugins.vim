@@ -310,16 +310,7 @@ let g:UltiSnipsJumpBackwardTrigger   = '<s-tab>'
 
 " vim-autoformat {{{
 " https://github.com/Chiel92/vim-autoformat
-let g:formatprg_cs = "astyle"
-let g:formatprg_args_cs = "--mode=cs --style=ansi -pcHs4"
-let g:formatprg_args_expr_cs = '"--mode=cs --style=ansi -pcHs".&shiftwidth'
-let g:formatprg_c = "astyle"
-let g:formatprg_args_c = "--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s4"
-let g:formatprg_args_expr_c = '"--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s".&shiftwidth'
-let g:formatprg_cpp = "astyle"
-let g:formatprg_args_cpp =  "--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s4"
-let g:formatprg_args_expr_cpp = '"--style=kr -C -N -m0 -M40 -w -xw -Y -c -p -H -U -xe -k3 -s".&shiftwidth'
-set equalprg=astyle
+let g:autoformat_verbosemode = 1
 "}}}
 
 " vim-jsbeautify {{{
@@ -441,6 +432,6 @@ let g:ack_default_options=" -s -H --nogroup --nocolor --column --smart-case --fo
 
 " {{{
 " https://github.com/funorpain/vim-cpplint
-autocmd FileType cpp map <buffer> <F8> :call Cpplint()<CR>
+autocmd FileType c,cpp map <buffer> <F8> :call Cpplint()<CR>
 autocmd BufWritePost *.h,*.cpp call Cpplint()
 " }}}
