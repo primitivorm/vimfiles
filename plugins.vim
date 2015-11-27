@@ -129,14 +129,14 @@ let g:dbext_default_profile_sql_qavw40='type=SQLSRV:srvname=10.48.95.40:dbname=a
 let g:dbext_default_history_file=$HOME . '/dbext_sql_history.txt'
 
 " execute statement
-autocmd FileType sql vmap <F5> :DBExecVisualSQL <cr>
-autocmd FileType sql nmap <F5> :DBExecVisualSQL <cr>
-autocmd FileType sql map <A-F1> :DBDescribeTable <cr>
+autocmd FileType sql vmap <buffer> <F5> :DBExecVisualSQL <cr>
+autocmd FileType sql nmap <buffer> <F5> :DBExecVisualSQL <cr>
+autocmd FileType sql map  <buffer> <A-F1> :DBDescribeTable <cr>
 "remap <leader>sl+ to <leader>l+
-autocmd FileType sql nmap <leader>lt :DBListTable <cr>
-autocmd FileType sql nmap <leader>lp :DBListProcedure <cr>
-autocmd FileType sql nmap <leader>lv :DBListView <cr>
-autocmd FileType sql nmap <leader>lc :DBListColumn <cr>
+autocmd FileType sql nmap <buffer> <leader>lt :DBListTable <cr>
+autocmd FileType sql nmap <buffer> <leader>lp :DBListProcedure <cr>
+autocmd FileType sql nmap <buffer> <leader>lv :DBListView <cr>
+autocmd FileType sql nmap <buffer> <leader>lc :DBListColumn <cr>
 "}}}
 
 " argumentrewrap {{{
