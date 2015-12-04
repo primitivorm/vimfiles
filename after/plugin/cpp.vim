@@ -7,5 +7,5 @@ if !&readonly && &modifiable
 endif
 
 " Autoformat
-autocmd BufRead,BufNewFile *.cpp nnoremap <leader>f :silent Autoformat<cr>
-autocmd BufRead,BufNewFile *.cpp vmap <leader>f :silent Autoformat<cr>
+autocmd BufRead,BufNewFile *.h,*.cpp nnoremap <leader>f :silent Autoformat<cr>
+autocmd BufRead,BufNewFile *.h,*.cpp vmap <leader>f :silent Autoformat<cr>

@@ -2,6 +2,9 @@
 "Plugins list
 "--------------------------------------------
 
+Plugin 'Align'
+"Plugin 'AutoAlign'
+"Plugin 'junegunn/vim-easy-align'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'L9'
 Plugin 'QuickBuf'
@@ -45,7 +48,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'funorpain/vim-cpplint'
-Plugin 'captbaritone/better-indent-support-for-php-with-html'
 "colors
 Plugin 'Zenburn'
 Plugin 'goatslacker/mango.vim'
@@ -57,10 +59,9 @@ Plugin 'reedes/vim-colors-pencil'
 Plugin 'primitivorm/vim-latino'
 "Plugin 'primitivorm/vim-predictive'
 
-"Plugin 'Align'
-"Plugin 'AutoAlign'
 "Plugin 'Valloric/ListToggle'
 "Plugin 'Yggdroot/indentLine'
+"Plugin 'captbaritone/better-indent-support-for-php-with-html'
 "Plugin 'dyng/ctrlsf.vim'
 "Plugin 'kien/ctrlp.vim'
 

@@ -432,6 +432,6 @@ let g:ack_default_options=" -s -H --nogroup --nocolor --column --smart-case --fo
 
 " {{{
 " https://github.com/funorpain/vim-cpplint
-autocmd FileType c,cpp map <buffer> <F8> :call Cpplint()<CR>
+autocmd FileType cpp map <buffer> <F8> :call Cpplint()<CR>
 autocmd BufWritePost *.h,*.cpp call Cpplint()
 " }}}
