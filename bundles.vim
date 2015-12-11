@@ -47,7 +47,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'noahfrederick/vim-hemisu'
-Plugin 'funorpain/vim-cpplint'
 "colors
 Plugin 'Zenburn'
 Plugin 'goatslacker/mango.vim'
@@ -64,6 +63,7 @@ Plugin 'primitivorm/vim-latino'
 "Plugin 'captbaritone/better-indent-support-for-php-with-html'
 "Plugin 'dyng/ctrlsf.vim'
 "Plugin 'kien/ctrlp.vim'
+"Plugin 'funorpain/vim-cpplint'
 
 " Brief help {{{
 " :PluginList - list configured bundles

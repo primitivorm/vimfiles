@@ -1,5 +1,6 @@
 " Automatic re-tab
 autocmd filetype c setlocal textwidth=0
+autocmd filetype c setlocal cindent
 
 " Convert tabs to spaces before writing file
 if !&readonly && &modifiable

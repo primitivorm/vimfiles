@@ -161,7 +161,7 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=Ubuntu_Mono_derivative_Powerlin:h12,
+set guifont=Ubuntu_Mono_derivative_Powerlin:h13,
             \Consolas:h11,
             \monofur:h11:cANSI,
             \Courier_New:h10:b,
