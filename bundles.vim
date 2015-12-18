@@ -47,6 +47,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'noahfrederick/vim-hemisu'
+Plugin 'tpope/vim-markdown'
+
 "colors
 Plugin 'Zenburn'
 Plugin 'goatslacker/mango.vim'

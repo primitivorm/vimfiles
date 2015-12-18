@@ -58,15 +58,18 @@ set tags=tags,./tags
 "openall=*
 let g:tagbar_width     = 25  "default 40
 let g:tagbar_compact   = 1   "default 0
-let g:tagbar_foldlevel   = 2  "default 99
+"let g:tagbar_foldlevel   = 2  "default 99
 let g:tagbar_ctags_bin   = 'ctags'
 let g:tagbar_autofocus   = 1   "default 0
-let g:tagbar_expand    = 0
+let g:tagbar_expand    = 1
 "let g:tagbar_iconchars  = ['▸', '▾']
 let g:tagbar_autoclose   = 0
-let g:tagbar_singleclick = 1
+"let g:tagbar_singleclick = 1
 let g:tagbar_sort=0
-"let g:tagbar_map_closeallfolds = ['_', 'zM',]
+let g:tagbar_map_closeallfolds = ['_', 'zM',]
+let g:tagbar_map_togglefold = ['<space>', 'za']
+let g:tagbar_map_jump = 'o'
+"let g:tagbar_show_linenumbers=1
 
 map <F3> :TagbarToggle<CR>
 nmap <C-]> :tabnew %<CR>g<C-]>
