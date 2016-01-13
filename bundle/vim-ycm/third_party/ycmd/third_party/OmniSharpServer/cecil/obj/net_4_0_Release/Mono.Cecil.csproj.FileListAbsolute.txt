@@ -1,0 +1,5 @@
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\cecil\bin\net_4_0_Release\Mono.Cecil.dll
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\cecil\bin\net_4_0_Release\Mono.Cecil.pdb
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\cecil\obj\net_4_0_Release\Mono.Cecil.csprojResolveAssemblyReference.cache
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\cecil\obj\net_4_0_Release\Mono.Cecil.dll
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\cecil\obj\net_4_0_Release\Mono.Cecil.pdb

@@ -1,0 +1,6 @@
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\NRefactory\bin\Debug\ICSharpCode.NRefactory.xml
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\NRefactory\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\NRefactory\bin\Debug\ICSharpCode.NRefactory.pdb
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\NRefactory\ICSharpCode.NRefactory\obj\Debug\ICSharpCode.NRefactory.csprojResolveAssemblyReference.cache
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\NRefactory\ICSharpCode.NRefactory\obj\Debug\ICSharpCode.NRefactory.dll
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\NRefactory\ICSharpCode.NRefactory\obj\Debug\ICSharpCode.NRefactory.pdb

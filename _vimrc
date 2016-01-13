@@ -128,13 +128,15 @@ if exists("syntax_on")
     syntax reset
 endif
 
+"colo base16-default
+"let base16colorspace=256
+"colo codeschool
 "colo github
 "colo summerfruit256
 colo proman
 "colo xoria256
 "colo codeblocks-dark
 "colo wombat
-"colo codeschool
 "colo mango
 "colo mustang
 "colo Tomorrow-Night
@@ -161,8 +163,10 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=Consolas_for_Powerline_FixedD:h11,
-            \Consolas:h11,
+set guifont=Consolas:h11,
+            \Source_Code_Pro_Medium:h11,
+            \Inconsolata_for_Powerline:h12,
+            \Consolas_for_Powerline_FixedD:h11,
             \Bitstream_Vera_Sans_Mono:h11,
             \Droid_Sans_Mono_Dotted_for_Powe:h11,
             \DejaVu_Sans_Mono_for_Powerline:h11,
@@ -177,7 +181,6 @@ set guifont=Consolas_for_Powerline_FixedD:h11,
             \Anonymous_Pro_for_Powerline:h11,
             \Envy_Code_R_for_Powerline:h11,
             \Lucida_Console:h11,
-            \Inconsolata_for_Powerline:h11,
             \Consola_Mono:h11,
             \Input:h11,
             \InputMonoNarrow:h11,
@@ -212,10 +215,10 @@ set nrformats+=alpha,hex
 set display=lastline
 "set formatoptions=tcq "default
 set formatoptions+=qrn1 " When wrapping paragraphs, don't end lines with 1-letter words (looks stupid)
-"if exists('+colorcolumn')
-  "set colorcolumn=79
-  ""let &colorcolumn="80,".join(range(100,999),",")
-"endif
+if exists('+colorcolumn')
+  set colorcolumn=79
+  let &colorcolumn="80,".join(range(100,999),",")
+endif
 "habilita sangrado inteligente
 set smartindent
 "sangrado automatico
@@ -306,7 +309,7 @@ set undolevels=1000 " use many muchos levels of undo
 "char for split
 "set fillchars=stl:-,stlnc:-,vert:\|
 set fillchars=vert:\|
-"piexel space between lines
+"pixel space between lines
 set linespace=0
 "muestra los caracteres ocultos y los remplaza por los establecidos
 set nolist

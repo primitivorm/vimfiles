@@ -48,6 +48,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'noahfrederick/vim-hemisu'
 Plugin 'tpope/vim-markdown'
+Plugin 'mattn/emmet-vim'
+Plugin 'OmniSharp/omnisharp-vim'
 
 "colors
 Plugin 'Zenburn'
@@ -55,6 +57,7 @@ Plugin 'goatslacker/mango.vim'
 Plugin 'jonathanfilip/lucius'
 Plugin 'xoria256.vim'
 Plugin 'reedes/vim-colors-pencil'
+Plugin 'chriskempson/base16-vim'
 
 "testing version
 Plugin 'primitivorm/vim-latino'

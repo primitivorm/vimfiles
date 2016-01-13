@@ -1,0 +1,5 @@
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\Microsoft.Build.Evaluation\bin\Debug\Microsoft.Build.Evaluation.dll
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\Microsoft.Build.Evaluation\bin\Debug\Microsoft.Build.Evaluation.pdb
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\Microsoft.Build.Evaluation\obj\Debug\Microsoft.Build.Evaluation.csprojResolveAssemblyReference.cache
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\Microsoft.Build.Evaluation\obj\Debug\Microsoft.Build.Evaluation.dll
+C:\Users\proman02\vimfiles\bundle\vim-ycm\third_party\ycmd\third_party\OmniSharpServer\Microsoft.Build.Evaluation\obj\Debug\Microsoft.Build.Evaluation.pdb

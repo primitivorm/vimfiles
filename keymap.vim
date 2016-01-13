@@ -217,8 +217,8 @@ map <leader>h :set hlsearch! hlsearch?<CR>
 nmap <leader>l :set list!<CR>
 
 " Edit the vimrc file
-nmap <silent><leader>ed :tabnew $MYVIMRC<CR>
-nmap <F5> :source $MYVIMRC<CR>
+autocmd FileType vim nmap <silent><leader>ed :tabnew $MYVIMRC<CR>
+autocmd FileType vim nmap <F5> :source $MYVIMRC<CR>
 
 " Quickly get out of insert mode without your fingers having to leave the
 " home row (either use 'jj' or 'jk')
