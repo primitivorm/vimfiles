@@ -127,7 +127,7 @@ if !exists("did_csharp_syntax_inits")
     hi link csharpCharacter string
     hi link csharpComment Comment
     hi link csharpLineComment Comment
-hi link csharpTodo Todo
+    hi link csharpTodo Todo
     hi link csharpProperties Operator
     hi link csharpTypeConvertDecl Operator
     hi link csharpSystemClass StorageClass

@@ -50,6 +50,8 @@ Plugin 'noahfrederick/vim-hemisu'
 Plugin 'tpope/vim-markdown'
 Plugin 'mattn/emmet-vim'
 Plugin 'OmniSharp/omnisharp-vim'
+Plugin 'primitivorm/srcctl'
+Plugin 'perl-support.vim'
 
 "colors
 Plugin 'Zenburn'

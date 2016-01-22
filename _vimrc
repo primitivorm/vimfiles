@@ -1,7 +1,6 @@
 runtime bundle/tplugin_vim/macros/tplugin.vim
 "TPluginScan!
 "http://learnvimscriptthehardway.stevelosh.com/
-
 "--------------------------------------------
 " VIM CONFIGURATION
 "--------------------------------------------
@@ -267,7 +266,8 @@ endif
 " Folding rules {{{
 set foldenable " enable folding
 set foldcolumn=1 " add a fold column
-set foldmethod=syntax
+"set foldmethod=syntax
+set foldmethod=indent
 set foldnestmax=9
 set foldlevel=99
 set foldlevelstart=99 "start out with everything unfolded

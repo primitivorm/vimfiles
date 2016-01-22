@@ -56,11 +56,11 @@ set tags=tags,./tags
 "open fold=+
 "close fold=-
 "openall=*
-"let g:tagbar_width     = 35  "default 40
+let g:tagbar_width     = 35  "default 40
 let g:tagbar_compact   = 1   "default 0
 let g:tagbar_ctags_bin   = 'ctags'
 let g:tagbar_autofocus   = 1   "default 0
-let g:tagbar_expand    = 1
+let g:tagbar_expand    = 2
 let g:tagbar_autoclose   = 0
 let g:tagbar_sort=0
 let g:tagbar_map_closeallfolds = ['_', 'zM',]
@@ -117,11 +117,12 @@ nmap <silent> <leader>sc :SyntasticCheck<cr>
 "}}}
 
 " Dbext {{{
+" NOTES: Requires PERL SUPPORT
 "http://www.vim.org/scripts/script.php?script_id=356
 "https://mutelight.org/dbext-the-last-sql-client-youll-ever-need
 "connect to sql server instance
-let g:dbext_default_profile_sql_qa40='type=SQLSRV:srvname=10.48.95.40:dbname=amqa:user=espejopruebas:passwd=12345678'
-let g:dbext_default_profile_sql_qavw40='type=SQLSRV:srvname=10.48.95.40:dbname=amqavw:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_qa40='type=SQLSRV:srvname=:dbname=USDFW14DB10\SQLSERVER2K8,1443amqa:user=espejopruebas:passwd=12345678'
+let g:dbext_default_profile_sql_qavw40='type=SQLSRV:srvname=USDFW14DB10\SQLSERVER2K8,1443:dbname=amqavw:user=espejopruebas:passwd=12345678'
 
 "add this comment at begin of file script to shebang
 "// dbext:profile=sql_qavw
@@ -179,12 +180,14 @@ let guifontpp_larger_font_map="<M-Up>"
 let guifontpp_original_font_map="<M-=>"
 "}}}
 
-" csctrl {{{
-"http://vim.sourceforge.net/scripts/script.php?script_id=770
+" srcctl {{{
+" http://www.vim.org/scripts/script.php?script_id=770
+" http://vim.sourceforge.net/scripts/script.php?script_id=770
+" https://github.com/primitivorm/srcctl
 "ss path
-let g:ssExecutable = 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
+"let g:ssExecutable = 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
+let g:ssExecutable = "ss.exe"
 let g:scMenuPath   ='SourceSafe'   "menu name
-let g:scUserName   = $SSUSER . ',' . $SSPWD
 let g:scDiffVertical   =1
 let g:scHistVertical   =1
 let g:scSetRuler   =1
@@ -192,9 +195,12 @@ let g:scMaintainStatus =1
 let g:scShowAllLocks   =1
 let g:scShowExtra  =1
 "ADD environment variables
+"-------------------------
 "SSUSER
 "SSPWD
-"Add to path: 'C:\Program Files (x86)\Microsoft Visual SourceSafe\ss.exe'
+"Add to path: 'C:\Program Files (x86)\Microsoft Visual SourceSafe'
+"Create file .project with following content:
+" vss:@{SSDIR-PATH}@{ProjectPath}
 "}}}
 
 " multiple-cursors {{{
