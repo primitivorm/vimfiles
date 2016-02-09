@@ -191,6 +191,8 @@ set guifont=Consolas:h11,
 "temporal directories
 set directory=.,$TMP,$TEMP
 set undodir=.,$TMP,$TEMP
+"no create undo file .un~
+set noundofile
 
 "habilita soporte para plugins
 filetype on
