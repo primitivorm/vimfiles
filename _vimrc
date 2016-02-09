@@ -120,8 +120,8 @@ endif
 syntax on
 "syntax enable
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 hi clear
 if exists("syntax_on")
     syntax reset
