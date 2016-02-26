@@ -8,6 +8,7 @@ runtime bundle/tplugin_vim/macros/tplugin.vim
 " Source the vimrc file after saving it {{{
 let $MYVIMRC=expand($HOME.'/vimfiles/_vimrc')
 let $VIMFILES=expand($HOME.'/vimfiles/')
+let g:skip_loading_mswin=1
 "https://github.com/tpope/tpope/blob/master/.vimrc
 " Key mappings, functions, auto commands
 source $HOME/vimfiles/keymap.vim

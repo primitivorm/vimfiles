@@ -3408,7 +3408,8 @@ sub _remove_redundancies {
         my (%seen, @uniq);
 
         foreach my $path (map { $_->{path} } @configs) {
-            push @uniq, $path unless $seen{$path};
+            # push @uniq, $path unless $seen{$path};
+            push @uniq, { path => $path } unless $seen{$path}; # fix on Windows for errormessage: Can't use string ("C:\ProgramData\ackrc") as a HASH ref while "strict refs" in use at ack-2.12-single-file line 4223
             $seen{$path} = 1;
         }
 

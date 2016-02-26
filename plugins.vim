@@ -141,7 +141,7 @@ autocmd FileType sql nmap <buffer> <leader>lc :DBListColumn <cr>
 
 " argumentrewrap {{{
 "https://github.com/jakobwesthoff/argumentrewrap
-nmap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
+"nmap <silent> <leader>ra :call argumentrewrap#RewrapArguments()<CR>
 " }}}
 
 " sqlserver {{{
@@ -405,13 +405,15 @@ let g:predictive#debug=0
 "nnoremap <F11> :YcmForceCompileAndDiagnostics <CR>
 "" }}}
 
-let g:ycm_confirm_extra_conf=0
+let g:ycm_confirm_extra_conf=1
 let g:ycm_global_ycm_extra_conf = "~/vimfiles/_ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:syntastic_always_populate_loc_list = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_collect_identifiers_from_tags_files=0
+let g:ycm_server_log_level='info'
+let g:ycm_server_keep_logfiles=0
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'qf' : 1,

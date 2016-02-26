@@ -65,4 +65,4 @@ autocmd BufRead,BufNewFile *.cs inoremap <silent>; ;<esc>:call FormatStatement()
 "for each line in buffer rewrap on write
 "http://vim.wikia.com/wiki/Power_of_g
 "<leader>ra :call argumentrewrap#RewrapArguments()<cr>
-autocmd! BufWritePre *.cs :silent g/\v^(\s|\w)+\(.+,+.+\)/call argumentrewrap#RewrapArguments()
+"autocmd! BufWritePre *.cs :silent g/\v^(\s|\w)+\(.+,+.+\)/call argumentrewrap#RewrapArguments()
