@@ -383,28 +383,6 @@ let g:predictive#debug=0
 " YouCompleteMe {{{
 "https://github.com/Valloric/YouCompleteMe
 
-""{{{ Uncomment this lines for ycm syntax checker
-"let g:ycm_register_as_syntastic_checker = 1 "default 1
-"let g:Show_diagnostics_ui = 1 "default 1
-""will put icons in Vim's gutter on lines that have a diagnostic set.
-""Turning this off will also turn off the YcmErrorLine and YcmWarningLine
-""highlighting
-"let g:ycm_enable_diagnostic_signs = 1
-"let g:ycm_enable_diagnostic_highlighting = 0
-"let g:ycm_always_populate_location_list = 1 "default 0
-"let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
-"let g:ycm_complete_in_strings = 1 "default 1
-"let g:ycm_collect_identifiers_from_tags_files = 0 "default 0
-"let g:ycm_path_to_python_interpreter = '' "default ''
-"let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
-"let g:ycm_server_log_level = 'info' "default info
-"let g:ycm_confirm_extra_conf = 1
-"let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
-"let g:ycm_filetype_whitelist = { '*': 1 }
-"let g:ycm_key_invoke_completion = '<C-Space>'
-"nnoremap <F11> :YcmForceCompileAndDiagnostics <CR>
-"" }}}
-
 let g:ycm_confirm_extra_conf=1
 let g:ycm_global_ycm_extra_conf = "~/vimfiles/_ycm_extra_conf.py"
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -412,8 +390,13 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:syntastic_always_populate_loc_list = 1
 let g:ycm_collect_identifiers_from_tags_files=0
-let g:ycm_server_log_level='info'
-let g:ycm_server_keep_logfiles=0
+"let g:ycm_server_log_level='info'
+let g:ycm_server_log_level='debug'
+let g:ycm_server_keep_logfiles=1
+"let g:ycm_warning_symbol = '.'
+"let g:ycm_error_symbol = '..'
+let g:ycm_server_use_vim_stdout = 1
+"let g:ycm_path_to_python_interpreter = 'c:\Python27\python.exe'
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'qf' : 1,

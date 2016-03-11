@@ -121,8 +121,8 @@ endif
 syntax on
 "syntax enable
 
-set background=dark
-"set background=light
+"set background=dark
+set background=light
 hi clear
 if exists("syntax_on")
     syntax reset
@@ -164,6 +164,7 @@ set fileformats=dos,unix
 set listchars=tab:»\-,trail:·,eol:¬
 
 set guifont=Consolas:h11,
+            \PragmataPro:h10:cANSI,
             \Source_Code_Pro_Medium:h11,
             \Inconsolata_for_Powerline:h12,
             \Consolas_for_Powerline_FixedD:h11,

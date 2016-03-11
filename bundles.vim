@@ -52,6 +52,7 @@ Plugin 'Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'goatslacker/mango.vim'
 Plugin 'xoria256.vim'
+Plugin 'joshdick/onedark.vim'
 
 "testing version
 Plugin 'primitivorm/vim-latino'
