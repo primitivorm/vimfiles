@@ -45,7 +45,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-niji'
-Plugin 'visualMarks.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 "colors
 Plugin 'Zenburn'
@@ -73,6 +73,7 @@ Plugin 'primitivorm/vim-latino'
 "Plugin 'AutoAlign'
 "Plugin 'junegunn/vim-easy-align'
 "Plugin 'jakobwesthoff/argumentrewrap'
+"Plugin 'visualMarks.vim'
 
 " Brief help {{{
 " :PluginList - list configured bundles
