@@ -134,6 +134,7 @@ endif
 "colo github
 "colo summerfruit256
 colo proman
+"colo desert
 "colo xoria256
 "colo codeblocks-dark
 "colo wombat
@@ -163,8 +164,9 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=Consolas:h11,
-            \PragmataPro:h10:cANSI,
+set guifont=\Liberation_Mono:h10:cANSI,
+            \PragmataPro:h11:cANSI,
+            \Consolas:h11,
             \Source_Code_Pro_Medium:h11,
             \Inconsolata_for_Powerline:h12,
             \Consolas_for_Powerline_FixedD:h11,
@@ -227,15 +229,15 @@ set smartindent
 "sangrado automatico
 "define el numero espacios para la tecla <TAB>
 "use 4 spaces for tabs set tabstop=4 softtabstop=4 shiftwidth=4 " display indentation guides
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 "change tabs to spaces
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 set virtualedit=onemore "go to end of line on insert mode at press <up> <down> key
 ""set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set backspace=2
+set backspace=4
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
 set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling
