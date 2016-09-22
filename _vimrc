@@ -121,8 +121,8 @@ endif
 syntax on
 "syntax enable
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 hi clear
 if exists("syntax_on")
     syntax reset
@@ -164,9 +164,9 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=\Liberation_Mono:h10:cANSI,
+set guifont=\Consolas:h10,
             \PragmataPro:h11:cANSI,
-            \Consolas:h11,
+            \Liberation_Mono:h10:cANSI,
             \Source_Code_Pro_Medium:h11,
             \Inconsolata_for_Powerline:h12,
             \Consolas_for_Powerline_FixedD:h11,
@@ -205,7 +205,7 @@ filetype plugin indent on " required!
 "muestra numeros de linea del archivo
 set nu
 " Show relative line numbers.
-"set rnu
+set rnu
 "forza a que la linea no se salte a la siguiente cuando no cabe en la ventana actual
 set nowrap
 set nolinebreak "lbr
@@ -236,8 +236,7 @@ set shiftwidth=4
 set expandtab
 set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
 set virtualedit=onemore "go to end of line on insert mode at press <up> <down> key
-""set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set backspace=4
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent " always set autoindenting on
 set copyindent " copy the previous indentation on autoindenting
 set scrolloff=5 " keep 5 lines off the edges of the screen when scrolling
