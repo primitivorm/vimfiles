@@ -165,7 +165,8 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=\Consolas:h10,
+set guifont=\Fira_Mono:h11:cANSI,
+            \Consolas:h10,
             \PragmataPro:h11:cANSI,
             \Liberation_Mono:h10:cANSI,
             \Source_Code_Pro_Medium:h11,
