@@ -133,7 +133,7 @@ endif
 "colo codeschool
 "colo github
 "colo summerfruit256
-colo proman
+"colo proman
 "colo desert
 "colo xoria256
 "colo codeblocks-dark
@@ -150,6 +150,7 @@ colo proman
 "colo skittles_berry
 "colo solarized
 "colo Papercolor
+colo onedark
 
 "Disabling vim's startup message
 "set shortmess=a
