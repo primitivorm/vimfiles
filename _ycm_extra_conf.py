@@ -56,8 +56,11 @@ flags = [
 '-x', #I don't know if I need remove -x
 'c',
 '-isystem',
-'C:\mingw\include',
-'-isystem',
+'-IC:\src\latino',
+'-IC:\src\latino\include',
+'-IC:\mingw\include',
+'-IC:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\crt\src',
+'-IC:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include',
 '-I',
 '.',
 '-I',

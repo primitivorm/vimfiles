@@ -165,7 +165,7 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=\Fira_Mono:h11:cANSI,
+set guifont=\Fira_Mono:h10:cANSI,
             \Consolas:h10,
             \PragmataPro:h11:cANSI,
             \Liberation_Mono:h10:cANSI,
@@ -342,6 +342,7 @@ set spellsuggest=best,10
 set dictionary+=~/vimfiles/spell/es_MX.dic
 set dictionary+=~/vimfiles/spell/en_US.dic
 "set complete-=k complete+=k
+set completeopt+=preview
 set keymap=accents
 set pumheight=10
 "syntax completion

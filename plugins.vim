@@ -25,8 +25,8 @@ let g:NERDTreeShowBookmarks     = 1
 let g:NERDTreeWinSize           = 40
 let g:NERDTreeChristmasTree     = 1
 let g:NERDTreeCaseSensitiveSort = 0
-let g:NERDTreeQuitOnOpen        = 1
-let g:NERDTreeMouseMode         = 2
+let g:NERDTreeQuitOnOpen        = 0
+let g:NERDTreeMouseMode         = 1
 let NERDTreeShowHidden          = 0
 let g:NERDTreeDirArrows=0
 "the working directory is always the one where the active buffer is located.
