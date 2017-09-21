@@ -128,12 +128,13 @@ if exists("syntax_on")
     syntax reset
 endif
 
+colo proman
+"colo onedark
 "colo base16-default
 "let base16colorspace=256
 "colo codeschool
 "colo github
 "colo summerfruit256
-"colo proman
 "colo desert
 "colo xoria256
 "colo codeblocks-dark
@@ -150,7 +151,6 @@ endif
 "colo skittles_berry
 "colo solarized
 "colo Papercolor
-colo onedark
 
 "Disabling vim's startup message
 "set shortmess=a
@@ -165,9 +165,9 @@ set fileformats=dos,unix
 "▸»·↵→←×┊│¬
 set listchars=tab:»\-,trail:·,eol:¬
 
-set guifont=\Fira_Mono:h10:cANSI,
+set guifont=\PragmataPro:h11:cANSI,
+            \Fira_Mono:h10:cANSI,
             \Consolas:h10,
-            \PragmataPro:h11:cANSI,
             \Liberation_Mono:h10:cANSI,
             \Source_Code_Pro_Medium:h11,
             \Inconsolata_for_Powerline:h12,
