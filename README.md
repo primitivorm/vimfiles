@@ -1,7 +1,9 @@
 Prerequisites
 ===
-1. Install pathogen https://github.com/tpope/vim-pathogen
-2. Install vundle https://github.com/gmarik/vundle
+1. Install vundle https://github.com/gmarik/vundle
+2. cd bundle
+3. rm -fr Vundle.vim
+4. git clone https://github.com/VundleVim/Vundle.vim
 
 Install
 ===
@@ -9,8 +11,9 @@ Install
 
 $git clone https://github.com/primitivorm/vimfiles.git
 
-2. Add "source ~/vimfiles/_vimrc" to your .vimrc
-3. Execute :BundleInstall
+2. Add below line to your INSTALLED_PATH/Vim/_vimrc file
+   `source %HOME%/vimfiles/_vimrc`
+3. Open gvim and execute :BundleInstall
 4. Add ~/vimfiles/bin to your PATH environment variable for windows
 
 Plugins Instalados
